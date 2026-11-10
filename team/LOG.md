@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-3 (P2)
+- Did: added the job `tests` to `.github/workflows/verify.yml` (`pip install -e ".[dev]"`, `pytest` with coverage, fails under 90%); added `engine/tests/test_pins.py`; pinned the dev extras (the two remarks of the P1 review); opened the notebook `team/notes/P2.md`; marked P2 `done` on the board and updated the MVP checklist.
+- Result: the job is green on this branch and red on a throwaway branch with one failing test (run links in the notebook). Software facts only; no finding.
+- Next: MVP-4 on `E4-l0`, cut from `E1b-arrays-readings`.
+- Blocked by / questions: the E1 stack was cut from `main` before this job existed, so its pull requests run the tests in CI only after this one is merged and they are updated. Merging this pull request early removes the gap.
+- Architecture: updated (sections 2, 9, 11)
+
 ### 2026-11-10 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - P1 review and delivery
 - Did: applied the P1 patch produced by the claude.ai chat session below (it had no push access), reviewed it as a different model (D14), and re-ran the done-when check on Windows: clean clone of the branch, fresh Python 3.12.10 environment, `pip install -e .[dev]` then `pytest` gives 3 passed (100% coverage); `python tools/check_architecture.py --base origin/main` passes. Corrected the session label in this log and in `team/notes/P1.md`. Pushed the branch and opened the pull request.
 - Result: P1 works on Linux (producer) and Windows (reviewer). Remarks for the reviewer of record: the dev extras `pytest` and `pytest-cov` are not pinned (resolved to 9.2.0 and 7.1.0); suggest pinning them in P2 together with a check that `pyproject.toml` and `requirements.txt` pins agree.
