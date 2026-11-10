@@ -1,0 +1,43 @@
+# Package definition of the engine (task P1, docs/WORK-PLAN.md).
+# The runtime dependencies repeat the pinned environment of requirements.txt
+# (decision D13). If you change a pin, change it in both files.
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cosmicmass"
+dynamic = ["version"]
+description = "Engine of the Cosmic Mass Lab: a virtual universe made only of cosmic masses (mu = m + qG)."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Mostafa Derraz" }]
+dependencies = [
+    "sympy==1.14.0",
+    "mpmath==1.3.0",
+    "numpy==1.26.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+
+[project.urls]
+Repository = "https://github.com/MostafaDerraz/cosmic-mass-lab"
+
+[tool.setuptools.packages.find]
+where = ["engine"]
+include = ["cosmicmass*"]
+
+[tool.setuptools.dynamic]
+version = { attr = "cosmicmass.__version__" }
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["engine/tests"]
+addopts = "-ra"
