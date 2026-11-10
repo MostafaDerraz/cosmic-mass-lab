@@ -6,25 +6,41 @@ on:
   workflow_dispatch:
 
 jobs:
-  verify:
+  architecture:
+    # Rule D18. Pull requests: the whole pull request must update ARCHITECTURE.md
+    # if it changes code. Pushes to main: the same for the pushed range.
+    # Pushes to work branches: only the static checks (registry, diagrams),
+    # because a single follow-up commit may fix code without touching the
+    # architecture; the pull request check covers the whole change.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Architecture in step with the code (rule D18)
         env:
+          EVENT: ${{ github.event_name }}
           BASE_REF: ${{ github.base_ref }}
+          REF: ${{ github.ref }}
           BEFORE: ${{ github.event.before }}
         run: |
-          if [ -n "$BASE_REF" ]; then
+          if [ "$EVENT" = "pull_request" ]; then
             python tools/check_architecture.py --base "origin/$BASE_REF"
-          elif [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+          elif [ "$REF" = "refs/heads/main" ] && [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
             python tools/check_architecture.py --base "$BEFORE"
           else
             python tools/check_architecture.py
           fi
+
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
