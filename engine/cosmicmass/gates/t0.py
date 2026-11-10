@@ -251,7 +251,8 @@ def run_gate(fast: bool = True) -> dict:
     return {"pass": all(p["pass"] for p in parts), "parts": {p["id"]: p for p in parts}}
 
 
-def write_gate_result(outcome: dict, out_root="results", producer: str = "", now=None) -> Path:
+def write_gate_result(outcome: dict, out_root="results", producer: str = "", now=None,
+                      kind: str = "mathematics", law: str = "the reference law L0") -> Path:
     """Write one gate test to `results/<ID>/<run-id>/`: `summary.json` (cases and verdict),
     `stamp.json` (the stamp of every case) and, for the cases that ran, `timeseries-<case>.csv`."""
     import csv
@@ -276,11 +277,11 @@ def write_gate_result(outcome: dict, out_root="results", producer: str = "", now
                 writer.writerows(rows if rows[-1] is item.timeseries[-1] else rows + [item.timeseries[-1]])
     for stamp in stamps.values():
         stamp["producer"] = producer
-    stamp = {"scenario": outcome["id"], "run_id": run_id, "engine_commit": commit, "kind": "mathematics",
+    stamp = {"scenario": outcome["id"], "run_id": run_id, "engine_commit": commit, "kind": kind,
              "preregistered": True, "producer": producer, "cases": stamps}
     verdict = "pass" if outcome["pass"] else "fail"
     summary = {"scenario": outcome["id"], "verdict": verdict, "cases": outcome["cases"],
-               "explanation": f"{outcome['id']} under the reference law L0: "
+               "explanation": f"{outcome['id']} under {law}: "
                               + ("every case meets its criterion." if outcome["pass"] else "at least one case fails.")}
     for name, data in (("stamp.json", stamp), ("summary.json", summary)):
         (folder / name).write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
