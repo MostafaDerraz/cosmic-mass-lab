@@ -27,7 +27,7 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 
 | ID | Task | Needs | Difficulty | Status |
 |---|---|---|---|---|
-| P1 | Package skeleton: `pyproject.toml`, `engine/cosmicmass/`, pytest | none | easy | open |
+| P1 | Package skeleton: `pyproject.toml`, `engine/cosmicmass/`, pytest | none | easy | done |
 | P2 | CI job for tests and coverage | P1 | easy | open |
 | P3 | Architecture check `tools/check_architecture.py` in CI | none | easy | done |
 | P4 | JSON schemas for `stamp.json` and `summary.json` | P1 | easy | open |
