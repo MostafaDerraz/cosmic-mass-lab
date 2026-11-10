@@ -121,7 +121,8 @@ Then read [`TEAM.md`](TEAM.md) and the [work plan](docs/WORK-PLAN.md), pick a ta
 | Milestone | State |
 |---|---|
 | Verified foundation (sources, compendium, CI) | ✅ done |
-| S1: infrastructure (P1–P7) | 🟢 **open, start here** |
+| S1: infrastructure (P1–P7) | 🟢 open (P1 ✅ done) |
+| **MVP 0.1.0** (first working universe, [plan](docs/MVP-PLAN.md)) | 🚧 **in progress** |
 | M1: engine and gates (E1–E9, T0, T9, G1) | 🟢 open |
 | M2: what can the coupling be? (T1, T2) | ⏳ waits for M1 |
 | M3–M5: angle, many bodies, motion, interactive universe | ⏳ planned |

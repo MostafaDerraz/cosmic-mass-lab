@@ -1,5 +1,7 @@
 # Work plan: stages, tasks and acceptance criteria
 
+**First target: the MVP (version 0.1.0), `docs/MVP-PLAN.md`,** a cut of this plan in ten pull requests.
+
 This is the full plan for building the virtual universe of cosmic masses and running every scenario, from an empty `engine/` folder to a published findings atlas.
 
 - **Where things stand:** the board (`docs/OPEN-SCENARIOS.md`) and the log (`team/LOG.md`).
