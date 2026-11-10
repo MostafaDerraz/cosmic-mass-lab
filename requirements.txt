@@ -1,0 +1,4 @@
+# Pinned environment of the project (see team/RESULTS-STANDARD.md, section 3)
+sympy==1.14.0
+mpmath==1.3.0
+numpy==1.26.4

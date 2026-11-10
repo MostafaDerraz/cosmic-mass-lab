@@ -1,46 +1,60 @@
 # Instructions for AI agents
 
-AI agents (coding assistants, autonomous agents, research agents) are welcome contributors. Agents follow every rule in `CONTRIBUTING.md`, plus the rules below.
+AI agents (coding assistants, autonomous agents, research agents) are welcome contributors. Agents follow `TEAM.md`, `CONTRIBUTING.md` and `team/RESULTS-STANDARD.md` exactly as humans do, plus the rules below.
 
-## Before you start
+**You do not remember earlier sessions. The repository is your memory.** Read it at the start and write to it at the end of every session.
 
-1. Read these files:
-   - `TEAM.md`, the full reading list and the work cycle, which agents follow step by step, including the session log entry and the handoff;
-   - `team/LOG.md` (last ten entries), `team/DECISIONS.md`, `team/FINDINGS.md`, and the notebook `team/notes/<ID>.md` of your scenario if it exists;
-   - `CONTRIBUTING.md`;
-   - `docs/03-report-verified-formulas.md`;
-   - `docs/formulas-compendium/formulas-compendium.pdf` (or `.tex`);
-   - `docs/05-scenarios-and-tests.md`.
-2. Run every script in `verification/` (commands in `.github/workflows/verify.yml`). If any fails, stop and report it; do not work around it.
-3. Work on one scenario at a time, and only one that is claimed for you on the scenario board.
+## 1. Before your first session
 
-## While you work
+1. Your **human sponsor** must be named in your claim issue. The sponsor is responsible for everything you submit (`TEAM.md`, section 2.1).
+2. Read the full reading list in `TEAM.md`, section 4.
+3. Install the pinned environment (`pip install -r requirements.txt`) and run every verification script, using the commands in `.github/workflows/verify.yml`. If any fails, **stop**, open an issue labelled `urgent`, and do nothing else.
 
-4. **Use only the verified formulas.** Do not derive new physics silently. If a scenario needs a formula that is not in the compendium, write it in your pull request as a **derivation**, with a symbolic check (SymPy) that it follows from the compendium.
-5. **Never edit:**
-   - files in `verification/`, unless your task is a verification script;
-   - files in `sources/`;
-   - the pass criteria of a test.
-6. **Never present a hypothesis as established.** Label every L1-L8 result "finding of the virtual universe (law Lx)".
-7. **Never invent numbers, citations or measurements.** Every measured value needs a source that a human can check.
-8. **Show your work.** Commit the script, the settings stamp, the raw output and the convergence check (T7). Results that exist only in prose are not accepted.
-9. **Be conservative with compute.** Start with the smallest setup that answers the question, and scale up only after it passes.
+## 2. Session protocol
 
-## When you submit
+### At the start of every session
 
-10. **Pull request title:** `[agent] T<id>: <short description>`.
-11. **Pull request body:**
-    - agent name, model and version;
-    - the human sponsor (GitHub handle);
-    - the test ID and its status: pass, fail or finding;
-    - the T0 status of the engine commit used;
-    - what you could not verify.
-12. **A second, independent reproduction is required** (another agent or a human) before a finding is marked "confirmed".
-13. **If you are unsure, say so.** An honest "unclear" is better than a confident error.
+1. `git pull` on your branch, and read the newest 10 entries of `team/LOG.md`.
+2. Read `team/DECISIONS.md`. Decisions may have changed since your last session.
+3. Read your notebook `team/notes/<ID>.md`, especially Progress, Open questions and Handoff.
+4. Check that your claim is still yours on `docs/OPEN-SCENARIOS.md`.
+5. Restate in the notebook, in one or two lines, what this session will do.
 
-## Memory between sessions
+### During the session
 
-Agents do not remember previous sessions. The repository is your memory.
+6. **Pre-register** before any production run (`TEAM.md`, section 5, step 3). Commit the notebook first.
+7. Use only verified formulas (`docs/formulas-compendium/`). A new formula is a **derivation**: write it out, check it symbolically with SymPy against the compendium, and have the physics lead approve it.
+8. Write results only through scripts, into `results/<ID>/<run-id>/`, with a full `stamp.json`.
+9. Label every statement as mathematics, measurement (with source) or finding of the virtual universe (law Lx).
+10. If a choice affects others, propose a decision (`TEAM.md`, section 2.2) and continue under a labelled assumption.
 
-14. **Start every session** by reading `team/LOG.md` and your scenario's notebook.
-15. **End every session** by updating the notebook and adding a log entry, even if the session failed. If you will not continue, fill in the notebook's Handoff section and release the claim.
+### At the end of every session, even if nothing worked
+
+11. Update the notebook: Progress, Results and Open questions.
+12. Add a log entry at the top of `team/LOG.md`:
+    `### date - agent / model (sponsor @handle) - <ID>`, with Did / Result / Next / Blocked.
+13. Push your branch.
+14. If you will not continue, fill in the **Handoff** section and release the claim on the board.
+
+## 3. Never
+
+- edit `verification/`, `sources/`, verified formulas or pass criteria, unless that is your assigned task and the responsible lead approved it;
+- invent numbers, citations, measurements or results;
+- present a hypothesis (L1-L8) as established, or an exploratory run as a result;
+- force-push, rewrite history on shared branches, or merge your own pull request;
+- confirm a result produced by an agent of your own model, or by your own sponsor's agents;
+- hold more than one active claim;
+- run large computations before the smallest setup that answers the question has passed;
+- put secrets, keys or personal data in the repository.
+
+## 4. Pull requests
+
+- **Title:** `[agent] <ID>: <short description>`.
+- **Body:** use the template. Name the agent, the model and version, and the sponsor. Give the T0 status of your engine commit, and state what you could not verify.
+- Keep each pull request to one scenario or one component.
+
+## 5. Honesty
+
+- If you are unsure, say so in the notebook and the pull request. "Unclear" is a valid result.
+- If you find an error, in your own work or anyone else's, report it in an issue with a reproducible example. Do not fix someone else's result silently.
+- If a rule blocks you, ask in an issue. Do not work around it.

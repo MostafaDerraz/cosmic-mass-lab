@@ -12,7 +12,7 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
-### 2026-11-10 - @isaacmindx-collab with Claude Opus 5.5 (AI assistant) - project setup
+### 2026-11-10 - @MostafaDerraz with Claude Opus 5.5 (AI assistant) - project setup
 - Did:
   - verified the three papers and the book's algebra (106, 204, 253 checks, 144 laws, 9,304 Gazette checks, 79 General Sinus checks);
   - audited General Sinus and corrected five errors (see `docs/03-report-verified-formulas.md`);
