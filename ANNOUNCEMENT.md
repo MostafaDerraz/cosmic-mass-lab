@@ -1,51 +1,100 @@
-# Call for contributors: build a virtual universe of cosmic masses
+# One number for every body. A universe to explore.
 
-**An open, collective project for developers, physicists, mathematicians and AI agents.**
+### A call to developers, physicists, mathematicians and AI agents
 
-## The idea
+---
 
-Newton's law of gravitation and Coulomb's law have the same shape, yet physics describes every body by two numbers, its mass and its charge. The *cosmic mass* describes a body by one number,
+Every body in the universe is described twice: once by its **mass**, once by its **charge**. Newton's gravity and Coulomb's electricity have the same shape, the same 1/r², and yet physics has always kept them as two separate numbers.
 
-    mu = m + q G,
+**What if each body carried just one number?**
 
-where `G` is the second unit of a *General Number* plane: a number plane whose second axis leans at an angle and has a length of its own, `s = sqrt(K/G_N) = 1.16043e10 kg/C`. Products of cosmic masses follow one rule, the Rule of the Square, `G^2 = 2 s cos(phi) G - s^2`.
+    mu = m + q G
 
-The **real part** of the product of two cosmic masses is exactly Newton plus Coulomb. A field law written with these numbers reproduces Maxwell's equations, the Lorentz force and Newtonian gravity with its magnetic part. All of this is verified: 106 symbolic and numerical checks for the physics, and over 10,000 for the mathematics.
+That one number is its **cosmic mass**: its mass, plus its charge times a second unit `G` that leans out of the real line at an angle, with a length of its own:
 
-The product also has a **second coordinate**, which mixes mass and charge: `m_a q_b + q_a m_b + 2 s cos(phi) q_a q_b`. No measurement has ever read it. Read at full strength as a force along the line, it is already ruled out: a neutron would respond as if it carried 9.0e-19 e, and the measured limit is about 1e-21 e. Read as anything else, it is an open question:
+    |G| = sqrt(K / G_N) = 1.16043 x 10^10 kg/C
 
-- a motion in a second coordinate;
-- a torque;
-- a change of inertia;
-- a property of pairs;
-- a weak force acting over astronomical time.
+Multiply two cosmic masses with the single rule of this number plane, the **Rule of the Square**,
 
-**We are building a simulator, a virtual universe made only of cosmic masses, to find out what each reading would do.**
+    G^2 = 2 |G| cos(phi) G - |G|^2
 
-## What we offer
+and the real part of the product is **exactly Newton and Coulomb together**, with the minus sign between gravity and electricity coming out of the algebra by itself. Write a field equation with these numbers, and out come **Maxwell's equations, the Lorentz force and Newtonian gravity with its magnetic part**.
 
-- A verified foundation:
-  - a formulas compendium;
-  - a report of what is correct, corrected or excluded;
-  - verification scripts that run automatically on every change.
-- A complete, open test plan: about 50 scenarios (`docs/OPEN-SCENARIOS.md`), each with a setup, measurements and pass criteria, from the consistency gate T0 to large plasma scenes.
-- An architecture for the engine (`docs/06-engine-architecture.mmd`).
-- Honest framing. This is exploration, not a claim that physics is wrong. Every result, positive or negative, is recorded as a finding.
+None of this is a promise. It is checked: **10,000+ automated checks** of the mathematics and **106 checks** of the physics pass on every change to this repository.
 
-## What we are looking for
+---
 
-- **Developers:** the N-body engine, the field solver, integrators (Verlet, Boris), and the interactive web universe.
-- **Physicists and mathematicians:** derivations of each reading, analytic predictions to check simulations against, and links to measurements.
-- **AI agents:** running scenarios, writing reproducible scripts, checking each other's results, under the rules for agents in `AGENTS.md`.
-- **Reviewers:** people who try to break results. A finding that survives an attempt to break it is worth more.
+## The door nobody has opened
 
-## How to join
+The product of two cosmic masses has a **second coordinate**, a part that mixes the mass of one body with the charge of the other:
 
-1. Read `CONTRIBUTING.md` (the rules) and, for agents, `AGENTS.md`.
-2. Pick an open scenario from `docs/OPEN-SCENARIOS.md`, and claim it with the "Claim a scenario" issue template.
-3. Submit your work as a pull request with a reproducible script, the settings stamp and the output.
-4. Your contribution is credited in `CONTRIBUTORS.md` and in any publication of the findings.
+    m_a q_b + q_a m_b + 2 |G| cos(phi) q_a q_b
 
-**First milestone:** an engine that passes the consistency gate T0. The engine must reproduce Newton plus Coulomb exactly, conserve mass, charge, energy and momentum, and give results that do not depend on the frame angle.
+No measurement in history has ever read it.
 
-Contact: the project maintainer, through the repository's issues.
+We already know one thing: it **cannot** be a simple force along the line at full strength. If it were, a neutron would act as if it carried a charge of 9 x 10^-19 e, and experiments show it carries less than 10^-21 e. That door is closed, and we say so plainly.
+
+Every other door is open. It could be:
+
+- a motion in a second dimension of the number plane;
+- a twist, a torque on spinning bodies;
+- a change in how heavy charged matter feels;
+- a property of pairs, not of single bodies;
+- a whisper of a force, too weak for any lab, adding up over the age of a planet, a ring of dust, a stellar wind.
+
+**Nobody knows which, or whether any. That is what we want to find out.**
+
+---
+
+## We are building a universe to find out
+
+**The Cosmic Mass Lab** is building a **virtual universe made of nothing but cosmic masses**: stars, planets, dust, protons, electrons, all written as `mu = m + qG`. In this universe you can switch the second coordinate on, read it any way the mathematics allows, and watch what happens:
+
+- Do charged clouds around a star sort themselves by sign?
+- Do planets slowly charge up until their gravity fades?
+- Does a hydrogen atom hold together, precess, or spiral?
+- Is there a frame angle where the universe becomes simplest? (The mathematics hints at 90 degrees.)
+- Which readings keep energy conserved, and which break the universe?
+
+Every answer, **yes, no or impossible**, is a discovery.
+
+---
+
+## Why you will want to be part of this
+
+- **It is real exploration.** About fifty open scenarios, from a first consistency test to full plasma scenes, each with a clear setup and a clear question. Nobody has run them before.
+- **It is built to be trusted.** A verified foundation, automatic checks, predictions registered before every run, and every result reproduced by someone else. When something is found here, it will hold.
+- **Agents are first-class teammates.** AI agents claim scenarios, run experiments, keep notebooks and review each other's work under clear rules (`AGENTS.md`). The repository is their memory: every session starts by reading it and ends by writing to it.
+- **Your name stays on what you do.** Every contribution is credited. Confirmed findings are published with the people who produced and confirmed them.
+- **Negative results win too.** Closing a door cleanly is progress. A reading that the universe forbids is a result we will publish.
+- **You can start today.** The first milestone is small and concrete: an engine that reproduces Newton and Coulomb exactly, conserves everything, and does not care about the frame angle. Good first tasks are waiting: E1, T0.3, T0.5.
+
+---
+
+## Who we are looking for
+
+| You are | You could |
+|---|---|
+| **a developer** | build the N-body engine, the field solver, the integrators, the interactive web universe |
+| **a physicist** | derive what each reading predicts; connect it to real measurements; find the experiment that could tell |
+| **a mathematician** | sharpen the algebra of the number plane; prove what the simulations suggest |
+| **an AI agent, with your human sponsor** | claim a scenario, pre-register, run, log, hand off, review another model's work |
+| **a sceptic** | try to break every result. We need you most. |
+
+---
+
+## Join in four steps
+
+1. **Read** `TEAM.md`: the objective, the roles and the work cycle. Fifteen minutes.
+2. **Pick** an open scenario on the board: `docs/OPEN-SCENARIOS.md`.
+3. **Claim** it with an issue, write your prediction in the notebook, and start.
+4. **Deliver** a pull request with your script, stamped results and notes. Someone reproduces it, and it becomes a confirmed piece of the map.
+
+**Repository:** https://github.com/MostafaDerraz/cosmic-mass-lab
+
+---
+
+> Two laws with the same shape have waited three centuries for one number. That number has a second side that nobody has looked at. Come and look with us.
+
+*Mostafa Derraz, founder of the Cosmic Mass Lab.*
+*Theory: General Sinus, General Numbers, and The Cosmic Mass. Preprints on Zenodo: 10.5281/zenodo.24091305 and 10.5281/zenodo.24094855.*
