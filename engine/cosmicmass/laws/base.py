@@ -1,0 +1,133 @@
+"""The law interface (task E4.1).
+
+A law turns a state and the cosmic field into forces. The reference law is L0,
+the paper's law (decision D1); every other reading, L1 to L8, is a hypothesis
+and is labelled as one. A `LawSpec` holds the reading (L0, L1a to L1e) and every
+option L2 to L8 of `docs/05-scenarios-and-tests.md`, section 1; it is written
+into `stamp.json` in the form of `team/RESULTS-STANDARD.md`, section 2.
+"""
+
+from dataclasses import dataclass, fields
+from typing import ClassVar
+
+import numpy as np
+
+from ..fields.sample import FieldSample
+from ..frame import Frame
+from ..state import State
+
+__all__ = ["LawSpec", "ForcePair", "Law", "register", "make_law", "available_laws"]
+
+# field of LawSpec -> (key in stamp.json, allowed values; None means "a number")
+_OPTIONS = {
+    "reading": ("id", ("L0", "L1a", "L1b", "L1c", "L1d", "L1e")),
+    "sign": ("sign", ("+", "-")),  # L2
+    "strength": ("lambda", None),  # L3: a number, or "cos_phi_bar"
+    "direction": ("direction", ("radial", "perpendicular", "torque", "velocity")),  # L4
+    "terms": ("terms", ("all", "s q g", "-m E/s", "-2 cos q E")),  # L5 (all, a, b, c)
+    "moving": ("B_cal", ("off", "on", "only")),  # L6
+    "inertia": ("inertia", ("Re", "Sh", "abs")),  # L7
+    "range": ("range", ("1/r^2", "screened")),  # L8
+}
+
+
+@dataclass(frozen=True, slots=True)
+class LawSpec:
+    """The reading and every option L2 to L8. The defaults are the default exploratory
+    law of `docs/05`, section 1, except the reading, which defaults to the reference L0."""
+
+    reading: str = "L0"
+    sign: str = "+"
+    strength: float | str = 1.0
+    direction: str = "radial"
+    terms: str = "all"
+    moving: str = "off"
+    inertia: str = "Re"
+    range: str = "1/r^2"
+
+    def __post_init__(self):
+        for name, (key, allowed) in _OPTIONS.items():
+            value = getattr(self, name)
+            if allowed is not None and value not in allowed:
+                raise ValueError(f"law option '{key}' must be one of {list(allowed)}, not {value!r}")
+        lam = self.strength
+        if lam != "cos_phi_bar" and (isinstance(lam, (bool, str)) or not np.isfinite(lam)):
+            raise ValueError(f"law option 'lambda' must be a finite number or 'cos_phi_bar', not {lam!r}")
+
+    def to_dict(self) -> dict:
+        """The `law` block of `stamp.json`."""
+        return {key: getattr(self, name) for name, (key, _) in _OPTIONS.items()}
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "LawSpec":
+        """Read a `law` block. Missing options take their defaults; unknown ones are refused."""
+        names = {key: name for name, (key, _) in _OPTIONS.items()}
+        unknown = sorted(set(data) - set(names))
+        if unknown:
+            raise ValueError(f"unknown law option(s) {unknown}; known: {sorted(names)}")
+        return cls(**{names[key]: value for key, value in data.items()})
+
+    def is_default_except_reading(self) -> bool:
+        return all(getattr(self, f.name) == f.default for f in fields(self) if f.name != "reading")
+
+
+@dataclass(frozen=True, slots=True)
+class ForcePair:
+    """The forces on the N bodies, shape `(N, d)` each. `real` comes from the Real
+    coordinate of `mu (E_cal + v x B_cal)`; `composer` is the force that the law reads
+    from the Composer coordinate (zero under L0). The force applied is their sum."""
+
+    real: np.ndarray
+    composer: np.ndarray
+
+    def total(self) -> np.ndarray:
+        return self.real + self.composer
+
+
+class Law:
+    """Base class of every law. A subclass sets `reading` and implements `forces`."""
+
+    reading: ClassVar[str] = ""
+    hypothesis: ClassVar[bool] = True  # only L0 is not a hypothesis (decision D1)
+
+    def __init__(self, spec: LawSpec | None = None):
+        self.spec = LawSpec(reading=self.reading) if spec is None else spec
+        if self.spec.reading != self.reading:
+            raise ValueError(f"a {self.reading} law cannot take a spec for {self.spec.reading}")
+
+    @property
+    def id(self) -> str:
+        return self.spec.reading
+
+    def forces(self, state: State, fields: FieldSample, frame: Frame) -> ForcePair:
+        raise NotImplementedError
+
+    def inertia(self, state: State, frame: Frame) -> np.ndarray:
+        """The inertia of each body. `Re(mu) = m` (L7 default); the readings `Sh(mu)` and
+        `abs(mu)` belong to the modifiers (task E4.4), which are outside the MVP."""
+        if self.spec.inertia != "Re":
+            raise NotImplementedError("inertia readings Sh and abs (L7) are not implemented yet")
+        return state.mu(frame).re
+
+
+_REGISTRY: dict[str, type[Law]] = {}
+
+
+def register(law_class: type[Law]) -> type[Law]:
+    """Class decorator: add a law to the registry under its reading."""
+    if law_class.reading in _REGISTRY:
+        raise ValueError(f"law {law_class.reading} is already registered")
+    _REGISTRY[law_class.reading] = law_class
+    return law_class
+
+
+def available_laws() -> list[str]:
+    return sorted(_REGISTRY)
+
+
+def make_law(spec: LawSpec | str) -> Law:
+    """Build a law from a spec or from a reading name such as "L0"."""
+    spec = LawSpec(reading=spec) if isinstance(spec, str) else spec
+    if spec.reading not in _REGISTRY:
+        raise NotImplementedError(f"law {spec.reading} is not implemented; available: {available_laws()}")
+    return _REGISTRY[spec.reading](spec)

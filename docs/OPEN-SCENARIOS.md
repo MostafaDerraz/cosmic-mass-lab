@@ -42,8 +42,8 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | E1 | Algebra core: General Numbers, Rule of the Square, readings Re, Com, Sh, Ht, abs, with unit tests against the compendium | none | easy | done |
 | E2 | Field solver: F1-F4 in both coordinates (direct sum for N up to 1e3, grid optional) | E1 | medium | open |
 | E3 | Integrator: Verlet and Boris, adaptive step, settings stamp | E1 | medium | open |
-| E4 | Law plug-in interface: L0-L8 as switchable readings | E1-E3 | medium | open |
-| E5 | State, universe U1-U8, settings loader, seeded populations | E1 | medium | open |
+| E4 | Law plug-in interface: L0-L8 as switchable readings | E1-E3 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E4.1 and E4.2 delivered |
+| E5 | State, universe U1-U8, settings loader, seeded populations | E1 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E5.1 and a minimal E5.3 delivered |
 | E6a | Walls: reflecting, absorbing with collection, wrap-around | E5 | easy | open |
 | E6b | Inflow, heat bath, fixed sources | E6a | medium | open |
 | E7 | Runner, stamp, command line | E3-E5 | medium | open |

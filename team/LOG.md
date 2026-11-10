@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-4 (E5.1, E5.3 minimal, E4.1, E4.2)
+- Did: wrote `engine/cosmicmass/fields/sample.py` (new module: `FieldSample`, `FieldSolver`), `state.py`, `laws/base.py`, `laws/l0.py` and a minimal `settings.py`, with `test_state_laws.py` and `test_settings.py` (51 new tests). Opened the notebook `team/notes/MVP-4.md`; updated the board and the MVP checklist. (MVP-3, the CI job, is on its own branch `P2-ci-tests`, with its own log entry there.)
+- Result: `pytest` gives 115 passed, coverage 100%. Two bodies under L0 feel `(G_N m m' - K q q')/r^2` to 1e-15, with equal and opposite forces; the L0 force is bit-for-bit the same at every frame angle. Mathematics from the compendium; no finding.
+- Next: MVP-5 (`fields/direct.py`: static direct sum, softening, backgrounds) on `E2-fields`, cut from this branch.
+- Blocked by / questions: none. Choices to review are in the notebook (`Law` as a base class; `LawSpec.moving` as a string; the new module `fields/sample.py`).
+- Architecture: updated (sections 2, 4, 5, 10, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-2 (E1.3 to E1.6)
 - Did: wrote `engine/cosmicmass/gnarray.py` (E1.3), `readings.py` (E1.4), `matter.py` (E1.5) and the tests `test_gnarray.py`, `test_readings_matter.py`, `test_compendium.py` (E1.6); 36 new tests. Updated the notebook `team/notes/E1.md`, the board (E1 `done`) and the MVP checklist.
 - Result: `pytest` gives 64 passed, coverage 100% of `engine/cosmicmass`. Arrays agree with scalars to 1e-15 on 10,000 values; the product `mu E_cal` matches the compendium in both coordinates; `Re(mu_a mu_b)` is the same number at every frame angle. Mathematics from the compendium; no finding of the virtual universe.

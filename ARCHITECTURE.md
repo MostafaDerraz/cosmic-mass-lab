@@ -46,14 +46,15 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | gnarray | `engine/cosmicmass/gnarray.py` | E1.3 | implemented | `GNArray`: vectorised General Numbers and vector fields (NumPy), same operations and same bits as `GeneralNumber` |
 | readings | `engine/cosmicmass/readings.py` | E1.4 | implemented | `Re`, `Com`, `Sh`, `Ht`, `abs` for scalars and arrays |
 | matter | `engine/cosmicmass/matter.py` | E1.5 | implemented | `CosmicMass(m, q, name)`, `mu(frame)`, matter presets `PRESETS` (electron, proton, neutron, alpha, dust, planets) |
-| state | `engine/cosmicmass/state.py` | E5.1 | planned | `State`: structure-of-arrays `m, q, x, v, fixed, alive, t` |
+| state | `engine/cosmicmass/state.py` | E5.1 | implemented | `State`: structure-of-arrays `m, q, x, v, fixed, alive, t`; `mu(frame)`, `total_mu`, `copy`, `from_bodies` |
 | universe | `engine/cosmicmass/universe.py` | E5.2 | planned | `Universe`: settings U1-U8 (angle, dimension, units, boundary, backgrounds, sources, inflow, populations) |
-| settings | `engine/cosmicmass/settings.py` | E5.3 | planned | load and validate `settings.json`; build `Universe`, `State`, `Law`, numerics |
+| settings | `engine/cosmicmass/settings.py` | E5.3 | in-progress | load and validate `settings.json`; build `Frame`, `State`, `LawSpec`, numerics (minimal MVP version; `Universe` and the P4 schemas come later) |
 | populations | `engine/cosmicmass/populations.py` | E5.4 | planned | seeded generators: shells, rings, boxes, velocity spread (temperature), super-particles |
+| fieldsample | `engine/cosmicmass/fields/sample.py` | E4.2 | implemented | `FieldSample(g, e, B_g, b)` with `E_cal(frame)` and `B_cal(frame)`; the `FieldSolver` interface |
 | fields | `engine/cosmicmass/fields/direct.py` | E2.1 | planned | direct-sum field solver: `g`, `e` (F1-F2) and `B_g`, `b` (F3-F4) from `rho_mu`, `J_mu` |
 | fieldsfast | `engine/cosmicmass/fields/tree.py` | E2.5 | planned | fast solver for large N (tree or grid), same interface |
-| lawbase | `engine/cosmicmass/laws/base.py` | E4.1 | planned | `Law` interface, `LawSpec` (L1-L8 options), registry of laws |
-| l0 | `engine/cosmicmass/laws/l0.py` | E4.2 | planned | reference law L0: `Re(mu) dv/dt = Re[mu (E_cal + v x B_cal)]` |
+| lawbase | `engine/cosmicmass/laws/base.py` | E4.1 | implemented | `Law` base class, `LawSpec` (reading and L2-L8 options, stamp form), `ForcePair`, registry of laws (`register`, `make_law`) |
+| l0 | `engine/cosmicmass/laws/l0.py` | E4.2 | implemented | reference law L0: `Re(mu) dv/dt = Re[mu (E_cal + v x B_cal)]` |
 | l1 | `engine/cosmicmass/laws/l1.py` | E4.3 | planned | readings L1a-L1e of the Composer coordinate |
 | modifiers | `engine/cosmicmass/laws/modifiers.py` | E4.4 | planned | L2 sign, L3 strength, L4 direction, L5 terms, L6 moving bodies, L7 inertia, L8 range |
 | integrators | `engine/cosmicmass/integrators.py` | E3.1 | planned | velocity Verlet, Boris, adaptive time step (D10) |
@@ -64,7 +65,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | stamp | `engine/cosmicmass/stamp.py` | E7.2 | planned | run id, engine commit, T0 status, `stamp.json`, `summary.json`, `timeseries.csv` |
 | convergence | `engine/cosmicmass/analysis/convergence.py` | E8.2 | planned | re-run at `dt/2`, `dt/4` and other particle counts; relative changes |
 | plots | `engine/cosmicmass/analysis/plots.py` | E8.3 | planned | standard figures: Real and Composer planes, drifts, sweeps |
-| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2), `test_gnarray.py` (E1.3), `test_readings_matter.py` (E1.4, E1.5), `test_compendium.py` (E1.6) |
+| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2), `test_gnarray.py` (E1.3), `test_readings_matter.py` (E1.4, E1.5), `test_compendium.py` (E1.6), `test_state_laws.py` (E5.1, E4.1, E4.2), `test_settings.py` (E5.3) |
 | gatetests | `engine/gates/` | G1 | planned | fast T0 gate run in CI on every pull request |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | scaffold | `tools/new_scenario.py` | P5 | planned | creates `scenarios/<ID>/`, settings, notebook and a registry row |
@@ -146,10 +147,11 @@ flowchart TB
 
     subgraph L2["Layer 2: physics of the virtual universe"]
         direction LR
+        fieldsample["fields/sample.py"]
         fields["fields/direct.py"]:::planned
         fieldsfast["fields/tree.py"]:::planned
-        lawbase["laws/base.py"]:::planned
-        l0["laws/l0.py"]:::planned
+        lawbase["laws/base.py"]
+        l0["laws/l0.py"]
         l1["laws/l1.py"]:::planned
         modifiers["laws/modifiers.py"]:::planned
         universe["universe.py"]:::planned
@@ -164,7 +166,7 @@ flowchart TB
         gnarray["gnarray.py"]
         readings["readings.py"]
         matter["matter.py"]
-        state["state.py"]:::planned
+        state["state.py"]
     end
 
     scen --> runner
@@ -180,6 +182,8 @@ flowchart TB
     settings --> universe
     settings --> populations
     settings --> lawbase
+    settings --> state
+    settings --> matter
     convergence --> runner
     plots --> diagnostics
     integrators --> fields
@@ -190,7 +194,13 @@ flowchart TB
     l0 --> lawbase
     l1 --> lawbase
     modifiers --> lawbase
+    lawbase --> fieldsample
+    lawbase --> state
     lawbase --> gnarray
+    fields --> fieldsample
+    fieldsfast --> fieldsample
+    fieldsample --> gnarray
+    state --> gnarray
     lawbase --> readings
     fields --> gnarray
     fieldsfast --> gnarray
@@ -269,6 +279,8 @@ classDiagram
         +ndarray fixed
         +ndarray alive
         +float t
+        +mu(frame) GNArray
+        +total_mu(frame, alive_only) GNArray
         +copy() State
     }
     class Universe {
@@ -284,6 +296,8 @@ classDiagram
         +ndarray e
         +ndarray B_g
         +ndarray b
+        +E_cal(frame) GNArray
+        +B_cal(frame) GNArray
     }
     class FieldSolver {
         <<interface>>
@@ -295,9 +309,11 @@ classDiagram
         +float strength
         +str direction
         +str terms
-        +bool moving
+        +str moving
         +str inertia
         +str range
+        +to_dict() dict
+        +from_dict(data) LawSpec
     }
     class Law {
         <<interface>>
@@ -560,12 +576,19 @@ class FieldSolver(Protocol):
     def sample(self, state: State, points: np.ndarray) -> FieldSample: ...
     # FieldSample.g, .e: (P, d); .B_g, .b: (P, d) in 3D, (P,) in 2D
 
-# laws/base.py
-class Law(Protocol):
+# laws/base.py: a base class (was a Protocol); the members are unchanged
+class Law:
     id: str             # "L0", "L1a", ...
-    spec: LawSpec       # every L2-L8 option, written into stamp.json
+    spec: LawSpec       # the reading and every L2-L8 option; spec.to_dict() is the "law" block of stamp.json
+                        # LawSpec.moving (L6) is "off" | "on" | "only", written as "B_cal" in the stamp
     def forces(self, state: State, fields: FieldSample, frame: Frame) -> ForcePair: ...
     def inertia(self, state: State, frame: Frame) -> np.ndarray: ...
+# ForcePair(real, composer): shape (N, d) each; the force applied is real + composer (composer is 0 under L0)
+def make_law(spec: LawSpec | str) -> Law: ...
+
+# settings.py
+def load_settings(source: Path | str | dict) -> Settings: ...
+# Settings: scenario, frame, universe (dict), law_spec, state, bodies, numerics (dict), meta (dict)
 
 # integrators.py
 class Integrator(Protocol):
@@ -586,6 +609,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-10 | MVP-4: state, minimal settings, law interface, L0 (`E4-l0`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `state.py`, `laws/base.py`, `laws/l0.py` implemented; `settings.py` in progress (minimal); **new module** `fields/sample.py` (`FieldSample`, `FieldSolver`), with its node and edges in section 4; section 5: `LawSpec.moving` is a string (L6 has three options), methods as built; section 10: `Law` is a base class with the same members, `make_law` and `load_settings` added |
 | 2026-11-10 | E1.3 to E1.6: arrays, readings, matter, compendium tests (`E1b-arrays-readings`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `gnarray.py`, `readings.py`, `matter.py` implemented (registry, section 4 nodes no longer planned); section 5: `GNArray` and `CosmicMass` as built (`mu(frame)` takes the frame); section 10: `GNArray.mul` accepts scalars and arrays too, and the signatures of the readings and of `CosmicMass` are added (no existing contract broken) |
 | 2026-11-10 | E1.1 and E1.2: constants, frame, scalar General Numbers (`E1-algebra-core`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `constants.py`, `frame.py`, `gn.py` implemented (registry, section 4 nodes no longer planned); section 5: methods of `Frame` and `GeneralNumber` as built; section 10: the `Frame` fields are unchanged, its methods and the `GeneralNumber` signatures are added (additions only, no existing contract changed) |
 | 2026-11-10 | P1: package skeleton (`P1-package-skeleton`) | Claude chat session on claude.ai / Claude Fable 5.2, applied by Claude Opus 5.5 (sponsor @MostafaDerraz) | package `cosmicmass` installable from `engine/cosmicmass/` (`pyproject.toml`, version 0.0.1, no modules yet); registry row `engine/tests/` -> implemented; node `tests` in section 4 no longer planned |
