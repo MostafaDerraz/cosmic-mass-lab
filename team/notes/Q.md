@@ -46,7 +46,9 @@ Committed before any code of these scenarios was written or run. No exploratory 
 - **Prediction:** `K` changes by 6.8e-10, so `s` by 3.4e-10, the Bohr period by 3.4e-10, `q_eff` and `s g` by 3.4e-10. Every one is thousands of times below the tightest criterion (1e-6). **No verdict changes.**
 - **Pass:** every relative change is below 1e-8 and no pass or fail flips.
 
-- **Changes to the plan (with date and reason):** none yet.
+- **Changes to the plan (with date and reason):**
+  - 2026-11-10, Q1, after the first production run (engine commit `e1a3165`): for the pair proton and electron, the predicted residual of the single-term options (2.1e-26 N) is 18 orders of magnitude below the Coulomb force (2.3e-8 N), so it is below the rounding of the total force, and the planned analysis (the residual of the total force) could neither confirm nor refute it: it returned exactly 0. My script nevertheless marked those two cases "pass", because its tolerance was tied to the size of the force. That was a flaw of the script, not a result. I added the residual of the **Composer forces alone** to every case, made "pass" require that it equals the prediction, and re-ran Q1 on the new commit. The first Q1 output was discarded uncommitted. The settings and the predictions are unchanged.
+  - 2026-11-10, T9.4: I ran `t9_4` once while writing it, before committing its code (a check that the function worked). It gave the numbers of the prediction. The stamped run is the one made on the committed code.
 
 ## Plan
 1. This pre-registration (first commit).

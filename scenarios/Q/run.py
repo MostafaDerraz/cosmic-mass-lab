@@ -49,14 +49,25 @@ def q1() -> dict:
         state = State.from_bodies([a, b], [[0.0, 0.0], [r, 0.0]])
         laws = [("L0", LawSpec())] + [(f"L1a, {terms}", LawSpec(reading="L1a", terms=terms)) for terms in TERMS]
         for law_name, spec in laws:
-            out = third_law_residual(make_law(spec), state, solver, frame)
+            law = make_law(spec)
+            out = third_law_residual(law, state, solver, frame)
+            # the Composer forces alone: the total force can hide a small asymmetry under the rounding of a
+            # large symmetric part (see "Changes to the plan" in team/notes/Q.md)
+            composer = law.forces(state, solver.at_bodies(state), frame).composer
+            composer_residual = float(np.linalg.norm(composer[0] + composer[1]))
             # prediction of the pre-registration: the residual of the two halves of the Coupling term alone
             asym = frame.s * SI.G_N * abs(a.q * b.m - b.q * a.m) / r**2
             predicted = asym if spec.terms in ("s q g", "-m E/s") else 0.0
+            resolvable = predicted > 1e-13 * out["force"]  # can the total force show the predicted residual?
             case = {"largest_force": out["force"], "residual": out["residual"], "relative_residual": out["relative"],
-                    "predicted_residual": predicted,
-                    "obeys_third_law": bool(out["relative"] < 1e-12)}
-            agrees = abs(out["residual"] - predicted) <= 1e-9 * max(predicted, out["force"] * 1e-3) if predicted else out["relative"] < 1e-12
+                    "composer_residual": composer_residual, "predicted_residual": predicted,
+                    "predicted_residual_visible_in_the_total_force": bool(resolvable),
+                    "obeys_third_law": bool(predicted == 0.0 and out["relative"] < 1e-12)}
+            if predicted:  # the Composer residual must equal the prediction; the total too, where it can show it
+                agrees = abs(composer_residual - predicted) <= 1e-9 * predicted
+                agrees = agrees and (not resolvable or abs(out["residual"] - predicted) <= 1e-6 * predicted)
+            else:
+                agrees = out["relative"] < 1e-12 and composer_residual <= 1e-12 * max(float(np.abs(composer).max()), 1e-300)
             case["pass"] = bool(agrees)  # pass = the prediction of the pre-registration holds
             cases[f"{pair_name}; {law_name}"] = case
         runs[pair_name] = _stamp_settings("Q1", LawSpec(reading="L1a").to_dict(),
