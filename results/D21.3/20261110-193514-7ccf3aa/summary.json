@@ -1,0 +1,50 @@
+{
+  "cases": {
+    "e=0.0, eta=0.0001": {
+      "end_drift": 1.5020232042044817e-14,
+      "end_drift_below_1e-6": true,
+      "excursion_below_1e-6": true,
+      "largest_excursion": 3.3306690738754696e-14,
+      "steps": 62832
+    },
+    "e=0.0, eta=0.0003": {
+      "end_drift": 8.665518485795087e-15,
+      "end_drift_below_1e-6": true,
+      "excursion_below_1e-6": true,
+      "largest_excursion": 1.176836406102666e-14,
+      "steps": 20944
+    },
+    "e=0.0, eta=0.001": {
+      "end_drift": 1.65222552462493e-14,
+      "end_drift_below_1e-6": true,
+      "excursion_below_1e-6": true,
+      "largest_excursion": 2.644551244657123e-13,
+      "steps": 6284
+    },
+    "e=0.9, eta=0.0001": {
+      "end_drift": 7.472656656901358e-12,
+      "end_drift_below_1e-6": true,
+      "excursion_below_1e-6": true,
+      "largest_excursion": 3.7012859444018886e-08,
+      "steps": 119757
+    },
+    "e=0.9, eta=0.0003": {
+      "end_drift": 2.0350419827452594e-10,
+      "end_drift_below_1e-6": true,
+      "excursion_below_1e-6": true,
+      "largest_excursion": 3.3320125913949283e-07,
+      "steps": 39919
+    },
+    "e=0.9, eta=0.001": {
+      "end_drift": 7.535716699108969e-09,
+      "end_drift_below_1e-6": true,
+      "excursion_below_1e-6": false,
+      "largest_excursion": 3.7056029312809713e-06,
+      "steps": 11976
+    }
+  },
+  "explanation": "The two definitions give different verdicts for: e=0.9, eta=0.001. The end drift hides the excursion at pericentre, so every result reports both, and a scenario states which one its criterion uses (D21 (3) refined).",
+  "prediction": "end drift < 1e-6 everywhere; excursion ~4e-6 at e=0.9, eta=1e-3, falling as eta^2",
+  "scenario": "D21.3",
+  "verdict": "refines D21 (3): report both"
+}

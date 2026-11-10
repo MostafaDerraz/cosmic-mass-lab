@@ -50,11 +50,11 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | E8 | Diagnostics, convergence helper, standard plots | E7 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E8.1 conservation diagnostics delivered; pressure, temperature, E8.2, E8.3 to do |
 | E9 | Energy in both coordinates (may need an approved derivation) | E2 | hard | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): the L0 energy delivered; the Composer energy needs an approved derivation |
 | G1 | Fast T0 gate in CI on every pull request | T0.1-T0.5 | medium | done (a pytest file; runs in CI with the `tests` job of P2) |
-| T0.1 | Earth-moon, hydrogen-like orbit, two protons under L0 | E1-E4 | easy | done (to be reproduced independently) |
-| T0.2 | Conservation of `rho_mu`, energy and momentum, 200 bodies | E1-E4 | medium | done (to be reproduced independently) |
-| T0.3 | Angle invariance under L0, six frame angles | T0.1 | easy | done (to be reproduced independently) |
-| T0.4 | Universal free fall under L0 | T0.1 | easy | done (to be reproduced independently) |
-| T0.5 | Field split: Composer set equals Maxwell | E2 | easy | done (to be reproduced independently) |
+| T0.1 | Earth-moon, hydrogen-like orbit, two protons under L0 | E1-E4 | easy | confirmed (reproduced on Windows by Claude Opus 5.5) |
+| T0.2 | Conservation of `rho_mu`, energy and momentum, 200 bodies | E1-E4 | medium | confirmed (reproduced on Windows by Claude Opus 5.5) |
+| T0.3 | Angle invariance under L0, six frame angles | T0.1 | easy | confirmed (reproduced on Windows by Claude Opus 5.5) |
+| T0.4 | Universal free fall under L0 | T0.1 | easy | confirmed (reproduced on Windows by Claude Opus 5.5) |
+| T0.5 | Field split: Composer set equals Maxwell | E2 | easy | confirmed (reproduced on Windows by Claude Opus 5.5) |
 | T9.1 | Neutron effective charge 9.0e-19 e under L1a | T0 | easy | open |
 | T9.2 | Hydrogen binding 5.71 eV under the charge share | T0 | medium | open |
 | T9.3 | Equivalent field 1.14e11 V/m for a charge in gravity | T0 | easy | open |
