@@ -70,7 +70,7 @@ Rules for every row:
 |---|---|---|---|
 | MVP-1 | in progress | | E1.1-E1.2 started 2026-11-10 |
 | MVP-2 | open | | |
-| MVP-3 | open | | |
+| MVP-3 | PR open | (link added in the next commit) | P2 done 2026-11-10; red on a failing test shown on a throwaway commit |
 | MVP-4 | open | | |
 | MVP-5 | open | | |
 | MVP-6 | open | | |

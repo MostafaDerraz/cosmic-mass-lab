@@ -64,7 +64,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | stamp | `engine/cosmicmass/stamp.py` | E7.2 | planned | run id, engine commit, T0 status, `stamp.json`, `summary.json`, `timeseries.csv` |
 | convergence | `engine/cosmicmass/analysis/convergence.py` | E8.2 | planned | re-run at `dt/2`, `dt/4` and other particle counts; relative changes |
 | plots | `engine/cosmicmass/analysis/plots.py` | E8.3 | planned | standard figures: Real and Composer planes, drifts, sweeps |
-| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py` (package import and version) |
+| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest), run in CI with coverage (P2); so far `test_import.py` (package import and version) and `test_pins.py` (the pins of `pyproject.toml` equal `requirements.txt`) |
 | gatetests | `engine/gates/` | G1 | planned | fast T0 gate run in CI on every pull request |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | scaffold | `tools/new_scenario.py` | P5 | planned | creates `scenarios/<ID>/`, settings, notebook and a registry row |
@@ -468,7 +468,7 @@ flowchart LR
     PUSH["push or pull request"]
     V["verify: 6 verification scripts<br/>(10,000+ checks)"]
     A["archcheck:<br/>tools/check_architecture.py<br/>registry, diagrams, D18"]
-    T["tests: pytest engine/tests"]:::planned
+    T["tests: pytest engine/tests<br/>coverage at least 90%"]
     G["gate: T0 fast run<br/>engine/gates"]:::planned
     OK["green: may merge<br/>(one approving review)"]
     NO["red: fix before merge"]
@@ -544,6 +544,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-10 | P2: CI runs pytest (`P2-ci-tests`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | section 9: the `tests` job exists in CI (`pytest` with coverage, fails under 90%); `engine/tests/test_pins.py` added; dev extras pinned |
 | 2026-11-10 | P1: package skeleton (`P1-package-skeleton`) | Claude chat session on claude.ai / Claude Fable 5.2, applied by Claude Opus 5.5 (sponsor @MostafaDerraz) | package `cosmicmass` installable from `engine/cosmicmass/` (`pyproject.toml`, version 0.0.1, no modules yet); registry row `engine/tests/` -> implemented; node `tests` in section 4 no longer planned |
 | 2026-11-10 | (direct, before D17 protection) | Mostafa Derraz, with Claude Opus 5.5 | first version: registry of 29 planned modules, layers, core types, time step, law pipeline, lifecycle, CI; `tools/check_architecture.py` implemented |
 
