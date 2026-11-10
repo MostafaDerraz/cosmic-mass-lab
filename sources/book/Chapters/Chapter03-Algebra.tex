@@ -1,0 +1,843 @@
+% ****************************************************************************************************
+% Section 4.9  The Algebra of General Numbers                         (added 6 November 2026)
+%
+% Read in by Chapters/Chapter03.tex with \input{Chapters/Chapter03-Algebra}, just before
+% the part "What we have built" (the line \section*{What we have built}).
+% Every law and every number of this section was checked with verify_general_number_algebra.py
+% (253 checks) and by an independent review of every formula, number and reference.
+% ****************************************************************************************************
+\providecommand{\Jp}{\mathcal{J}_{\bar{\phi}}}                      % the Turning Unit
+\providecommand{\Ht}{\operatorname{Ht}}                              % the height above the real axis
+\providecommand{\incomplex}{\par\smallskip\noindent\textsc{In the complex plane.}\enspace}
+% Start a new page if fewer than #1 lines are left. Like \keepblock, but the \penalty first lets TeX
+% finish the page it is filling, so that the measure is taken on the right page.
+\makeatletter
+\providecommand{\gnkeep}[1]{\par\penalty\z@\begingroup\dimen@=\pagegoal\advance\dimen@-\pagetotal
+  \ifdim\pagetotal>\z@\ifdim\dimen@<#1\baselineskip\newpage\fi\fi\endgroup}
+\makeatother
+
+%------------------------------------------------
+\section{The Algebra of General Numbers}\label{sec:gn-algebra}
+%------------------------------------------------
+
+Appendix~\ref{app:complex} builds the complex numbers in a few steps: a unit whose square is $-1$, the four operations and the conjugate, the length and the angle of a number, the rule that multiplying means turning, the formulas of Euler and de Moivre, and the roots of unity. This section takes the same steps in a relative plane. Each law is written with the General Sinus of Chapter~\ref{ch:oblique}, and each becomes its law in Appendix~\ref{app:complex} when the Composer axis stands upright, at $\pb = \pi/2$.
+
+That last fact needs no extra assumption. At $\pb = \pi/2$ the Axiom itself gives the Composer Unit the length $1$, so that $\mathcal{G}_{\pi/2} = i$ (\Cref{thm:classical-recovery}). And in the polar form of Definition~\ref{def:general-polar} the two angles always add up to the angle of the Composer axis, $\alpha + \phi = \pb$ (\Cref{thm:phase}); at $\pb = \pi/2$ they add up to a right angle, where the general sine and cosine are the ordinary ones (Corollary~\ref{cor:classical}).
+
+Nothing in this section can contradict the complex numbers. A true relative plane holds the same points as the complex plane, and Definition~\ref{def:gn-product} multiplies them by the same rule (Remark~\ref{rem:un-rules}), so every law of complex arithmetic holds here too. What the section adds is the way each law reads in the leaning frame, where a number is counted by its real part and its Composer coordinate. Three things change: the conjugate keeps the mirror but no longer keeps the real part, the imaginary unit splits into two numbers with two different jobs, and the general sine and cosine take the place of the ordinary ones, bringing terms in $2\cos\pb$ with them. The physical chapters of this volume do not need the section. It completes the arithmetic of the chapter, and its last part reads every result in two ways: by its two parts, and by its shadow and its height. Appendix~\ref{app:gn-algebra} lists each of its laws beside its complex case. \citet[Sections~4 and~5]{DerrazGNPreprint2026} proves these laws in full, and notes that the algebra of a relative plane is that of the elliptic generalized complex numbers.
+
+Throughout the section, $\GNp$ is a true relative plane ($0 < \pb < \pi$ with $\Gp \neq 0$, Remark~\ref{rem:line-no-plane}), and $z = a + b\Gp$, $z_1 = a_1 + b_1\Gp$ and $z_2 = a_2 + b_2\Gp$ are General Numbers of that plane. As for complex numbers, we write $|z|$ for the magnitude $M$ of $z$, the length of its arrow. By \Cref{thm:triangle}, with the length $|\Gp| = \Ap$ of the Composer Unit written out,
+\[
+|z|^2 = a^2 + 2ab\,|\Gp|\cos\pb + b^2|\Gp|^2 .
+\]
+The direction of the Composer Unit, $\up = \Gp/|\Gp|$ (Axiom~\ref{ax:gn}), is itself a General Number: one step of length $1$ along the Composer axis. The Rule of the Square, divided by $|\Gp|^2$, gives its square,
+\[
+\up^2 = 2\cos\pb\;\up - 1 .
+\]
+
+% keep the heading with what follows: break the page here if fewer than 10 lines are left
+\gnkeep{10}
+\subsection{The Rules of Arithmetic and the Conjugate}\label{subsec:gn-conjugate}
+
+Remark~\ref{rem:un-rules} named two rules of the arithmetic, the order and the grouping of a product. Here is the whole list.
+
+\begin{theorem}[A Relative Plane Is a Field]\label{thm:gn-field}
+In a true relative plane $\GNp$:
+\begin{enumerate}
+  \item the sum and the product of two General Numbers are General Numbers of the same plane;
+  \item the order and the grouping of a sum, and of a product, do not matter;
+  \item a product distributes over a sum: $z_1(z_2 + z_3) = z_1 z_2 + z_1 z_3$;
+  \item $0$ and $1$ change nothing: $z + 0 = z$ and $1 \cdot z = z$;
+  \item every $z$ has an opposite, $-z = -a - b\Gp$, with $z + (-z) = 0$;
+  \item every $z \neq 0$ has an inverse $1/z$, with $z \cdot (1/z) = 1$.
+\end{enumerate}
+In the words of algebra, every true relative plane is a \emph{field}, as the complex plane is.
+\end{theorem}
+
+\begin{proof}
+(1) is the remark that follows Proposition~\ref{prop:three-terms}. (2) A sum is taken part by part, and real numbers add in any order and grouping. A product multiplies the lengths and adds the angles (Definition~\ref{def:gn-product}), and lengths multiply, and angles add, in any order and grouping as well. (3) Multiplying by $z_1$ turns the whole page by the angle of $z_1$ and stretches it by $|z_1|$, and a turn and a stretch carry a sum of arrows to the sum of their images (the proof of Proposition~\ref{prop:three-terms}). (4) and (5) are read off the parts. (6) is \Cref{thm:gn-division} below, which writes the inverse out.
+\end{proof}
+
+In the complex plane the conjugate of $a + bi$ is $a - bi$: the sign of the second part changes. Seen on the page, that rule is the mirror in the real axis (Appendix~\ref{app:complex}), and it is the mirror, not the change of sign, that carries over to a relative plane.
+
+\begin{definition}[The Conjugate]\label{def:gn-conjugate}
+The \emph{conjugate} of the General Number $z = a + b\Gp$ is the General Number
+\[
+\bar{z} = \bigl(a + 2b\,|\Gp|\cos\pb\bigr) - b\Gp .
+\]
+\end{definition}
+
+In the words of Definition~\ref{def:gn-parts}, the conjugate turns the Composer part around, $\Com(\bar{z}) = -b\Gp = -\Com(z)$, as in the complex plane. Its real part, however, is $\Re(\bar{z}) = a + 2b|\Gp|\cos\pb$: the real part of $z$, moved by twice the shadow of the Composer part. Only where $\cos\pb = 0$ does the real part stay. \Cref{thm:gn-conjugate} shows why the mirror asks for this.
+
+% keep what follows together: break the page here if fewer than 16 lines are left
+\gnkeep{16}
+\begin{theorem}[The Conjugate]\label{thm:gn-conjugate}
+In a true relative plane $\GNp$:
+\begin{enumerate}
+  \item $\bar{z}$ is the mirror image of $z$ in the real axis;
+  \item $\bar{\bar{z}} = z$, $\overline{z_1 + z_2} = \bar{z}_1 + \bar{z}_2$ and $\overline{z_1 z_2} = \bar{z}_1\,\bar{z}_2$;
+  \item a number and its conjugate add up to twice the shadow, $z + \bar{z} = 2\Sh(z)$;
+  \item a number times its conjugate is the square of its magnitude,
+  \[
+  z\bar{z} = a^2 + 2ab\,|\Gp|\cos\pb + b^2|\Gp|^2 = |z|^2 ,
+  \]
+  a real number, zero only for $z = 0$;
+  \item the Composer Unit and its conjugate have the sum $\Gp + \overline{\Gp} = 2|\Gp|\cos\pb$ and the product $\Gp\,\overline{\Gp} = |\Gp|^2$, so they are the two roots of the equation
+  \[
+  x^2 - 2|\Gp|\cos\pb\;x + |\Gp|^2 = 0 .
+  \]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) The tip of $z$ lies $\Sh(z) = a + b|\Gp|\cos\pb$ across and $b|\Gp|\sin\pb$ up (Definition~\ref{def:shadow}), and its mirror image lies as far across and as far down. Only the steps along the Composer axis go up or down, so the walk to the mirror image takes $-b$ of them. They carry it across by $-b|\Gp|\cos\pb$, and the real part must supply the rest, $\Sh(z) + b|\Gp|\cos\pb = a + 2b|\Gp|\cos\pb$. (2) A mirror used twice changes nothing, and it carries a sum of arrows to the sum of their images. It keeps every length and reverses every angle, so it carries a product, made by multiplying lengths and adding angles, to the product of the images. (3) Add the parts. (4) By Proposition~\ref{prop:un-real-product}, $z\bar{z}$ has the real part $a(a + 2b|\Gp|\cos\pb) + |\Gp|^2 b^2$ and the Composer coordinate $-ab + b(a + 2b|\Gp|\cos\pb) - 2|\Gp|\cos\pb\; b^2 = 0$. The real part is $|z|^2$ by \Cref{thm:triangle}; as the square of a length, it is zero only for $z = 0$. (5) Take $a = 0$ and $b = 1$ in (3) and (4). Then $(x - \Gp)(x - \overline{\Gp}) = x^2 - (\Gp + \overline{\Gp})\,x + \Gp\,\overline{\Gp}$ is the left side of the equation.
+\end{proof}
+
+Put $x = \Gp$ in the equation of (5), and it is the Rule of the Square, $\Gp^2 = 2|\Gp|\cos\pb\;\Gp - |\Gp|^2$ (Proposition~\ref{prop:square-rule}). The rule that gave every product its real part says that the Composer Unit and its mirror image are the two roots of one quadratic equation.
+
+\begin{remark}[Why Not $a - b\Gp$]\label{rem:gn-skew-flip}
+Changing the sign of the Composer part, $a + b\Gp \mapsto a - b\Gp$, reverses the walk along the Composer axis, not the height on the page. Where the axis leans, this skew flip is not the mirror. It changes the length,
+\[
+|a - b\Gp|^2 = |z|^2 - 4ab\,|\Gp|\cos\pb ,
+\]
+and it gives no real product: $(a + b\Gp)(a - b\Gp) = a^2 + b^2|\Gp|^2 - 2b^2|\Gp|\cos\pb\;\Gp$. The two rules agree for every number only where $\cos\pb = 0$.
+\end{remark}
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\small}]
+  \def\s{2.5}                                  % centimetres per unit of length
+  \def\gx{0.20430}                             % one step of the Composer Unit at 79.86 degrees goes
+  \def\gy{1.14231}                             %   0.20430 across and 1.14231 up (its length is 1.16043)
+  % the axes
+  \draw[->, gray] ({-0.5*\s},0) -- ({2.45*\s},0) node[below left] {real axis};
+  \draw[gray, dashed] ({-0.21*\s},{-1.18*\s}) -- ({0.26*\s},{1.45*\s}) node[above, font=\footnotesize] {Composer axis};
+  % the circle of the magnitude |z| = 1.65988
+  \draw[gray!55, densely dotted] (-52:{1.65988*\s}) arc[start angle=-52, end angle=52, radius={1.65988*\s}];
+  % z = 1 + G
+  \draw[->, very thick, Maroon] (0,0.04) -- ({1*\s},0.04);
+  \draw[->, very thick, RoyalBlue] ({1*\s},0) -- ({(1+\gx)*\s},{\gy*\s});
+  \fill ({(1+\gx)*\s},{\gy*\s}) circle (1.6pt) node[above right] {$z = 1 + \Gp$};
+  % its conjugate 1.40860 - G
+  \draw[->, very thick, Maroon!55] (0,-0.04) -- ({1.40860*\s},-0.04);
+  \draw[->, very thick, RoyalBlue!55] ({1.40860*\s},0) -- ({(1.40860-\gx)*\s},{-\gy*\s});
+  \fill ({(1+\gx)*\s},{-\gy*\s}) circle (1.6pt) node[below right] {$\bar{z} = 1.40860 - \Gp$};
+  % the mirror: the same shadow, the opposite height
+  \draw[densely dashed, gray!70!black] ({(1+\gx)*\s},{\gy*\s}) -- ({(1+\gx)*\s},{-\gy*\s});
+  \node[gray!70!black, anchor=west, font=\footnotesize] at ({(1+\gx)*\s+0.05},0.22) {shadow $1.20430$};
+  % the skew flip 1 - G
+  \draw[->, thick, gray, dashed] ({1*\s},0) -- ({(1-\gx)*\s},{-\gy*\s});
+  \draw[gray!80!black, thick] ({(1-\gx)*\s-0.09},{-\gy*\s-0.09}) -- ++(0.18,0.18)
+                              ({(1-\gx)*\s-0.09},{-\gy*\s+0.09}) -- ++(0.18,-0.18);
+  \node[gray!80!black, anchor=east, align=right, font=\footnotesize] at ({(1-\gx)*\s-0.18},{-\gy*\s}) {$1 - \Gp$:\\ not the mirror};
+  \fill (0,0) circle (1.2pt) node[below left] {$0$};
+\end{tikzpicture}
+\caption[The conjugate is a mirror image]{The conjugate of $z = 1 + \Gp$ at $\pb = 79.86^\circ$, where $|\Gp| = 1.16043$ (Definition~\ref{def:gn-conjugate}). Each walk runs first along the real axis (dark red, the two drawn a little apart) and then along the Composer axis (blue). The conjugate $\bar{z} = 1.40860 - \Gp$ ends at the mirror image of $z$ in the real axis: the same shadow, $1.20430$, the opposite height, and the same magnitude, $|z| = 1.65988$ (dotted circle). The skew flip $1 - \Gp$ (grey) reverses only the walk along the Composer axis; it ends inside the circle, $0.40860$ to the left of the mirror image.}
+\label{fig:gn-conjugate}
+\end{figure}
+
+\incomplex At $\pb = \pi/2$, $\bar{z} = a - bi$, $z + \bar{z} = 2a$ and $z\bar{z} = a^2 + b^2$, and the equation of (5) is $x^2 + 1 = 0$, with the roots $i$ and $-i$.
+
+% keep the heading with the theorem that follows: break the page here if fewer than 18 lines are left
+\gnkeep{18}
+\subsection{Magnitude and Division}\label{subsec:gn-division}
+
+\begin{theorem}[The Magnitude of a Product]\label{thm:gn-two-squares}
+The magnitude of a product is the product of the magnitudes, $|z_1 z_2| = |z_1|\,|z_2|$. Write the product as $z_1 z_2 = c + d\Gp$, with $c = a_1 a_2 - |\Gp|^2 b_1 b_2$ and $d = a_1 b_2 + b_1 a_2 + 2|\Gp|\cos\pb\; b_1 b_2$ (Proposition~\ref{prop:un-real-product}). Then the law is the identity
+\begin{align*}
+&\bigl(a_1^2 + 2a_1b_1|\Gp|\cos\pb + b_1^2|\Gp|^2\bigr)\bigl(a_2^2 + 2a_2b_2|\Gp|\cos\pb + b_2^2|\Gp|^2\bigr) \\
+&\qquad = c^2 + 2cd\,|\Gp|\cos\pb + d^2|\Gp|^2 .
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+By Wessel's rule the lengths multiply (Definition~\ref{def:gn-product}). In the algebra of \Cref{thm:gn-conjugate}, $|z_1z_2|^2 = (z_1z_2)\,\overline{z_1z_2} = (z_1\bar{z}_1)(z_2\bar{z}_2) = |z_1|^2|z_2|^2$, and writing each magnitude with (4) of that theorem gives the identity.
+\end{proof}
+
+\incomplex At $\pb = \pi/2$ the identity is $(a_1^2 + b_1^2)(a_2^2 + b_2^2) = (a_1a_2 - b_1b_2)^2 + (a_1b_2 + b_1a_2)^2$, known since Diophantus: a product of two sums of two squares is again a sum of two squares. In a relative plane each sum of two squares becomes the expression $a^2 + 2ab\,|\Gp|\cos\pb + b^2|\Gp|^2$, and the identity keeps its shape.
+
+% keep what follows together: break the page here if fewer than 14 lines are left
+\gnkeep{14}
+\begin{theorem}[Division]\label{thm:gn-division}
+Every General Number $z \neq 0$ has the inverse
+\[
+\frac{1}{z} = \frac{\bar{z}}{|z|^2} = \frac{(a + 2b|\Gp|\cos\pb) - b\Gp}{a^2 + 2ab|\Gp|\cos\pb + b^2|\Gp|^2} ,
+\]
+and for $z_2 \neq 0$ the quotient is
+\[
+\frac{z_1}{z_2} = \frac{z_1\bar{z}_2}{|z_2|^2} = \frac{\bigl(a_1a_2 + 2a_1b_2|\Gp|\cos\pb + b_1b_2|\Gp|^2\bigr) + (b_1a_2 - a_1b_2)\,\Gp}{a_2^2 + 2a_2b_2|\Gp|\cos\pb + b_2^2|\Gp|^2} .
+\]
+In particular, $1/\Gp = \overline{\Gp}/|\Gp|^2 = (2|\Gp|\cos\pb - \Gp)/|\Gp|^2$.
+\end{theorem}
+
+\begin{proof}
+By \Cref{thm:gn-conjugate}, $z\bar{z} = |z|^2$, which is not zero, so $z \cdot \bar{z}/|z|^2 = 1$. Then $z_1/z_2 = z_1 \cdot (1/z_2) = z_1\bar{z}_2/|z_2|^2$, and Proposition~\ref{prop:un-real-product} gives the parts of $z_1\bar{z}_2$: the real part $a_1(a_2 + 2b_2|\Gp|\cos\pb) + |\Gp|^2 b_1 b_2$, and the Composer coordinate $-a_1b_2 + b_1(a_2 + 2b_2|\Gp|\cos\pb) - 2|\Gp|\cos\pb\; b_1b_2 = b_1a_2 - a_1b_2$.
+\end{proof}
+
+\begin{plainwords}
+To divide, multiply the top and the bottom by the conjugate of the bottom, exactly as in Appendix~\ref{app:complex}; only the conjugate has changed. Notice where the angle has gone. Neither $\cos\pb$ nor $\sin\pb$ enters the Composer coordinate of the top, $b_1a_2 - a_1b_2$, just as neither enters the real part of a product (Proposition~\ref{prop:un-real-product}).
+\end{plainwords}
+
+\incomplex At $\pb = \pi/2$ the quotient is $\bigl[(a_1a_2 + b_1b_2) + (b_1a_2 - a_1b_2)\,i\bigr]/(a_2^2 + b_2^2)$, the division of Appendix~\ref{app:complex}, and $1/i = -i$.
+
+% keep the worked example whole: break the page here if fewer than 24 lines are left
+\gnkeep{24}
+\begin{workedexample}[Worked example: the conjugate and division at $79.86^\circ$]
+Take the angle $\pb = 79.86^\circ$ and the length that the Axiom gives there, $|\Gp| = |\cos\pb + \sin\pb| \approx 0.17605 + 0.98438 = 1.16043$. One step of the Composer Unit goes $|\Gp|\cos\pb \approx 0.20430$ across and $|\Gp|\sin\pb \approx 1.14231$ up, and $|\Gp|^2 \approx 1.34661$.
+\begin{itemize}
+  \item \emph{The conjugate of $z = 1 + \Gp$.} The tip of $z$ lies $1.20430$ across and $1.14231$ up. Definition~\ref{def:gn-conjugate} gives $\bar{z} = (1 + 0.40860) - \Gp = 1.40860 - \Gp$, whose tip lies $1.40860 - 0.20430 = 1.20430$ across and $1.14231$ down: the mirror image (\Cref{fig:gn-conjugate}). Its Composer part has turned around, from $\Gp$ to $-\Gp$, and its real part has moved from $1$ to $1.40860$.
+  \item \emph{The magnitude.} $z\bar{z} \approx 1 + 0.40860 + 1.34661 = 2.75521$, so $|z| \approx 1.65988$. On the page, $1.20430^2 + 1.14231^2 \approx 2.75521$ as well.
+  \item \emph{The inverse.} $1/z = (1.40860 - \Gp)/2.75521 \approx 0.51125 - 0.36295\,\Gp$.
+  \item \emph{A quotient.} For $(2 - \Gp)/(1 + \Gp)$ the top is $(2 + 2 \cdot 2 \cdot 0.20430 - 1.34661) + (-1 - 2)\,\Gp = 1.47059 - 3\Gp$, so the quotient is about $0.53375 - 1.08885\,\Gp$. Multiplied back by $1 + \Gp$ with Proposition~\ref{prop:un-real-product}, it gives $2 - \Gp$.
+  \item \emph{The wrong mirror.} The skew flip $1 - \Gp$ has the magnitude $|1 - \Gp| \approx 1.39212$, not $1.65988$, and $(1 + \Gp)(1 - \Gp) \approx 2.34661 - 0.40860\,\Gp$ is not a real number.
+\end{itemize}
+\end{workedexample}
+
+% keep the heading with what follows: break the page here if fewer than 10 lines are left
+\gnkeep{10}
+\subsection{The Turning Unit and the Polar Form}\label{subsec:gn-turning-unit}
+
+In the complex plane the number $i$ does two jobs at once. It is the second step of the frame, the unit of the imaginary axis; and it is the quarter turn, the number whose square is $-1$. In a relative plane that leans, the two jobs come apart. The second step is the Composer Unit, whose square obeys the Rule of the Square and is not $-1$. The quarter turn is a new number, made from it.
+
+\begin{definition}[The Turning Unit]\label{def:gn-turning-unit}
+The \emph{Turning Unit} of the relative plane $\GNp$ is the General Number
+\[
+\Jp = \frac{\up - \cos\pb}{\sin\pb} = -\cot\pb + \frac{1}{|\Gp|\sin\pb}\,\Gp .
+\]
+\end{definition}
+
+% keep what follows together: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+\begin{theorem}[The Turning Unit]\label{thm:gn-turning-unit}
+In a true relative plane $\GNp$:
+\begin{enumerate}
+  \item $\Jp$ is the arrow of length $1$ at a right angle to the real axis;
+  \item $\Jp^2 = -1$, and $\Jp$ and $-\Jp$ are the only General Numbers whose square is $-1$;
+  \item multiplying by $\Jp$ turns every General Number by a right angle and keeps its length;
+  \item at $\pb = \pi/2$ the two units are one: $\mathcal{J}_{\pi/2} = \mathcal{G}_{\pi/2} = i$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) The walk of $\Jp$ goes $-\cot\pb$ along the real axis and then $1/(|\Gp|\sin\pb)$ steps along the Composer axis, which carry it $\cot\pb$ across and $1$ up. It ends at the point $1$ straight above $0$. (2) With $\up^2 = 2\cos\pb\;\up - 1$,
+\[
+\Jp^2 = \frac{\up^2 - 2\cos\pb\;\up + \cos^2\pb}{\sin^2\pb} = \frac{\cos^2\pb - 1}{\sin^2\pb} = -1 .
+\]
+If $w^2 = -1$, then $|w| = 1$ and twice the angle of $w$ is a half turn, so $w$ is the arrow of length $1$ at the angle $\pi/2$ or $-\pi/2$: $w = \Jp$ or $w = -\Jp$. (3) By Wessel's rule, multiplying by an arrow of length $1$ at the angle $\pi/2$ keeps every length and adds a right angle to every angle. (4) At $\pb = \pi/2$, $\cot\pb = 0$, $\sin\pb = 1$ and $|\Gp| = 1$, so $\Jp = \Gp = i$ (\Cref{thm:classical-recovery}).
+\end{proof}
+
+The Turning Unit gives every relative plane a second frame, an upright one, inside the same plane.
+
+\begin{proposition}[Shadow and Height]\label{prop:gn-shadow-height}
+Call $\Ht(z) = b\,|\Gp|\sin\pb$ the \emph{height} of $z$: how far its tip lies above the real axis. Every General Number of $\GNp$ is
+\[
+z = \Sh(z) + \Ht(z)\,\Jp ,
+\]
+and back,
+\[
+a = \Sh(z) - \Ht(z)\cot\pb , \qquad b = \frac{\Ht(z)}{|\Gp|\sin\pb} .
+\]
+Moreover, $z - \bar{z} = 2\Ht(z)\,\Jp$ and $|z|^2 = \Sh(z)^2 + \Ht(z)^2$.
+\end{proposition}
+
+\begin{proof}
+Write the parts of $\Jp$ into $\Sh(z) + \Ht(z)\Jp$. The real part is $a + b|\Gp|\cos\pb - b|\Gp|\sin\pb\cot\pb = a$, and the Composer coordinate is $b|\Gp|\sin\pb/(|\Gp|\sin\pb) = b$. Solving for $a$ and $b$ gives the formulas back. The conjugate $\bar{z}$ has the same shadow and the opposite height (\Cref{thm:gn-conjugate}), so $z - \bar{z} = 2\Ht(z)\Jp$. The shadow and the height meet at a right angle, so $|z|^2 = \Sh(z)^2 + \Ht(z)^2$ by the theorem of Pythagoras.
+\end{proof}
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{minipage}[b]{0.44\textwidth}
+\centering
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  \def\s{2.6}                                  % centimetres per unit of length
+  \def\gx{0.20430}\def\gy{1.14231}             % one step of the Composer Unit at 79.86 degrees
+  \draw[->, gray] ({-0.62*\s},0) -- ({0.62*\s},0);
+  \draw[gray, dashed] ({-0.03*\s},{-0.17*\s}) -- ({0.26*\s},{1.45*\s});
+  \draw[->, thick, RoyalBlue!45] (0,0) -- ({\gx*\s},{\gy*\s}) node[right] {$\Gp$};
+  % the walk of the Turning Unit: -0.17885 along the real axis, then 0.87542 steps of the Composer Unit
+  \draw[->, very thick, Maroon] (0,0) -- ({-0.17885*\s},0);
+  \draw[->, very thick, RoyalBlue] ({-0.17885*\s},0) -- (0,{1.0*\s});
+  \draw[->, very thick, ForestGreen] (0,0) -- (0,{1.0*\s});
+  \draw[gray] (0.18,0) -- (0.18,0.18) -- (0,0.18);
+  \node[ForestGreen!80!black, anchor=south east] at (-0.02,{1.0*\s}) {$\Jp$, length $1$};
+  \node[Maroon, below left] at ({-0.02*\s},-0.02) {$-0.17885$};
+  \node[RoyalBlue!80!black, anchor=east, align=right] at ({-0.11*\s},{0.62*\s}) {$0.87542$\\ steps of $\Gp$};
+  \fill (0,0) circle (1.2pt);
+\end{tikzpicture}
+
+\smallskip
+{\small (a) the Turning Unit as a walk\par}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.52\textwidth}
+\centering
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  \def\s{2.6}
+  \def\gx{0.20430}\def\gy{1.14231}
+  \draw[->, gray] (-0.3,0) -- ({1.62*\s},0) node[below left] {real axis};
+  % the leaning frame: 1 along the real axis, then 1 step of the Composer Unit
+  \draw[->, very thick, Maroon] (0,0.04) -- ({1*\s},0.04);
+  \draw[->, very thick, RoyalBlue] ({1*\s},0) -- ({(1+\gx)*\s},{\gy*\s});
+  % the upright frame: the shadow 1.20430, then the height 1.14231 steps of the Turning Unit
+  \draw[->, very thick, gray!70] (0,-0.04) -- ({(1+\gx)*\s},-0.04);
+  \draw[->, very thick, ForestGreen] ({(1+\gx)*\s},0) -- ({(1+\gx)*\s},{\gy*\s});
+  \fill ({(1+\gx)*\s},{\gy*\s}) circle (1.6pt) node[above] {$1 + \Gp$};
+  \node[Maroon, above] at ({0.5*\s},0.05) {real part $1$};
+  \node[gray!70!black, below] at ({0.6*\s},-0.05) {shadow $1.20430$};
+  \node[RoyalBlue!80!black, anchor=east, align=right] at ({(1+0.5*\gx)*\s-0.08},{0.5*\gy*\s}) {$1$ step\\ of $\Gp$};
+  \node[ForestGreen!80!black, anchor=west, align=left] at ({(1+\gx)*\s+0.06},{0.5*\gy*\s}) {height\\ $1.14231$,\\ steps of $\Jp$};
+  \fill (0,0) circle (1.2pt) node[below left] {$0$};
+\end{tikzpicture}
+
+\smallskip
+{\small (b) one number, two frames\par}
+\end{minipage}
+\caption[The Turning Unit and the two frames]{The Turning Unit at $\pb = 79.86^\circ$ (Definition~\ref{def:gn-turning-unit}). (a) Its walk goes $-0.17885$ along the real axis (dark red) and $0.87542$ steps of the Composer Unit (blue), and ends one unit straight above $0$: the Turning Unit (green) is the quarter turn. (b) The number $1 + \Gp$ in the two frames of its relative plane. In the leaning frame it is $1$ step along the real axis and $1$ step of the Composer Unit; in the upright frame it is its shadow, $1.20430$ (grey), and its height, $1.14231$ steps of the Turning Unit (Proposition~\ref{prop:gn-shadow-height}).}
+\label{fig:gn-turning-unit}
+\end{figure}
+
+\begin{plainwords}
+A relative plane carries two frames (\Cref{fig:gn-turning-unit}). The leaning frame, $1$ and $\Gp$, is the one in which its numbers are written: the real part and the Composer coordinate are counted in it. The upright frame, $1$ and $\Jp$, sits inside the same plane: there the two coordinates of a number are its shadow and its height, and $\Jp$ plays the part of $i$. Sending $z$ to the complex number $\Sh(z) + \Ht(z)\,i$ keeps every sum and every product, and this is the exact sense in which a true relative plane holds the same points as the complex plane. Everything new happens in the leaning frame, and the rest of this section reads each law there.
+\end{plainwords}
+
+% keep what follows together: break the page here if fewer than 14 lines are left
+\gnkeep{14}
+\begin{theorem}[The Polar Form with One Angle]\label{thm:gn-polar}
+Let $z \neq 0$, and let $\alpha$ be the angle of its arrow, measured counterclockwise from the positive real axis: the studied angle of Definition~\ref{def:general-polar}, whose projection angle is $\phi = \pb - \alpha$. Then
+\[
+z = |z|\,\bigl[\cos(\alpha, \pb - \alpha) + \sin(\alpha, \pb - \alpha)\,\up\bigr] ,
+\]
+that is, the real part is $a = |z|\cos(\alpha, \pb - \alpha)$, and the Composer part $b\Gp$ has the signed length $b\,|\Gp| = |z|\sin(\alpha, \pb - \alpha)$, as in Definition~\ref{def:general-polar}. For every angle $\alpha$ the two values of the General Sinus obey the \emph{general Pythagoras identity}
+\[
+\cos(\alpha, \pb - \alpha)^2 + 2\cos\pb\,\cos(\alpha, \pb - \alpha)\sin(\alpha, \pb - \alpha) + \sin(\alpha, \pb - \alpha)^2 = 1 .
+\]
+\end{theorem}
+
+\begin{proof}
+The tip of $z$ lies $|z|\cos\alpha$ across and $|z|\sin\alpha$ up: these are its shadow and its height. Proposition~\ref{prop:gn-shadow-height} gives $b|\Gp| = |z|\sin\alpha/\sin\pb$ and $a = |z|(\cos\alpha - \sin\alpha\cot\pb) = |z|\sin(\pb - \alpha)/\sin\pb$. With $\alpha + \phi = \pb$, the definitions of the General Sinus read $\sin(\alpha, \pb - \alpha) = \sin\alpha/\sin\pb$ and $\cos(\alpha, \pb - \alpha) = \sin(\pb - \alpha)/\sin\pb$. The identity is (4) of \Cref{thm:gn-conjugate} for a number of magnitude $1$; in the chart of the two parts it is the ring of magnitude $1$ (\Cref{thm:ellipse}).
+\end{proof}
+
+\incomplex At $\pb = \pi/2$ the Turning Unit and the Composer Unit are both $i$, the shadow and the height are the real and the imaginary parts, the polar form is $z = |z|(\cos\alpha + i\sin\alpha)$, and the general Pythagoras identity is $\cos^2\alpha + \sin^2\alpha = 1$.
+
+% keep the worked example whole: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+\begin{workedexample}[Worked example: the Turning Unit at $79.86^\circ$]
+With the numbers of the last example, $\cot\pb \approx 0.17885$ and $1/(|\Gp|\sin\pb) \approx 0.87542$, so
+\[
+\Jp \approx -0.17885 + 0.87542\,\Gp .
+\]
+Proposition~\ref{prop:un-real-product} checks that its square is $-1$: the real part is $0.17885^2 - 1.34661 \times 0.87542^2 \approx 0.03199 - 1.03199 = -1$, and the Composer coordinate is $2 \times (-0.17885) \times 0.87542 + 0.40860 \times 0.87542^2 \approx -0.31313 + 0.31313 = 0$. In the upright frame, $1 + \Gp = 1.20430 + 1.14231\,\Jp$: its shadow and its height. And $\Jp\,(1 + \Gp) \approx -1.35770 + 1.05427\,\Gp$, whose tip lies $1.14231$ to the left of $0$ and $1.20430$ up: the tip of $1 + \Gp$, turned by a right angle.
+\end{workedexample}
+
+% keep the heading with what follows: break the page here if fewer than 10 lines are left
+\gnkeep{10}
+\subsection{Multiplying Means Turning}\label{subsec:gn-turning}
+
+For short, write the two values of the General Sinus at the angle $\alpha$, with the projection angle $\pb - \alpha$, as
+\[
+C_\alpha = \cos(\alpha, \pb - \alpha) , \qquad S_\alpha = \sin(\alpha, \pb - \alpha) ,
+\]
+so that a number of magnitude $1$ at the angle $\alpha$ is $C_\alpha + S_\alpha\,\up$, and $C_{\alpha + \beta} = \cos(\alpha + \beta, \pb - \alpha - \beta)$.
+
+% keep what follows together: break the page here if fewer than 14 lines are left
+\gnkeep{14}
+\begin{theorem}[Multiplying Means Turning]\label{thm:gn-turning}
+Let $z_1 = |z_1|\,(C_\alpha + S_\alpha\,\up)$ and $z_2 = |z_2|\,(C_\beta + S_\beta\,\up)$. Then
+\[
+z_1 z_2 = |z_1|\,|z_2|\,(C_{\alpha + \beta} + S_{\alpha + \beta}\,\up) ,
+\]
+and $z_1/z_2$ is the same with $|z_1|/|z_2|$ and $\alpha - \beta$. Equivalently, the General Sinus obeys the \emph{addition formulas along the Composer axis}:
+\begin{align*}
+C_{\alpha + \beta} &= C_\alpha C_\beta - S_\alpha S_\beta , \\
+S_{\alpha + \beta} &= C_\alpha S_\beta + S_\alpha C_\beta + 2\cos\pb\;S_\alpha S_\beta .
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+By Wessel's rule (Definition~\ref{def:gn-product}), $z_1z_2$ has the magnitude $|z_1|\,|z_2|$ and the angle $\alpha + \beta$, and \Cref{thm:gn-polar} writes such a number in the form shown. On the other hand, multiply the two brackets out with $\up^2 = 2\cos\pb\;\up - 1$:
+\begin{align*}
+&(C_\alpha + S_\alpha\up)(C_\beta + S_\beta\up) = C_\alpha C_\beta + (C_\alpha S_\beta + S_\alpha C_\beta)\,\up + S_\alpha S_\beta\,\up^2 \\
+&\qquad = (C_\alpha C_\beta - S_\alpha S_\beta) + (C_\alpha S_\beta + S_\alpha C_\beta + 2\cos\pb\;S_\alpha S_\beta)\,\up .
+\end{align*}
+Two General Numbers are equal when their parts are (Definition~\ref{def:gn-equality}), and comparing the parts gives the two formulas. The quotient follows from the product, since $(z_1/z_2)\,z_2 = z_1$.
+\end{proof}
+
+The addition formulas of Appendix~\ref{app:general-sinus} hold the projection angle fixed. The formulas above let it change with the studied angle, so that the two angles always add up to $\pb$. The two families agree.
+
+\begin{remark}[The Same Formulas from Appendix~\ref{app:general-sinus}]\label{rem:gn-addition-from-a}
+Write $\phi = \pb - \alpha - \beta$, the projection angle of $\alpha + \beta$, and keep the short names $C$ and $S$.
+\begin{enumerate}
+  \item The two formulas of Appendix~\ref{app:general-sinus} for the projection angle, with the shift $\beta$, and the reciprocity $\sin(\pb - \beta, \beta) = C_\beta$ and $\cos(\pb - \beta, \beta) = S_\beta$, give
+  \[
+  \sin(\alpha, \phi) = \frac{S_\alpha}{C_\beta} , \qquad \cos(\alpha, \phi) = C_\alpha - \frac{S_\alpha S_\beta}{C_\beta} ,
+  \]
+  and in the same way, with the shift $\alpha$, $\sin(\beta, \phi) = S_\beta/C_\alpha$ and $\cos(\beta, \phi) = C_\beta - S_\alpha S_\beta/C_\alpha$.
+  \item The second addition formula for the studied angle, $\sin(\alpha + \beta, \phi) = \sin(\alpha, \phi) + \cos(\alpha, \phi)\sin(\beta, \phi + \alpha)$, where $\sin(\beta, \phi + \alpha) = S_\beta$, then gives
+  \[
+  S_{\alpha + \beta} = C_\alpha S_\beta + S_\alpha\,\frac{1 - S_\beta^2}{C_\beta} ,
+  \]
+  and the general Pythagoras identity turns $(1 - S_\beta^2)/C_\beta$ into $C_\beta + 2\cos\pb\,S_\beta$. This is the second formula of \Cref{thm:gn-turning}.
+  \item The consequence $\cos(\alpha + \beta, \phi) = \cos(\alpha, \phi)\cos(\beta, \phi)/\bigl(1 - \sin(\alpha, \phi)\sin(\beta, \phi)\bigr)$, with the four values of (1), gives $C_{\alpha + \beta} = C_\alpha C_\beta - S_\alpha S_\beta$, the first formula.
+\end{enumerate}
+The steps divide by $C_\alpha$ and $C_\beta$, and the third also by $1 - \sin(\alpha, \phi)\sin(\beta, \phi)$, which is zero exactly where $C_{\alpha + \beta}$ is; where one of these is zero, the formulas follow by continuity.
+\end{remark}
+
+% keep the worked example whole: break the page here if fewer than 20 lines are left
+\gnkeep{20}
+\begin{workedexample}[Worked example: one product, two ways]
+Stay at $79.86^\circ$ and multiply $z = 1 + \Gp$ by the Composer Unit.
+\begin{itemize}
+  \item \emph{By the parts.} Proposition~\ref{prop:un-real-product} gives $(1 + \Gp)\,\Gp = -|\Gp|^2 + (1 + 2|\Gp|\cos\pb)\,\Gp \approx -1.34661 + 1.40860\,\Gp$.
+  \item \emph{By turning.} The number $1 + \Gp$ has the magnitude $1.65988$ and the angle $\alpha \approx 43.487^\circ$, with $C_\alpha \approx 0.60245$ and $S_\alpha \approx 0.69911$; indeed $1.65988 \times 0.60245 \approx 1$, its real part, and $1.65988 \times 0.69911 \approx 1.16043$, the length of its Composer part. The Composer Unit has the magnitude $1.16043$ and the angle $\beta = \pb$, where $C_\beta = \cos(\pb, 0) = 0$ and $S_\beta = \sin(\pb, 0) = 1$. At the angle $\alpha + \beta \approx 123.347^\circ$ the addition formulas give $C_{\alpha + \beta} = -S_\alpha \approx -0.69911$ and $S_{\alpha + \beta} = C_\alpha + 2\cos\pb\;S_\alpha \approx 0.60245 + 0.35211 \times 0.69911 \approx 0.84861$, and the magnitude is $1.65988 \times 1.16043 \approx 1.92618$. So the real part is $1.92618 \times (-0.69911) \approx -1.34661$, and the Composer coordinate is $1.92618 \times 0.84861/1.16043 \approx 1.40860$: the same number.
+\end{itemize}
+The extra term $2\cos\pb\,S_\alpha S_\beta \approx 0.24616$ is more than a quarter of $S_{\alpha + \beta}$; without it, the turn would land in the wrong place.
+\end{workedexample}
+
+% keep the heading with what follows: break the page here if fewer than 10 lines are left
+\gnkeep{10}
+\subsection{Euler's and de Moivre's Formulas}\label{subsec:gn-euler}
+
+The exponential of a General Number $w$ is defined by the same series as in the complex plane, $e^w = 1 + w + w^2/2! + w^3/3! + \cdots$. It converges because it converges for the arrows of the page, and the rule $e^{w_1 + w_2} = e^{w_1}e^{w_2}$ holds for the same reason.
+
+% keep what follows together: break the page here if fewer than 14 lines are left
+\gnkeep{14}
+\begin{theorem}[Euler's Formula in a Relative Plane]\label{thm:gn-euler}
+For every real number $\theta$,
+\[
+e^{\theta\Jp} = \cos(\theta, \pb - \theta) + \sin(\theta, \pb - \theta)\,\up .
+\]
+Consequently:
+\begin{enumerate}
+  \item every $z \neq 0$ is $z = |z|\,e^{\alpha\Jp}$, with $\alpha$ its angle, and $\bar{z} = |z|\,e^{-\alpha\Jp}$;
+  \item the Composer Unit is an exponential, $\Gp = |\Gp|\,e^{\pb\Jp}$, and so is the Turning Unit, $\Jp = e^{(\pi/2)\Jp}$;
+  \item $e^{\pi\Jp} + 1 = 0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The powers of $\Jp$ run through $1$, $\Jp$, $-1$, $-\Jp$ and back, because $\Jp^2 = -1$. So the series splits exactly as Euler's does, into the series of the cosine and of the sine: $e^{\theta\Jp} = \cos\theta + \Jp\sin\theta$. Put in the Turning Unit of Definition~\ref{def:gn-turning-unit}:
+\begin{align*}
+\cos\theta + \sin\theta\,\frac{\up - \cos\pb}{\sin\pb}
+&= \frac{\sin\pb\cos\theta - \cos\pb\sin\theta}{\sin\pb} + \frac{\sin\theta}{\sin\pb}\,\up \\
+&= \frac{\sin(\pb - \theta)}{\sin\pb} + \frac{\sin\theta}{\sin\pb}\,\up ,
+\end{align*}
+which is the formula, by the definitions of the General Sinus with $\alpha + \phi = \pb$. (1) is \Cref{thm:gn-polar} with $\theta = \alpha$; the mirror image has the same magnitude and the opposite angle. (2) At $\theta = \pb$, $\cos(\pb, 0) = 0$ and $\sin(\pb, 0) = 1$, so $e^{\pb\Jp} = \up = \Gp/|\Gp|$; at $\theta = \pi/2$ the formula gives Definition~\ref{def:gn-turning-unit} back. (3) At $\theta = \pi$, the $\pi$-addition identities of Appendix~\ref{app:general-sinus} give $\cos(\pi, \pb - \pi) = -\cos(0, \pb) = -1$ and $\sin(\pi, \pb - \pi) = -\sin(0, \pb) = 0$.
+\end{proof}
+
+\begin{remark}[The Same Formula from the Derivatives of Appendix~\ref{app:general-sinus}]\label{rem:gn-euler-derivative}
+Along the line where the two angles add up to $\pb$, a change of $\theta$ raises the studied angle and lowers the projection angle by the same amount, so $d/d\theta$ is the partial derivative in the first angle minus the partial derivative in the second. The partial derivatives of Appendix~\ref{app:general-sinus} then give
+\begin{align*}
+\frac{d}{d\theta}\sin(\theta, \pb - \theta) &= \frac{\cos(\theta, \pb - \theta)}{\sin\pb} + \sin(\theta, \pb - \theta)\cot\pb , \\
+\frac{d}{d\theta}\cos(\theta, \pb - \theta) &= -\cos(\theta, \pb - \theta)\cot\pb - \frac{\sin(\theta, \pb - \theta)}{\sin\pb} .
+\end{align*}
+With $\up^2 = 2\cos\pb\;\up - 1$, these two lines say that the unit number $w(\theta) = \cos(\theta, \pb - \theta) + \sin(\theta, \pb - \theta)\,\up$ obeys $dw/d\theta = \Jp\,w$ with $w(0) = 1$, and the only solution of that equation is $e^{\theta\Jp}$. A unit number turns at the rate of its own quarter turn.
+\end{remark}
+
+\begin{theorem}[De Moivre's Formula in a Relative Plane]\label{thm:gn-de-moivre}
+For every integer $n$ and every real number $\theta$, $(C_\theta + S_\theta\,\up)^n = C_{n\theta} + S_{n\theta}\,\up$, that is,
+\begin{align*}
+&\bigl[\cos(\theta, \pb - \theta) + \sin(\theta, \pb - \theta)\,\up\bigr]^n \\
+&\qquad = \cos(n\theta, \pb - n\theta) + \sin(n\theta, \pb - n\theta)\,\up .
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+The left side is $(e^{\theta\Jp})^n = e^{n\theta\Jp}$; apply \Cref{thm:gn-euler} with $n\theta$ in place of $\theta$. In words, $n$ turns by $\theta$ make one turn by $n\theta$ (\Cref{thm:gn-turning}).
+\end{proof}
+
+% keep what follows together: break the page here if fewer than 14 lines are left
+\gnkeep{14}
+\begin{corollary}[The Powers of the Composer Unit in Its Own Frame]\label{cor:gn-powers}
+For every integer $n$,
+\begin{align*}
+\Gp^n &= |\Gp|^n\cos\bigl(n\pb, (1 - n)\pb\bigr) + |\Gp|^{n-1}\sin\bigl(n\pb, (1 - n)\pb\bigr)\,\Gp \\
+&= -|\Gp|^n\,\frac{\sin\,(n - 1)\pb}{\sin\pb} + |\Gp|^{n-1}\,\frac{\sin n\pb}{\sin\pb}\,\Gp ,
+\end{align*}
+and three powers in a row obey the step rule
+\[
+\Gp^{n+1} = 2|\Gp|\cos\pb\;\Gp^n - |\Gp|^2\,\Gp^{n-1} .
+\]
+For $n = 2$ the formula is the Rule of the Square. Drawn on the page, it is \Cref{thm:powers}, now for every integer $n$.
+\end{corollary}
+
+\begin{proof}
+By \Cref{thm:gn-euler}, $\Gp^n = |\Gp|^n e^{n\pb\Jp}$; apply the formula with $\theta = n\pb$ and write $\up = \Gp/|\Gp|$. The step rule is the Rule of the Square multiplied by $\Gp^{n-1}$. At $n = 2$, $\cos(2\pb, -\pb) = -1$ and $\sin(2\pb, -\pb) = \sin 2\pb/\sin\pb = 2\cos\pb$, which is Proposition~\ref{prop:square-rule}.
+\end{proof}
+
+\begin{plainwords}
+Euler's identity, $e^{\pi\Jp} + 1 = 0$, holds in every relative plane, unchanged: half a turn is half a turn, whatever the frame. What changes is how a turn is read. The unit number at the angle $\theta$ is $\cos(\theta, \pb - \theta)$ steps along the real axis and $\sin(\theta, \pb - \theta)$ steps of length one along the Composer axis. And the Composer Unit is now an exponential, $\Gp = |\Gp|\,e^{\pb\Jp}$: the spiral of its powers in \Cref{thm:powers} is de Moivre's formula, and the Rule of the Square is its second step.
+\end{plainwords}
+
+\incomplex At $\pb = \pi/2$: $e^{i\theta} = \cos\theta + i\sin\theta$, $z = |z|e^{i\alpha}$, $i = e^{i\pi/2}$ and $e^{i\pi} + 1 = 0$; de Moivre's formula $(\cos\theta + i\sin\theta)^n = \cos n\theta + i\sin n\theta$; and the powers $i^n = \cos(n\pi/2) + i\sin(n\pi/2)$, with the step rule $i^{n+1} = -i^{n-1}$: the cycle of four of Remark~\ref{rem:classical-case}.
+
+% keep the worked example whole: break the page here if fewer than 13 lines are left
+\gnkeep{13}
+\begin{workedexample}[Worked example: the cube of the Composer Unit, three ways]
+At $79.86^\circ$, with $|\Gp| \approx 1.16043$:
+\begin{itemize}
+  \item \emph{By the step rule.} The Rule of the Square gives $\Gp^2 \approx -1.34661 + 0.40860\,\Gp$, and then $\Gp^3 = 0.40860\,\Gp^2 - 1.34661\,\Gp \approx -0.55022 - 1.17966\,\Gp$.
+  \item \emph{By \Cref{cor:gn-powers}.} $|\Gp|^3 \approx 1.56265$, $\sin 2\pb/\sin\pb = 2\cos\pb \approx 0.35211$ and $\sin 3\pb/\sin\pb \approx -0.87602$, so the real part is $-1.56265 \times 0.35211 \approx -0.55022$ and the Composer coordinate is $1.34661 \times (-0.87602) \approx -1.17966$.
+  \item \emph{On the page.} By \Cref{thm:powers}, $\Gp^3$ is the arrow of length $1.56265$ at $3 \times 79.86^\circ = 239.58^\circ$, whose tip lies $0.79122$ to the left of $0$ and $1.34753$ down. Read back in the leaning frame with Proposition~\ref{prop:gn-shadow-height}, these give the same two parts.
+\end{itemize}
+\end{workedexample}
+
+% keep the heading with the theorem that follows: break the page here if fewer than 18 lines are left
+\gnkeep{18}
+\subsection{Roots}\label{subsec:gn-roots}
+
+\begin{theorem}[Roots in a Relative Plane]\label{thm:gn-roots}
+Let $n \geq 1$ be an integer, and let $z \neq 0$ have the angle $\alpha$. The equation $w^n = z$ has exactly $n$ solutions in $\GNp$,
+\[
+w_k = |z|^{1/n}\,\bigl[\cos(\theta_k, \pb - \theta_k) + \sin(\theta_k, \pb - \theta_k)\,\up\bigr] , \qquad \theta_k = \frac{\alpha + 2\pi k}{n} ,
+\]
+for $k = 0, 1, \dots, n - 1$. For $z = 1$ they are the \emph{$n$-th roots of unity}, with $\theta_k = 2\pi k/n$. On the page these are the corners of a regular polygon with $n$ sides inside the circle of radius $1$; in the chart of the two parts they lie on the ring of magnitude $1$ (\Cref{thm:ellipse}).
+\end{theorem}
+
+\begin{proof}
+By \Cref{thm:gn-de-moivre}, $w_k^n = |z|\,e^{(\alpha + 2\pi k)\Jp} = |z|\,e^{\alpha\Jp} = z$, since a full turn changes nothing: the $\pi$-addition identities of Appendix~\ref{app:general-sinus}, used twice, give $\cos(\theta + 2\pi, \pb - \theta - 2\pi) = \cos(\theta, \pb - \theta)$, and the same for the sine. The angles $\theta_k$ differ by less than a full turn, so the $n$ numbers are different. There are no others: if $w^n = z$, then $|w| = |z|^{1/n}$, and $n$ times the angle of $w$ is $\alpha$ up to whole turns.
+\end{proof}
+
+\begin{corollary}[The Square Root of the Composer Unit]\label{cor:gn-sqrt}
+The two square roots of the Composer Unit are
+\[
+\pm\frac{\sqrt{|\Gp|}}{2\cos(\pb/2)}\,\bigl(1 + \up\bigr) .
+\]
+They lie on the line of equal parts: the root with the plus sign on the ray $\alpha = \pb/2$ (Remark~\ref{rem:special-triangles}), the other on the opposite ray, $\alpha = \pb/2 + \pi$.
+\end{corollary}
+
+\begin{proof}
+Take $z = \Gp$, with the magnitude $|\Gp|$ and the angle $\pb$, and $n = 2$. Then $\theta_0 = \pb/2$, and the isosceles case of Appendix~\ref{app:general-sinus}, $\sin(\theta, \theta) = \cos(\theta, \theta) = 1/(2\cos\theta)$, gives $\cos(\pb/2, \pb/2) = \sin(\pb/2, \pb/2) = 1/(2\cos(\pb/2))$. The root with $k = 1$ is the opposite number.
+\end{proof}
+
+\incomplex At $\pb = \pi/2$ the roots are $w_k = |z|^{1/n}e^{i(\alpha + 2\pi k)/n}$, the roots of unity are $e^{2\pi i k/n}$ (Appendix~\ref{app:complex}), and the square roots of $i$ are $\pm(1 + i)/\sqrt{2}$.
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{minipage}[b]{0.48\textwidth}
+\centering
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  \def\s{1.6}                                  % centimetres per unit of length
+  \draw[->, gray] ({-1.38*\s},0) -- ({1.45*\s},0);
+  \draw[gray, dashed] ({-0.21126*\s},{-1.18126*\s}) -- ({0.21126*\s},{1.18126*\s});
+  \draw[gray!45, densely dashed] (0,0) circle (\s);
+  \draw[gray!40] (0:\s) -- (60:\s) -- (120:\s) -- (180:\s) -- (240:\s) -- (300:\s) -- cycle;
+  % each root: its real part (dark red), then its Composer part (blue), at 79.86 degrees
+  \foreach \re/\ang in {0.34511/60, -0.65489/120, -0.34511/240, 0.65489/300} {
+    \draw[->, very thick, Maroon] (0,0) -- ({\re*\s},0);
+    \draw[->, very thick, RoyalBlue] ({\re*\s},0) -- (\ang:\s);
+  }
+  \foreach \ang/\k/\pos in {0/0/{above right}, 60/1/{above right}, 120/2/{above left}, 180/3/{above left}, 240/4/{below left}, 300/5/{below right}} {
+    \fill (\ang:\s) circle (1.6pt) node[\pos, inner sep=2pt] {$w_{\k}$};
+  }
+  \fill (0,0) circle (1.1pt);
+\end{tikzpicture}
+
+\smallskip
+{\small (a) on the page\par}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.48\textwidth}
+\centering
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  \def\s{1.6}
+  \draw[->, gray] ({-1.38*\s},0) -- ({1.45*\s},0) node[below left] {$a$};
+  \draw[->, gray] (0,{-1.25*\s}) -- (0,{1.3*\s}) node[below left] {$B$};
+  \draw[very thick, smooth, domain=0:360, samples=181, variable=\t]
+    plot ({\s*sin(79.86-\t)/sin(79.86)}, {\s*sin(\t)/sin(79.86)});
+  \foreach \t/\k/\pos in {0/0/{above right}, 60/1/{above right}, 120/2/{above left}, 180/3/{above left}, 240/4/{below left}, 300/5/{below right}} {
+    \fill ({\s*sin(79.86-\t)/sin(79.86)}, {\s*sin(\t)/sin(79.86)}) circle (1.6pt) node[\pos, inner sep=2pt] {$w_{\k}$};
+  }
+\end{tikzpicture}
+
+\smallskip
+{\small (b) in the chart of the two parts\par}
+\end{minipage}
+\caption[The sixth roots of unity in a relative plane]{The sixth roots of unity at $\pb = 79.86^\circ$ (\Cref{thm:gn-roots}). (a) On the page they are the corners of a regular hexagon in the circle of radius $1$. Each is reached by a walk along the real axis (dark red) and then in the direction of the Composer axis (blue; the axis itself is dashed): $w_1 = 0.34511 + 0.75814\,\Gp$, $w_2 = -0.65489 + 0.75814\,\Gp$, $w_3 = -1$, and $w_4 = -w_1$, $w_5 = -w_2$. (b) In the chart of the two parts, the real part $a$ across and the length $B = b\,|\Gp|$ of the Composer part up (\Cref{thm:ellipse}), the same six numbers lie on the ring of magnitude $1$, at equal steps of the studied angle.}
+\label{fig:gn-roots}
+\end{figure}
+
+% keep the worked example whole: break the page here if fewer than 14 lines are left; the page that
+% holds it is made two lines longer, so that its last two lines do not run over to the next page
+\gnkeep{14}
+\enlargethispage{2\baselineskip}
+\begin{workedexample}[Worked example: roots at $79.86^\circ$]
+\begin{itemize}
+  \item \emph{The square root of $\Gp$.} Here $\sqrt{|\Gp|} \approx 1.07723$ and $\cos(\pb/2) = \cos 39.93^\circ \approx 0.76683$, so
+  \[
+  \sqrt{\Gp} = \pm 0.70240\,(1 + \up) \approx \pm(0.70240 + 0.60529\,\Gp) .
+  \]
+  Squared with Proposition~\ref{prop:un-real-product}, $0.70240 + 0.60529\,\Gp$ gives the real part $0.70240^2 - 1.34661 \times 0.60529^2 \approx 0$ and the Composer coordinate $2 \times 0.70240 \times 0.60529 + 0.40860 \times 0.60529^2 \approx 0.85030 + 0.14970 = 1$: the number $\Gp$.
+  \item \emph{The sixth roots of unity} are, rounded, $1$, $0.34511 + 0.75814\,\Gp$, $-0.65489 + 0.75814\,\Gp$, $-1$, $-0.34511 - 0.75814\,\Gp$ and $0.65489 - 0.75814\,\Gp$ (\Cref{fig:gn-roots}). The two roots above the real axis have the same height, so they share the Composer coordinate $\sin 60^\circ/(|\Gp|\sin\pb) \approx 0.75814$, and their real parts differ by exactly $1$, the side of the hexagon.
+\end{itemize}
+\end{workedexample}
+
+% keep the heading with what follows: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+\subsection[The Parts beside Shadow and Height]{The Parts beside the Shadow and the Height}\label{subsec:gn-parts-beside}
+
+A General Number has two pairs of coordinates. Its two parts, the real part $\Re(z) = a$ and the Composer part $\Com(z) = b\Gp$ of Definition~\ref{def:gn-parts}, are counted in the leaning frame: the tip of $z$ slides back to the real axis along the Composer axis. Its shadow $\Sh(z)$ and its height $\Ht(z)$ are counted in the upright frame: the tip drops straight down (Definition~\ref{def:shadow} and Proposition~\ref{prop:gn-shadow-height}). \Cref{thm:shadow-product} and Proposition~\ref{prop:un-real-product} read a product in both ways on the real axis. This last part does the same for each operation of the section: it gives the law for the two parts beside the law for the shadow and the height.
+
+% keep what follows together: break the page here if fewer than 16 lines are left
+\gnkeep{16}
+\begin{proposition}[From One Pair to the Other]\label{prop:gn-parts-readings}
+In a true relative plane $\GNp$:
+\begin{enumerate}
+  \item the parts follow from the shadow and the height, and back:
+  \begin{align*}
+  \Re(z) &= \Sh(z) - \Ht(z)\cot\pb , & \Com(z) &= \frac{\Ht(z)}{|\Gp|\sin\pb}\,\Gp , \\
+  \Sh(z) &= \Re(z) + b\,|\Gp|\cos\pb , & \Ht(z) &= b\,|\Gp|\sin\pb ;
+  \end{align*}
+  \item all four are additive and keep real factors: $\Re(z_1 + z_2) = \Re(z_1) + \Re(z_2)$ and $\Re(kz) = k\,\Re(z)$ for every real number $k$, and the same holds for $\Com$, $\Sh$ and $\Ht$;
+  \item the conjugate has the same coordinates on the mirrored unit, $\bar{z} = a + b\,\overline{\Gp}$, and the four are read from $z$ and $\bar{z}$:
+  \begin{align*}
+  \Re(z) &= \frac{\Gp\bar{z} - \overline{\Gp}z}{\Gp - \overline{\Gp}} , & \Com(z) &= \frac{\Gp\,(z - \bar{z})}{\Gp - \overline{\Gp}} , \\
+  \Sh(z) &= \frac{z + \bar{z}}{2} , & \Ht(z)\,\Jp &= \frac{z - \bar{z}}{2} ,
+  \end{align*}
+  where $\Gp - \overline{\Gp} = 2|\Gp|\sin\pb\;\Jp$;
+  \item $z$ is a real number exactly when $\bar{z} = z$, and a pure Composer number exactly when $\Gp\bar{z} = \overline{\Gp}z$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) is Proposition~\ref{prop:gn-shadow-height}, with $\Re(z) = a$ and $\Com(z) = b\Gp$. (2) The real part and the Composer coordinate of a sum are the sums of those of its terms (Definition~\ref{def:gn-product}), and those of $kz$ are $ka$ and $kb$; the four formulas of (1) are built from $a$ and $b$ with fixed factors. (3) The mirror leaves the real numbers in place and carries sums and products to sums and products (\Cref{thm:gn-conjugate}), so $\bar{z} = a + b\,\overline{\Gp}$; with $\overline{\Gp} = 2|\Gp|\cos\pb - \Gp$, from (5) of that theorem, this is Definition~\ref{def:gn-conjugate} again. Hence $z - \bar{z} = b\,(\Gp - \overline{\Gp})$, and $\Gp - \overline{\Gp} = 2\bigl(\Gp - |\Gp|\cos\pb\bigr) = 2|\Gp|\sin\pb\;\Jp$ by Definition~\ref{def:gn-turning-unit}, which is not zero. Dividing by it gives $b$, so the Composer part $b\Gp$ is the second formula, and $\Re(z) = z - \Com(z)$ gives the first. The last two are (3) of \Cref{thm:gn-conjugate} and Proposition~\ref{prop:gn-shadow-height}. (4) By (3), $\bar{z} = z$ exactly when $b = 0$, and $\Re(z) = 0$ exactly when $\Gp\bar{z} = \overline{\Gp}z$.
+\end{proof}
+
+\incomplex At $\pb = \pi/2$, $\Gp = \Jp = i$ and $\overline{\Gp} = -i$, and the two pairs are one: the real part and the shadow are $\operatorname{Re} z$, and the Composer part is $i\operatorname{Im} z$, the height times $i$. Then (3) gives the formulas $\operatorname{Re} z = (z + \bar{z})/2$ and $i\operatorname{Im} z = (z - \bar{z})/2$, each of them twice, and (4) says that $z$ is real when $\bar{z} = z$ and imaginary when $\bar{z} = -z$.
+
+% keep what follows together: break the page here if fewer than 18 lines are left
+\gnkeep{18}
+\begin{theorem}[The Parts of a Product]\label{thm:gn-parts-product}
+In a true relative plane $\GNp$:
+\begin{enumerate}
+  \item the parts of a product are
+  \begin{align*}
+  \Re(z_1z_2) &= \Re(z_1)\Re(z_2) - |\Gp|^2 b_1b_2 , \\
+  \Com(z_1z_2) &= \Sh(z_1)\Com(z_2) + \Sh(z_2)\Com(z_1) ;
+  \end{align*}
+  \item its shadow and its height are
+  \begin{align*}
+  \Sh(z_1z_2) &= \Sh(z_1)\Sh(z_2) - \Ht(z_1)\Ht(z_2) , \\
+  \Ht(z_1z_2) &= \Sh(z_1)\Ht(z_2) + \Sh(z_2)\Ht(z_1) ;
+  \end{align*}
+  \item for a square, in particular,
+  \begin{align*}
+  \Re(z^2) &= \Re(z)^2 - |\Gp|^2 b^2 , & \Com(z^2) &= 2\Sh(z)\Com(z) , \\
+  \Sh(z^2) &= \Sh(z)^2 - \Ht(z)^2 , & \Ht(z^2) &= 2\Sh(z)\Ht(z) .
+  \end{align*}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) The real part is Proposition~\ref{prop:un-real-product}. By the same proposition, and with $\Sh(z_k) = a_k + b_k|\Gp|\cos\pb$, the Composer coordinate of $z_1z_2$ is
+\[
+a_1b_2 + b_1a_2 + 2|\Gp|\cos\pb\;b_1b_2 = \Sh(z_1)\,b_2 + \Sh(z_2)\,b_1 ,
+\]
+and multiplying by $\Gp$ gives the Composer part. (2) Write both numbers in the upright frame, $z_k = \Sh(z_k) + \Ht(z_k)\,\Jp$ (Proposition~\ref{prop:gn-shadow-height}), and multiply out with $\Jp^2 = -1$ (\Cref{thm:gn-turning-unit}):
+\begin{align*}
+z_1z_2 &= \bigl[\Sh(z_1)\Sh(z_2) - \Ht(z_1)\Ht(z_2)\bigr] \\
+&\quad + \bigl[\Sh(z_1)\Ht(z_2) + \Sh(z_2)\Ht(z_1)\bigr]\,\Jp .
+\end{align*}
+Since $\Jp$ is the arrow of length $1$ straight up, a number $x + y\Jp$ with real $x$ and $y$ lies $x$ across and $y$ up, so the two brackets are the shadow and the height. (3) Take $z_1 = z_2 = z$.
+\end{proof}
+
+\incomplex At $\pb = \pi/2$ the two pairs are one: $|\Gp| = 1$, the real part and the shadow are $\operatorname{Re} z_k$, and $b_k = \Ht(z_k) = \operatorname{Im} z_k$, so (1) and (2) are the same two laws: $\operatorname{Re}(z_1z_2) = \operatorname{Re} z_1\operatorname{Re} z_2 - \operatorname{Im} z_1\operatorname{Im} z_2$ and $\operatorname{Im}(z_1z_2) = \operatorname{Re} z_1\operatorname{Im} z_2 + \operatorname{Re} z_2\operatorname{Im} z_1$. For a square, $\operatorname{Re}(z^2) = a^2 - b^2$ and $\operatorname{Im}(z^2) = 2ab$.
+
+\begin{plainwords}
+The two halves of (1) draw on different places. The real part of a product needs only the parts: the product of the real parts, less $|\Gp|^2$ times the product of the Composer coordinates, with neither $\cos\pb$ nor $\sin\pb$ in it (Proposition~\ref{prop:un-real-product}). The Composer part needs the shadows. It is the law of the height in (2), carried onto the Composer axis by the factor $\Gp/(|\Gp|\sin\pb)$ of Proposition~\ref{prop:gn-parts-readings}. For a square the rule is short: the Composer part of $z^2$ is the Composer part of $z$, stretched by twice the shadow of $z$ (\Cref{fig:gn-parts-laws}(b)).
+\end{plainwords}
+
+% keep what follows together: break the page here if fewer than 22 lines are left
+\gnkeep{22}
+\begin{proposition}[The Parts of the Conjugate, the Inverse and the Quotient]\label{prop:gn-parts-conjugate}
+Let $z \neq 0$ and $z_2 \neq 0$.
+\begin{enumerate}
+  \item The conjugate has
+  \begin{align*}
+  \Re(\bar{z}) &= 2\Sh(z) - \Re(z) , & \Com(\bar{z}) &= -\Com(z) , \\
+  \Sh(\bar{z}) &= \Sh(z) , & \Ht(\bar{z}) &= -\Ht(z) ,
+  \end{align*}
+  so the shadow of $z$ lies halfway between the real parts of $z$ and $\bar{z}$: $\Sh(z) = \bigl[\Re(z) + \Re(\bar{z})\bigr]/2$.
+  \item The inverse has
+  \begin{align*}
+  \Re(1/z) &= \frac{2\Sh(z) - \Re(z)}{|z|^2} , & \Com(1/z) &= -\frac{\Com(z)}{|z|^2} , \\
+  \Sh(1/z) &= \frac{\Sh(z)}{|z|^2} , & \Ht(1/z) &= -\frac{\Ht(z)}{|z|^2} .
+  \end{align*}
+  \item The quotient has
+  \begin{align*}
+  \Re(z_1/z_2) &= \bigl[\Re(z_1)\Re(\bar{z}_2) + |\Gp|^2 b_1b_2\bigr]/|z_2|^2 , \\
+  \Com(z_1/z_2) &= \bigl[\Sh(z_2)\Com(z_1) - \Sh(z_1)\Com(z_2)\bigr]/|z_2|^2 , \\
+  \Sh(z_1/z_2) &= \bigl[\Sh(z_1)\Sh(z_2) + \Ht(z_1)\Ht(z_2)\bigr]/|z_2|^2 , \\
+  \Ht(z_1/z_2) &= \bigl[\Sh(z_2)\Ht(z_1) - \Sh(z_1)\Ht(z_2)\bigr]/|z_2|^2 .
+  \end{align*}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) By Definition~\ref{def:gn-conjugate}, $\Re(\bar{z}) = a + 2b|\Gp|\cos\pb = 2\bigl(a + b|\Gp|\cos\pb\bigr) - a = 2\Sh(z) - \Re(z)$, and $\Com(\bar{z}) = -b\Gp$. The mirror keeps the shadow and turns the height around (\Cref{thm:gn-conjugate}). (2) By \Cref{thm:gn-division}, $1/z = \bar{z}/|z|^2$, a real multiple of $\bar{z}$; apply (1) here and (2) of Proposition~\ref{prop:gn-parts-readings}. (3) By the same theorem, $z_1/z_2 = z_1\bar{z}_2/|z_2|^2$. Apply \Cref{thm:gn-parts-product} to $z_1$ and $\bar{z}_2$, whose Composer coordinate is $-b_2$ and whose Composer part, shadow and height are given by (1).
+\end{proof}
+
+On the page, (1) is an isosceles triangle (\Cref{fig:gn-parts-laws}(a)). The walk of $z$ leaves the real axis at $\Re(z)$ and climbs along the Composer axis. The walk of $\bar{z}$ leaves it at $\Re(\bar{z})$ and goes down along the same axis, by as many steps; mirrored back into the upper half, this leg also ends at $z$. The two legs are equally long, $|b|\,|\Gp|$, so $z$ is the top of an isosceles triangle on the real axis, and the foot of its height, the shadow, is the midpoint of the base.
+
+\incomplex At $\pb = \pi/2$ the real part and the shadow are one, so $\Re(\bar{z}) = \Re(z)$: the two legs of (1) stand on the same point, and the triangle closes up into the upright segment under $z$. The inverse and the quotient are those of Appendix~\ref{app:complex}, with $\operatorname{Re}(1/z) = a/(a^2 + b^2)$ and $\operatorname{Im}(1/z) = -b/(a^2 + b^2)$.
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{minipage}[b]{0.44\textwidth}
+\centering
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  \def\s{3.2}                                  % centimetres per unit of length
+  \def\gx{0.20430}\def\gy{1.14231}             % one step of the Composer Unit at 79.86 degrees
+  % a piece of the real axis around the base; x is measured from the real part 1 of z
+  \draw[->, gray] ({-0.25*\s},0) -- ({0.68*\s},0);
+  % the leg of z along the Composer axis, from Re(z) = 1 up to z
+  \draw[->, very thick, RoyalBlue] (0,0) -- ({\gx*\s},{\gy*\s});
+  % the leg of conj(z), from Re(conj z) = 1.40860, mirrored back up to z
+  \draw[->, very thick, RoyalBlue!50, densely dashed] ({0.40860*\s},0) -- ({\gx*\s},{\gy*\s});
+  % the height of z, down to its shadow
+  \draw[densely dashed, gray!70!black] ({\gx*\s},{\gy*\s}) -- ({\gx*\s},0);
+  \fill ({\gx*\s},{\gy*\s}) circle (1.6pt) node[above] {$z = 1 + \Gp$};
+  \node[RoyalBlue!80!black, anchor=east] at ({0.5*\gx*\s-0.08},{0.5*\gy*\s}) {$\Com(z)$};
+  \node[RoyalBlue!60!black, anchor=west, align=left] at ({0.30645*\s+0.08},{0.5*\gy*\s}) {mirror image\\ of $\Com(\bar{z})$};
+  % the three points on the real axis
+  \fill[Maroon] (0,0) circle (1.5pt);
+  \fill[gray!70!black] ({\gx*\s},0) circle (1.5pt);
+  \fill[Maroon!55] ({0.40860*\s},0) circle (1.5pt);
+  \node[Maroon, anchor=north east] at (0.04,-0.05) {$\Re(z) = 1$};
+  \node[Maroon!75!black, anchor=north west] at ({0.40860*\s-0.04},-0.05) {$\Re(\bar{z}) = 1.40860$};
+  \draw[gray!60] ({\gx*\s},-0.06) -- ({\gx*\s},-0.42);
+  \node[gray!70!black, anchor=north] at ({\gx*\s},-0.42) {$\Sh(z) = 1.20430$};
+\end{tikzpicture}
+
+\smallskip
+{\small (a) the conjugate\par}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.53\textwidth}
+\centering
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  \def\s{1.4}                                  % centimetres per unit of length
+  \def\gx{0.20430}\def\gy{1.14231}
+  \draw[->, gray] ({-0.62*\s},0) -- ({1.62*\s},0);
+  % z = 1 + G: 1 along the real axis, then one step of the Composer Unit
+  \draw[->, very thick, Maroon] (0,0.03) -- ({1*\s},0.03);
+  \draw[->, very thick, RoyalBlue] ({1*\s},0) -- ({(1+\gx)*\s},{\gy*\s});
+  \fill ({(1+\gx)*\s},{\gy*\s}) circle (1.6pt) node[right] {$z$};
+  \node[Maroon, above] at ({0.5*\s},0.05) {$1$};
+  % the shadow of z
+  \draw[densely dashed, gray!70!black] ({(1+\gx)*\s},{\gy*\s}) -- ({(1+\gx)*\s},0);
+  \node[gray!70!black, below] at ({(1+\gx)*\s},-0.03) {$\Sh(z) = 1.20430$};
+  % z^2 = -0.34661 + 2.40860 G: -0.34661 along the real axis, then 2.40860 steps of the Composer Unit
+  \draw[->, very thick, Maroon] (0,-0.03) -- ({-0.34661*\s},-0.03);
+  \draw[->, very thick, RoyalBlue] ({-0.34661*\s},0) -- ({0.14547*\s},{2.75136*\s});
+  \fill ({0.14547*\s},{2.75136*\s}) circle (1.6pt) node[right] {$z^2$};
+  \node[Maroon, anchor=south east] at ({-0.34661*\s-0.02},0.04) {$-0.34661$};
+  \node[RoyalBlue!80!black, anchor=east, align=right] at ({-0.17*\s},{1.45*\s}) {$2.40860$ steps of $\Gp$,\\ $2 \times 1.20430$};
+  \fill (0,0) circle (1.2pt);
+\end{tikzpicture}
+
+\smallskip
+{\small (b) the square\par}
+\end{minipage}
+\caption[Two laws of the parts]{Two laws of the parts at $\pb = 79.86^\circ$, for $z = 1 + \Gp$ with $|\Gp| = 1.16043$. (a) The conjugate (Proposition~\ref{prop:gn-parts-conjugate}). The leg of $z$ along the Composer axis (blue) and the mirror image of the leg of $\bar{z}$ (dashed; the walk of $\bar{z}$ itself is drawn in \Cref{fig:gn-conjugate}) are both $1.16043$ long. So $z$ is the top of an isosceles triangle, and its shadow, $1.20430$, lies halfway between the real parts $1$ and $1.40860$ of $z$ and $\bar{z}$. (b) The square (\Cref{thm:gn-parts-product}). The walk of $z^2 = -0.34661 + 2.40860\,\Gp$ goes $-0.34661$ along the real axis (dark red) and then $2.40860$ steps of the Composer Unit (blue): twice the shadow of $z$, times the one step of the Composer part of $z$.}
+\label{fig:gn-parts-laws}
+\end{figure}
+
+% keep the start of the corollary together: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+\begin{corollary}[Turning by the Two Units]\label{cor:gn-parts-turns}
+In a true relative plane $\GNp$:
+\begin{enumerate}
+  \item a quarter turn, the product by the Turning Unit, gives
+  \begin{align*}
+  \Re(\Jp z) &= -\Ht(z) - \Sh(z)\cot\pb , \\
+  \Com(\Jp z) &= \frac{\Sh(z)}{|\Gp|\sin\pb}\,\Gp , \\
+  \Sh(\Jp z) &= -\Ht(z) , \qquad \Ht(\Jp z) = \Sh(z) ;
+  \end{align*}
+  \item the product by the Composer Unit gives
+  \begin{align*}
+  \Re(\Gp z) &= -|\Gp|^2 b , \qquad \Com(\Gp z) = \Re(\bar{z})\,\Gp , \\
+  \Sh(\Gp z) &= |\Gp|\bigl(\Sh(z)\cos\pb - \Ht(z)\sin\pb\bigr) , \\
+  \Ht(\Gp z) &= |\Gp|\bigl(\Sh(z)\sin\pb + \Ht(z)\cos\pb\bigr) .
+  \end{align*}
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{thm:gn-parts-product} with $z_1 = \Jp$ or $z_1 = \Gp$, and $z_2 = z$. (1) The Turning Unit has the shadow $0$ and the height $1$ (\Cref{thm:gn-turning-unit}), so (2) of the theorem gives $\Sh(\Jp z) = -\Ht(z)$ and $\Ht(\Jp z) = \Sh(z)$, and Proposition~\ref{prop:gn-parts-readings} turns them into the parts. (2) The Composer Unit has the real part $0$, the Composer coordinate $1$, the shadow $|\Gp|\cos\pb$ and the height $|\Gp|\sin\pb$. So $\Re(\Gp z) = -|\Gp|^2 b$, and $\Com(\Gp z) = |\Gp|\cos\pb\;b\Gp + \Sh(z)\,\Gp = \bigl(a + 2b|\Gp|\cos\pb\bigr)\Gp$, whose coordinate is $\Re(\bar{z})$ by Proposition~\ref{prop:gn-parts-conjugate}. The shadow and the height come from (2) of the theorem.
+\end{proof}
+
+Multiplying by $z$ sends $\Gp$ to $\Gp z = -|\Gp|^2 b + \Re(\bar{z})\,\Gp$; this pair of parts is the second column of the matrix of $z$ in Appendix~\ref{app:gn-algebra}.
+
+\incomplex At $\pb = \pi/2$ both units are $i$, and (1) and (2) both say that $\operatorname{Re}(iz) = -\operatorname{Im} z$ and $\operatorname{Im}(iz) = \operatorname{Re} z$.
+
+% keep what follows together: break the page here if fewer than 16 lines are left
+\gnkeep{16}
+\begin{proposition}[The Signed Area]\label{prop:gn-signed-area}
+In a true relative plane $\GNp$,
+\begin{align*}
+\Com(\bar{z}_1z_2) &= (a_1b_2 - b_1a_2)\,\Gp , \\
+\Ht(\bar{z}_1z_2) &= \Sh(z_1)\Ht(z_2) - \Ht(z_1)\Sh(z_2) , \\
+\Re(\bar{z}_1z_2) &= \Re(\bar{z}_1)\Re(z_2) + |\Gp|^2 b_1b_2 , \\
+\Sh(\bar{z}_1z_2) &= \Sh(z_1)\Sh(z_2) + \Ht(z_1)\Ht(z_2) .
+\end{align*}
+The height $\Ht(\bar{z}_1z_2) = (a_1b_2 - b_1a_2)\,|\Gp|\sin\pb$ is the signed area of the parallelogram on the arrows $z_1$ and $z_2$, positive when $z_2$ lies counterclockwise from $z_1$, and the shadow $\Sh(\bar{z}_1z_2)$ is $|z_1|\,|z_2|$ times the cosine of the angle between them. So $z_1$ and $z_2$ lie on one line through $0$ exactly when $a_1b_2 = b_1a_2$, and at a right angle exactly when $\Sh(\bar{z}_1z_2) = 0$.
+\end{proposition}
+
+\begin{proof}
+Apply \Cref{thm:gn-parts-product} to $\bar{z}_1$ and $z_2$. By Proposition~\ref{prop:gn-parts-conjugate}, $\bar{z}_1$ has the Composer coordinate $-b_1$, the shadow $\Sh(z_1)$ and the height $-\Ht(z_1)$, so the Composer coordinate of $\bar{z}_1z_2$ is $\Sh(z_1)\,b_2 - \Sh(z_2)\,b_1$. With $\Sh(z_k) = a_k + b_k|\Gp|\cos\pb$ the two terms in $\cos\pb$ cancel,
+\[
+\Sh(z_1)\,b_2 - \Sh(z_2)\,b_1 = a_1b_2 - b_1a_2 ,
+\]
+and the other three formulas follow in the same way; Proposition~\ref{prop:gn-parts-readings} turns the Composer part into the height. On the page, $z_k$ lies $\Sh(z_k)$ across and $\Ht(z_k)$ up. For two arrows $(x_1, y_1)$ and $(x_2, y_2)$ the number $x_1y_2 - y_1x_2$ is the signed area of their parallelogram, and $x_1x_2 + y_1y_2$ is the product of their lengths and the cosine of their angle.
+\end{proof}
+
+Two laws of the parts carry neither $\cos\pb$ nor $\sin\pb$: the real part of a product, $\Re(z_1z_2) = a_1a_2 - |\Gp|^2b_1b_2$ (Proposition~\ref{prop:un-real-product}), where the angle enters only through the length $|\Gp|$, and the Composer part of $\bar{z}_1z_2$, which is minus the Composer part of the top $z_1\bar{z}_2$ of a quotient (\Cref{thm:gn-division}). The second has a plain reason. The parallelogram on $1$ and $\Gp$, the cell of the leaning frame, has the area $|\Gp|\sin\pb$, and the parallelogram on $z_1$ and $z_2$ holds $a_1b_2 - b_1a_2$ such cells, counted with their sign: the determinant of the two pairs of coordinates. The angle sits in the size of the cell, not in the count of cells.
+
+\incomplex At $\pb = \pi/2$, $\bar{z}_1z_2 = (a_1a_2 + b_1b_2) + (a_1b_2 - b_1a_2)\,i$: its real part is the dot product of the two arrows, its imaginary part is their signed area, and the cell of the frame is the unit square.
+
+% keep what follows together: break the page here if fewer than 16 lines are left
+\gnkeep{16}
+\begin{corollary}[Two Trigonometries]\label{cor:gn-two-trig}
+Let $z \neq 0$ have the angle $\alpha$, and write $C_\theta = \cos(\theta, \pb - \theta)$ and $S_\theta = \sin(\theta, \pb - \theta)$, as in \Cref{subsec:gn-turning}. For every integer $n$,
+\begin{align*}
+\Re(z^n) &= |z|^n\,C_{n\alpha} , & \Com(z^n) &= |z|^n\,S_{n\alpha}\,\up , \\
+\Sh(z^n) &= |z|^n\cos n\alpha , & \Ht(z^n) &= |z|^n\sin n\alpha ,
+\end{align*}
+and for every General Number $z$,
+\begin{align*}
+\Re(e^z) &= e^{\Sh(z)}\,C_{\Ht(z)} , & \Com(e^z) &= e^{\Sh(z)}\,S_{\Ht(z)}\,\up , \\
+\Sh(e^z) &= e^{\Sh(z)}\cos\Ht(z) , & \Ht(e^z) &= e^{\Sh(z)}\sin\Ht(z) .
+\end{align*}
+The parts turn with the General Sinus, and the shadow and the height with the ordinary sine and cosine. For $n = 1$ the first line is the polar form of \Cref{thm:gn-polar}.
+\end{corollary}
+
+\begin{proof}
+By \Cref{thm:gn-euler}, $z = |z|\,e^{\alpha\Jp}$, so $z^n = |z|^n e^{n\alpha\Jp}$. That theorem writes $e^{\theta\Jp}$ in the leaning frame as $C_\theta + S_\theta\,\up$, which gives the parts, and its proof writes it in the upright frame as $\cos\theta + \Jp\sin\theta$, which gives the shadow and the height; take $\theta = n\alpha$. For the exponential, $z = \Sh(z) + \Ht(z)\,\Jp$ (Proposition~\ref{prop:gn-shadow-height}), so $e^z = e^{\Sh(z)}e^{\Ht(z)\Jp}$, and the same two forms of $e^{\theta\Jp}$, with $\theta = \Ht(z)$, give the four formulas.
+\end{proof}
+
+\incomplex At $\pb = \pi/2$ the General Sinus is the ordinary sine and cosine (Corollary~\ref{cor:classical}), and the two lines of each pair are one: $\operatorname{Re}(z^n) = |z|^n\cos n\alpha$ and $\operatorname{Im}(z^n) = |z|^n\sin n\alpha$, and $\operatorname{Re}(e^z) = e^a\cos b$ and $\operatorname{Im}(e^z) = e^a\sin b$.
+
+\begin{remark}[Parts Longer than the Number]\label{rem:gn-long-parts}
+The shadow and the height of a number are never longer than the number: $|\Sh(z)| \le |z|$ and $|\Ht(z)| \le |z|$. Its parts can be. With $n = 1$, \Cref{cor:gn-two-trig} gives
+\[
+|\Re(z)| = \frac{|z|\,|\sin(\pb - \alpha)|}{\sin\pb} \le \frac{|z|}{\sin\pb} , \quad |\Com(z)| = \frac{|z|\,|\sin\alpha|}{\sin\pb} \le \frac{|z|}{\sin\pb} .
+\]
+The real part is longest for a number at a right angle to the Composer axis, and the Composer part for a number at a right angle to the real axis, such as the Turning Unit: its length is $1$, and its Composer part, $\Gp/(|\Gp|\sin\pb)$, is $1/\sin\pb$ long. In the triangle of the walk, the corner between the two parts has the angle $\pi - \pb$ or $\pb$ (Remark~\ref{rem:corner}), and the law of sines gives the same bound. Only at $\pb = \pi/2$ is a part never longer than its number; at $79.86^\circ$ it can be longer by at most $1/\sin\pb - 1 \approx 1.6$ percent.
+\end{remark}
+
+% keep the worked example whole: break the page here if fewer than 38 lines are left
+\gnkeep{38}
+\begin{workedexample}[Worked example: the parts of $1 + \Gp$ and its relatives at $79.86^\circ$]
+Take $z = 1 + \Gp$ again, with $|\Gp| \approx 1.16043$, $|\Gp|^2 \approx 1.34661$, $\cot\pb \approx 0.17885$ and $1/(|\Gp|\sin\pb) \approx 0.87542$. Its parts are $\Re(z) = 1$ and $\Com(z) = \Gp$, its shadow is $1.20430$ and its height is $1.14231$.
+\begin{itemize}
+  \item \emph{The conjugate.} $\Re(\bar{z}) = 2 \times 1.20430 - 1 = 1.40860$, the real part found in \Cref{subsec:gn-division}, and the shadow $1.20430$ lies halfway between $1$ and $1.40860$ (\Cref{fig:gn-parts-laws}(a)).
+  \item \emph{The square.} \Cref{thm:gn-parts-product} gives $\Re(z^2) = 1 - 1.34661 = -0.34661$ and $\Com(z^2) = 2 \times 1.20430\,\Gp = 2.40860\,\Gp$. The same theorem gives the shadow $1.20430^2 - 1.14231^2 \approx 0.14547$ and the height $2 \times 1.20430 \times 1.14231 \approx 2.7514$, and the walk of $z^2$ ends there: $-0.34661 + 2.40860 \times 0.20430 \approx 0.14547$ across and $2.40860 \times 1.14231 \approx 2.7514$ up.
+  \item \emph{The inverse.} $\Re(1/z) = 1.40860/2.75521 \approx 0.51125$ and $\Com(1/z) = -\Gp/2.75521 \approx -0.36295\,\Gp$, the inverse of \Cref{subsec:gn-division}. Its shadow is $1.20430/2.75521 \approx 0.43710$ and its height is $-1.14231/2.75521 \approx -0.41460$.
+  \item \emph{The two turns.} \Cref{cor:gn-parts-turns} gives $\Gp z \approx -1.34661 + 1.40860\,\Gp$, whose Composer coordinate is $\Re(\bar{z})$, and $\Jp z \approx (-1.14231 - 1.20430 \times 0.17885) + 1.20430 \times 0.87542\,\Gp \approx -1.35770 + 1.05427\,\Gp$. These are the products found in \Cref{subsec:gn-turning,subsec:gn-turning-unit}.
+  \item \emph{An area.} The top of the quotient $(2 - \Gp)/(1 + \Gp)$ in \Cref{subsec:gn-division} is $\bar{z}\,(2 - \Gp) \approx 1.47059 - 3\,\Gp$. Its Composer coordinate is $1 \times (-1) - 1 \times 2 = -3$, with no angle in it, and its height is $-3 \times 1.14231 = -3.42693$. So the parallelogram on $1 + \Gp$ and $2 - \Gp$ has the area $3.42693$, and $2 - \Gp$ lies clockwise from $1 + \Gp$.
+  \item \emph{A long part.} The Turning Unit $\Jp \approx -0.17885 + 0.87542\,\Gp$ has the length $1$, but its Composer part is $1/\sin\pb \approx 1.0159$ long.
+\end{itemize}
+\end{workedexample}
+
+% keep the closing box whole: break the page here if fewer than 18 lines are left
+\gnkeep{18}
+\begin{plainwords}[What the algebra adds]
+Every rule of Appendix~\ref{app:complex} now has its counterpart in a relative plane, and each counterpart turns into the old rule when the Composer axis stands upright. Three changes run through them all. The conjugate keeps the mirror but no longer keeps the real part. The imaginary unit splits into two: the Composer Unit, the second step of the frame, and the Turning Unit, the quarter turn. And the ordinary sine and cosine give way to the General Sinus, with its two angles adding up to $\pb$, which brings the term $2\cos\pb$ into the addition formulas. Every result can also be read in two frames. Its shadow and its height obey the complex laws word for word; its real part and its Composer part carry the lean, and two of their laws, for $\Re(z_1z_2)$ and for $\Com(\bar{z}_1z_2)$, carry neither $\cos\pb$ nor $\sin\pb$. Appendix~\ref{app:gn-algebra} lists every law of this section beside its complex case, together with a few more: the exponential and the logarithm of a General Number, its matrix, and the passage from one relative plane to another.
+\end{plainwords}

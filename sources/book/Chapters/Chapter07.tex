@@ -1,0 +1,589 @@
+% the statement type of an empirical law, numbered with the theorems (first used in this chapter)
+\makeatletter
+\@ifundefined{law}{\theoremstyle{definition}\newtheorem{law}[theorem]{Law}\crefname{law}{Law}{Laws}\Crefname{law}{Law}{Laws}}{}
+\makeatother
+% the two closure loops
+\providecommand{\Lop}{\mathcal{L}}
+%************************************************
+\chapter{The Closure Law}\label{ch:closure}
+%************************************************
+
+\chapterlead{Six neighbouring nuclei, added with alternating signs, close on themselves: their charge parts cancel exactly, and their binding almost. From that one fact the mass of a nucleus can be read off its neighbours, and the energy of a fusion can be known before anyone weighs it.}
+
+\scene{Cardiff, August 1920}
+
+On 24 August 1920 the British Association for the Advancement of Science met in Cardiff, and Arthur Stanley Eddington opened its section of mathematics and physics with an address on the inside of the stars. Eddington was thirty-seven, Plumian Professor of Astronomy at Cambridge, and a year earlier he had photographed the eclipse of the Sun from the island of Pr\'incipe to test Einstein's theory of gravity. His question in Cardiff was older: what keeps the stars shining? If the Sun drew its heat from its slow contraction under gravity, as Kelvin had computed, it could not be much older than a few tens of millions of years, and geology needed far more. \enquote{Lord Kelvin's date of the creation of the sun,} Eddington said, \enquote{is treated with no more respect than Archbishop Ussher's.}
+
+His answer came from another laboratory of his own university. At the Cavendish, Francis Aston had just weighed the atoms one by one with his new spectrograph (\Cref{sec:sm-where}), and Eddington read the result to his audience: \enquote{the mass of the helium atom is less than the sum of the masses of the four hydrogen atoms which enter into it.} \enquote{There is a loss of mass in the synthesis amounting to about 1 part in 120,} he went on, \enquote{the atomic weight of hydrogen being 1$\cdot$008 and that of helium just 4.} If only five per cent of a star's mass were hydrogen, slowly built up into heavier elements, the energy set free would more than suffice, and \enquote{we need look no further for the source of a star's energy.} He saw at once what else it meant. It would bring nearer, he said, \enquote{our dream of controlling this latent power for the well-being of the human race}, and he added: \enquote{or for its suicide} \citep{Eddington1920}.
+
+Today's masses give the same picture with more digits. Four hydrogen atoms weigh $4 \times 1.007825 = 4.031300$ u, and one helium atom $4.002603$ u; the loss is $0.028697$ u, seven parts in a thousand, or $26.73$ MeV.
+
+\bigskip
+
+Eddington could name the loss because Aston had weighed both sides of the reaction. Chapter~\ref{ch:standard-model} is in the same position. It gives every body of ordinary matter a card and a place in one frame, but it takes every mass from a table: it \enquote{moves no measured mass or charge} (\Cref{subsec:sm-is-not}). This chapter asks a question that Eddington could not answer: can the mass lost in a fusion be known before it is weighed?
+
+The answer is yes, within a stated error, whenever the product has measured neighbours. The key is a closed loop of six neighbouring nuclei, added with alternating signs. Around such a loop the charge parts of the cosmic masses cancel exactly, the protons and neutrons cancel exactly, and so do whole families of binding terms; the rest of the binding, where it varies smoothly, nearly cancels. What is left is small, and its size can be measured. Solved for one of the six nuclei, the loop predicts its mass from the other five, and with it the energy of every fusion that makes it. We call this statement, with its constant and its error law, the \emph{Closure Law}. The loops themselves are old: they are the mass relations of Garvey and Kelson, known to nuclear physics since 1966 \citep{GarveyKelson1966}. Their use for fusion in cosmic masses was first set out as a recipe with no fitted constant, with its own calculator; we call it the \emph{plain recipe}. The law itself, with one constant, was first stated with a workbook that computes it; we call it the \emph{first version}. Both were tested on a table in which some of the masses were estimates, and this chapter repeats every test on measured masses only. What the cosmic mass adds to the old relations is their reading in the Cosmic Mass Frame, their use for fusion, one correction, an error law with its range, and a list of predictions that can fail.
+
+\paragraph{The road through this chapter.}
+The chapter climbs in seven steps, shown in \Cref{fig:cl-map}. \Cref{sec:cl-isotopes} opens each nucleus of Chapter~\ref{ch:standard-model} into its isotopes, and \Cref{sec:cl-fusion} writes fusion on their cards. \Cref{sec:cl-loops} closes the loops and proves what they cancel, and \Cref{sec:cl-law} states the law with its error. \Cref{sec:cl-weighing} weighs fusion with it, \Cref{sec:cl-limits} shows where it stops, and \Cref{sec:cl-predictions} registers predictions that can prove it wrong. As in Chapters~\ref{ch:interaction} and~\ref{ch:standard-model}, the mathematics comes from Chapter~\ref{ch:general-numbers}, and each step names the statement it uses.
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth,
+    mapstep/.style={draw=RoyalBlue!55, fill=RoyalBlue!6, rounded corners=2pt, text width=2.3cm,
+                 align=flush center, inner sep=3.5pt, font=\footnotesize, minimum height=2.45cm, anchor=north},
+    mapfeed/.style={font=\footnotesize, text=gray!75!black, align=center},
+    mapflow/.style={->, thick, RoyalBlue!70}]
+  \node[mapstep] (s1) at (0,0) {\textbf{1. Isotopes\\ on the frame}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:cl-isotopes}}\\[4pt]
+    one ring,\\ many leans};
+  \node[mapstep] (s2) at (2.95,0) {\textbf{2. Fusion\\ on the frame}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:cl-fusion}}\\[4pt]
+    charges add;\\ $\Delta\mu$ is neutral};
+  \node[mapstep] (s3) at (5.9,0) {\textbf{3. Six\\ neighbours}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:cl-loops}}\\[4pt]
+    two loops that\\ close exactly};
+  \node[mapstep] (s4) at (8.85,0) {\textbf{4. The Closure\\ Law}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:cl-law}}\\[4pt]
+    one constant;\\ the error $\sigma(A)$};
+  \node[mapstep] (s5) at (1.475,-3.05) {\textbf{5. Weighing\\ fusion}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:cl-weighing}}\\[4pt]
+    $2{,}272$ fusions,\\ $0.18$ MeV};
+  \node[mapstep] (s6) at (4.425,-3.05) {\textbf{6. Where the\\ law stops}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:cl-limits}}\\[4pt]
+    light nuclei,\\ $N = z$, the edge};
+  \node[mapstep] (s7) at (7.375,-3.05) {\textbf{7. Predictions\\ that can fail}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:cl-predictions}}\\[4pt]
+    a first test;\\ a new list};
+  \draw[mapflow] (s1.east) -- (s2.west);
+  \draw[mapflow] (s2.east) -- (s3.west);
+  \draw[mapflow] (s3.east) -- (s4.west);
+  \draw[mapflow, rounded corners=4pt] (s4.south) -- ++(0,-0.3) -| ($(s5.north)+(0,0.3)$) -- (s5.north);
+  \draw[mapflow] (s5.east) -- (s6.west);
+  \draw[mapflow] (s6.east) -- (s7.west);
+  \node[mapfeed] (c1) at (0,1.05) {from Chapter~\ref{ch:standard-model}:\\ cards, rings, leans};
+  \node[mapfeed] (c2) at (2.95,1.05) {from Chapter~\ref{ch:general-numbers}:\\ sums part by part};
+  \node[mapfeed] (c3) at (5.9,1.05) {from Chapter~\ref{ch:general-numbers}:\\ real numbers};
+  \draw[->, gray!70] (c1.south) -- (s1.north);
+  \draw[->, gray!70] (c2.south) -- (s2.north);
+  \draw[->, gray!70] (c3.south) -- (s3.north);
+\end{tikzpicture}
+\caption[The road through the chapter]{The road through the chapter, from the cards of single isotopes to predicted masses. Each box is one step, with the section where it is taken.}
+\label{fig:cl-map}
+\end{figure}
+
+%------------------------------------------------
+\section{Step 1: Isotopes on the Frame}\label{sec:cl-isotopes}
+%------------------------------------------------
+
+Each nucleus of Chapter~\ref{ch:standard-model} is the average nucleus of its element, because the atomic weight is an average over the element's isotopes (\Cref{sec:sm-cards}). Aston's spectrograph took that average apart: chlorine, of atomic weight $35.45$, gave lines at $35$ and $37$ and nothing in between. Fusion happens between such single isotopes, not between averages, and the averages give absurd answers if they are used for it. Two average hydrogen nuclei of Chapter~\ref{ch:standard-model} weigh $2 \times 1.007451 = 2.014903$ u, and the average helium nucleus $4.001505$ u, so the \enquote{fusion} of two hydrogen nuclei into helium would have to create $1.99$ u out of nothing. The four nucleons of helium are not in two hydrogen nuclei. Two deuterons, each a proton and a neutron, weigh $4.027106$ u; fused into a helium-4 nucleus of $4.001506$ u, they lose $0.025600$ u, or $23.85$ MeV.
+
+So this chapter works with single isotopes. An isotope is fixed by two whole numbers: its charge number $z$, which for a bare nucleus is the atomic number $Z$ (\Cref{subsec:sm-stoney}), and its number of neutrons $N$. Their sum $A = z + N$ is the \emph{mass number}. By Aston's whole-number rule, the atomic mass of a single isotope, in daltons, lies within a small fraction of a dalton of $A$. In Chapter~\ref{ch:standard-model} the letter $A$ stood for the atomic mass of an element; in this chapter it always means the whole number $z + N$, and the atomic mass of the isotope is written $M(z, N)$. The mass of its bare nucleus follows by the rule of \Cref{sec:sm-cards},
+\[
+m(z, N) = M(z, N) - z\,m_e + B_e/c^2 ,
+\]
+with the electron binding energy $B_e$ of that section.
+
+The atomic masses come from the Atomic Mass Evaluation of 2020 and its companion NUBASE2020 \citep{Wang2021,Kondev2021}. Leaving out the free neutron, they give the ground states of $3{,}557$ nuclei. For $2{,}549$ of them the mass is derived from measurements; for the other $1{,}008$ it is an estimate, drawn by the evaluators from the smooth trends of the measured masses and marked as such. \emph{In this chapter only the measured masses are used as data.} The estimates appear only where they are compared with a prediction, and never as a test of one.
+
+\begin{definition}[Isotope Card]\label{def:isotope-card}
+The \textbf{isotope card} of the nucleus with $z \ge 1$ protons and $N$ neutrons is the identity card $(r, \alpha, \phi)$ (Remark~\ref{rem:identity}) of its cosmic mass (Definition~\ref{def:cosmic-mass})
+\[
+\mu(z, N) = m(z, N) + z\,e\,\Gp ,
+\]
+whose charge part, $z\,e\,\Gp = z\,m_S$, is $z$ Stoney masses laid along the Composer axis (Definition~\ref{def:stoney-mass}). Its angles are $\alpha = \pb - \delta$ and $\phi = \delta$, with the lean $\delta$ of Remark~\ref{rem:lean}, and the General Sinus reads its two parts exactly (Remark~\ref{rem:mass-charge-rep}):
+\[
+r\sin\delta = m\,\sin\pb, \qquad r\sin\alpha = z\,m_S\,\sin\pb .
+\]
+At $79.86^\circ$ (Remark~\ref{rem:sm-fixed-angle}), its ring is $r = z\,m_S$ to many digits, and its lean is
+\[
+\delta \approx 5.0374 \times 10^{-17}\ \text{degree} \times \frac{m(z, N)}{z},
+\]
+for $m$ in daltons.
+\end{definition}
+
+The two exact relations are the reading of the two parts of the triangle, $m = r\cos(\alpha, \phi) = r\sin\phi/\sin\pb$ and $z\,m_S = r\sin(\alpha, \phi) = r\sin\alpha/\sin\pb$, with $\phi = \delta$. The first says that, on the frame, the mass of a nucleus is its ring times the sine of its lean, up to the fixed factor $\sin\pb$.
+
+It is also the mass that is measured. Chapter~\ref{ch:interaction} reads every force by its real part (Definition~\ref{def:reading}), and the same reading, carried to bodies in motion, makes the real part of a cosmic mass its inertia (Chapter~\ref{ch:unified}). A nucleus is weighed by how its ions turn or bend in a magnetic field, so what is weighed is the real part of its cosmic mass, $m = \Re(\mu)$, and so is every mass in this chapter.
+
+\Cref{fig:cl-isotopes} shows what happens to the spine of Chapter~\ref{ch:standard-model} when every nucleus is opened into its isotopes. The ring does not change, since all the isotopes of an element carry the same charge; only the lean does. Each added neutron moves the nucleus a little further along its ring, by about $5 \times 10^{-17}$ degree divided by $z$, so the isotopes of an element spread into a short row: long for the light elements, whose few protons share each added neutron, and short for the heavy ones. The stable isotopes sit near the dashed line for the light elements and drift to the right, towards more neutrons, as the charge grows.
+
+\suppressfloats[t]
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter07/fig-isotopes}
+\caption[The rings of the spine opened into isotopes]{The first twenty rings of the nuclear spine of \Cref{fig:sm-spine}, opened into their isotopes. Each ring $z$ carries every isotope of the element whose mass has been measured, at its lean $\delta \approx 5.0374 \times 10^{-17}{}^\circ \times m/z$; filled dots are stable, open dots radioactive. The cross is the average nucleus of Chapter~\ref{ch:standard-model}, which lies among its stable isotopes. The dashed line is two daltons per charge, a nucleus with as many neutrons as protons.}
+\label{fig:cl-isotopes}
+\end{figure}
+
+% keep what follows together: break the page here if fewer than 12 lines are left
+\keepblock{12}
+\begin{workedexample}[Worked example: the two cards of chlorine]
+Chlorine-35 has the atomic mass $34.968853$ u. Its nucleus, with $17$ electrons removed and their binding given back, has $m = 34.959540$ u. Its ring is $17\,m_S \approx 3.16066 \times 10^{-8}$ kg, and its lean is $\delta \approx 5.0374 \times 10^{-17} \times 34.959540/17 \approx 1.03591 \times 10^{-16}$ degree. Chlorine-37 has $m = 36.956590$ u, the same ring, and the lean $1.09509 \times 10^{-16}$ degree. The average chlorine nucleus of \Cref{app:identity-cards}, $35.440688$ u, leans by $1.05017 \times 10^{-16}$ degree: between its two isotopes, and closer to chlorine-35, which makes up three quarters of natural chlorine. The two lines on Aston's plate are two cards on one ring.
+\end{workedexample}
+
+\begin{plainwords}
+Chapter~\ref{ch:standard-model} drew one dot for each element. In this chapter each dot opens into a short row of dots on the same circle, one for each isotope. Isotopes of one element share their charge, so they share their circle; they differ only in mass, and the heavier ones tip a little further. Reactions happen between those single dots, so from now on every card is the card of one isotope.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 2: Fusion on the Frame}\label{sec:cl-fusion}
+%------------------------------------------------
+
+In a fusion, two nuclei join into one: $z_1$ protons and $N_1$ neutrons meet $z_2$ protons and $N_2$ neutrons, and the product has $z_1 + z_2$ protons and $N_1 + N_2$ neutrons. The products considered in this chapter are single nuclei, with nothing else emitted, so the counts of protons and of neutrons are kept. The masses are not: the product is lighter than its two parts, by the mass that leaves as energy.
+
+% keep what follows together: break the page here if fewer than 18 lines are left
+\keepblock{18}
+\begin{proposition}[Fusion on the Frame]\label{prop:fusion-frame}
+Let two nuclei with the cosmic masses $\mu_1$ and $\mu_2$ fuse into one nucleus with the cosmic mass $\mu$. Then:
+\begin{enumerate}
+  \item the charge parts add exactly, $z\,m_S = z_1 m_S + z_2 m_S$, so the product lies on the ring of the sum of the two charges, to many digits;
+  \item the loss of cosmic mass is a real number,
+  \[
+  \Delta\mu = \mu_1 + \mu_2 - \mu = m_1 + m_2 - m = \Delta m ,
+  \]
+  and the energy released is $Q = \Delta m\,c^2$;
+  \item on the cards, exactly, $r\sin\delta = r_1\sin\delta_1 + r_2\sin\delta_2 - \Delta m\sin\pb$.
+\end{enumerate}
+At $79.86^\circ$, with the lean of Remark~\ref{rem:lean} and $\Delta m$ in daltons, statement~3 reads
+\[
+z\,\delta \approx z_1\delta_1 + z_2\delta_2 - 5.0374 \times 10^{-17}\ \text{degree} \times \Delta m .
+\]
+\end{proposition}
+
+\begin{proof}
+General Numbers of one relative plane are added part by part (Definition~\ref{def:gn-product}). The charge $q = z\,e$ is kept, so the Composer parts of $\mu_1 + \mu_2$ and of $\mu$ are equal, and the difference $\Delta\mu$ has no Composer part: it is a real number (Remark~\ref{rem:gn-kinds}), the difference of the real parts. Statement~3 is statement~2 written with the exact relation $r\sin\delta = m\sin\pb$ of Definition~\ref{def:isotope-card}, and the last formula is statement~2 written with $z\,\delta \approx 5.0374 \times 10^{-17}{}^\circ \times m$. Statements 1 to 3 use no value of $\pb$.
+\end{proof}
+
+In the dictionary of \Cref{tab:dictionary}, a real number is a neutral body. The mass lost in a fusion is therefore a neutral body in the frame of Chapter~\ref{ch:standard-model}: like an atom or a neutron, it has no charge part and lies on the mass axis, and when energy is released it sits on the ray $\alpha = 0$ with its ring $r = \Delta m$ (\Cref{sec:sm-where}). The last formula says how the lean of the product follows from the leans of its parts: weighted by their charges, the leans add, less the loss.
+
+The first two statements are the two coordinates of one conservation law. In the Unified Cosmic Law of Chapter~\ref{ch:unified}, the source of the fields is the density of cosmic mass, and it flows without being made or destroyed, $\partial_t\rho_\mu + \nabla\cdot\mathbf{J}_\mu = 0$. Its Composer coordinate is the conservation of charge, which holds exactly: that is statement~1. Its real coordinate is the conservation of mass, which a fusion keeps only when the energy that leaves is counted as mass, $Q/c^2$: that is statement~2, where the energy released is the real part of the loss, $Q = \Re(\Delta\mu)\,c^2 = \Delta m\,c^2$, as Chapter~\ref{ch:interaction} reads every energy.
+
+\Cref{fig:cl-slide} draws the two coordinates at work, as the plain recipe does: the two cosmic masses add tip to tail, and the tip slides back along the mass axis by the loss, at the same height, which holds the charge. Walked back along the Composer axis, the way Chapter~\ref{ch:interaction} reads a real part, the sum of the inputs and the product land $\Delta m$ apart; dropped straight down, as the shadow would read them, they land elsewhere, but still $\Delta m$ apart. The loss is a real number, its own real part and its own shadow (Definition~\ref{def:shadow}), so the two readings of Chapter~\ref{ch:interaction} cannot differ on the energy of a fusion.
+
+The cards also give what a fusion must overcome first: the push between the two nuclei. By \Cref{prop:law-cards}, the force between two nuclei the distance $d$ apart is $G\,r_1 r_2\sin(\pb - \alpha_1 - \alpha_2)/(d^2\sin\pb)$. Each angle lies within $10^{-15}$ degree of $\pb$, so the sine is $-\sin\pb$ to many digits and the force is a push; with the rings $r_1 = z_1 m_S$ and $r_2 = z_2 m_S$ and $G\,m_S^2 = K e^2$ (Remark~\ref{rem:stoney-planck}) the energy of the push is $z_1 z_2\,K e^2/d$, the Coulomb barrier. For a deuteron and a triton $4$ fm apart it is $0.360$ MeV. Sums of cards keep the books of a fusion; products of cards give the barrier before it.
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, font=\footnotesize]
+  \def\pbar{79.86}
+  % the two axes of the relative plane
+  \draw[->, gray!70] (-0.4,0) -- (5.6,0) node[right, text=gray!75!black] {mass axis};
+  \draw[->, gray!70] (0,0) -- (\pbar:4.45) node[above, text=gray!75!black] {Composer axis};
+  % mu_1 = 2.6 + 1.4 G and mu_2 = 1.0 + 2.4 G (lengths in cm, the mass parts greatly enlarged); the loss is 1.4
+  \coordinate (O) at (0,0);
+  \coordinate (T1) at ($(2.6,0)+(\pbar:1.4)$);
+  \coordinate (T2) at ($(T1)+(1.0,0)+(\pbar:2.4)$);
+  \coordinate (S) at ($(T2)+(-1.4,0)$);
+  \coordinate (F2) at ($(T2)+(\pbar:-3.8)$);
+  \coordinate (F) at ($(S)+(\pbar:-3.8)$);
+  % the real parts: walk back along the Composer axis to the mass axis
+  \draw[densely dashed, gray!65] (T2) -- (F2);
+  \draw[densely dashed, gray!65] (S) -- (F);
+  \draw[Maroon, line width=1.6pt] (F) -- (F2);
+  \node[anchor=north east, inner sep=2pt] at (F) {$m$};
+  \node[anchor=north west, inner sep=2pt] at (F2) {$m_1 + m_2$};
+  \node[anchor=north, inner sep=3pt, text=Maroon] at ($(F)!0.5!(F2)$) {$\Delta\mu$};
+  % the arrows
+  \draw[->, very thick, RoyalBlue] (O) -- node[below right, pos=0.55] {$\mu_1$} (T1);
+  \draw[->, very thick, RoyalBlue] (T1) -- node[left, pos=0.5] {$\mu_2$} (T2);
+  \draw[->, very thick] (O) -- node[above left, pos=0.62] {$\mu$} (S);
+  \draw[->, very thick, Maroon] (T2) -- node[above] {slide $\Delta\mu$} (S);
+  \draw[densely dotted, gray] (T2) -- ++(1.2,0) node[right, align=left, font=\scriptsize, text=gray!75!black] {same height:\\ same charge};
+\end{tikzpicture}
+\caption[Fusion on the frame]{Fusion on the frame, as the plain recipe draws it. The inputs add tip to tail; the tip then slides back along the mass axis by the loss $\Delta\mu$, at the same height, since the charge is kept. Walked back along the Composer axis, the sum and the product meet the mass axis at their real parts, $\Delta\mu$ apart. Not to scale: a nucleus has a charge part about $10^{18}$ times its mass part.}
+\label{fig:cl-slide}
+\end{figure}
+
+The frame keeps the books of a fusion exactly, but it cannot say how large the loss is. That number depends on how tightly the product is bound, and nothing on the two cards of the inputs records it. Two simple guesses show how far off one can be. On the $2{,}272$ fusions of \Cref{sec:cl-weighing}, taking $\Delta m = 0$ misses the energy by $21.5$ MeV on average, root mean square, since that is the typical size of $Q$ itself. The liquid-drop formula of Weizs\"acker \citep{Weizsacker1935}, with its five constants fitted to the measured masses with $A \ge 16$, misses by $2.5$ MeV and gets the sign of $Q$ wrong $66$ times. The next two steps find a far better source of information: not the two inputs, but the neighbours of the product.
+
+\begin{plainwords}
+When two nuclei join, their charges simply add, and the frame records that exactly: the new nucleus sits on the circle of the total charge. Their masses do not quite add. Put the arrows of the two nuclei tip to tail: the tip then slides back a little along the line of neutral matter, and that slide is the mass that is lost and leaves as energy. It has no charge part at all: on the frame it is a neutral body. The frame can draw the loss once it is known, but it cannot tell how big it will be. For that we need more than the two nuclei that fuse.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 3: Six Neighbours Close}\label{sec:cl-loops}
+%------------------------------------------------
+
+Lay out the nuclei on a map, with the number of protons $z$ going up and the number of neutrons $N$ going across, so that every nucleus is one square (\Cref{fig:cl-chart} in \Cref{sec:cl-limits} draws the whole map). Take six neighbouring squares and give them alternating signs.
+
+\begin{definition}[The Two Closure Loops]\label{def:closure-loops}
+For any function $f$ on the map of nuclei, let
+\begin{align*}
+\Lop_A f(z, N) &= f(z{-}2, N{+}2) - f(z, N) + f(z, N{+}1)\\
+&\qquad - f(z{-}1, N{+}2) + f(z{-}1, N) - f(z{-}2, N{+}1),\\
+\Lop_B f(z, N) &= f(z, N{+}2) - f(z{-}2, N) + f(z{-}2, N{+}1)\\
+&\qquad - f(z{-}1, N{+}2) + f(z{-}1, N) - f(z, N{+}1).
+\end{align*}
+\end{definition}
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[scale=0.62, every node/.style={font=\footnotesize}]
+  \def\cell#1#2#3#4{\fill[#4!25] (#1,#2) rectangle +(1,1); \node at (#1+.5,#2+.5) {$#3$};}
+  % ---------- (a) loop A ----------
+  \begin{scope}
+    \foreach \z in {0,1,2} \foreach \n in {0,1,2} \draw[gray!45] (\n,\z) rectangle +(1,1);
+    \cell{2}{0}{+}{RoyalBlue}\cell{0}{2}{-}{Maroon}\cell{1}{2}{+}{RoyalBlue}\cell{2}{1}{-}{Maroon}\cell{0}{1}{+}{RoyalBlue}\cell{1}{0}{-}{Maroon}
+    \node[font=\scriptsize, anchor=east] at (0,2.5) {$z$};
+    \node[font=\scriptsize, anchor=east] at (0,0.5) {$z{-}2$};
+    \node[font=\scriptsize, anchor=north] at (0.5,0) {$N$};
+    \node[font=\scriptsize, anchor=north] at (2.5,0) {$N{+}2$};
+    \node at (1.5,-1.25) {(a) loop $A$};
+  \end{scope}
+  % ---------- (b) loop B ----------
+  \begin{scope}[xshift=5cm]
+    \foreach \z in {0,1,2} \foreach \n in {0,1,2} \draw[gray!45] (\n,\z) rectangle +(1,1);
+    \cell{2}{2}{+}{RoyalBlue}\cell{0}{0}{-}{Maroon}\cell{1}{0}{+}{RoyalBlue}\cell{2}{1}{-}{Maroon}\cell{0}{1}{+}{RoyalBlue}\cell{1}{2}{-}{Maroon}
+    \node[font=\scriptsize, anchor=east] at (0,2.5) {$z$};
+    \node[font=\scriptsize, anchor=east] at (0,0.5) {$z{-}2$};
+    \node[font=\scriptsize, anchor=north] at (0.5,0) {$N$};
+    \node[font=\scriptsize, anchor=north] at (2.5,0) {$N{+}2$};
+    \node at (1.5,-1.25) {(b) loop $B$};
+  \end{scope}
+  % ---------- (c) loop A at Fe-56 on the spine ----------
+  \begin{scope}[xshift=9.0cm]
+    % x = 1 + 42 (delta - 1.05), with delta in 10^{-16} degree
+    \foreach \zz/\yy in {26/2.5, 25/1.5, 24/0.5} {
+      \draw[gray!55] (0,\yy) -- (8.2,\yy);
+      \node[font=\scriptsize, anchor=east] at (0,\yy) {$\zz$};
+    }
+    % the left nucleus of each ring is labeled on its left, the right one on its right
+    \foreach \d/\yy/\s/\lab/\side in {1.08344/2.5/-/{Fe-56}/east, 1.10283/2.5/+/{Fe-57}/west,
+        1.10670/1.5/+/{Mn-55}/east, 1.14701/1.5/-/{Mn-57}/west,
+        1.15289/0.5/-/{Cr-55}/east, 1.17387/0.5/+/{Cr-56}/west} {
+      \node[font=\scriptsize, anchor=\side, inner sep=1pt, outer sep=4pt, fill=white] at ({1+42*(\d-1.05)},\yy) {\lab\,$\s$};
+    }
+    \foreach \d/\yy/\c in {1.08344/2.5/Maroon, 1.10283/2.5/RoyalBlue, 1.10670/1.5/RoyalBlue,
+        1.14701/1.5/Maroon, 1.15289/0.5/Maroon, 1.17387/0.5/RoyalBlue} {
+      \fill[\c] ({1+42*(\d-1.05)},\yy) circle (3.2pt);
+    }
+    \draw[gray!70, ->] (0,-0.2) -- (8.2,-0.2) node[font=\scriptsize, anchor=north east, yshift=-1pt] {lean $\delta$};
+    \node at (4.1,-1.25) {(c) loop $A$ at Fe-56};
+  \end{scope}
+\end{tikzpicture}
+\caption[The two closure loops]{The two closure loops of Definition~\ref{def:closure-loops}. (a, b) Each square is one nucleus, with protons up and neutrons across; blue squares count with the sign $+$ and red ones with $-$. (c) Loop $A$ anchored at iron-56, drawn on the spine of \Cref{fig:cl-isotopes}: the six nuclei lie on three neighbouring rings, two on each, at their leans (from $1.083$ to $1.174 \times 10^{-16}$ degree).}
+\label{fig:cl-loops}
+\end{figure}
+
+Each loop has three nuclei with the sign $+$ and three with $-$ (\Cref{fig:cl-loops}). Every row of the map that the loop touches holds one $+$ and one $-$, and so does every column; that is the whole secret of what follows.
+
+\begin{theorem}[Exact Closure]\label{thm:exact-closure}
+For either loop $\Lop = \Lop_A$ or $\Lop_B$, at every point of the map:
+\begin{enumerate}
+  \item The Composer parts cancel: $\Lop[\mu]$ is a real number.
+  \item With the binding mass $\beta = z\,m_p + N\,m_n - m$, one has exactly $\Lop[\mu] = \Lop[m] = -\Lop[\beta]$.
+  \item $\Lop$ sends to zero every function of the form $f(z) + g(N) + k\,zN$, whatever $f$, $g$ and $k$.
+  \item In addition, $\Lop_A$ sends to zero every function of $A$ alone, and $\Lop_B$ every function of $N - z$ alone.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Write the six points as $(z + a_i, N + b_i)$ with signs $s_i$. For $\Lop_A$ the triples $(a, b, s)$ are $(-2, 2, +)$, $(0, 0, -)$, $(0, 1, +)$, $(-1, 2, -)$, $(-1, 0, +)$, $(-2, 1, -)$.
+
+For $f(z)$: the values $f(z-2)$, $f(z)$ and $f(z-1)$ each occur once with each sign, so they cancel. For $g(N)$: the same holds for $g(N+2)$, $g(N)$ and $g(N+1)$. For $zN$: since $\sum s_i = \sum s_i a_i = \sum s_i b_i = 0$, the sum reduces to $\sum s_i a_i b_i$, whose three non-zero terms, in the order of the list, are $-4 + 2 + 2 = 0$. This proves (3) for $\Lop_A$. The numbers $a + b$ are $0, 0, 1, 1, -1, -1$ with signs $+, -, +, -, +, -$, which proves the first half of (4).
+
+For $\Lop_B$ the triples are $(0, 2, +)$, $(-2, 0, -)$, $(-2, 1, +)$, $(-1, 2, -)$, $(-1, 0, +)$, $(0, 1, -)$. The values of $a$ and of $b$ again pair off, and $\sum s_i a_i b_i = -2 + 2 = 0$. The numbers $b - a$ are $2, 2, 3, 3, 1, 1$ with signs $+, -, +, -, +, -$, which proves the second half of (4).
+
+Statement (1) follows from (3), since the Composer part is $z\,m_S$, linear in $z$. Statement (2) follows from (3) as well, since $z\,m_p + N\,m_n$ is of the form $f(z) + g(N)$. Nothing used the value of $\pb$.
+\end{proof}
+
+\Cref{thm:exact-closure} is mathematics and has no error. It says what the loop removes: the charge, the bricks, and all the binding that depends on $z$ alone, on $N$ alone, on their product, on $A$ alone (loop $A$) or on $N - z$ alone (loop $B$). The volume and surface energies of the liquid drop are functions of $A$, which is why the loop removes so much. In the words of Chapter~\ref{ch:general-numbers}, the six cosmic masses are added part by part (Definition~\ref{def:gn-product}); their Composer parts cancel, and what is left is a real number, a neutral body.
+
+\begin{remark}[The Closure on the Cards]\label{rem:closure-cards}
+Two readings of \Cref{thm:exact-closure} follow at once.
+\begin{enumerate}
+  \item The loop gives the same number whether atomic or nuclear masses are used, because the electrons, $z\,m_e - B_e/c^2$, form a function of $z$ alone.
+  \item On the isotope cards (Definition~\ref{def:isotope-card}), the loop of the masses is the loop of ring times lean:
+  \[
+  \Lop[m] = \frac{1}{\sin\pb}\,\Lop[r\sin\delta], \qquad \Lop[z\,\delta] \approx 5.0374 \times 10^{-17}\ \text{degree} \times \Lop[m],
+  \]
+  the second at $79.86^\circ$, for $\Lop[m]$ in daltons. The closure of six masses is the closure of six charge-weighted leans on the frame.
+\end{enumerate}
+\end{remark}
+
+The two loops were found in 1966 by Gerald Garvey and Igal Kelson, as relations among the masses of neighbouring nuclei \citep{GarveyKelson1966}, and three years later Garvey and his colleagues used them to build a table of predicted masses \citep{Garvey1969}. They are not a discovery of this book. What the cosmic mass adds is the first statement of the theorem: the charge parts cancel visibly, and the loop of six cosmic masses is a real number (Remark~\ref{rem:gn-kinds}), a neutral body.
+
+\begin{workedexample}[Worked example: one loop around iron-56]
+Loop $A$ anchored at iron-56 uses chromium-56 ($+$), iron-56 ($-$), iron-57 ($+$), manganese-57 ($-$), manganese-55 ($+$) and chromium-55 ($-$). Their nuclear masses are $55.927514$, $55.920710$, $56.921166$, $56.924605$, $54.924363$ and $54.927702$ u. With the signs,
+\[
+\Lop_A[m] = 0.0000259\ \text{u} = 0.024\ \text{MeV}.
+\]
+Each of the six nuclei is bound by $480$ to $500$ MeV, and the loop cancels these bindings to $0.024$ MeV. On the frame, the six charge-weighted leans $z\,\delta$, each about $2.8 \times 10^{-15}$ degree, add up with their signs to $1.3 \times 10^{-21}$ degree. This loop is a lucky one: loop $B$ at iron-56 leaves $-0.37$ MeV, and for nuclei with $A \ge 40$ the loops leave $0.21$ MeV on average (\Cref{sec:cl-law}).
+\end{workedexample}
+
+\begin{plainwords}
+Pick six neighbouring nuclei that form a little ring on the map, and count three of them as plus and three as minus. Every row and every column of the ring holds one plus and one minus. So anything that depends only on the row, the number of protons, cancels, and so does anything that depends only on the column, the number of neutrons. That removes the charge, the protons and neutrons themselves, and most of the energy that binds them. What survives is a small remainder, and the next step measures it.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 4: The Closure Law}\label{sec:cl-law}
+%------------------------------------------------
+
+What \Cref{thm:exact-closure} leaves is the leftover $\varepsilon = \Lop[\mu]$, a real number. On the $3{,}977$ loops whose six nuclei all have measured masses ($1{,}920$ of kind $A$ and $2{,}057$ of kind $B$), its root mean square is $0.54$ MeV, and $0.24$ MeV for the loops with $A \ge 40$. That size is set by a few large leftovers: $92\%$ of the loops close within $0.5$ MeV, and $96.5\%$ within $1$ MeV. Nearly all the large leftovers come from one place. The $214$ loops that touch the line $N = z$ leave $2.1$ MeV on average, the other $3{,}763$ only $0.25$ MeV, and $39$ of the $40$ largest leftovers touch that line. Eugene Wigner's symmetry between protons and neutrons, of 1937, gives the nuclei with $N = z$ extra binding \citep{Wigner1937}; mass formulas write it as a term proportional to $|N - z|/A$, which has a sharp corner on that line. A sharp corner is not smooth, so no loop can cancel it, and we remove it with one constant:
+\[
+\tilde{m}(z, N) = m(z, N) - \frac{w}{c^2}\,\frac{|N - z|}{A}, \qquad w = 22.75\ \text{MeV}.
+\]
+The first version found $w$ by least squares on the loops of its table. Fitted on the loops of measured nuclei alone, it comes out at $22.9$ MeV, and the predictions below hardly change for any value between $20$ and $35$ MeV. Mass formulas use values of $30$ to $47$ MeV for the same coefficient \citep{Satula1997}; the loops find a Wigner term of the same order, somewhat smaller. With the corner removed, the leftover falls to $0.42$ MeV, and to $0.21$ MeV for $A \ge 40$, while the loops that touch the line $N = z$ still leave $1.5$ MeV.
+
+A leftover that is small on average is a tool for prediction. Solved for any one of its six nuclei, a loop gives that nucleus's mass from the other five.
+
+\begin{workedexample}[Worked example: one loop weighs magnesium-24]
+Loop $A$ anchored at magnesium-24 holds Ne-24 ($+$), Mg-24 ($-$), Mg-25 ($+$), Na-25 ($-$), Na-23 ($+$) and Ne-23 ($-$). Setting its sum to zero and solving for Mg-24 gives
+\[
+m_{\text{Mg-24}} \approx m_{\text{Ne-24}} + m_{\text{Mg-25}} - m_{\text{Na-25}} + m_{\text{Na-23}} - m_{\text{Ne-23}} .
+\]
+With the nuclear masses of the five neighbours, in daltons,
+\begin{center}
+\small
+$23.988129$, $24.979260$, $24.983924$, $22.983740$ and $22.988985$,
+\end{center}
+the loop gives $23.978219$ u. The measured mass, which the loop never used, is $23.978465$ u: the loop misses by $0.000246$ u, or $0.23$ MeV, one part in a hundred thousand of the mass, with no fitted number and no nuclear theory, only the addition and subtraction of five cards. The six nuclei are bound by $183$ to $206$ MeV each, and with the signs of the loop their bindings add up to the miss, $0.23$ MeV. For two carbon-12 nuclei fusing into magnesium-24, this one loop gives $Q \approx 14.16$ MeV, against the measured $13.93$ MeV. This is the first example of the plain recipe, and its numbers do not change on the masses of the 2020 evaluation. None of the five neighbours has $N = z$, so the cusp constant moves this estimate by only $0.01$ MeV.
+\end{workedexample}
+
+\begin{definition}[The Closure Estimate]\label{def:closure-estimate}
+Let $T$ be a nucleus. Each loop of either kind that has $T$ in one of its six positions, and five nuclei of measured mass in the other five, gives one estimate of $\tilde{m}(T)$, by setting its sum to zero; there are at most twelve. The \textbf{closure estimate} of the mass of $T$ is the trimmed mean of these estimates, with a quarter of them dropped at each end, at least one, and the rest averaged (with one or two estimates, their mean), plus the corner $\frac{w}{c^2}\frac{|N - z|}{A}$ of $T$. The mass of $T$ itself is never used.
+\end{definition}
+
+\begin{law}[The Cosmic Mass Closure Law]\label{law:closure}
+For nuclei with measured neighbours,
+\[
+\Lop_A[\tilde{m}] \approx 0, \qquad \Lop_B[\tilde{m}] \approx 0,
+\]
+with a leftover whose size falls with the size of the nucleus. The closure estimate of the mass of a nucleus with $A \ge 8$ has the error
+\[
+\sigma(A) = \sqrt{\left(\frac{9.1}{A}\right)^2 + 0.063^2}\ \ \text{MeV},
+\]
+in the sense that about $78\%$ of the measured nuclei fall within $\sigma(A)$ of it and $95\%$ within $2\sigma(A)$.
+
+\emph{Fusion form.} For a fusion $\mu_1 + \mu_2 \to \mu_{\text{out}}$ whose product has measured neighbours,
+\begin{align*}
+\Delta\mu &= m_1 + m_2 - m_{\text{out}},\\
+m_{\text{out}} &= \big\langle \text{estimates from the loops} \big\rangle + \frac{w}{c^2}\frac{|N - z|}{A},
+\end{align*}
+where the bracket is the trimmed mean of Definition~\ref{def:closure-estimate}, so that $m_{\text{out}}$ is the closure estimate of the product, and the error of $Q = \Delta\mu\,c^2$ is the error $\sigma(A)$ of the product.
+\end{law}
+
+Every quantity in the law can be read off the cards: $z = r\sin(\alpha, \phi)/m_S$ and $m = r\cos(\alpha, \phi)$ (Remark~\ref{rem:mass-charge-rep}), and on the frame the closure is that of the charge-weighted leans (Remark~\ref{rem:closure-cards}). The other way round, once $m_{\text{out}}$ is known, the whole card of the product follows from its two parts, at the angle the book holds, $\pb = 79.86^\circ$:
+\begin{align*}
+q\Gp &= z\,m_S, \quad\text{where } z = z_1 + z_2,\\
+r_{\text{out}} &= \sqrt{m_{\text{out}}^2 + (q\Gp)^2 + 2\cos\pb\; m_{\text{out}}\, q\Gp},\\
+\tan\phi_{\text{out}} &= \frac{m_{\text{out}}\sin\pb}{q\Gp + m_{\text{out}}\cos\pb},\\
+\alpha_{\text{out}} &= \pb - \phi_{\text{out}} .
+\end{align*}
+Its angle $\phi_{\text{out}}$ is the lean $\delta$ of the product (Definition~\ref{def:isotope-card}).
+
+\begin{table}[tb]
+\myfloatalign
+\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\tableheadline{nuclei} & \tableheadline{number} & \tableheadline{no cusp} & \tableheadline{with cusp} \\
+\midrule
+all that can be predicted & $2{,}481$ & $0.34$ MeV & $0.25$ MeV \\
+light, $A < 16$ & $64$ & $1.88$ MeV & $1.27$ MeV \\
+$16 \le A < 40$ & $182$ & $0.40$ MeV & $0.33$ MeV \\
+$A \ge 40$ & $2{,}235$ & $0.12$ MeV & $0.11$ MeV \\
+with $N = z$ & $38$ & $1.83$ MeV & $1.01$ MeV \\
+with all twelve estimates & $1{,}385$ & $0.20$ MeV & $0.16$ MeV \\
+\bottomrule
+\end{tabular}
+\caption[How well the closure estimate works]{Root mean square error of the closure estimate on the $2{,}481$ measured nuclei that have at least one closed loop of measured neighbours. Each nucleus is predicted from its neighbours alone. If $w$ is refitted five times, each time without a fifth of the nuclei, and each nucleus is predicted with the constant fitted without it, the first line changes from $0.247$ to $0.249$ MeV.}
+\label{tab:cl-heldout}
+\end{table}
+
+\Cref{tab:cl-heldout} gives the test. Every measured nucleus with at least one closed loop of measured neighbours was predicted from those neighbours, and its own mass was used only to measure the miss. The error falls from more than $1$ MeV for the lightest nuclei to about $0.1$ MeV for the heavy ones. The cusp constant matters most where it should, for the nuclei with $N = z$, whose error it nearly halves. For nuclei with $A \ge 60$ and all twelve estimates the error is $79$ keV, the size that Barea and colleagues found for the same relations with an earlier evaluation, $80$ keV \citep{Barea2005}.
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter07/fig-errorlaw}
+\caption[The error law]{The error law. Root mean square error of the closure estimate in bins of the mass number, with each nucleus predicted from its neighbours alone. The solid line is $\sigma(A)$ of Law~\ref{law:closure}; the dashed line is the law of the first version, fitted to light and middle nuclei on a table that mixed measured and estimated masses.}
+\label{fig:cl-errorlaw}
+\end{figure}
+
+\Cref{fig:cl-errorlaw} shows where $\sigma(A)$ comes from. Up to $A \approx 100$ the error falls nearly in proportion to $1/A$: on measured masses the first seven bins give $10.3/A^{1.03}$ MeV, close to the $8.5/A^{0.96}$ MeV of the first version. Beyond, it falls more slowly, towards a floor near $0.06$ MeV that the heavy nuclei do not get below, whatever their size; the second term of $\sigma(A)$ is that floor. The errors also have long tails. For $A \ge 40$, $68\%$ of the misses are below $0.08$ MeV and $95\%$ below $0.21$ MeV, but the largest is $0.95$ MeV, for rubidium-73, which has only three estimates. Over all nuclei with $A \ge 8$, $1.3\%$ miss by more than $3\sigma(A)$, where a bell curve would have $0.3\%$. So $\sigma(A)$ is a typical size, not a hard limit.
+
+\begin{plainwords}
+The ring of six never closes perfectly; a small remainder is left. Most of the remainder comes from one place, the nuclei with equal numbers of protons and neutrons, which are bound a little more tightly than their neighbours. One constant takes most of that extra binding out. After that, the remainder is small enough to use: hide one of the six nuclei, and the other five tell you its mass, to about $9/A$ MeV, and never much better than $0.06$ MeV.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 5: Weighing Fusion}\label{sec:cl-weighing}
+%------------------------------------------------
+
+\enlargethispage{2\baselineskip}
+The fusion form of the law answers the question of the opening. The two inputs are measured nuclei, the product is predicted from its neighbours, and the loss of mass follows. Since the inputs are known exactly, the error of $Q$ is the error of the predicted product, with the opposite sign.
+
+% keep what follows together: break the page here if fewer than 22 lines are left
+\keepblock{22}
+\begin{workedexample}[Worked example: carbon and carbon make magnesium]
+Two carbon-12 nuclei, each of mass $11.996710$ u, fuse into magnesium-24. The twelve loops around magnesium-24 all have measured nuclei in their other five places, and give twelve estimates, in daltons:
+\begin{center}
+\small
+$23.978164$, $23.978226$, $23.978227$, $23.978457$, $23.978581$, $23.978601$,\\
+$23.978858$, $23.978896$, $23.980119$, $23.980175$, $23.980258$, $23.980274$.
+\end{center}
+The trimmed mean drops the three lowest and the three highest and averages the middle six: $23.978919$ u. Magnesium-24 has $N = z$, so its own corner is zero. The predicted loss is $2 \times 11.996710 - 23.978919 = 0.014501$ u, and $Q \approx 13.51$ MeV. The measured mass is $23.978465$ u, which gives $Q = 13.93$ MeV: the prediction misses by $0.42$ MeV. The twelve estimates fall into two groups. Eight lie within about $0.4$ MeV of the measured mass; the other four, all from loops of kind $B$ that reach the line $N = z$ from one side, are $1.5$ to $1.7$ MeV too high. The trimmed mean keeps one of those four, which makes half of the miss. Nuclei with $N = z$ are the hard case of the law.
+\end{workedexample}
+
+\Cref{fig:cl-twelve} sets these twelve estimates beside the twelve that the same loops give with no constant. Without it, eight of them fall $1.5$ to $2.4$ MeV short of the measured energy, and the median that the plain recipe takes, $12.30$ MeV, lies among them. The constant lifts four of the eight, those from loops of kind $A$, to within $0.4$ MeV. The four from loops of kind $B$ do not move: they reach the line $N = z$ from one side only, where $|N - z|$ has no corner, so the constant changes almost nothing in them.
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter07/fig-twelve}
+\caption[Twelve loops, with and without the constant]{The twelve estimates of the energy of carbon-12 $+$ carbon-12 $\to$ magnesium-24, one from each loop around magnesium-24, with no constant (top) and with the cusp constant (bottom); circles come from loops of kind $A$, squares from loops of kind $B$. With no constant, eight estimates fall $1.5$ to $2.4$ MeV short of the measured value, and the median of the plain recipe falls among them. The constant lifts the four from loops of kind $A$ (gray arrows); the four from loops of kind $B$ do not move. The gray bars are the middle values: the median of the plain recipe, $12.30$ MeV, and the trimmed mean of Law~\ref{law:closure}, $13.51$ MeV.}
+\label{fig:cl-twelve}
+\end{figure}
+
+To test the fusion form on a large scale, take the $288$ nuclei found in nature, from the proton to uranium-238, and every fusion of two of them whose product is also found in nature. There are $2{,}272$ such fusions; $1{,}395$ of them release energy and the others need it. They land on $264$ different natural nuclei. \Cref{tab:cl-fusion} compares the four ways of predicting their energy that this chapter has met, and \Cref{fig:cl-fusion} shows the closure prediction against the measured value.
+
+\suppressfloats[t]
+\begin{table}[tb]
+\myfloatalign
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\tableheadline{prediction of $\Delta m$} & \tableheadline{error in $Q$} & \tableheadline{wrong signs} \\
+\midrule
+no loss, $\Delta m = 0$ & $21.5$ MeV & \\
+liquid-drop formula, five constants & $2.5$ MeV & $66$ \\
+plain recipe, no constant & $0.28$ MeV & $1$ \\
+closure estimate, Law~\ref{law:closure} & $0.18$ MeV & $1$ \\
+\bottomrule
+\end{tabular}
+\caption[Four ways to predict the energy of a fusion]{Four ways to predict the energy of the $2{,}272$ fusions of two natural nuclei into a natural nucleus: root mean square error in $Q$, and the number of fusions whose predicted $Q$ has the wrong sign. The liquid-drop formula has its five constants fitted to all the measured masses with $A \ge 16$. The plain recipe takes the median of the loop estimates, with no constant; the closure estimate takes their trimmed mean, with the cusp constant.}
+\label{tab:cl-fusion}
+\end{table}
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter07/fig-fusion}
+\caption[Two thousand fusions]{The $2{,}272$ fusions of two natural nuclei into a natural nucleus: the energy $Q$ predicted by Law~\ref{law:closure}, with the product's own mass never used, against the measured $Q$. Points on the line are exact.}
+\label{fig:cl-fusion}
+\end{figure}
+
+The closure estimate misses the energy by $0.18$ MeV, more than ten times better than the liquid drop. Only one sign is wrong: fluorine-19 and yttrium-89 make cadmium-108 with $Q = -0.003$ MeV, which the law predicts as $+0.04$ MeV. The number of fusions flatters the test a little, because heavy products are reached by many pairs and are predicted best. Counted once per product, the $264$ products are predicted with an error of $0.31$ MeV. The plain recipe, with no constant at all, misses by $0.28$ MeV, the figure that the guide found on its own table, and gets the same one sign wrong. The constant earns its place on the light and middle products: it brings the error from $2.1$ to $1.3$ MeV for products with $A < 16$, and from $0.60$ to $0.32$ MeV for $16 \le A < 40$; for the heavier products the two give $0.1$ MeV or less.
+
+\begin{table}[tbp]
+\myfloatalign
+\footnotesize
+\input{Chapters/Chapter07/tab-23}
+\caption[Twenty-three fusions]{Twenty-three fusions of the stars and of the laboratory: the twelve captures of helium-4 that climb from beryllium-8 to nickel-56, the fusions of carbon, oxygen, neon, magnesium and silicon with themselves and of carbon with oxygen, and five light ones. $Q$ in MeV: measured, predicted by Law~\ref{law:closure}, and the miss, predicted minus measured. The error is $1.10$ MeV, root mean square, and every sign is right.}
+\label{tab:cl-23}
+\end{table}
+
+\Cref{tab:cl-23} looks at twenty-three fusions one by one: the captures of helium that build carbon, oxygen and the heavier elements in stars, fusions of two heavier nuclei, such as carbon with carbon, and five light ones. Every sign is right, but the light products remain poor: helium-4 and helium-4 to beryllium-8, deuterium and helium-4 to lithium-6, helium-3 and helium-4 to beryllium-7. The law is a law of medium and heavy nuclei. The other eighteen fusions are all predicted a little low, by $0.1$ to $1.2$ MeV, and for one reason: each makes an even nucleus with $N = z$, and the closure estimate of such a nucleus comes out too heavy (\Cref{sec:cl-limits}).
+
+% keep what follows together: break the page here if fewer than 12 lines are left
+\keepblock{12}
+\begin{plainwords}
+To know how much energy a fusion gives, you need the mass of what it makes. The law reads that mass off the product's neighbours, without ever weighing the product. With no adjustable number at all, only the adding and subtracting of the masses of neighbours, the energy of more than two thousand fusions of natural nuclei comes out within about a quarter of an MeV; one constant, for the nuclei with as many neutrons as protons, brings it to a fifth. Only one sign is wrong, for a fusion that gives almost exactly nothing. For the lightest nuclei the law is much rougher, and there it should not be trusted.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 6: Where the Law Stops}\label{sec:cl-limits}
+%------------------------------------------------
+
+A law is only as good as the range in which it has been tested, and this one has three edges.
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter07/fig-chart}
+\caption[The map of nuclei and the error of the law]{The map of nuclei, with each measured nucleus coloured by the miss of its closure estimate, made from its neighbours alone. Gray dots are nuclei whose masses the 2020 evaluation gives only as estimates; crosses are measured nuclei with no closed loop of measured neighbours. The dashed line is $N = z$.}
+\label{fig:cl-chart}
+\end{figure}
+
+\emph{Light nuclei.} Below $A = 16$ the error is above $1$ MeV (\Cref{tab:cl-heldout}). A nucleus of a few nucleons is not a smooth drop, and the loops have little to cancel against. \Cref{fig:cl-chart} shows the misses above $1$ MeV gathered at the bottom left of the map.
+
+\emph{The line $N = z$.} Even with the cusp constant, nuclei with as many neutrons as protons are missed by $1.0$ MeV, ten times the error of their neighbours of the same size. The misses are not random. From carbon-12 to krypton-72, all sixteen even nuclei on the line come out too heavy, by $0.1$ to $1.2$ MeV; the next one, strontium-76, at the edge of the measured map, comes out $0.7$ MeV too light. The odd nuclei on the line, from nitrogen-14 to potassium-38, all come out too light. The extra binding on the line $N = z$ is not one smooth corner: it differs between even and odd nuclei, and one constant cannot describe it.
+
+\emph{The edge of the measured map.} Inside the map, every nucleus has neighbours on all sides; at its edge it has them on one side only, and $68$ measured nuclei have no closed loop at all. To see how the law does beyond the edge, we peeled three layers off the map of measured nuclei, keeping $1{,}400$ inside, refitted $w$ on those alone, and predicted outward one layer at a time, using the predicted masses as inputs for the next layer. Only part of each layer can be reached this way: $187$, $112$ and $66$ nuclei.
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter07/fig-edge}
+\caption[Beyond the edge]{Predicting beyond the edge of the map, one layer at a time: root mean square error in each of three steps outward. Gray: the first version of the law, on a table in which many edge masses were estimates. Blue: measured masses only, for all the nuclei reached and for those with $A \ge 40$.}
+\label{fig:cl-edge}
+\end{figure}
+
+\Cref{fig:cl-edge} gives the result. With measured masses the errors are $0.41$, $0.58$ and $0.98$ MeV in the three steps, and $0.22$, $0.43$ and $0.70$ MeV for $A \ge 40$. The first version of the law, tested on a table in which $565$ of the $3{,}083$ nuclei were estimates, had found $0.26$, $0.34$ and $0.50$ MeV, and had warned that this might flatter it: estimates drawn from smooth trends agree with the loops more easily than real nuclei do. The warning was right. One step past the edge the error is about twice $\sigma(A)$: in units of $2\sigma(A)$, $76\%$ of the nuclei of the first step fall within one unit and $98\%$ within two. After three steps the law should not be trusted. Morales and colleagues found the same growth when they carried the Garvey and Kelson relations outward one layer at a time \citep{Morales2009}.
+
+\begin{plainwords}
+The law works best where it has neighbours on every side: in the middle of the map, for medium and heavy nuclei. It works badly for the lightest nuclei, for nuclei with equal numbers of protons and neutrons, and as soon as it steps outside the measured region, where each step roughly doubles the error. Testing it on estimated masses made it look better than it is, and only measured masses give the honest figure.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 7: Predictions That Can Fail}\label{sec:cl-predictions}
+%------------------------------------------------
+
+A statement earns the name of a law of physics only when it risks being wrong. The Closure Law can be put at risk in the simplest way: by predicting masses that have not been measured, and waiting.
+
+\subsection{A First Test, Already Passed}\label{subsec:cl-first}
+
+The first version registered the predicted masses of $67$ nuclei in its workbook, \emph{Closure-Law-Predictor.xlsx}, dated 2 November 2026. They were made from the isotope table of the \texttt{mendeleev} library \citep{Mentel2014}: these $67$ nuclei lay just outside the map used there, with no measured half-life in that table, and their own table masses were not used. Their stated error was the larger of $0.26$ MeV and $8.5/A$ MeV.
+
+The 2020 evaluation shows that $24$ of the $67$ masses had in fact been measured. For these the prediction can be checked now. \Cref{tab:cl-first} gives the miss of each, in MeV and in units of its stated error combined with the error of the measurement. Twenty fall within one stated error and $22$ within two; a bell curve would give about $16$ and $23$. The two larger misses are boron-18, by $1.03$ MeV or $2.0$ errors, and rubidium-73, by $0.60$ MeV or $2.3$ errors, a light nucleus and a nucleus next to the line $N = z$.
+
+\begin{table}[tb]
+\myfloatalign
+\footnotesize
+\input{Chapters/Chapter07/tab-first}
+\caption[The first test]{The $24$ nuclei of the first registered list whose masses turn out to be measured in the 2020 evaluation: the miss, predicted minus measured, in MeV and in units of the stated error combined with that of the measurement.}
+\label{tab:cl-first}
+\end{table}
+
+This is a fair test, though not yet a prospective one: the masses were evaluated in 2021, before the list was made, but the list did not use them. The law could have failed it, and did not.
+
+\subsection{A New List}\label{subsec:cl-newlist}
+
+\Cref{tab:cl-registered} registers the masses of $61$ nuclei whose ground-state masses the 2020 evaluation gives only as estimates. Each is predicted from measured neighbours alone, with at least three closure estimates, and since each lies just past the edge of the measured map, its stated error is $2\sigma(A)$ (\Cref{sec:cl-limits}). The masses are those of the bare nuclei, in daltons; adding $z\,m_e - B_e/c^2$ gives the atomic mass. Compared with the estimates of the evaluation they differ by $0.20$ MeV, root mean square, and by $0.17$ MeV for $A \ge 40$; this is a comparison of two predictions, not a test. The list is also given in a data file that accompanies this chapter, with the number of estimates for each nucleus.
+
+\begin{table}[tbp]
+\myfloatalign
+\footnotesize
+\input{Chapters/Chapter07/tab-registered}
+\caption[Registered predictions]{Registered predictions of the Closure Law, 2 November 2026: the mass of the bare nucleus, in daltons, of $61$ nuclei whose masses were not measured in the 2020 evaluation, each predicted from measured neighbours only, with its stated error $2\sigma(A)$ in MeV.}
+\label{tab:cl-registered}
+\end{table}
+
+\emph{What would refute the law.} One step past the edge, the measured errors put about three quarters of the nuclei within one stated error and all but one or two in a hundred within two (\Cref{sec:cl-limits}). If, once these nuclei are measured, clearly fewer than two thirds of them land within one stated error, or more than a few miss by more than two, then the error law is wrong past the edge. A miss that grows with the distance from the measured map would show where the law ends. The most likely places for it to fail are the nuclei far from stability, where the shells can change, and the nuclei near $N = z$. The next step is to deposit this list in a public archive, so that the test is on record before the measurements come.
+
+\begin{plainwords}
+A good law sticks its neck out. The first version of this one predicted the masses of $67$ nuclei; $24$ of them turn out to have been measured already, and $22$ of those $24$ land within two stated errors, about as many as chance allows. Here are $61$ more, not yet measured. When they are, the law will either pass again or show where it breaks.
+\end{plainwords}
+
+\subsection{The Standing of the Law}\label{subsec:cl-standing}
+
+\Cref{tab:cl-standing} sorts the statements of this chapter by what supports them: a proof, a measurement, or nothing yet.
+
+\begin{table}[tbp]
+\myfloatalign
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.42\textwidth}@{}}
+\toprule
+\tableheadline{statement} & \tableheadline{standing} \\
+\midrule
+Proposition~\ref{prop:fusion-frame}: fusion on the frame & proved \\
+\Cref{thm:exact-closure}: the exact cancellations & proved \\
+the cusp constant $w = 22.75$ MeV & fitted; tested on nuclei held out \\
+the error law $\sigma(A)$ & measured on $2{,}481$ nuclei, each held out \\
+fusion energies & tested on $2{,}272$ fusions: $0.18$ MeV, and $0.28$ MeV with no constant \\
+prediction past the edge & tested; the error doubles at each step \\
+the first registered list & $22$ of the $24$ measured within two errors \\
+the new registered list & waiting for measurement \\
+the origin of nuclear binding & not explained \\
+\bottomrule
+\end{tabularx}
+\caption[The standing of the law]{What is proved, what is measured, and what is still open.}
+\label{tab:cl-standing}
+\end{table}
+
+\emph{Credit.} The loops are the mass relations of Garvey and Kelson, published in 1966 \citep{GarveyKelson1966,Garvey1969}, and the corner removed by the cusp constant is the trace of Wigner's symmetry of 1937 \citep{Wigner1937}. The plain recipe first wrote them in cosmic masses and used them for fusion, and the first version added the constant and a first error law. The accuracy of the relations on measured masses, and the growth of their errors beyond the edge, have been studied before \citep{Barea2005,Morales2009}, and nuclear physics has global mass models that predict far from the measured map, where the loops cannot go. What the cosmic mass adds is the statement of the loops in its own terms, with the charge parts cancelling visibly and the leftover a neutral body; the reading of the closure on the cards, as a closure of charge-weighted leans; the fusion form; an error law with its floor, tested on measured masses only; and a registered list. These are modest additions to an old law, and that is a respectable thing for them to be.
+
+What the chapter does show is that the frame of Chapter~\ref{ch:standard-model} can carry a law that predicts. Chapter~\ref{ch:standard-model} could only place the bodies whose masses were already known. Extended to isotopes, the same frame states a regularity of nuclear masses in its own terms, as the closure of six charge-weighted leans, and with it predicts masses that have not yet been measured and the energy of fusions that have not yet been weighed. The predictive power comes from nuclear physics, written in the language of the cosmic mass; the measurements to come will decide how far it reaches.
+
+The reading that this chapter shares with Chapter~\ref{ch:interaction}, every measured mass, energy and force a real part, does not stop at bodies at rest. Chapter~\ref{ch:unified} carries it to bodies in motion and to the fields between them, where it gives Newton's mechanics, Newton's gravity with a small magnetic part, and Maxwell's equations, all from one action. Its masses are the real parts of cosmic masses, and they include the masses that this chapter predicts.
+
+\begin{plainwords}
+Isotopes sit on the rings of the frame, each tipped by its mass. When two nuclei fuse, the charges add exactly and the lost mass is a neutral body. Six neighbouring nuclei, counted with alternating signs, cancel almost everything: the charge, the protons and neutrons, and nearly all the binding. Hide one, and the other five give its mass, to about $9/A$ MeV, and with it the energy of every fusion that makes it. The law is old nuclear physics in a new frame, and it is now on record with predictions that can prove it wrong.
+\end{plainwords}

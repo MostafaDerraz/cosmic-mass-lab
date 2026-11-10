@@ -1,0 +1,18 @@
+% The cosmic mass as a General Number (Postulate 4.1). Drawn at 55 degrees, not 79.86, so that the lean is visible.
+\begin{tikzpicture}[>=Stealth, scale=1.05, every node/.style={font=\small}]
+  \def\ang{55}
+  \begin{scope}
+    \clip (-0.5,-0.6) rectangle (7.3,3.5);
+    \foreach \a in {-3,...,7} \draw[black!12] ($(\a,0)+(\ang:-2)$) -- ($(\a,0)+(\ang:6)$);
+    \foreach \b in {-1,...,5} \draw[black!12] ($(-3,0)+(\ang:{\b*0.8})$) -- ($(9,0)+(\ang:{\b*0.8})$);
+  \end{scope}
+  \draw[->, black!55] (-0.5,0) -- (7.3,0) node[below left] {mass axis (real)};
+  \draw[->, black!55] (0,0) -- (\ang:4.1) node[above] {charge axis (Composer)};
+  \draw[->, very thick, black!80] (0,0) -- (3.2,0) node[midway, below] {$m$};
+  \draw[->, very thick, blue!60!black] (3.2,0) -- ($(3.2,0)+(\ang:2.4)$) node[midway, right] {$q\,\Gp$};
+  \draw[->, thick, densely dashed] (0,0) -- ($(3.2,0)+(\ang:2.4)$);
+  \fill ($(3.2,0)+(\ang:2.4)$) circle (1.5pt) node[above right] {$\mu = m + q\,\Gp$};
+  \draw[black!55] (0.7,0) arc (0:\ang:0.7);
+  \node[black!65] at ({\ang/2}:1.0) {$\pb$};
+  \fill (0,0) circle (1.2pt) node[below left] {$0$};
+\end{tikzpicture}

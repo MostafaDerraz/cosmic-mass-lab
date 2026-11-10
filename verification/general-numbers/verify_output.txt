@@ -1,0 +1,243 @@
+
+Section 2. The General Sinus
+----------------------------
+  ok    [num] def:gs                 the geometric ratios of 2000 oblique triangles
+  ok    [num] thm:gs-analytic        the analytic form equals the geometric form (law of sines)
+  ok    [sym] cor:gs-classical       classical recovery at alpha + phi = pi/2
+  ok    [sym] prop:gs-coordinates    e^{i alpha} = cos(alpha, phi) + sin(alpha, phi) u, phi = p - alpha
+  ok    [sym] prop:gs-basic          reciprocity sin(a, f) = cos(f, a), tan(a, f) = cot(f, a)
+  ok    [sym] prop:gs-basic          symmetry identities
+  ok    [sym] prop:gs-basic          pi-addition identities for p, q = -2..2
+  ok    [num] prop:gs-basic          domains: sin, cos finite off alpha+phi in pi Z, tan off phi in pi Z
+  ok    [sym] prop:gs-pythagoras     sin^2 + cos^2 + 2 sin cos cos(alpha + phi) = 1
+  ok    [sym] thm:gs-addition        Ptolemy's identity
+  ok    [sym] thm:gs-addition        sin(a+b, f) = sin(a, f) + cos(a, f) sin(b, f + a)  [GSP (5.13)]
+  ok    [sym] thm:gs-addition        cos(a+b, f) = cos cos + sin sin cos(a+b, f)  [GSP (5.15)]
+  ok    [sym] thm:gs-addition        sin(a, f + t) = sin(a, f) sin(a + f, t)  [GSP (5.17)]
+  ok    [sym] thm:gs-addition        cos(a, f + t) = cos(a, f) + sin(a, f) cos(a + f, t)  [GSP (5.18)]
+  ok    [sym] prop:gs-double         sin(2a, f) = sin(a, f)[1 + cos(2a, f)]
+  ok    [sym] prop:gs-double         cos(2a, f) = cos^2(a, f) + sin^2(a, f) cos(2a, f)
+  ok    [sym] prop:gs-double         the four first-order partial derivatives
+  ok    [num] thm:gs-transform       the 2^n products for n = 1..5 (sin, cos, tan), 40 digits
+  ok    [num] thm:every-n            the products for every N = 1..24 (sin, cos, tan), 40 digits
+  ok    [num] thm:every-n            the classical product of sines, N = 1..24
+  ok    [sym] thm:every-n            the three products for N = 1 and 2, symbolically
+  ok    [num] thm:every-n            no factor leaves its domain (product of denominators)
+
+Section 3. The General Number Plane
+-----------------------------------
+  ok    [sym] ax:gn                  |cos p + sin p| = sqrt2 |sin(p + pi/4)| (second form)
+  ok    [num] ax:gn                  length 1 at 0 and pi/2, largest sqrt2 at pi/4, 0 at 3pi/4, back towards 1 near pi
+  ok    [num] ax:gn                  at the angle 0, 1 + 2 G and 2 + G are the same number, 3
+  ok    [num] def:relative-plane     the sum is taken part by part
+  ok    [num] rem:page               every arrow of the page has exactly one pair (a, b) in a true plane
+  ok    [num] thm:classical-recovery at pi/2 the Composer Unit is i
+  ok    [num] prop:ladder            the real numbers lie on the real axis of every plane
+  ok    [num] thm:two-roots          399 lengths in (1, sqrt2): exactly two roots, statements (1) to (3)
+  ok    [num] thm:two-roots          the other lengths: A < 1 at 3pi/4 -+ arcsin(A/sqrt2); 1 at 0 and pi/2; sqrt2 at pi/4; 0 at 3pi/4
+  ok    [num] thm:square-band        the square is the arrow L^2 at 2p; the backward band is (pi/4, 3pi/4)
+  ok    [num] thm:square-band        the mirror root is in the band, the arcsine root outside, shadows +-A^2 cos 2p1
+  ok    [sym] thm:triangle           (1) |z|^2 = a^2 + 2ab|G| cos p + b^2 |G|^2
+  ok    [num] thm:triangle           (2) a = |z| cos(alpha, phi), b|G| = |z| sin(alpha, phi); (3) the phase angle
+  ok    [num] thm:triangle           the corner angle is pi - p (same signs) or p (opposite signs)
+  ok    [num] def:parts              z is the sum of its two parts; equal numbers have equal parts
+  ok    [num] def:shadow-height      Sh and Ht are the perpendicular readings on the page
+
+Section 4. Arithmetic in a leaning frame
+----------------------------------------
+  ok    [sym] prop:square-rule       G^2 = 2|G| cos p G - |G|^2 and u^2 = 2 cos p u - 1 (any length)
+  ok    [sym] prop:product           (1) the product formula equals Wessel's product on the page
+  ok    [sym] prop:product           (2) the real part a c - |G|^2 b d contains neither cos p nor sin p
+  ok    [sym] prop:product           (3) Re(1 X) = x and Re(G X) = -|G|^2 y, so Re(wX) = 0 for all w forces X = 0
+  ok    [num] prop:product           (2) the real part of zw is the same in the two planes of one length
+  ok    [num] thm:field              order, grouping, distribution, unit, opposite and inverse
+  ok    [sym] def:conjugate, thm:conjugate (1) the conjugate is the mirror image of z in the real axis
+  ok    [sym] thm:conjugate          (2) conj conj z = z, conj(z + w), conj(z w) = conj z conj w
+  ok    [sym] thm:conjugate          (3) z + conj z = 2 Sh(z)
+  ok    [sym] thm:conjugate          (4) z conj z = |z|^2, a positive definite form
+  ok    [sym] thm:conjugate          (5) G + conj G = 2|G| cos p, G conj G = |G|^2, roots of x^2 - 2|G|cos p x + |G|^2
+  ok    [sym] rem:skew-flip          |a - bG|^2 = |z|^2 - 4ab|G| cos p and (a + bG)(a - bG)
+  ok    [num] rem:skew-flip          at pi/2 the skew flip is the conjugate
+  ok    [sym] thm:division           (1) the two-squares identity and |z w| = |z| |w|
+  ok    [sym] thm:division           (2) z (1/z) = 1 and 1/G = (2|G| cos p - G)/|G|^2
+  ok    [sym] thm:division           (3) w (z/w) = z
+  ok    [sym] def:turning-unit       (u - cos p)/sin p = -cot p + G/(|G| sin p)
+  ok    [sym] thm:turning-unit       (1) J is the arrow i of the page: length 1, a right angle
+  ok    [sym] thm:turning-unit       (2) J^2 = -1, and x^2 + 1 = (x - J)(x + J), so only +-J
+  ok    [sym] thm:turning-unit       (3) J z is z turned by a right angle, same length
+  ok    [num] thm:turning-unit       (4) at pi/2, J = G = i
+  ok    [sym] prop:shadow-height     z = Sh + Ht J, a = Sh - Ht cot p, b = Ht/(|G| sin p)
+  ok    [sym] prop:shadow-height     z - conj z = 2 Ht J and |z|^2 = Sh^2 + Ht^2
+  ok    [sym] cor:bridge             Phi is additive and multiplicative; Phi(G) = |G|e^{ip}, Phi(J) = i
+  ok    [sym] cor:bridge             Phi keeps magnitudes and conjugates; the inverse formula
+  ok    [sym] prop:pairs             (1) the parts from the readings, and back
+  ok    [sym] prop:pairs             (2) the four maps are additive and commute with real factors
+  ok    [sym] prop:pairs             (3) conj z = a + b conj G; Re, Com, Sh, Ht J read from z and conj z
+  ok    [num] prop:pairs             (4) real exactly when conj z = z; pure Composer exactly when G conj z = conj G z
+  ok    [sym] thm:parts-product      (1) Re(zw) = Re Re - |G|^2 bd; Com(zw) = Sh(z)Com(w) + Sh(w)Com(z)
+  ok    [sym] thm:parts-product      (2) Sh(zw) = Sh Sh - Ht Ht; Ht(zw) = Sh Ht + Sh Ht
+  ok    [sym] thm:parts-product      (3) the four laws for a square
+  ok    [sym] prop:parts-conjugate   the parts, shadow and height of conj z and of 1/z
+  ok    [sym] prop:signed-area       the four laws of conj(z) w
+  ok    [sym] prop:signed-area       Ht(conj z w) = (ad - bc)|G| sin p = the cross product of the arrows
+  ok    [num] prop:signed-area       Sh(conj z w) = |z||w| cos; sign of the area; on one line; at a right angle
+  ok    [num] rem:longer             |Re z|, |Com z| <= |z|/sin p, both bounds reached (the second by J); readings <= |z|
+  ok    [ctl] tab:habits             habit fails in all 44 leaning planes, holds at pi/2: i^2 = -1
+  ok    [ctl] tab:habits             habit fails in all 44 leaning planes, holds at pi/2: Re conj z = Re z
+  ok    [ctl] tab:habits             habit fails in all 44 leaning planes, holds at pi/2: z + conj z = 2 Re z
+  ok    [ctl] tab:habits             habit fails in all 44 leaning planes, holds at pi/2: z conj z = a^2 + b^2
+  ok    [ctl] tab:habits             habit fails in all 44 leaning planes, holds at pi/2: (a + bG)(a - bG) is real
+  ok    [ctl] tab:habits             habit fails in all 44 leaning planes, holds at pi/2: Com coordinate of zw = ad + bc
+  ok    [ctl] tab:habits             habit fails in all 44 leaning planes, holds at pi/2: |Re z| <= |z|
+  ok    [ctl] tab:habits             habit fails in all 44 leaning planes, holds at pi/2: the Composer part is as long as the height
+  ok    [ctl] tab:habits             habit fails in all 44 leaning planes, holds at pi/2: e^{tG} = cos t + G sin t
+  ok    [num] tab:habits             every law of the right-hand column holds in every plane
+
+Section 5. Turning, powers and roots
+------------------------------------
+  ok    [sym] thm:triangle, prop:gs-pythagoras C^2 + 2 cos p C S + S^2 = 1 for C_t, S_t
+  ok    [sym] thm:turning            C_{a+b} = C_a C_b - S_a S_b
+  ok    [sym] thm:turning            S_{a+b} = C_a S_b + S_a C_b + 2 cos p S_a S_b
+  ok    [num] thm:turning            products and quotients in polar form
+  ok    [num] thm:euler              e^{tJ} = C_t + S_t u (matrix exponential); z = |z|e^{aJ}; G, J, e^{pi J} = -1
+  ok    [sym] rem:euler-native       dS/dt = C/sin p + S cot p and dC/dt = -C cot p - S/sin p
+  ok    [sym] rem:euler-native       w(t) = C_t + S_t u obeys dw/dt = J w (in the frame {1, G})
+  ok    [num] thm:de-moivre          (C_t + S_t u)^n = C_{nt} + S_{nt} u for n = -7..7
+  ok    [sym] cor:powers             G^n = -|G|^n sin(n-1)p/sin p + |G|^{n-1} sin np/sin p G, n = -3..7
+  ok    [sym] cor:powers             the step rule, n = 1..7
+  ok    [sym] cor:powers             sin np/sin p = U_{n-1}(cos p), n = 1..8
+  ok    [num] prop:spiral            G^n = |G|^n e^{i n pbar} for n = -5..10, on the spiral rho = |G|^(theta/pbar)
+  ok    [num] prop:spiral            (1)-(3) |G| > 1 exactly on (0, pi/2), = 1 at pi/2, < 1 on (pi/2, pi)
+  ok    [num] prop:spiral            (4) N pbar = 2 pi k gives a positive real G^N (eight planes)
+  ok    [sym] prop:spiral            exact returns: G^6 = (26 + 15 sqrt3)/8 at pi/3; G^8 = 16 at pi/4; |G| = sqrt2/2 at 7pi/12
+  ok    [num] rem:golden             2cos(pi/5) = tau; u^2 = tau u - 1; coefficients 1, tau, tau, 1, 0; G^2..G^5; G^10 real (40 digits)
+  ok    [num] rem:golden             sin(pi/5, pi/5) = cos(pi/5, pi/5) = 1/tau = tau - 1; csc = sec = tau; e^{(pi/5)J} = (1 + u)/tau at 2pi/5; |1 + u| = tau, a diagonal of the regular pentagon with the sides 1, u, ..., u^4
+  ok    [num] cor:two-trig           the parts and readings of z^n; e^z = e^{Sh}(C_{Ht} + S_{Ht} u)
+  ok    [num] thm:roots              the n roots w_k satisfy w_k^n = z and are distinct, n = 1..8
+  ok    [sym] cor:sqrt               (1 + u)^2 = 4 cos^2(p/2) u, and (sqrt|G|/(2cos(p/2)))^2 (1 + u)^2 = G  (p = 2h)
+  ok    [num] cor:sqrt               the first root lies on the ray alpha = p/2
+
+Section 6. The geometry of one magnitude
+----------------------------------------
+  ok    [num] prop:circle            Re(z) > 0 exactly on the half of the circle that holds the positive real axis
+  ok    [sym] thm:ellipse            the parametric point satisfies a^2 + B^2 + 2 cos p aB = M^2
+  ok    [sym] thm:ellipse            a + B cos p = M cos(alpha) and B sin p = M sin(alpha)
+  ok    [sym] thm:ellipse            the axes: eigenvalues 1 +- cos p on the diagonals (1, +-1)
+  ok    [sym] thm:ellipse            the ratio of the semi-axes is tan(p/2)  (p = 2h)
+  ok    [num] thm:ellipse            area pi M^2/sin p, eccentricity 2|c|/(1+|c|) at every angle, one turn, inside/outside
+  ok    [sym] thm:ellipse            at p = 0 the curve is the pair of lines a + B = +-M
+  ok    [num] def:rings-rays         a number of magnitude M and angle alpha is the point (M C_alpha, M S_alpha) of the chart
+  ok    [num] rem:frame-readings     axes are the rays 0 and pbar; quadrants hold pbar and pi - pbar of alpha; ring axes on pbar/2 (+pi/2)
+  ok    [num] prop:near-axis         delta = arctan(sin p/(|eta| +- cos p)); delta = phi for b > 0; delta ~ sin p/|eta|
+
+Appendix A. The formulary (rows not stated in the body)
+-------------------------------------------------------
+  ok    [num] app:units              to another true relative plane
+  ok    [sym] app:plane              the opposite angle: C_{-t} = C_t + 2 cos p S_t, S_{-t} = -S_t
+  ok    [sym] app:plane              reciprocity: C_{p-t} = S_t and S_{p-t} = C_t
+  ok    [sym] app:plane              the mirror z -> u conj z sends x + y u to y + x u
+  ok    [num] app:plane              the angle tan t = Ht/Sh; the conjugate in polar form
+  ok    [sym] app:turning            subtraction: C_{a-b} and S_{a-b}
+  ok    [sym] app:turning            double angle: C_{2a} = C^2 - S^2, S_{2a} = 2S(C + cos p S)
+  ok    [sym] app:turning            a turn by p, a quarter turn and a half turn
+  ok    [sym] app:euler              sin np/sin p for n = 1..4: 1, 2c, 4c^2 - 1, 8c^3 - 4c
+  ok    [num] app:euler              the logarithm: e^{ln z} = z
+  ok    [num] app:roots              the roots of unity
+  ok    [num] app:roots              the quadratic equation v^2 + P v + Q = 0
+  ok    [sym] app:matrix             the matrix of zw is the product of the matrices
+  ok    [sym] app:matrix             det = |z|^2 and trace = 2 Sh(z); z and conj z are the roots of x^2 - 2Sh x + |z|^2
+  ok    [sym] app:matrix             the matrix of G obeys the Rule of the Square
+  ok    [sym] app:parts              the quotient by its top z conj w
+  ok    [sym] app:parts              a quarter turn: the parts and readings of J z
+  ok    [sym] app:parts              the product by G: Re = -|G|^2 b, Com = Re(conj z) G, Sh, Ht
+  ok    [num] app:parts              the parts and readings of G^n
+  ok    [num] app:parts              Ht = 0 exactly when conj z = z; Sh = 0 exactly when conj z = -z
+  ok    [sym] app:parts              the table of the six numbers that recur
+
+Introduction and Summary: prior work and open questions
+-------------------------------------------------------
+  ok    [sym] sec:intro              Rule of the Square = generalized complex unit with p = -|G|^2, q = 2|G| cos p (elliptic)
+  ok    [sym] sec:intro              conjugate = (G -> q - G); |z|^2 = a^2 + qab - pb^2; J = (G - q/2)/sqrt(-p - q^2/4)
+  ok    [num] sec:intro              every elliptic pair (p, q) is a leaning frame: length sqrt(-p), angle arccos(q/(2 sqrt(-p)))
+  ok    [sym] sec:summary            Cauchy-Riemann equations of a leaning frame, for f = Z^2, Z^3, Z^4
+
+Printed numbers (Sections 1, 3, 4, 6 and 7, Figures 1, 4 and 5, Table 2)
+------------------------------------------------------------------------
+  ok    [val] printed                length of the Composer Unit at 79.86 deg: 1.16043
+  ok    [val] printed                Table 2: the same length to seven decimals: 1.1604345
+  ok    [val] printed                cos 79.86 deg: 0.17605
+  ok    [val] printed                sin 79.86 deg: 0.98438
+  ok    [val] printed                arcsine root of that length, degrees: 10.14
+  ok    [val] printed                mirror root of that length, degrees: 79.86
+  ok    [val] printed                arcsine root of the printed length 1.16043, degrees: 10.14
+  ok    [val] printed                G^2, real part: -1.34661
+  ok    [val] printed                G^2, Composer coordinate: 0.40860
+  ok    [val] printed                G^3, real part: -0.55022
+  ok    [val] printed                G^3, Composer coordinate: -1.17966
+  ok    [val] printed                J, real part (= -cot p): -0.17885
+  ok    [val] printed                J, Composer coordinate: 0.87542
+  ok    [val] printed                square root of G, real part: 0.70240
+  ok    [val] printed                square root of G, Composer coordinate: 0.60529
+  ok    [val] printed                the square of that root is G
+  ok    [val] printed                Sh(1 + G): 1.20430
+  ok    [val] printed                Ht(1 + G): 1.14231
+  ok    [val] printed                |1 + G|: 1.65988
+  ok    [val] printed                |1 + G|^2: 2.75521
+  ok    [val] printed                studied angle of 1 + G, degrees: 43.49
+  ok    [val] printed                projection angle of 1 + G, degrees: 36.37
+  ok    [val] printed                conjugate, real part: 1.40860
+  ok    [val] printed                conjugate, Composer coordinate: -1
+  ok    [val] printed                Section 7: 2(1.20430) - 1: 1.40860
+  ok    [val] printed                z^2, real part: -0.34661
+  ok    [val] printed                z^2, Composer coordinate (= 2 Sh(z)): 2.40860
+  ok    [val] printed                2 Sh(z): 2.40860
+  ok    [val] printed                z^3, real part: -3.59005
+  ok    [val] printed                z^3, Composer coordinate: 3.04614
+  ok    [val] printed                1/z, real part: 0.51125
+  ok    [val] printed                1/z, Composer coordinate: -0.36295
+  ok    [val] printed                J z, real part: -1.35770
+  ok    [val] printed                J z, Composer coordinate: 1.05427
+  ok    [val] printed                square root of z, real part: 1.11134
+  ok    [val] printed                square root of z, Composer coordinate: 0.41782
+  ok    [val] printed                square root of z, angle in degrees: 21.74
+  ok    [val] printed                that root squared is z
+  ok    [val] printed                (1 + G)(1 - G), real part: 2.34661
+  ok    [val] printed                (1 + G)(1 - G), Composer coordinate: -0.40860
+  ok    [val] printed                signed area of 1 + G and 2 - G: -3.42693
+  ok    [val] printed                semi-axis on B = a, per unit of M: 0.92212
+  ok    [val] printed                semi-axis on B = -a, per unit of M: 1.10167
+  ok    [val] printed                their ratio: 0.83702
+  ok    [val] printed                their ratio = tan(p/2): 0.83702
+  ok    [val] printed                Remark 5.7: |G| at pi/5: 1.39680
+  ok    [val] printed                Remark 5.7: G^10 at pi/5: 28.27153
+  ok    [val] printed                Figure 6(a): |G| at pi/3: 1.36603
+  ok    [val] printed                Figure 6(a): G^6 at pi/3: 6.49760
+  ok    [val] printed                Figure 6(f): G^12 at pi/6: 42.21874
+  ok    [val] printed                Figure 6(d): the stretch per step at 79.86 deg, per cent: 16
+  ok    [val] printed                Figure 8(b): the ring of 1 + G at pi/3: 2.05719
+  ok    [val] printed                Figure 8(b): the ray of 1 + G at pi/3, degrees: 35.10
+  ok    [val] printed                a part longer than its number, at most (per cent): 1.6
+  ok    [val] printed                Figures 1 and 4: length of the Composer Unit at pi/6: 1.366
+  ok    [val] printed                Figures 1 and 4: length of the Composer Unit at pi/4: 1.414
+  ok    [val] printed                Figures 1 and 4: length of the Composer Unit at pi/3: 1.366
+  ok    [val] printed                Figures 1 and 4: length of the Composer Unit at 2pi/3: 0.366
+  ok    [val] printed                Figures 1 and 4: length of the Composer Unit at 5pi/6: 0.366
+  ok    [val] printed                Figures 1 and 4: length of the Composer Unit at pi/2: 1
+  ok    [val] printed                Section 1.6: sqrt(K/G) in units of 10^10 kg/C: 1.16043
+  ok    [val] printed                Section 1.1: (2 +- i)^3 = 2 +- 11i; 4^3 = 15*4 + 4; 5 +- sqrt(-15) has sum 10 and product 40
+
+Coverage of the numbered statements
+-----------------------------------
+  ok    [cov] coverage               all 51 numbered statements of the paper are checked
+
+Summary
+-------
+  sym: 79 passed, 0 failed
+  num: 53 passed, 0 failed
+  ctl: 9 passed, 0 failed
+  val: 62 passed, 0 failed
+  cov: 1 passed, 0 failed
+
+  204 of 204 checks passed, 0 failed.
+  51 numbered statements covered; 62387 numerical comparisons in 75 relative planes (45 angles; the Axiom's length and two other lengths).
+  Run time 7.3 s.

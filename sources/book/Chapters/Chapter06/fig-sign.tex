@@ -1,0 +1,36 @@
+\begin{tikzpicture}[x=1mm, y=1mm, >=Stealth, every node/.style={font=\footnotesize}]
+  \begin{scope}[shift={(0,0)}]
+    \draw[->, gray] (-26,0) -- (27,0);
+    \node[gray!70!black, font=\scriptsize, anchor=north east] at (27,-0.7) {pull};
+    \node[gray!70!black, font=\scriptsize, anchor=north west] at (-26,-0.7) {push};
+    \draw[line width=3pt, RoyalBlue!30] (0,0) -- (18.76,0);
+    \draw[gray, densely dotted] (18.76,6.932) -- (18.76,0);
+    \draw[gray!75!black] (7,0) arc[start angle=0, end angle=10.14, radius=7];
+    \draw[gray!75!black, densely dotted] (11.5,0) arc[start angle=0, end angle=20.28, radius=11.5];
+    \draw[->, very thick, RoyalBlue] (0,0) -- (19.688,3.521);
+    \draw[->, very thick, RoyalBlue!60, densely dashed] (0,0) -- (18.76,6.932);
+    \node[RoyalBlue, anchor=west] at (20.488,3.221) {$\Gp$};
+    \node[RoyalBlue!80!black, anchor=south] at (18.76,7.432) {$\Gp^2$};
+    \node[font=\scriptsize, anchor=north] at (9.38,-0.9) {$+0.938$};
+    \fill (0,0) circle (1pt);
+    \node[anchor=north, align=center] at (0.5,-6) {(a) arcsine root, $\pb = 10.14^\circ$\\[1pt] \scriptsize shadow of $\Gp^2$: $\cos 2\pb = +0.938$};
+  \end{scope}
+  \begin{scope}[shift={(61,0)}]
+    \draw[->, gray] (-26,0) -- (27,0);
+    \node[gray!70!black, font=\scriptsize, anchor=north east] at (27,-0.7) {pull};
+    \node[gray!70!black, font=\scriptsize, anchor=north west] at (-26,-0.7) {push};
+    \draw[line width=3pt, RoyalBlue!30] (0,0) -- (-18.76,0);
+    \draw[gray, densely dotted] (-18.76,6.932) -- (-18.76,0);
+    \draw[gray!75!black] (7,0) arc[start angle=0, end angle=79.86, radius=7];
+    \draw[gray!75!black, densely dotted] (11.5,0) arc[start angle=0, end angle=159.72, radius=11.5];
+    \draw[->, very thick, RoyalBlue] (0,0) -- (3.521,19.688);
+    \draw[->, very thick, RoyalBlue!60, densely dashed] (0,0) -- (-18.76,6.932);
+    \node[RoyalBlue, anchor=south] at (3.521,19.988) {$\Gp$};
+    \node[RoyalBlue!80!black, anchor=south east] at (-18.26,7.232) {$\Gp^2$};
+    \node[gray!75!black, font=\scriptsize] at (4.234,3.209) {$\pb$};
+    \node[gray!75!black, font=\scriptsize] at (-6.807,12.803) {$2\pb$};
+    \node[font=\scriptsize, anchor=north] at (-9.38,-0.9) {$-0.938$};
+    \fill (0,0) circle (1pt);
+    \node[anchor=north, align=center] at (0.5,-6) {(b) mirror root, $\pb = 79.86^\circ$\\[1pt] \scriptsize shadow of $\Gp^2$: $\cos 2\pb = -0.938$};
+  \end{scope}
+\end{tikzpicture}

@@ -1,0 +1,1052 @@
+% The General Sinus: Trigonometric Functions of an Oblique Projection
+% Named version (rev3) of the Elemente der Mathematik manuscript.
+\documentclass[11pt]{amsart}
+
+\usepackage[a4paper,margin=3cm]{geometry}
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\numberwithin{equation}{section}
+
+\newcommand{\Com}{\mathrm{Com}}
+\newcommand{\pb}{\overline{\phi}}
+
+\begin{document}
+
+\title{The General Sinus: Trigonometric Functions of an Oblique Projection}
+\author{Mostafa Derraz}
+\address{Independent Researcher, Tangier, Morocco}
+\email{m.derraz@proton.me}
+
+\subjclass[2020]{Primary 26A09; Secondary 51N20, 33B10}
+\keywords{oblique projection, oblique coordinates, law of sines,
+two-variable trigonometric functions, addition formulas, product identities}
+
+\maketitle
+
+
+% =======================================================================
+\section{Introduction}
+\label{sec:introduction}
+% =======================================================================
+
+The classical sine and cosine of an angle $\alpha$ come from one
+construction. Take a point $Z$ on the second side of the angle,
+project it straight down onto the first side, and read the sides of the
+right triangle that results~\cite{Maor1998}. The right angle is part of
+the construction, so familiar that it is rarely stated.
+
+This paper changes one thing. The point $Z$ is projected onto the first
+side along a line that makes a chosen angle $\phi$ with $ZO$, the
+\emph{projection angle} (Figure~\ref{fig:projections}). The triangle
+$OZ\overline{Z}$ is then oblique, with the angles $\alpha$ at $O$,
+$\phi$ at $Z$ and $\pi-(\alpha+\phi)$ at the foot $\overline{Z}$. Its
+sides, divided by $[OZ]$, define the functions $\sin(\alpha,\phi)$ and
+$\cos(\alpha,\phi)$, and their quotient $\tan(\alpha,\phi)$. The law of
+sines~\cite{CoxeterGreitzer1967} gives them at once,
+\[
+\sin(\alpha,\phi) = \frac{\sin\alpha}{\sin(\alpha+\phi)}, \qquad
+\cos(\alpha,\phi) = \frac{\sin\phi}{\sin(\alpha+\phi)}, \qquad
+\tan(\alpha,\phi) = \frac{\sin\alpha}{\sin\phi},
+\]
+and the classical functions return when $\alpha+\phi = \pi/2$.
+
+These formulas are elementary, and we do not claim otherwise. What makes
+them worth a systematic study is that they have a natural reading. When
+$[OZ] = 1$, the projection line is parallel to a second axis through $O$
+at the angle $\pb = \alpha+\phi$ to the first, and $\cos(\alpha,\phi)$
+and $\sin(\alpha,\phi)$ are the coordinates of the point $Z$ of the unit
+circle in the oblique frame of the two axes
+(Proposition~\ref{prop:coordinates}). The classical functions are the
+coordinates of the unit circle in an orthonormal frame; the general
+functions are its coordinates in an oblique one. Oblique coordinates are
+as old as analytic geometry, but we are not aware of a study of the
+coordinate functions of the circle in such a frame as functions of two
+angles in their own right. The closest work concerns the generalized
+complex numbers, whose unit satisfies $i^2 = p + qi$
+\cite{HarkinHarkin2004,KantorSolodovnikov1989,Yaglom1968}. In the
+elliptic case these algebras are the plane named in an oblique frame and
+the general functions are the coordinates of their unit circle; the
+arithmetic of numbers written in this form is developed
+in~\cite{DerrazGN}. The name \emph{generalized trigonometric
+functions} is also used for the eigenfunctions of the one-dimensional
+$p$-Laplacian~\cite{Lindqvist1995}; those functions are unrelated to
+ours.
+
+The general sine was introduced in~\cite{GeneralSinus}. The present
+paper gives a self-contained account, organised around the coordinate
+reading. Its main results are the following.
+\begin{itemize}
+\item In an oblique frame, the Pythagorean identity acquires one cross
+  term, $\cos(\alpha,\phi)^2 + \sin(\alpha,\phi)^2
+  + 2\cos(\alpha,\phi)\sin(\alpha,\phi)\cos(\alpha+\phi) = 1$
+  (Proposition~\ref{prop:pythagoras}).
+\item The addition formulas come in two kinds: with the projection angle
+  fixed, so that the frame turns with the studied angle
+  (Section~\ref{sec:addition}), and with the frame fixed
+  (Proposition~\ref{prop:fixed-frame}). All of the first kind reduce to a
+  single identity of Ptolemy; the second kind follows from Euler's
+  formula written in the oblique frame and includes De Moivre's formula.
+\item Differentiation with the frame held fixed acts on the general sine
+  and cosine as a quarter turn,
+  $D^n f(x,y) = f(x + n\pi/2,\, y - n\pi/2)$, so that $D^2 f = -f$ as for
+  the classical functions (Theorem~\ref{thm:shift}).
+\item Each general function is a product of $N$ copies of itself at scaled
+  arguments, for every $N \ge 1$ (Theorem~\ref{thm:products}). Truncating
+  each factor to second order gives rational functions which are again
+  quotients of sines, in closed form, and which converge with an error of
+  exact order $N^{-2}$ (Theorem~\ref{thm:GST-closed} and
+  Corollary~\ref{cor:GST-rate}).
+\end{itemize}
+Section~\ref{sec:def} defines the functions and their domains,
+Section~\ref{sec:coordinates} gives the coordinate reading, and
+Section~\ref{sec:identities} collects symmetries and special values. The
+results above occupy Sections~\ref{sec:addition}
+to~\ref{sec:products}. Every statement is checked symbolically or at
+$50$ significant digits by an accompanying script
+(Section~\ref{sec:verification}).
+
+\medskip
+\noindent\textbf{Notation.} The studied angle is $\alpha$, or $x$ in
+analytic statements; the projection angle is $\phi$, or $y$. Segment
+lengths are written $[PQ]$. The classical functions keep their one-variable
+notation, so that $\sin\alpha$ and $\sin(\alpha,\phi)$ are never confused.
+
+% =======================================================================
+\section{The general functions}
+\label{sec:def}
+% =======================================================================
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[>=Stealth, scale=1.0, every node/.style={font=\small}]
+  % (a) vertical projection
+  \begin{scope}
+    \coordinate (O) at (0,0);
+    \coordinate (X) at (3.6,0);
+    \coordinate (Z) at (35:3.0);
+    \coordinate (Zb) at ($(O)!(Z)!(X)$);
+    \draw[gray, ->] (-0.2,0) -- (3.8,0);
+    \draw[thick] (O) -- (Z) -- (Zb) -- cycle;
+    \draw ($(Zb)+(-0.22,0)$) -- ++(0,0.22) -- ++(0.22,0);
+    \pic [draw, "$\alpha$", angle radius=0.75cm, angle eccentricity=1.3] {angle = X--O--Z};
+    \fill (Z) circle (1.3pt) node[above] {$Z$};
+    \fill (Zb) circle (1.3pt) node[below] {$\overline{Z}$};
+    \node[below left] at (O) {$O$};
+    \node at (1.8,-0.95) {(a) straight down};
+  \end{scope}
+  % (b) projection at angle phi
+  \begin{scope}[xshift=5.4cm]
+    \coordinate (O) at (0,0);
+    \coordinate (X) at (3.6,0);
+    \coordinate (Z) at (35:3.0);
+    \coordinate (Zb) at ($(Z)+(255:{3.0*sin(35)/sin(75)})$);
+    \draw[gray, ->] (-0.2,0) -- (3.8,0);
+    \draw[thick] (O) -- (Z) -- (Zb) -- cycle;
+    \pic [draw, "$\alpha$", angle radius=0.75cm, angle eccentricity=1.3] {angle = X--O--Z};
+    \pic [draw, "$\phi$", angle radius=0.55cm, angle eccentricity=1.45] {angle = O--Z--Zb};
+    \fill (Z) circle (1.3pt) node[above] {$Z$};
+    \fill (Zb) circle (1.3pt) node[below] {$\overline{Z}$};
+    \node[below left] at (O) {$O$};
+    \node at (1.8,-0.95) {(b) at the angle $\phi$};
+  \end{scope}
+\end{tikzpicture}
+\caption{Two projections of a point $Z$ onto the first side of the angle
+$\alpha$. (a) Straight down: a right triangle, whose sides give $\cos\alpha$
+and $\sin\alpha$. (b) Along a line making the angle $\phi$ with $ZO$: an
+oblique triangle with the angles $\alpha$, $\phi$ and
+$\pi-(\alpha+\phi)$, whose sides give $\cos(\alpha,\phi)$ and
+$\sin(\alpha,\phi)$. Here $\alpha = 35^\circ$ and $\phi = 40^\circ$.}
+\label{fig:projections}
+\end{figure}
+
+Let $\alpha$ be an angle with vertex $O$, let $Z \neq O$ be a point on
+its second side, and let $0 < \phi < \pi - \alpha$. The line through $Z$
+that makes the angle $\phi$ with $ZO$ meets the first side at a point
+$\overline{Z}$, the \emph{projection of $Z$ at the angle $\phi$}. The
+triangle $OZ\overline{Z}$ has the angles $\alpha$, $\phi$ and
+$\pi-(\alpha+\phi)$. All the triangles obtained in this way from points
+$Z$ on the same side are similar, so the ratios of their sides depend on
+$\alpha$ and $\phi$ only.
+
+\begin{defn}[General trigonometric functions]
+\label{defn:general}
+The \emph{general sine, cosine and tangent} are the ratios
+\[
+\sin(\alpha,\phi) = \frac{[Z\overline{Z}]}{[OZ]}, \qquad
+\cos(\alpha,\phi) = \frac{[O\overline{Z}]}{[OZ]}, \qquad
+\tan(\alpha,\phi) = \frac{[Z\overline{Z}]}{[O\overline{Z}]},
+\]
+and $\csc$, $\sec$, $\cot$ are their reciprocals.
+\end{defn}
+
+\begin{thm}[Analytic form]
+\label{thm:analytic}
+For $0 < \alpha$, $0 < \phi$ and $\alpha + \phi < \pi$,
+\begin{equation}
+\label{eq:analytic}
+\sin(\alpha,\phi) = \frac{\sin\alpha}{\sin(\alpha+\phi)}, \qquad
+\cos(\alpha,\phi) = \frac{\sin\phi}{\sin(\alpha+\phi)}, \qquad
+\tan(\alpha,\phi) = \frac{\sin\alpha}{\sin\phi}.
+\end{equation}
+\end{thm}
+
+\begin{proof}
+By the law of sines in $OZ\overline{Z}$,
+$[Z\overline{Z}]/\sin\alpha = [O\overline{Z}]/\sin\phi
+= [OZ]/\sin(\pi-\alpha-\phi)$, and $\sin(\pi-\alpha-\phi) = \sin(\alpha+\phi)$.
+\end{proof}
+
+From here on, \eqref{eq:analytic} \emph{defines} the general functions
+for all real $\alpha$ and $\phi$ at which the denominators do not vanish:
+$\sin(\alpha,\phi)$ and $\cos(\alpha,\phi)$ need $\alpha+\phi \notin \pi\mathbb{Z}$,
+and $\tan(\alpha,\phi)$ needs $\phi \notin \pi\mathbb{Z}$. The reciprocals are
+\[
+\csc(\alpha,\phi) = \frac{\sin(\alpha+\phi)}{\sin\alpha}, \qquad
+\sec(\alpha,\phi) = \frac{\sin(\alpha+\phi)}{\sin\phi}, \qquad
+\cot(\alpha,\phi) = \frac{\sin\phi}{\sin\alpha},
+\]
+defined where their denominators do not vanish (for $\csc$ and $\sec$ we
+also keep $\alpha+\phi \notin \pi\mathbb{Z}$, so that they are reciprocals
+of finite non-zero values).
+For $\alpha$ and $\phi$ outside the triangle range, the general functions
+keep the geometric meaning of Proposition~\ref{prop:coordinates}, as signed
+coordinates.
+
+\begin{cor}[Classical case]
+\label{cor:classical}
+If $\alpha + \phi = \pi/2$, then
+\[
+\sin(\alpha,\phi) = \sin\alpha, \qquad \cos(\alpha,\phi) = \cos\alpha, \qquad
+\tan(\alpha,\phi) = \tan\alpha .
+\]
+\end{cor}
+
+\begin{proof}
+Then $\sin(\alpha+\phi) = 1$ and $\sin\phi = \cos\alpha$.
+\end{proof}
+
+The condition $\alpha+\phi = \pi/2$ says that the triangle has its right
+angle at $\overline{Z}$. The general functions therefore form a
+one-parameter family through the classical ones, the parameter recording
+the direction of projection.
+
+\begin{ex}
+For $\alpha = \pi/4$ and $\phi = \pi/3$,
+\begin{gather*}
+\sin\Bigl(\frac{\pi}{4},\frac{\pi}{3}\Bigr)
+= \frac{\sin(\pi/4)}{\sin(7\pi/12)}
+= \frac{\sqrt2/2}{(\sqrt6+\sqrt2)/4} = \sqrt3 - 1 \approx 0.732, \\
+\cos\Bigl(\frac{\pi}{4},\frac{\pi}{3}\Bigr)
+= \frac{\sqrt3/2}{(\sqrt6+\sqrt2)/4} = \frac{3\sqrt2-\sqrt6}{2} \approx 0.897.
+\end{gather*}
+\end{ex}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.92\textwidth, height=6.2cm,
+  xmin=0, xmax=180, ymin=-3, ymax=3,
+  xtick={0,30,60,90,120,150,180},
+  xlabel={$\alpha$ (degrees)}, ylabel={$\sin(\alpha,\phi)$},
+  axis lines=middle, every axis x label/.style={at={(current axis.south east)},anchor=north east, yshift=-2pt},
+  every axis y label/.style={at={(current axis.north west)}, anchor=south west},
+  legend style={at={(0.5,-0.14)}, anchor=north, font=\footnotesize, draw=none, legend columns=2, column sep=8pt},
+  unbounded coords=jump, restrict y to domain=-3.2:3.2,
+  samples=400, domain=0.5:179.5,
+  tick label style={font=\footnotesize}, label style={font=\small},
+]
+  \addplot[thick, black, densely dotted] {sin(x)/sin(x+90)};
+  \addlegendentry{$\phi = 90^\circ$}
+  \addplot[thick, black] {sin(x)/sin(x+60)};
+  \addlegendentry{$\phi = 60^\circ$}
+  \addplot[thick, gray] {sin(x)/sin(x+30)};
+  \addlegendentry{$\phi = 30^\circ$}
+  \addplot[thick, black, dashed, domain=0.5:179.5] {sin(x)/sin(x+90-x)};
+  \addlegendentry{$\phi = 90^\circ - \alpha$ (classical $\sin\alpha$)}
+\end{axis}
+\end{tikzpicture}
+\caption{The general sine as a function of $\alpha$ for three fixed
+projection angles. It has a pole at $\alpha = 180^\circ - \phi$, where
+the projection line becomes parallel to the first side. Along the line
+$\alpha+\phi = 90^\circ$ (dashed) it is the classical sine. For
+$\phi = 90^\circ$ it is $\tan\alpha$ (dotted), by
+Proposition~\ref{prop:special}.}
+\label{fig:plot}
+\end{figure}
+
+% =======================================================================
+\section{The coordinate reading}
+\label{sec:coordinates}
+% =======================================================================
+
+Draw the unit circle about $O$ together with a second axis through $O$,
+the \emph{composer axis} $\Com$, making the angle $\pb$ with the
+$x$-axis, $0 < \pb < \pi$ (Figure~\ref{fig:composed}). We call this
+configuration the \emph{composed circle}. For the point $Z$ of the circle
+at the angle $\alpha$, projecting $Z$ onto the $x$-axis parallel to the
+composer axis is the projection at the angle $\phi = \pb - \alpha$, since
+the projection line and $ZO$ meet at that angle. The three angles are
+therefore tied by
+\begin{equation}
+\label{eq:phibar}
+\pb = \alpha + \phi .
+\end{equation}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[>=Stealth, scale=2.4, every node/.style={font=\small}]
+  \def\al{30}
+  \def\pbar{70}
+  \coordinate (O) at (0,0);
+  \coordinate (X) at (1.35,0);
+  \coordinate (Z) at (\al:1);
+  \coordinate (Zb) at ($(Z)+(\pbar+180:{sin(\al)/sin(\pbar)})$);
+  \coordinate (Com) at (\pbar:1.32);
+  \draw[gray!60] (O) circle (1);
+  \draw[->, gray] (-1.25,0) -- (1.45,0) node[right] {$x$};
+  \draw[->, thick] (O) -- (Com) node[above] {$\Com$};
+  \draw[thick] (O) -- (Z);
+  \draw[very thick] (Zb) -- (Z);
+  \draw[very thick, gray] (O) -- (Zb);
+  \pic [draw, "$\alpha$", angle radius=0.42cm, angle eccentricity=1.35] {angle = X--O--Z};
+  \draw[gray] (0.52,0) arc (0:\pbar:0.52);
+  \node[gray] at (56:0.64) {$\overline{\phi}$};
+  \pic [draw, "$\phi$", angle radius=0.28cm, angle eccentricity=1.75] {angle = O--Z--Zb};
+  \fill (Z) circle (0.7pt) node[above right] {$Z$};
+  \fill (Zb) circle (0.7pt) node[below] {$\overline{Z}$};
+  \node[below left] at (O) {$O$};
+  \node[below] at ($(O)!0.5!(Zb)+(0,-0.08)$) {$\cos(\alpha,\phi)$};
+  \node[right] at ($(Zb)!0.55!(Z)+(0.03,0)$) {$\sin(\alpha,\phi)$};
+\end{tikzpicture}
+\caption{The composed circle. The point $Z$ of the unit circle at the
+angle $\alpha$, projected onto the $x$-axis parallel to the composer axis
+($\pb = \alpha+\phi$), has the coordinate $\cos(\alpha,\phi)$ along the
+$x$-axis and $\sin(\alpha,\phi)$ along the composer axis
+(Proposition~\ref{prop:coordinates}). Here $\alpha = 30^\circ$ and
+$\pb = 70^\circ$.}
+\label{fig:composed}
+\end{figure}
+
+\begin{prop}[Coordinates in an oblique frame]
+\label{prop:coordinates}
+Let $0 < \pb < \pi$, let $\vec u = (\cos\pb, \sin\pb)$ be the unit vector
+of the composer axis, and let $Z = (\cos\alpha, \sin\alpha)$, with
+$\phi = \pb - \alpha$. Then
+\[
+\overrightarrow{OZ} = \cos(\alpha,\phi)\,\vec e_1 + \sin(\alpha,\phi)\,\vec u ,
+\]
+where $\vec e_1 = (1,0)$. That is, $\cos(\alpha,\phi)$ and $\sin(\alpha,\phi)$
+are the coordinates of $Z$ in the frame $(\vec e_1, \vec u)$, for every
+real $\alpha$.
+\end{prop}
+
+\begin{proof}
+Solve $(\cos\alpha,\sin\alpha) = a(1,0) + b(\cos\pb,\sin\pb)$. The second
+components give $b = \sin\alpha/\sin\pb$, and the first give
+$a = \cos\alpha - b\cos\pb = \sin(\pb-\alpha)/\sin\pb$. With
+$\pb = \alpha+\phi$ these are $\sin(\alpha,\phi)$ and $\cos(\alpha,\phi)$.
+Since $\sin\pb \neq 0$, the solution is unique.
+\end{proof}
+
+The proposition gives the general functions a meaning for all real
+$\alpha$, as signed coordinates, and it explains their poles: as
+$\pb \to 0$ or $\pi$ the composer axis falls onto the $x$-axis and the
+oblique frame degenerates. The length of $\overrightarrow{OZ}$ written in
+the frame gives the oblique form of Pythagoras.
+
+\begin{prop}[Pythagorean identity of an oblique frame]
+\label{prop:pythagoras}
+Whenever $\alpha+\phi \notin \pi\mathbb{Z}$,
+\begin{equation}
+\label{eq:pythagoras}
+\cos(\alpha,\phi)^2 + \sin(\alpha,\phi)^2
++ 2\cos(\alpha,\phi)\sin(\alpha,\phi)\cos(\alpha+\phi) = 1 .
+\end{equation}
+\end{prop}
+
+\begin{proof}
+$|a\vec e_1 + b\vec u|^2 = a^2 + b^2 + 2ab\cos\pb$ and $|\overrightarrow{OZ}| = 1$.
+Equivalently, \eqref{eq:pythagoras} is the law of cosines at
+$\overline{Z}$ in the triangle $OZ\overline{Z}$, whose angle there is
+$\pi - \pb$.
+\end{proof}
+
+For $\pb = \pi/2$ the cross term vanishes and \eqref{eq:pythagoras} is
+$\cos^2\alpha + \sin^2\alpha = 1$. In general the point
+$(\cos(\alpha,\phi), \sin(\alpha,\phi))$, plotted with its two
+coordinates at right angles, runs along an ellipse as $\alpha$ varies
+with $\pb$ fixed; its axes lie on the diagonals~\cite{DerrazGN}.
+
+% =======================================================================
+\section{Symmetries and special values}
+\label{sec:identities}
+% =======================================================================
+
+All statements in this section follow directly from \eqref{eq:analytic};
+we indicate the one-line arguments.
+
+\begin{prop}[Exchange and reciprocals]
+\label{prop:exchange}
+On the respective domains,
+\[
+\sin(\alpha,\phi) = \cos(\phi,\alpha), \qquad
+\tan(\alpha,\phi) = \cot(\phi,\alpha), \qquad
+\csc(\alpha,\phi) = \sec(\phi,\alpha),
+\]
+and the reciprocals are general functions themselves,
+\begin{gather*}
+\csc(\alpha,\phi) = \sin(\alpha+\phi,\,-\phi), \qquad
+\sec(\alpha,\phi) = \tan(\alpha+\phi,\,\phi), \\
+\cot(\alpha,\phi) = \cos(\alpha-\phi,\,\phi).
+\end{gather*}
+\end{prop}
+
+\begin{proof}
+Exchanging $\alpha$ and $\phi$ in \eqref{eq:analytic} exchanges the
+numerators $\sin\alpha$ and $\sin\phi$. For the second line,
+$\sin(\alpha+\phi,-\phi) = \sin(\alpha+\phi)/\sin\alpha$,
+$\tan(\alpha+\phi,\phi) = \sin(\alpha+\phi)/\sin\phi$ and
+$\cos(\alpha-\phi,\phi) = \sin\phi/\sin\alpha$.
+\end{proof}
+
+\begin{prop}[Signs and shifts]
+\label{prop:symmetry}
+On the respective domains, for all integers $p$ and $q$,
+\begin{gather*}
+\sin(-\alpha,-\phi) = \sin(\alpha,\phi), \qquad
+\cos(-\alpha,-\phi) = \cos(\alpha,\phi), \\
+\sin(-\alpha,\phi) = \sin(\alpha,-\phi), \\
+\sin(\alpha+p\pi,\,\phi+q\pi) = (-1)^q\sin(\alpha,\phi), \\
+\cos(\alpha+p\pi,\,\phi+q\pi) = (-1)^p\cos(\alpha,\phi), \\
+\tan(\alpha+p\pi,\,\phi+q\pi) = (-1)^{p+q}\tan(\alpha,\phi).
+\end{gather*}
+\end{prop}
+
+\begin{proof}
+The sine is odd, and $\sin(t + m\pi) = (-1)^m \sin t$.
+\end{proof}
+
+In particular the general functions are $2\pi$-periodic in each variable.
+The shift rule is not symmetric in the two variables: a half turn of the
+projection angle changes the sign of the general sine, and a half turn of
+the studied angle that of the general cosine.
+
+\begin{prop}[Special values]
+\label{prop:special}
+On the respective domains,
+\begin{gather*}
+\sin(\alpha,\tfrac{\pi}{2}) = \tan\alpha, \qquad
+\cos(\alpha,\tfrac{\pi}{2}) = \sec\alpha, \qquad
+\tan(\alpha,\tfrac{\pi}{2}) = \sin\alpha, \\
+\sin(\theta,\theta) = \cos(\theta,\theta) = \frac{1}{2\cos\theta}, \qquad
+\tan(\theta,\theta) = 1 .
+\end{gather*}
+\end{prop}
+
+\begin{proof}
+$\sin(\alpha+\pi/2) = \cos\alpha$, and $\sin 2\theta = 2\sin\theta\cos\theta$.
+\end{proof}
+
+At $\theta = \pi/3$ all six general functions of $(\theta,\theta)$ equal
+$1$: the triangle is equilateral. At $\theta = \pi/5$,
+$\sin(\theta,\theta) = \cos(\theta,\theta) = 1/(2\cos 36^\circ) = \tau^{-1}$,
+where $\tau = (1+\sqrt5)/2$ is the golden ratio, and the triangle is the
+golden triangle with angles $36^\circ$, $36^\circ$, $108^\circ$.
+
+% =======================================================================
+\section{Addition formulas}
+\label{sec:addition}
+% =======================================================================
+
+The addition formulas of the general functions all reduce, after
+clearing denominators, to one identity among ordinary sines.
+
+\begin{lem}[Ptolemy's identity]
+\label{lem:ptolemy}
+For all real $x$, $y$ and $z$,
+\begin{equation}
+\label{eq:ptolemy}
+\sin(x+y)\sin(y+z) = \sin x\,\sin z + \sin y\,\sin(x+y+z).
+\end{equation}
+\end{lem}
+
+\begin{proof}
+By $2\sin P\sin Q = \cos(P-Q) - \cos(P+Q)$, both sides equal
+$\tfrac12\bigl[\cos(x-z) - \cos(x+2y+z)\bigr]$.
+\end{proof}
+
+For a cyclic quadrilateral with consecutive arcs $2x$, $2y$, $2z$ and
+$2\pi - 2(x+y+z)$, inscribed in a circle of diameter $1$, the chords are
+$\sin x$, $\sin y$, $\sin z$, $\sin(x+y+z)$ and the diagonals
+$\sin(x+y)$, $\sin(y+z)$, and \eqref{eq:ptolemy} is Ptolemy's theorem;
+hence the name.
+
+\begin{thm}[Addition in the studied angle]
+\label{thm:add-studied}
+On the domains where both sides are defined,
+\begin{align}
+\label{eq:add-sin}
+\sin(\alpha+\beta,\phi) &= \sin(\alpha,\phi) + \cos(\alpha,\phi)\,\sin(\beta,\phi+\alpha), \\
+\label{eq:add-cos}
+\cos(\alpha+\beta,\phi) &= \cos(\alpha,\phi)\cos(\beta,\phi) + \sin(\alpha,\phi)\sin(\beta,\phi)\cos(\alpha+\beta,\phi), \\
+\label{eq:add-tan}
+\tan(\alpha+\beta,\phi) &= \tan(\alpha,\phi)\cos\beta + \tan(\beta,\phi)\cos\alpha .
+\end{align}
+\end{thm}
+
+\begin{proof}
+Multiply \eqref{eq:add-sin} by $\sin(\alpha+\phi)\sin(\alpha+\beta+\phi)$:
+it becomes $\sin(\alpha+\beta)\sin(\alpha+\phi) = \sin\alpha\,\sin(\alpha+\beta+\phi)
++ \sin\phi\,\sin\beta$, which is \eqref{eq:ptolemy} with
+$(x,y,z) = (\beta,\alpha,\phi)$. Multiply \eqref{eq:add-cos} by
+$\sin(\alpha+\phi)\sin(\beta+\phi)\sin(\alpha+\beta+\phi)/\sin\phi$: it
+becomes $\sin(\alpha+\phi)\sin(\beta+\phi) = \sin\phi\,\sin(\alpha+\beta+\phi)
++ \sin\alpha\,\sin\beta$, which is \eqref{eq:ptolemy} with
+$(x,y,z) = (\alpha,\phi,\beta)$. Finally \eqref{eq:add-tan} is
+$\sin(\alpha+\beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$ divided
+by $\sin\phi$.
+\end{proof}
+
+The cosine formula \eqref{eq:add-cos} contains $\cos(\alpha+\beta,\phi)$
+on both sides. Solving for it, and inverting, gives two closed forms:
+\begin{gather}
+\label{eq:add-closed}
+\cos(\alpha+\beta,\phi) = \frac{\cos(\alpha,\phi)\cos(\beta,\phi)}{1 - \sin(\alpha,\phi)\sin(\beta,\phi)},
+\\
+\label{eq:add-sec}
+\sec(\alpha+\beta,\phi) = \sec(\alpha,\phi)\sec(\beta,\phi) - \tan(\alpha,\phi)\tan(\beta,\phi).
+\end{gather}
+The second is the exact analogue of $\cos(\alpha+\beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$,
+with the secant and tangent in the roles of the cosine and sine.
+
+\begin{thm}[Addition in the projection angle]
+\label{thm:add-projection}
+On the domains where both sides are defined,
+\begin{align}
+\label{eq:addp-sin}
+\sin(\alpha,\phi+\theta) &= \sin(\alpha,\phi)\,\sin(\alpha+\phi,\theta), \\
+\label{eq:addp-cos}
+\cos(\alpha,\phi+\theta) &= \cos(\alpha,\phi) + \sin(\alpha,\phi)\,\cos(\alpha+\phi,\theta).
+\end{align}
+\end{thm}
+
+\begin{proof}
+The right side of \eqref{eq:addp-sin} is
+$\frac{\sin\alpha}{\sin(\alpha+\phi)}\cdot\frac{\sin(\alpha+\phi)}{\sin(\alpha+\phi+\theta)}$.
+Multiplying \eqref{eq:addp-cos} by $\sin(\alpha+\phi)\sin(\alpha+\phi+\theta)$
+gives $\sin(\alpha+\phi)\sin(\phi+\theta) = \sin\phi\,\sin(\alpha+\phi+\theta)
++ \sin\alpha\,\sin\theta$, which is \eqref{eq:ptolemy} with
+$(x,y,z) = (\alpha,\phi,\theta)$.
+\end{proof}
+
+Formula \eqref{eq:addp-sin} composes two oblique projections: projecting
+at the angle $\phi$ and then, from the new point, at the angle $\theta$,
+multiplies the general sines, just as similar triangles multiply ratios.
+Formulas \eqref{eq:add-sin}--\eqref{eq:add-tan} have a geometric proof
+on the composed circle as well, by cutting the triangle of
+$\alpha+\beta$ into the triangles of $\alpha$ and $\beta$; the algebraic
+proof above is shorter and covers all signs at once.
+
+\begin{cor}[Double and half angles]
+\label{cor:double}
+On the domains where both sides are defined,
+\begin{gather*}
+\sin(2\alpha,\phi) = \sin(\alpha,\phi)\bigl(1 + \cos(2\alpha,\phi)\bigr), \qquad
+\cos(2\alpha,\phi) = \frac{\cos(\alpha,\phi)^2}{1 - \sin(\alpha,\phi)^2}, \\
+\sec(2\alpha,\phi) = \sec(\alpha,\phi)^2 - \tan(\alpha,\phi)^2, \qquad
+\tan(2\alpha,\phi) = 2\tan(\alpha,\phi)\cos\alpha ,
+\end{gather*}
+and, replacing $\alpha$ by $\alpha/2$,
+$\cos(\alpha,\phi) = \cos(\tfrac{\alpha}{2},\phi)^2\big/\bigl(1 - \sin(\tfrac{\alpha}{2},\phi)^2\bigr)$.
+\end{cor}
+
+\begin{proof}
+Put $\beta = \alpha$ in Theorem~\ref{thm:add-studied}, \eqref{eq:add-closed}
+and \eqref{eq:add-sec}. For the first formula,
+\[
+\cos(\alpha,\phi)\sin(\alpha,\phi+\alpha)
+= \frac{\sin\phi}{\sin(\alpha+\phi)}\cdot\frac{\sin\alpha}{\sin(2\alpha+\phi)}
+= \sin(\alpha,\phi)\cos(2\alpha,\phi). \qedhere
+\]
+\end{proof}
+
+% =======================================================================
+\section{The fixed frame: multiplication and derivatives}
+\label{sec:calculus}
+% =======================================================================
+
+In analytic statements we write $(x,y)$ for $(\alpha,\phi)$ and
+$f_x$, $f_y$ for partial derivatives.
+
+\begin{prop}[Partial derivatives]
+\label{prop:partials}
+On the domains of the functions,
+\begin{align*}
+\partial_x \sin(x,y) &= \frac{\cos(x,y)}{\sin(x+y)}, &
+\partial_y \sin(x,y) &= -\sin(x,y)\cot(x+y), \\
+\partial_x \cos(x,y) &= -\cos(x,y)\cot(x+y), &
+\partial_y \cos(x,y) &= \frac{\sin(x,y)}{\sin(x+y)}, \\
+\partial_x \tan(x,y) &= \frac{\cos x}{\sin y}, &
+\partial_y \tan(x,y) &= -\tan(x,y)\cot y,
+\end{align*}
+and the second derivatives are
+\begin{align*}
+\partial_x^2 \sin(x,y) &= -2\cot(x+y)\,\partial_x\sin(x,y), \\
+\partial_y^2 \sin(x,y) &= \sin(x,y)\bigl(1 + 2\cot^2(x+y)\bigr), \\
+\partial_x^2 \cos(x,y) &= \cos(x,y)\bigl(1 + 2\cot^2(x+y)\bigr), \\
+\partial_y^2 \cos(x,y) &= -2\cot(x+y)\,\partial_y\cos(x,y), \\
+\partial_x^2 \tan(x,y) &= -\tan(x,y), \qquad
+\partial_y^2 \tan(x,y) = \tan(x,y)\bigl(1 + 2\cot^2 y\bigr).
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Direct differentiation of \eqref{eq:analytic}. For instance
+$\partial_x\sin(x,y) = \bigl(\cos x\sin(x+y) - \sin x\cos(x+y)\bigr)/\sin^2(x+y)
+= \sin y/\sin^2(x+y)$, and
+$\partial_y^2 \bigl(\sin x/\sin(x+y)\bigr)
+= \sin x\bigl(\sin^2(x+y) + 2\cos^2(x+y)\bigr)/\sin^3(x+y)$.
+\end{proof}
+
+The partial derivatives move the frame: changing $x$ with $y$ fixed
+turns the composer axis, since $\pb = x+y$. So do the addition formulas of
+Section~\ref{sec:addition}, in which the projection angle $\phi$ is fixed
+and the frame angle $\pb = \alpha + \phi$ changes with $\alpha$. The rest of
+this section keeps the frame fixed and moves the point along the circle.
+For a fixed $\pb \in (0,\pi)$ write
+\begin{equation}
+\label{eq:CS}
+C_\theta = \cos(\theta,\,\pb-\theta) = \frac{\sin(\pb-\theta)}{\sin\pb}, \qquad
+S_\theta = \sin(\theta,\,\pb-\theta) = \frac{\sin\theta}{\sin\pb},
+\end{equation}
+the coordinates of the point of the unit circle at the angle $\theta$ in
+the frame $(\vec e_1,\vec u)$ (Proposition~\ref{prop:coordinates}).
+Identify the plane with $\mathbb{C}$, so that $\vec e_1 = 1$ and
+$\vec u = u = e^{i\pb}$. Then Proposition~\ref{prop:coordinates} reads
+\begin{equation}
+\label{eq:oblique-euler}
+e^{i\theta} = C_\theta + S_\theta\, u ,
+\end{equation}
+which is Euler's formula written in the oblique frame. Since $u$ is a root
+of $t^2 - 2\cos\pb\,t + 1 = (t - e^{i\pb})(t - e^{-i\pb})$,
+\begin{equation}
+\label{eq:rule-square}
+u^2 = 2\cos\pb\; u - 1 .
+\end{equation}
+
+\begin{prop}[Addition in a fixed frame]
+\label{prop:fixed-frame}
+For a fixed $\pb \in (0,\pi)$ and all real $\alpha$, $\beta$,
+\begin{align}
+\label{eq:ff-cos}
+C_{\alpha+\beta} &= C_\alpha C_\beta - S_\alpha S_\beta , \\
+\label{eq:ff-sin}
+S_{\alpha+\beta} &= C_\alpha S_\beta + S_\alpha C_\beta + 2\cos\pb\; S_\alpha S_\beta ,
+\end{align}
+and for every integer $n$,
+\begin{equation}
+\label{eq:demoivre}
+\bigl(C_\theta + S_\theta\,u\bigr)^n = C_{n\theta} + S_{n\theta}\,u .
+\end{equation}
+\end{prop}
+
+\begin{proof}
+Multiply $e^{i\alpha} = C_\alpha + S_\alpha u$ by $e^{i\beta} = C_\beta + S_\beta u$
+and reduce $u^2$ with \eqref{eq:rule-square}:
+\[
+e^{i(\alpha+\beta)} = \bigl(C_\alpha C_\beta - S_\alpha S_\beta\bigr)
++ \bigl(C_\alpha S_\beta + S_\alpha C_\beta + 2\cos\pb\,S_\alpha S_\beta\bigr)\,u .
+\]
+Since $1$ and $u$ are linearly independent over $\mathbb{R}$, the coordinates
+of $e^{i(\alpha+\beta)}$ in the frame are unique, and they are
+$C_{\alpha+\beta}$ and $S_{\alpha+\beta}$ by \eqref{eq:oblique-euler}. Formula
+\eqref{eq:demoivre} is $(e^{i\theta})^n = e^{in\theta}$ read in the same way.
+\end{proof}
+
+For $\pb = \pi/2$, \eqref{eq:ff-cos} and \eqref{eq:ff-sin} are the classical
+addition formulas, and \eqref{eq:demoivre} is De Moivre's formula. In the
+oblique frame the sine formula acquires the cross term
+$2\cos\pb\,S_\alpha S_\beta$, the same cross term as in the Pythagorean
+identity \eqref{eq:pythagoras}, which in this notation reads
+$C_\theta^2 + 2\cos\pb\,C_\theta S_\theta + S_\theta^2 = 1$. With $\theta = \pb$
+in \eqref{eq:demoivre}, $C_{n\pb} = -\sin((n-1)\pb)/\sin\pb$ and
+$S_{n\pb} = \sin(n\pb)/\sin\pb = U_{n-1}(\cos\pb)$, a Chebyshev polynomial of
+the second kind, so that the powers of $u$ in its own frame are
+$u^n = -U_{n-2}(\cos\pb) + U_{n-1}(\cos\pb)\,u$ for $n \ge 2$.
+
+The derivative that moves the point with the frame held fixed is the
+derivative along the lines $x + y = \text{const}$.
+
+\begin{defn}[Derivative in a fixed frame]
+\label{defn:D}
+For a differentiable function $f$ of $(x,y)$, let
+\[
+Df(x,y) = \frac{\mathrm{d}}{\mathrm{d}t}\, f(x+t,\,y-t)\Big|_{t=0}
+= \partial_x f(x,y) - \partial_y f(x,y).
+\]
+\end{defn}
+
+Along the path $t \mapsto (x+t, y-t)$ the studied angle grows while the
+projection angle shrinks by the same amount, so $\pb = x+y$ is constant:
+the point $Z$ turns on the unit circle and the oblique frame does not
+move. This is the operation that the classical derivative of $\sin\alpha$
+performs on the unit circle with its orthonormal frame.
+
+\begin{thm}[Quarter-turn shift]
+\label{thm:shift}
+For every integer $n \ge 0$ and $(x,y)$ in the domain,
+\begin{gather}
+\label{eq:shift}
+D^n \sin(x,y) = \sin\Bigl(x + \frac{n\pi}{2},\; y - \frac{n\pi}{2}\Bigr), \\
+\label{eq:shift-cos}
+D^n \cos(x,y) = \cos\Bigl(x + \frac{n\pi}{2},\; y - \frac{n\pi}{2}\Bigr).
+\end{gather}
+In particular $D^2\sin(x,y) = -\sin(x,y)$ and $D^2\cos(x,y) = -\cos(x,y)$.
+\end{thm}
+
+\begin{proof}
+Along the path, $\sin(x+t,y-t) = \sin(x+t)/\sin(x+y)$ with a constant
+denominator, so $D^n\sin(x,y) = \sin(x+n\pi/2)/\sin(x+y)$, which is the
+general sine at $(x + n\pi/2,\, y - n\pi/2)$ because the sum of the two
+arguments is still $x+y$. The same argument applies to
+$\cos(x,y) = \sin y/\sin(x+y)$, with $\frac{\mathrm d^n}{\mathrm dt^n}\sin(y-t)
+= \sin(y - t - n\pi/2)$. For $n = 2$, Proposition~\ref{prop:symmetry} gives
+$\sin(x+\pi, y-\pi) = -\sin(x,y)$ and $\cos(x+\pi,y-\pi) = -\cos(x,y)$.
+\end{proof}
+
+\begin{cor}[Primitives in a fixed frame]
+\label{cor:primitives}
+For every integer $n \ge 1$, the functions
+$\sin(x - n\pi/2,\, y + n\pi/2)$ and $\cos(x - n\pi/2,\, y + n\pi/2)$
+satisfy $D^n F = \sin(x,y)$ and $D^n F = \cos(x,y)$ respectively; every
+$n$-th primitive along the lines $x+y = \text{const}$ differs from them by
+a polynomial of degree less than $n$ in $t$ whose coefficients depend only
+on $x+y$.
+\end{cor}
+
+\begin{proof}
+Apply Theorem~\ref{thm:shift} to the shifted point. Two $n$-th primitives
+along a line differ by a solution of $\mathrm{d}^n g/\mathrm{d}t^n = 0$.
+\end{proof}
+
+Theorem~\ref{thm:shift} says two things. With the frame held fixed, the
+general cosine and sine obey the same equation $D^2 f = -f$ as the
+classical pair. And one derivative is a quarter turn of the point:
+$D\sin(x,y) = \sin(x+\pi/2,\,y-\pi/2)$ is the general sine of the point a
+quarter turn further on the circle, read in the same frame. In the
+notation \eqref{eq:CS}, this is the derivative of \eqref{eq:oblique-euler},
+$\frac{\mathrm d}{\mathrm d\theta}\bigl(C_\theta + S_\theta u\bigr) = i\,e^{i\theta}
+= C_{\theta+\pi/2} + S_{\theta+\pi/2}\,u$. The general tangent does not have this property, because both its
+numerator and its denominator move along the path. Writing
+$\tan(x+t,y-t) = \sin(x+y)\cot(y-t) - \cos(x+y)$ gives, for $n \ge 1$,
+\[
+D\tan(x,y) = \frac{\sin(x+y)}{\sin^2 y}, \qquad
+D^n\tan(x,y) = \sin(x+y)\Bigl(-\frac{\mathrm d}{\mathrm dy}\Bigr)^{\!n-1}\!\csc^2 y .
+\]
+
+% =======================================================================
+\section{Product identities and the General Sinus Transform}
+\label{sec:products}
+% =======================================================================
+
+This section writes each general function as a finite product of copies
+of itself at scaled arguments. The identities are exact and hold for any
+number of factors. Replacing every factor by a ratio of two quadratic
+polynomials then gives a rational approximation, which we call the
+\emph{General Sinus Transform}.
+
+The identities rest on the classical product of sines
+\cite[\S 1.39]{GradshteynRyzhik2015}: for every integer $N \geq 1$ and
+every real $\vartheta$,
+\begin{equation}
+\label{eq:product_of_sines}
+\prod_{k=0}^{N-1} \sin\Bigl(\vartheta + \frac{\pi k}{N}\Bigr)
+= \frac{\sin(N\vartheta)}{2^{N-1}} .
+\end{equation}
+
+\begin{thm}[Product identities]
+\label{thm:products}
+Let $N \geq 1$ be an integer and let $x, y \in \mathbb{R}$. If
+$x + y \notin \pi\mathbb{Z}$, then
+\begin{gather}
+\label{eq:prod-sin}
+\sin(x,y) = \prod_{k=0}^{N-1}\sin\Bigl(\frac{x + \pi k}{N},\, \frac{y}{N}\Bigr), \\
+\label{eq:prod-cos}
+\cos(x,y) = \prod_{k=0}^{N-1}\cos\Bigl(\frac{x}{N},\, \frac{y + \pi k}{N}\Bigr),
+\end{gather}
+and if $y \notin \pi\mathbb{Z}$, then
+\begin{equation}
+\label{eq:prod-tan}
+\tan(x,y) = \prod_{k=0}^{N-1}\tan\Bigl(\frac{x + \pi k}{N},\, \frac{y + \pi k}{N}\Bigr).
+\end{equation}
+Every factor lies in the domain of its function.
+\end{thm}
+
+\begin{proof}
+Apply \eqref{eq:product_of_sines} with $N\vartheta = x$, $N\vartheta = y$
+and $N\vartheta = x+y$. The factors $2^{N-1}$ cancel in each quotient:
+\begin{gather*}
+\frac{\sin x}{\sin(x+y)} = \prod_{k=0}^{N-1}
+\frac{\sin\bigl((x+\pi k)/N\bigr)}{\sin\bigl((x+\pi k)/N + y/N\bigr)}, \\
+\frac{\sin y}{\sin(x+y)} = \prod_{k=0}^{N-1}
+\frac{\sin\bigl((y+\pi k)/N\bigr)}{\sin\bigl(x/N + (y+\pi k)/N\bigr)}, \\
+\frac{\sin x}{\sin y} = \prod_{k=0}^{N-1}
+\frac{\sin\bigl((x+\pi k)/N\bigr)}{\sin\bigl((y+\pi k)/N\bigr)} .
+\end{gather*}
+By \eqref{eq:analytic} the left sides are $\sin(x,y)$, $\cos(x,y)$ and
+$\tan(x,y)$, and each factor is the general function at the stated
+arguments. No denominator vanishes, because the product of the
+denominators is $\sin(x+y)/2^{N-1} \neq 0$, or $\sin y/2^{N-1} \neq 0$ for
+the tangent.
+\end{proof}
+
+For $N = 2$ the first identity reads
+$\sin(x,y) = \sin(\frac{x}{2},\frac{y}{2})\,\sin(\frac{x}{2}+\frac{\pi}{2},\frac{y}{2})$,
+and repeating it $n$ times gives the case $N = 2^n$, the form in which the
+identity appears in~\cite{GeneralSinus}.
+
+As $N$ grows, the parts $x/N$, $y/N$ and $(x+y)/N$ of the arguments become
+small while the shifts $\pi k/N$ stay exact. Write
+$u_{N,k} = \sin(\pi k/N)$ and $v_{N,k} = \cos(\pi k/N)$. For small $s$,
+$\sin(s + \pi k/N) = v_{N,k}\sin s + u_{N,k}\cos s \approx
+v_{N,k}\,s + u_{N,k}(1 - s^2/2)$. With $s = z/N$ and after multiplication
+by $-2N^2$, each sine in the factors of Theorem~\ref{thm:products} becomes
+the quadratic
+\begin{equation}
+\label{eq:quadratic}
+P_{N,k}(z) = u_{N,k}\,z^2 - 2N\,v_{N,k}\,z - 2N^2 u_{N,k} .
+\end{equation}
+
+\begin{defn}[General Sinus Transform]
+\label{defn:GST}
+The \emph{General Sinus Transform of order $N$} is the triple of rational
+functions
+\begin{gather*}
+S_N(x,y) = \prod_{k=0}^{N-1}\frac{P_{N,k}(x)}{P_{N,k}(x+y)}, \qquad
+C_N(x,y) = \prod_{k=0}^{N-1}\frac{P_{N,k}(y)}{P_{N,k}(x+y)}, \\
+T_N(x,y) = \prod_{k=0}^{N-1}\frac{P_{N,k}(x)}{P_{N,k}(y)} .
+\end{gather*}
+\end{defn}
+
+Each factor is a ratio of two quadratic polynomials, and $S_N$, $C_N$,
+$T_N$ approximate $\sin(x,y)$, $\cos(x,y)$, $\tan(x,y)$ with products in
+place of the sums of a truncated Taylor series. The approximation is not
+exact for any finite $N$, since each factor carries the error of the
+second-order expansion of $\sin s$ and $\cos s$. Surprisingly, the
+approximation itself can be computed in closed form, because the
+truncated factors are again sines, of slightly enlarged angles.
+
+For $|\varepsilon| < \sqrt2$ let
+\begin{equation}
+\label{eq:rho-delta}
+\rho(\varepsilon) = \sqrt{1 + \varepsilon^4/4}, \qquad
+\delta(\varepsilon) = \arctan\frac{\varepsilon}{1 - \varepsilon^2/2},
+\end{equation}
+so that $1 - \varepsilon^2/2 = \rho\cos\delta$ and $\varepsilon = \rho\sin\delta$,
+and $\delta(\varepsilon) = \varepsilon + \varepsilon^3/6 + O(\varepsilon^5)$.
+
+\begin{thm}[Closed form of the transform]
+\label{thm:GST-closed}
+Let $x, y \in \mathbb{R}$ and let $N > \max(|x|, |y|, |x+y|)/\sqrt2$. Then,
+whenever the denominators below do not vanish,
+\begin{align}
+\label{eq:SN-closed}
+S_N(x,y) &= \Bigl(\frac{\rho(x/N)}{\rho((x+y)/N)}\Bigr)^{\!N}
+\frac{\sin\bigl(N\delta(x/N)\bigr)}{\sin\bigl(N\delta((x+y)/N)\bigr)}, \\
+C_N(x,y) &= \Bigl(\frac{\rho(y/N)}{\rho((x+y)/N)}\Bigr)^{\!N}
+\frac{\sin\bigl(N\delta(y/N)\bigr)}{\sin\bigl(N\delta((x+y)/N)\bigr)}, \notag \\
+T_N(x,y) &= \Bigl(\frac{\rho(x/N)}{\rho(y/N)}\Bigr)^{\!N}
+\frac{\sin\bigl(N\delta(x/N)\bigr)}{\sin\bigl(N\delta(y/N)\bigr)}. \notag
+\end{align}
+\end{thm}
+
+\begin{proof}
+Let $\varepsilon = z/N$ and $\vartheta_k = \pi k/N$. By \eqref{eq:quadratic},
+\begin{align*}
+P_{N,k}(z) &= -2N^2\Bigl(u_{N,k}\bigl(1 - \tfrac{\varepsilon^2}{2}\bigr) + v_{N,k}\,\varepsilon\Bigr)
+= -2N^2\rho(\varepsilon)\bigl(\sin\vartheta_k\cos\delta + \cos\vartheta_k\sin\delta\bigr) \\
+&= -2N^2\rho(\varepsilon)\,\sin\bigl(\vartheta_k + \delta(\varepsilon)\bigr).
+\end{align*}
+By \eqref{eq:product_of_sines},
+$\prod_{k=0}^{N-1} P_{N,k}(z) = (-2N^2\rho(\varepsilon))^N\sin(N\delta(\varepsilon))/2^{N-1}$.
+Taking the quotients that define $S_N$, $C_N$ and $T_N$, the factors
+$(-2N^2)^N/2^{N-1}$ cancel.
+\end{proof}
+
+The theorem says that the transform evaluates the general functions at
+slightly perturbed angles: $S_N(x,y)$ is, up to the factor
+$(\rho(x/N)/\rho((x+y)/N))^N = 1 + O(N^{-3})$, the general sine at
+$\bigl(N\delta(x/N),\, N\delta((x+y)/N) - N\delta(x/N)\bigr)$, and
+$N\delta(z/N) = z + z^3/(6N^2) + O(N^{-4})$. This gives the rate of
+convergence exactly.
+
+\begin{cor}[Rate of convergence]
+\label{cor:GST-rate}
+For fixed $x$, $y$ with $x + y \notin \pi\mathbb{Z}$, as $N \to \infty$,
+\[
+S_N(x,y) = \sin(x,y) + \frac{c(x,y)}{N^2} + O\bigl(N^{-3}\bigr),
+\]
+where
+\[
+c(x,y) = \frac{x^3\cos x\,\sin(x+y) - (x+y)^3\sin x\,\cos(x+y)}{6\sin^2(x+y)} .
+\]
+In particular $S_N \to \sin(x,y)$, and similarly $C_N \to \cos(x,y)$ and
+$T_N \to \tan(x,y)$, each with an error of exact order $N^{-2}$ unless the
+coefficient vanishes.
+\end{cor}
+
+\begin{proof}
+Insert $N\delta(z/N) = z + z^3/(6N^2) + O(N^{-4})$ and
+$\rho(z/N)^N = (1 + z^4/(4N^4))^{N/2} = 1 + O(N^{-3})$ into
+\eqref{eq:SN-closed}, and expand $\sin(z + h) = \sin z + h\cos z + O(h^2)$ in
+numerator and denominator.
+\end{proof}
+
+\begin{rem}[Numerical behaviour]
+\label{rem:accuracy}
+At $(x,y) = (0.3,2.7)$, close to the pole $x+y = \pi$, the coefficient is
+$c = 66.14$, and the computed values of $N^2(S_N - \sin(x,y))$ are $66.28$
+for $N = 64$ and $66.12$ for $N = 1000$. Over the four points
+$(0.5,0.7)$, $(1,1)$, $(2,0.9)$ and $(0.3,2.7)$, the largest error of $S_N$
+is about $1.6\times10^{-2}$ for $N = 64$, $6.3\times10^{-5}$ for $N = 1024$
+and $2.5\times10^{-7}$ for $N = 16384$. The coefficient $c(x,y)$ grows like
+$\sin^{-2}(x+y)$ near the poles, where $\sin(x,y)$ itself is unbounded. In
+computations the values $u_{N,k}$, $v_{N,k}$ must be accurate: generating
+them by a first-order rotation recurrence adds an error that accumulates
+over the $N$ factors and dominates the error of the transform.
+\end{rem}
+
+The transform is of structural rather than computational interest:
+evaluating $S_N$ costs $O(N)$ operations, far more than computing
+$\sin x/\sin(x+y)$ directly. What it shows is that each general function
+is, exactly, a product of copies of itself at small arguments
+(Theorem~\ref{thm:products}), and that each copy is close to a ratio of
+quadratic polynomials, much as the product formula
+$\sin x = x\prod_{m\ge1}\bigl(1 - x^2/(m\pi)^2\bigr)$ expresses the
+classical sine.
+
+% =======================================================================
+\section{Verification}
+\label{sec:verification}
+% =======================================================================
+
+The script \texttt{verify\_gsp.py}, which accompanies the paper, checks
+every numbered statement. Identities are evaluated at $50$ significant
+digits at random points of their domains, with independent random draws for
+each identity; derivatives, including $D^n$ for $n = 1, \dots, 6$ and the
+primitives of Corollary~\ref{cor:primitives}, are computed symbolically with
+SymPy and compared at $50$ digits; the product identities are tested for
+every $N$ from $1$ to $40$; the closed form of
+Theorem~\ref{thm:GST-closed} is compared with the products themselves and
+the coefficient of Corollary~\ref{cor:GST-rate} with the computed errors;
+the fixed-frame formulas of Proposition~\ref{prop:fixed-frame} are tested
+for $n$ from $-3$ to $5$; and the numbers quoted in
+Remark~\ref{rem:accuracy} are recomputed.
+
+% =======================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% =======================================================================
+
+Projecting a point of the circle onto a line along an arbitrary direction,
+instead of straight down, gives an oblique triangle, and the ratios of its
+sides are the general sine, cosine and tangent. They are the coordinates
+of the unit circle in an oblique frame
+(Proposition~\ref{prop:coordinates}) and satisfy the oblique Pythagorean
+identity \eqref{eq:pythagoras}. Their addition formulas, in the studied
+and in the projection angle, all reduce to Ptolemy's identity
+(Theorems~\ref{thm:add-studied} and~\ref{thm:add-projection}).
+With the frame held fixed, they obey addition formulas with a single
+cross term and De Moivre's formula (Proposition~\ref{prop:fixed-frame}),
+and differentiation turns the point by a quarter turn, so that
+$D^2 f = -f$ (Theorem~\ref{thm:shift}). They are exact products of their
+own copies at scaled arguments, for any number of factors
+(Theorem~\ref{thm:products}); truncating each factor gives a rational
+approximation which is itself a ratio of sines in closed form, and whose
+error is of exact order $N^{-2}$ (Theorem~\ref{thm:GST-closed} and
+Corollary~\ref{cor:GST-rate}).
+
+Two questions remain open. The first is whether the general functions
+satisfy orthogonality relations, for a suitable weight, that parallel
+those of the classical functions; with the frame fixed, $C_\theta$ and
+$S_\theta$ are combinations of $\cos\theta$ and $\sin\theta$, but the natural
+inner product of the oblique frame is not the orthonormal one. The second
+is the analogue of the construction for the hyperbolic functions, where
+the oblique frame of the Euclidean plane is replaced by a frame of the
+split-complex plane~\cite{Yaglom1968,HarkinHarkin2004}.
+
+\subsection*{Declarations}
+
+{\sloppy
+\noindent\textbf{Funding.} No funding was received for this work.
+
+\noindent\textbf{Competing interests.} The author declares no competing interests.
+
+\noindent\textbf{Data and code availability.} No data were used. The
+verification script, \texttt{verify\_gsp.py}, is provided as
+supplementary material with the submission.
+
+\noindent\textbf{Declaration of generative AI use.} Claude (Anthropic), including
+Claude Opus 5.5, helped draft and edit the text and check calculations;
+the mathematics is the author's own.\par}
+
+\begin{thebibliography}{99}
+
+\bibitem{CoxeterGreitzer1967}
+Coxeter, H.S.M., Greitzer, S.L.: \textit{Geometry Revisited}.
+New Mathematical Library, vol.~19. Mathematical Association of America,
+Washington, D.C. (1967)
+
+\bibitem{GeneralSinus}
+Derraz, M.: General Sinus.
+\textit{Int. J. Swarm Intell. Evol. Comput.} \textbf{6}(2) (2017).
+\url{https://doi.org/10.4172/2090-4908.1000155}
+
+\bibitem{DerrazGN}
+Derraz, M.: General Numbers: the number plane beyond the right angle.
+Zenodo preprint (2026). \url{https://doi.org/10.5281/zenodo.24091305}
+
+\bibitem{GradshteynRyzhik2015}
+Gradshteyn, I.S., Ryzhik, I.M.:
+\textit{Table of Integrals, Series, and Products}, 8th edn.
+Academic Press, Amsterdam (2015)
+
+\bibitem{HarkinHarkin2004}
+Harkin, A.A., Harkin, J.B.: Geometry of generalized complex numbers.
+\textit{Math. Mag.} \textbf{77}(2), 118--129 (2004)
+
+\bibitem{KantorSolodovnikov1989}
+Kantor, I.L., Solodovnikov, A.S.:
+\textit{Hypercomplex Numbers: An Elementary Introduction to Algebras}.
+Springer, New York (1989)
+
+\bibitem{Lindqvist1995}
+Lindqvist, P.: Some remarkable sine and cosine functions.
+\textit{Ricerche Mat.} \textbf{44}(2), 269--290 (1995)
+
+\bibitem{Maor1998}
+Maor, E.: \textit{Trigonometric Delights}.
+Princeton University Press, Princeton (1998)
+
+\bibitem{Yaglom1968}
+Yaglom, I.M.: \textit{Complex Numbers in Geometry}.
+Academic Press, New York (1968)
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,273 @@
+% ======================================================================
+\section{Bodies in motion: the Cosmic Field Law}\label{sec:motion}
+% ======================================================================
+
+\emph{What does the law become when the bodies move?} Maxwell joined electricity and magnetism in one field~\citep{Maxwell1865}, and Heaviside wrote gravity in Maxwell's form~\citep{Heaviside1893}. This section asks whether the same road can be walked from the other end: from one number for each body to a field, and to an action.
+
+\subsection{The cosmic mass in motion}\label{subsec:un-reading}
+
+In this framework every body carries its cosmic mass $\mu = m + q\,\Gp$, and every measurement is read by the real part (\cref{def:real-reading}). The products that matter are of one kind: by~\cref{eq:product}, for real coefficients,
+\begin{equation}\label{eq:real-product}
+\Re\bigl[(a + b\,\Gp)(c + d\,\Gp)\bigr] = ac - \lvert\Gp\rvert^2\,bd ,
+\end{equation}
+which does not depend on the angle. Matter in motion is described by the density and the current of cosmic mass, $\rho_\mu = \rho_m + \rho_q\,\Gp$ and $\vJ_\mu = \vJ_m + \vJ_q\,\Gp$, built from the densities and currents of mass and charge.
+
+\subsection{From forces to fields}\label{subsec:un-fields}
+
+\begin{definition}[The cosmic field of a body at rest]\label{def:un-field}
+A body of cosmic mass $\mu_s$ at rest at the origin makes, at the distance $r$ in the outward direction $\rhat$, the \emph{cosmic field}
+\[
+\uE = -\frac{G\mu_s}{r^2}\,\rhat .
+\]
+Its value at each point is a vector with General Number components, $\uE = \vg + \ve\,\Gp$.
+\end{definition}
+
+A second body of cosmic mass $\mu$ at that point feels $\Re(\mu\,\uE) = -G\,\Re(\mu\,\mu_s)\,\rhat/r^2$, the Cosmic Interaction Law read by its real part (\cref{def:reading}): a pull towards the source when $G\,\Re(\mu\mu_s) > 0$. Fields that change in time need a second field, as in Maxwell's theory.
+
+\subsection{The Cosmic Field Law}\label{subsec:un-law}
+
+\begin{postulate}[The Cosmic Field Law]\label{law:unified}
+Two fields with General Number values, the cosmic field $\uE$ and the second field $\uB$, obey
+\begin{align*}
+\text{(F1)}\quad \nabla\cdot\uE &= -4\pi G\,\rho_\mu , & \text{(F2)}\quad \nabla\cdot\uB &= 0 ,\\
+\text{(F3)}\quad \nabla\times\uE &= -\partial_t\uB , & \text{(F4)}\quad \nabla\times\uB &= -\frac{4\pi G}{c^2}\vJ_\mu + \frac{1}{c^2}\partial_t\uE ,
+\end{align*}
+and a body of cosmic mass $\mu$ and velocity $\vv$ moves by
+\[
+\text{(M)}\qquad \Re(\mu)\,\frac{d\vv}{dt} = \Re\bigl[\mu\,(\uE + \vv\times\uB)\bigr] .
+\]
+\end{postulate}
+
+Like \cref{law:interaction}, \cref{law:unified} is assumed. It is Maxwell's set of equations written for fields with General Number values, with the constant $4\pi G$ fixed by the field of a body at rest. The statements below are derived from it.
+
+\subsection{The split: gravity with a small magnetic part, Maxwell's equations, and waves at \texorpdfstring{$c$}{c}}\label{subsec:un-split}
+
+Write $\uB = \vB_g + \vb\,\Gp$, as $\uE = \vg + \ve\,\Gp$.
+
+\begin{proposition}[The split]\label{prop:un-split}
+Each of the field equations (F1) to (F4) holds separately for the real coordinate and for the Composer coordinate, as in \cref{tab:un-split}.
+\end{proposition}
+
+\begin{proof}
+Every operation in (F1) to (F4) is a sum, a product by a real number, or a derivative in space or time; no field multiplies a field, and no field is multiplied by $\Gp$. Each such operation acts on the two coordinates one at a time, and two General Numbers are equal exactly when both coordinates are equal~\citep[Remark~3.3]{DerrazGN2026}. So each equation is two equations.
+\end{proof}
+
+\begin{table}[t]
+\caption{The four field equations of \cref{law:unified}, split into their two coordinates (\cref{prop:un-split}). The angle $\pb$ appears in neither set.}
+\label{tab:un-split}
+\small\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+real coordinate & Composer coordinate \\
+\midrule
+$\nabla\cdot\vg = -4\pi G\rho_m$ & $\nabla\cdot\ve = -4\pi G\rho_q$ \\[2pt]
+$\nabla\cdot\vB_g = 0$ & $\nabla\cdot\vb = 0$ \\[2pt]
+$\nabla\times\vg = -\partial_t\vB_g$ & $\nabla\times\ve = -\partial_t\vb$ \\[2pt]
+$\nabla\times\vB_g = -\frac{4\pi G}{c^2}\vJ_m + \frac{1}{c^2}\partial_t\vg$ & $\nabla\times\vb = -\frac{4\pi G}{c^2}\vJ_q + \frac{1}{c^2}\partial_t\ve$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The real set is Newton's gravity with a second field. For bodies at rest, (F3) gives $\vg$ no curl and (F1) gives the field of a mass $M$, $\vg = -GM\rhat/r^2$. The field $\vB_g$, made by moving masses and felt by moving masses, is the magnetic part of gravity that Heaviside wrote in 1893~\citep{Heaviside1893}.
+
+\begin{theorem}[Maxwell's equations]\label{thm:un-maxwell}
+Define the electric and magnetic fields by
+\[
+\vE = -\lvert\Gp\rvert^2\,\ve , \qquad \vB = -\lvert\Gp\rvert^2\,\vb .
+\]
+Then the Composer set of \cref{tab:un-split} is Maxwell's set,
+\begin{align*}
+\nabla\cdot\vE &= 4\pi K\rho_q , & \nabla\cdot\vB &= 0 ,\\
+\nabla\times\vE &= -\partial_t\vB , & \nabla\times\vB &= \frac{4\pi K}{c^2}\vJ_q + \frac{1}{c^2}\partial_t\vE ,
+\end{align*}
+with the magnetic constant $\mu_0 = 4\pi K/c^2$.
+\end{theorem}
+
+\begin{proof}
+Multiply each Composer equation by $-\lvert\Gp\rvert^2$ and use $G\,\lvert\Gp\rvert^2 = K$~\cref{eq:cu-size}. With $K = 1/(4\pi\varepsilon_0)$ and $\mu_0 = 4\pi K/c^2$ these are Maxwell's equations in SI form.
+\end{proof}
+
+The minus sign in the definition of $\vE$ turns the arrows round, so that the field of a mass points in while Maxwell's field of a positive charge points out (\cref{fig:fields}).
+
+\begin{figure}[t]
+\centering
+\input{fig-fields}
+\caption{The cosmic field $\uE = -G\mu_s\rhat/r^2$ of one source at rest, in its two coordinates (\cref{def:un-field,thm:un-maxwell}). (a) The real coordinate $\vg$ of a mass points inward: Newton's pull. (b) The Composer coordinate $\ve$ of a positive charge points inward too, by the same formula. (c) Maxwell's field of that charge, $\vE = -s^2\,\ve$, points outward. The minus sign of the Rule of the Square turns the arrows round: masses pull, and like charges push.}
+\label{fig:fields}
+\end{figure}
+
+\begin{theorem}[Waves at the speed $c$]\label{thm:un-waves}
+In empty space both fields obey the wave equation with the speed $c$,
+\[
+\nabla^2\uE = \frac{1}{c^2}\,\partial_t^2\uE , \qquad \nabla^2\uB = \frac{1}{c^2}\,\partial_t^2\uB ,
+\]
+in both coordinates: the waves of the gravity part travel at the speed of light.
+\end{theorem}
+
+\begin{proof}
+With no sources, take the curl of (F3) and use $\nabla\times(\nabla\times\vF) = \nabla(\nabla\cdot\vF) - \nabla^2\vF$, then (F4) and (F1): $\nabla(\nabla\cdot\uE) - \nabla^2\uE = -c^{-2}\partial_t^2\uE$ with $\nabla\cdot\uE = 0$. The curl of (F4), with (F3) and (F2), gives the equation for $\uB$. By \cref{prop:un-split} each equation holds for both coordinates.
+\end{proof}
+
+The gravitational waves of the neutron-star merger GW170817 arrived within two seconds of its gamma rays after about 130 million years, which ties the speed of gravity to the speed of light within a few parts in $10^{15}$~\citep{Abbott2017GRB}. This agrees with \cref{thm:un-waves}, though only as a check of consistency, since the speed $c$ was put into (F4) for both coordinates. The inspiral that sent those waves contradicts the sign of their energy (\cref{subsec:un-limits}).
+
+\subsection{Motion: the two coordinates of the law of motion}\label{subsec:un-motion}
+
+\begin{proposition}[The law of motion in its two coordinates]\label{prop:un-lorentz}
+Opened into its coordinates, the law of motion (M) reads
+\[
+m\,\frac{d\vv}{dt} = m\,(\vg + \vv\times\vB_g) + q\,(\vE + \vv\times\vB) .
+\]
+\end{proposition}
+
+\begin{proof}
+By~\cref{eq:real-product}, applied to each component, with $\mu = m + q\,\Gp$ and $\uE = \vg + \ve\,\Gp$, $\Re(\mu\,\uE) = m\,\vg - \lvert\Gp\rvert^2 q\,\ve = m\,\vg + q\,\vE$. In the same way, with $\vv$ real, $\Re(\mu\,\vv\times\uB) = m\,\vv\times\vB_g + q\,\vv\times\vB$. The left side of (M) is $\Re(\mu)\,d\vv/dt = m\,d\vv/dt$.
+\end{proof}
+
+The first bracket is Newton's gravity with Heaviside's magnetic part; the second is the force of Lorentz~\citep{Lorentz1895}. The mass that resists acceleration is the real part of the cosmic mass, and the Coupling term of \cref{law:interaction} exerts no force.
+
+\paragraph{Free fall.} The law of motion keeps the equivalence of the mass that falls and the mass that resists. In the field $\vg$ of a neutral source, a body of cosmic mass $m + q\,\Gp$ at rest feels $\Re(\mu\,\uE) = m\,\vg$, since the field has no Composer coordinate, and its inertia is $m$; so $d\vv/dt = \vg$ for every body, whatever its mass, its charge or its make-up. The charge of a body enters only through the Composer coordinate of the field, which a neutral source does not make. This agrees with the equality of free fall measured to about one part in $10^{15}$ by MICROSCOPE~\citep{Touboul2022}, and it is the same statement as in Newton's mechanics: the law adds nothing to it.
+
+\subsection{What is kept: the source, the energy and the momentum}\label{subsec:un-kept}
+
+\begin{theorem}[Conservation of the source]\label{thm:un-source}
+The density and the current of cosmic mass obey $\partial_t\rho_\mu + \nabla\cdot\vJ_\mu = 0$.
+\end{theorem}
+
+\begin{proof}
+Take the divergence of (F4). The left side is zero, since $\nabla\cdot(\nabla\times\vF) = 0$; replace $\nabla\cdot\uE$ by (F1) and divide by $-4\pi G/c^2$.
+\end{proof}
+
+The Composer coordinate of \cref{thm:un-source} is the conservation of charge, which holds exactly. The real coordinate says that rest mass is conserved. The law therefore cannot describe a process that turns rest mass into energy, such as a nuclear fusion, whose energy comes from special relativity.
+
+\begin{theorem}[The balance of energy]\label{thm:un-energy}
+Let
+\[
+u = -\frac{1}{8\pi G}\,\Re\bigl[\uE\cdot\uE + c^2\,\uB\cdot\uB\bigr], \qquad \vS = -\frac{c^2}{4\pi G}\,\Re\bigl[\uE\times\uB\bigr].
+\]
+Then $\partial_t u + \nabla\cdot\vS = -\Re\bigl[\uE\cdot\vJ_\mu\bigr]$.
+\end{theorem}
+
+\begin{proof}
+By $\nabla\cdot(\vF\times\vH) = \vH\cdot(\nabla\times\vF) - \vF\cdot(\nabla\times\vH)$ with (F3) and (F4),
+$\nabla\cdot(\uE\times\uB) = -\tfrac12\partial_t(\uB\cdot\uB) - \tfrac{1}{2c^2}\partial_t(\uE\cdot\uE) + \tfrac{4\pi G}{c^2}\,\uE\cdot\vJ_\mu$. Take the real part and multiply by $-c^2/(4\pi G)$.
+\end{proof}
+
+\begin{proposition}[The energy in its two coordinates]\label{prop:un-two-faces}
+Opened into its coordinates, the energy density of \cref{thm:un-energy} is
+\[
+u = -\frac{g^2 + c^2 B_g^2}{8\pi G} + \frac{E^2 + c^2 B^2}{8\pi K} :
+\]
+negative for the gravity part and positive for the Maxwell part.
+\end{proposition}
+
+\begin{proof}
+By~\cref{eq:real-product}, with $\ve = -\vE/\lvert\Gp\rvert^2$, $\Re[\uE\cdot\uE] = g^2 - \lvert\Gp\rvert^2 e^2 = g^2 - E^2/\lvert\Gp\rvert^2$. Multiply by $-1/(8\pi G)$, use $G\,\lvert\Gp\rvert^2 = K$, and do the same for $\uB$.
+\end{proof}
+
+The minus sign of the Rule of the Square, which separates gravity from Coulomb's force at rest, here gives the energy of charge fields a plus sign and the energy of gravity a minus sign. A similar sign appears in Maxwell's remark of 1864, when he asked whether gravity could be a field like electromagnetism~\citep{Maxwell1865}.
+
+\begin{theorem}[The balance of momentum]\label{thm:un-momentum}
+Let $\vf = \Re[\rho_\mu\uE + \vJ_\mu\times\uB]$ be the force on the matter in a unit volume and $\vp_f = \vS/c^2$ the momentum of the field in a unit volume. Then $\vf + \partial_t\vp_f = \nabla\cdot T$, with the stress
+\[
+T_{ij} = -\frac{1}{4\pi G}\,\Re\Bigl[\mathcal{E}_i\mathcal{E}_j + c^2\mathcal{B}_i\mathcal{B}_j - \tfrac12\,\delta_{ij}\bigl(\uE\cdot\uE + c^2\,\uB\cdot\uB\bigr)\Bigr] .
+\]
+\end{theorem}
+
+\begin{proof}
+Replace the sources by (F1) and (F4), and use (F3) for $\partial_t\uE\times\uB = \partial_t(\uE\times\uB) + \uE\times(\nabla\times\uE)$ and (F2) to add $c^2\,\uB\,\nabla\cdot\uB = 0$. Then $\vf + \partial_t\vp_f = -\frac{1}{4\pi G}\Re\bigl[\uE\,\nabla\cdot\uE + (\nabla\times\uE)\times\uE + c^2\,\uB\,\nabla\cdot\uB + c^2(\nabla\times\uB)\times\uB\bigr]$, and for any field $(\nabla\cdot\vF)\vF + (\nabla\times\vF)\times\vF$ is the divergence of $F_iF_j - \tfrac12\delta_{ij}F^2$.
+\end{proof}
+
+\subsection{An action for the field law}\label{subsec:un-action}
+
+Since (F2) and (F3) hold, the fields come from potentials, $\uE = -\nabla\Phi - \partial_t\cosA$ and $\uB = \nabla\times\cosA$, with General Number values.
+
+\begin{definition}[The action of the field law]\label{def:un-action}
+For bodies of cosmic masses $\mu$ and velocities $\vv$, in fields given by the potentials $\Phi$ and $\cosA$, the action is
+\begin{align*}
+S = \int dt\,\Bigl\{&\sum_{\text{bodies}}\Bigl[\tfrac12\Re(\mu)\,v^2 - \Re\bigl(\mu(\Phi - \vv\cdot\cosA)\bigr)\Bigr]
+- \frac{1}{8\pi G}\int\Re\bigl[\uE\cdot\uE - c^2\,\uB\cdot\uB\bigr]\,dV\Bigr\} .
+\end{align*}
+\end{definition}
+
+\begin{theorem}[The field law from an action]\label{thm:un-action}
+The action of \cref{def:un-action} is stationary
+\begin{enumerate}[label=(\roman*)]
+  \item under every small change of the path of a body, exactly when the body obeys the law of motion (M);
+  \item under every small change of $\Phi$, exactly when (F1) holds;
+  \item under every small change of $\cosA$, exactly when (F4) holds.
+\end{enumerate}
+With the potentials, which give (F2) and (F3), the action holds the whole of \cref{law:unified}.
+\end{theorem}
+
+\begin{proof}
+(i) For one body, $L = \tfrac12 m v^2 - \Re(\mu\Phi) + \Re(\mu\,\vv\cdot\cosA)$, with $m = \Re(\mu)$. Then $\partial L/\partial\vv = m\vv + \Re(\mu\cosA)$ and $\partial L/\partial\vx = -\Re(\mu\nabla\Phi) + \Re(\mu\nabla(\vv\cdot\cosA))$. Lagrange's equation and $\nabla(\vv\cdot\cosA) - (\vv\cdot\nabla)\cosA = \vv\times(\nabla\times\cosA)$ give $m\,d\vv/dt = \Re[\mu(-\nabla\Phi - \partial_t\cosA + \vv\times(\nabla\times\cosA))] = \Re[\mu(\uE + \vv\times\uB)]$.
+(ii) A change $\delta\Phi$ gives $\delta\uE = -\nabla\delta\Phi$ and, after integration by parts, $\delta S = -\int\Re\bigl[(\rho_\mu + \tfrac{1}{4\pi G}\nabla\cdot\uE)\,\delta\Phi\bigr]\,dV\,dt$.
+(iii) A change $\delta\cosA$ gives $\delta\uE = -\partial_t\delta\cosA$ and $\delta\uB = \nabla\times\delta\cosA$, and $\delta S = \int\Re\bigl[(\vJ_\mu - \tfrac{1}{4\pi G}\partial_t\uE + \tfrac{c^2}{4\pi G}\nabla\times\uB)\cdot\delta\cosA\bigr]\,dV\,dt$.
+In (ii) and (iii), $\Re[XY] = x_1y_1 - \lvert\Gp\rvert^2x_2y_2$ for $X = x_1 + x_2\Gp$ and $Y = y_1 + y_2\Gp$, so $\Re[XY]$ vanishes for every $Y$ only when $X = 0$~\citep[Proposition~4.2]{DerrazGN2026}; this gives (F1) and (F4).
+\end{proof}
+
+The real part of $S$ for the real coordinate is the action of Newton's gravity with Heaviside's field; for the Composer coordinate, after $\vE = -\lvert\Gp\rvert^2\ve$, it is the action of Maxwell's electrodynamics with Lorentz's coupling. In this sense the two actions can be written as the two parts of one, with one number for each body.
+
+\subsection{A check on known cases}\label{subsec:un-tests}
+
+With one number for each body and one for each field at each point, the force on a body can be written in one line,
+\[
+\vF = \sum_{\text{sources } s} \frac{G\,\Re(\mu\,\mu_s)}{r_s^2}\,\hat{\mathbf{u}}_s + \Re\bigl[\mu\,(\uE + \vv\times\uB)\bigr] ,
+\]
+with $\hat{\mathbf{u}}_s$ the unit vector towards the source $s$. A short program, this line and a step in time, computes every row of \cref{tab:un-results}; only $m$ and $q$ change from one body to the next. Each line checks the reading. Where the law coincides with Newton, Maxwell and Lorentz it gives what they give, and the table shows no more than that.
+
+\begin{table}[t]
+\caption{Known cases computed with the field law. The values of this law come from the force line of \cref{subsec:un-tests}: the drift by integration in time, the other rows in closed form. The standard values are measured, or given by the laws of Newton, Maxwell and Lorentz with the CODATA 2022 constants. Thomson's tube: an electron enters at $2.5 \times 10^7$~m\,s$^{-1}$ between plates $5$~cm long with $E = 10^4$~V\,m$^{-1}$, and a screen stands $10$~cm beyond. The drift: a proton released at rest in $E = 1000$~V\,m$^{-1}$ and $B = 1$~T. For the speed on the classical orbit of radius $a_0$ the proton is held at rest. The hydrogen energy takes the size of the orbit from quantum theory, Bohr's radius for the reduced mass, $a_0(m_e + m_p)/m_p$, so that this row is an identity of the constants, compared with the measured value~\citep{Sansonetti2005}. The period of the Moon is that of two bodies with the masses and the distance of~\citep{NASAMoon}, which leaves out the pull of the Sun. The measured charge of the free neutron is $(-0.4 \pm 1.1) \times 10^{-21}\,e$~\citep{Baumann1988}.}
+\label{tab:un-results}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.27\textwidth} r r@{}}
+\toprule
+case & quantity & this law & standard \\
+\midrule
+Thomson's tube~\citep{Thomson1897} & rise of the electron at the screen & $17.59$~mm & $17.59$~mm \\
+electron in $1$~T & turns per second & $2.7992 \times 10^{10}$ & $2.7992 \times 10^{10}$ \\
+proton in crossed fields & drift speed & $1000.000$~m\,s$^{-1}$ & $E/B = 1000$~m\,s$^{-1}$ \\
+hydrogen, classical orbit at $a_0$ & speed$/c$ & $0.0072974$ & $\alpha_{\mathrm{fs}} = 0.0072974$ \\
+hydrogen, Bohr's orbit & energy to free the electron & $13.598$~eV & $13.598$~eV \\
+the Moon and the Earth & period & $27.28$~days & $27.32$~days \\
+neutron between charged plates & sideways force & $0$ & no charge seen \\
+waves of either part & speed & $c$ & $c$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The neutron line bears on the reading itself. Read by its shadow~\cref{eq:shadow-law}, the law would keep the share $\cos\pb$ of the Coupling term, which would give a neutron the apparent charge $m_n\cos\pb/\lvert\Gp\rvert \approx 1.6 \times 10^{-19}\,e$, about 145 times the error of its measured charge (\cref{subsec:coupling}); read by its real part, a neutron feels no electric force and goes straight between charged plates, as observed.
+
+\subsection{Where the field law fails}\label{subsec:un-limits}
+
+For slow bodies, \cref{law:unified} says nothing that the laws of Newton, Maxwell and Lorentz did not already say, and it fails the tests of general relativity~\citep{Will2014}. \Cref{tab:gravity-tests} sets the tests side by side, and the points below give the reasons.
+
+\begin{table}[t]
+\caption{The field law and the tests of gravity. \emph{Measured} values agree with general relativity in every row~\citep{Will2014}. The free-fall row follows from \cref{prop:un-lorentz}: a body's inertia is its mass $m$, and the pull of a neutral body on it is $G\,mM/r^2$ whatever its charge (\cref{subsec:un-motion}).}
+\label{tab:gravity-tests}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.25\textwidth} l@{}}
+\toprule
+test & measured & this law & status \\
+\midrule
+frame dragging of orbits (LAGEOS) & the Lense--Thirring drift of the orbital planes, as general relativity predicts~\citep{Ciufolini2004} & a quarter of general relativity & fails \\
+frame dragging of gyroscopes (Gravity Probe B) & $-37.2 \pm 7.2$~mas\,yr$^{-1}$~\citep{Everitt2011} & not described: the law has no spin; with the gyroscope coupling of general relativity, about $-9.8$~mas\,yr$^{-1}$ & outside scope \\
+bending of light by the Sun & as general relativity predicts & none: gravity does not act on light & fails \\
+delay of radar echoes, gravitational shift of light & as general relativity predicts & none & fails \\
+perihelion of Mercury & $43''$ per century beyond Newton & none beyond Newton & fails \\
+orbits of binary pulsars & shrink, as general relativity predicts~\citep{WeisbergHuang2016} & would widen: the waves carry negative energy & fails \\
+speed of gravity (GW170817) & $c$ within a few parts in $10^{15}$~\citep{Abbott2017GRB} & $c$, put into (F4) & consistent \\
+orbits of merging black holes (LIGO) & shrink as waves carry energy away~\citep{Abbott2016} & would widen & fails \\
+free fall of bodies of different composition & equal to about $10^{-15}$~\citep{Touboul2022} & equal & agrees \\
+\bottomrule
+\end{tabularx}
+\end{table}
+The tests that fail are those of the regimes where the curvature of space and time matters. A law of vector fields of this kind cannot reproduce them, and this paper makes no claim there. The points below give the reasons, row by row.
+\begin{itemize}[leftmargin=1.4em]
+  \item \emph{The magnetic part of gravity.} The real set of \cref{tab:un-split} is Heaviside's analogy. In general relativity, linearized for slow bodies, the gravitomagnetic field enters its equations with a factor $2$ and acts on a moving mass with a further factor $2$~\citep{Mashhoon2003}, so that its effects on moving masses are four times those of Heaviside's form. The law of motion (M) applies to the orbit of a satellite in the field $\vB_g$ of the spinning Earth, and gives a quarter of the Lense--Thirring drift of the orbital planes that the LAGEOS satellites show as general relativity predicts~\citep{Ciufolini2004}. Gravity Probe B measured something else, the precession of spinning gyroscopes, $-37.2 \pm 7.2$~mas\,yr$^{-1}$, in agreement with the $-39.2$~mas\,yr$^{-1}$ of general relativity~\citep{Everitt2011}. The law describes bodies without spin and has no rule for that precession; if its field $\vB_g$ is read with the gyroscope coupling of general relativity, it gives a quarter of the value, which lies about four standard errors from the measurement.
+  \item \emph{Gravity and light.} The two coordinates of the law never meet (\cref{tab:un-split}), so gravity does not act on light. The law gives no bending of light by the Sun, no delay of radar echoes passing it and no gravitational shift of the frequency of light, and for the planets it gives Newton's orbits, with none of the $43$ arcseconds per century by which the perihelion of Mercury advances beyond them; all four are measured as general relativity predicts~\citep{Will2014}.
+  \item \emph{The energy of gravity waves.} By \cref{prop:un-two-faces}, the waves of the gravity part carry negative energy, close to the difficulty Maxwell described in 1864.
+ A binary that radiates them would gain energy and drift apart, while the orbits of binary pulsars shrink at the rate that general relativity predicts~\citep{WeisbergHuang2016}.
+  \item \emph{Mass and energy.} The real coordinate of \cref{thm:un-source} conserves rest mass, so the law cannot describe a fusion, and its law of motion is Newton's: fast bodies need special relativity, and strong fields general relativity~\citep{Einstein1916}.
+\end{itemize}
+What the law offers is a form, with one number for each body, one reading, and one action in which gravity and electromagnetism are written side by side. It adds no physics to the laws it rewrites.

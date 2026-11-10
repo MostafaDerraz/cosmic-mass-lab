@@ -1,0 +1,298 @@
+% Compendium of the verified formulas: General Sinus, General Numbers, Cosmic Mass
+% (book "The Cosmic Mass, Volume 1", and the three papers). 10 November 2026.
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,array,tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\newcommand{\pb}{\overline{\phi}}
+\newcommand{\Gp}{\mathcal{G}}
+\newcommand{\G}{\lvert\Gp\rvert}
+\newcommand{\uE}{\boldsymbol{\mathcal{E}}}
+\newcommand{\uB}{\boldsymbol{\mathcal{B}}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vE}{\mathbf{E}}
+\newcommand{\vB}{\mathbf{B}}
+\renewcommand{\Re}{\operatorname{Re}}
+\DeclareMathOperator{\Com}{Com}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\Ht}{Ht}
+\newcommand{\src}[1]{\hfill{\small\textcolor{gray}{[#1]}}}
+
+\title{Verified formulas of the General Sinus, General Numbers\\ and Cosmic Mass theory}
+\author{Work preparation package for the virtual universe}
+\date{10 November 2026}
+
+\begin{document}
+\maketitle
+
+\noindent Every formula below was checked by a script of \texttt{02-verification-scripts} or by
+the 50-digit audit of this package. The tag in square brackets names the source:
+
+\begin{itemize}
+\item \textbf{GS:} General Sinus, revision 3, and the book's Appendix A;
+\item \textbf{GN:} the General Numbers paper and the book's Chapter 4;
+\item \textbf{CM:} the Cosmic Mass paper and the book's Chapters 6 and 9.
+\end{itemize}
+
+\noindent Formulas found false are listed only in Section~\ref{sec:corrections}, with
+their corrections.
+
+%=====================================================================
+\section{General Sinus: trigonometry of an oblique projection}
+%=====================================================================
+
+\paragraph{Definitions.} The point $Z$ on the second side of the angle $\alpha$ is
+projected onto the first side along a line at the angle $\phi$ to $ZO$:
+\[
+\sin(\alpha,\phi) = \frac{\sin\alpha}{\sin(\alpha+\phi)},\quad
+\cos(\alpha,\phi) = \frac{\sin\phi}{\sin(\alpha+\phi)},\quad
+\tan(\alpha,\phi) = \frac{\sin\alpha}{\sin\phi},
+\]
+\[
+\csc(\alpha,\phi) = \frac{\sin(\alpha+\phi)}{\sin\alpha},\quad
+\sec(\alpha,\phi) = \frac{\sin(\alpha+\phi)}{\sin\phi},\quad
+\cot(\alpha,\phi) = \frac{\sin\phi}{\sin\alpha}.
+\src{GS}
+\]
+For $\alpha+\phi = \pi/2$ the classical functions return.
+
+\paragraph{Coordinate reading and Pythagoras.} With $\pb = \alpha+\phi$ and
+$\vec u = (\cos\pb,\sin\pb)$,
+\begin{gather*}
+(\cos\alpha,\sin\alpha) = \cos(\alpha,\phi)\,\vec e_1 + \sin(\alpha,\phi)\,\vec u ,\\
+\cos(\alpha,\phi)^2 + \sin(\alpha,\phi)^2 + 2\cos(\alpha,\phi)\sin(\alpha,\phi)\cos(\alpha+\phi) = 1 .
+\end{gather*}\src{GS}
+
+\paragraph{Exchange, reciprocals, signs.}
+\[
+\sin(\alpha,\phi) = \cos(\phi,\alpha),\quad \tan(\alpha,\phi) = \cot(\phi,\alpha),\quad
+\csc(\alpha,\phi) = \sec(\phi,\alpha);
+\]
+\[
+\csc(\alpha,\phi) = \sin(\alpha+\phi,-\phi),\quad
+\sec(\alpha,\phi) = \tan(\alpha+\phi,\phi),\quad
+\cot(\alpha,\phi) = \cos(\alpha-\phi,\phi);
+\]
+\begin{gather*}
+\sin(-\alpha,-\phi) = \sin(\alpha,\phi),\quad \cos(-\alpha,-\phi) = \cos(\alpha,\phi),\quad
+\sin(-\alpha,\phi) = \sin(\alpha,-\phi),\\ \tan(i\alpha,j\phi) = ij\tan(\alpha,\phi)\quad (i,j = \pm1);\\
+\sin(\alpha+p\pi,\phi+q\pi) = (-1)^q\sin(\alpha,\phi),\quad
+\cos(\alpha+p\pi,\phi+q\pi) = (-1)^p\cos(\alpha,\phi),\\
+\tan(\alpha+p\pi,\phi+q\pi) = (-1)^{p+q}\tan(\alpha,\phi).
+\end{gather*}\src{GS}
+
+\paragraph{Special values.}
+$\sin(\alpha,\tfrac\pi2) = \tan\alpha$, $\cos(\alpha,\tfrac\pi2) = \sec\alpha$,
+$\tan(\alpha,\tfrac\pi2) = \sin\alpha$; $\sin(\theta,\theta) = \cos(\theta,\theta) = \tfrac{1}{2\cos\theta}$,
+$\tan(\theta,\theta) = 1$; all six equal $1$ at $\theta = \pi/3$; $\sin(\tfrac\pi5,\tfrac\pi5) = \tau^{-1}$
+with $\tau = (1+\sqrt5)/2$. \src{GS}
+
+\paragraph{Ptolemy's identity.}
+$\sin(x+y)\sin(y+z) = \sin x\sin z + \sin y\sin(x+y+z)$. Every addition formula below reduces to it. \src{GS}
+
+\paragraph{Addition with the projection angle fixed (moving frame).}
+\begin{align*}
+\sin(\alpha+\beta,\phi) &= \sin(\alpha,\phi) + \cos(\alpha,\phi)\sin(\beta,\phi+\alpha)\\
+ &= \sin(\alpha,\phi) + \cos(\alpha,\phi)\sin(\beta,\phi)\cos(\alpha,\phi+\beta),\\
+\cos(\alpha+\beta,\phi) &= \cos(\alpha,\phi)\cos(\beta,\phi) + \sin(\alpha,\phi)\sin(\beta,\phi)\cos(\alpha+\beta,\phi)\\
+ &= \frac{\cos(\alpha,\phi)\cos(\beta,\phi)}{1-\sin(\alpha,\phi)\sin(\beta,\phi)}\\
+ &= \cos(\alpha,\phi)\cos(\beta,\phi) + \cos(\alpha,\phi)\sin(\beta,\phi)\sin(\alpha,\phi+\beta),\\
+\sec(\alpha+\beta,\phi) &= \sec(\alpha,\phi)\sec(\beta,\phi) - \tan(\alpha,\phi)\tan(\beta,\phi),\\
+\tan(\alpha+\beta,\phi) &= \tan(\alpha,\phi)\cos\beta + \tan(\beta,\phi)\cos\alpha .
+\end{align*}\src{GS}
+
+\paragraph{Addition in the projection angle.}
+$\sin(\alpha,\phi+\theta) = \sin(\alpha,\phi)\sin(\alpha+\phi,\theta)$,\quad
+$\cos(\alpha,\phi+\theta) = \cos(\alpha,\phi) + \sin(\alpha,\phi)\cos(\alpha+\phi,\theta)$. \src{GS}
+
+\paragraph{Double and half angles.}
+\begin{gather*}
+\sin(2\alpha,\phi) = \sin(\alpha,\phi)\bigl(1+\cos(2\alpha,\phi)\bigr),\quad
+\cos(2\alpha,\phi) = \frac{\cos(\alpha,\phi)^2}{1-\sin(\alpha,\phi)^2},\\
+\sec(2\alpha,\phi) = \sec(\alpha,\phi)^2 - \tan(\alpha,\phi)^2,\\
+\tan(2\alpha,\phi) = 2\tan(\alpha,\phi)\cos\alpha,\quad
+\sin(2\alpha,\phi)-\sin(\alpha,\phi) = \sin(\alpha,\phi)\cos(2\alpha,\phi),\\
+\cos(\alpha,\phi) = \frac{\cos(\frac\alpha2,\phi)^2}{1-\sin(\frac\alpha2,\phi)^2},\quad
+\sec(\alpha,\phi) = \sec(\tfrac\alpha2,\phi)^2 - \tan(\tfrac\alpha2,\phi)^2 .
+\end{gather*}
+\src{GS}
+
+\paragraph{Fixed frame (Euler and De Moivre).} For fixed $\pb\in(0,\pi)$, write
+$C_\theta = \sin(\pb-\theta)/\sin\pb$, $S_\theta = \sin\theta/\sin\pb$ and $u = e^{i\pb}$. Then
+\begin{gather*}
+e^{i\theta} = C_\theta + S_\theta u,\qquad u^2 = 2\cos\pb\,u - 1,\\
+C_{\alpha+\beta} = C_\alpha C_\beta - S_\alpha S_\beta,\qquad
+S_{\alpha+\beta} = C_\alpha S_\beta + S_\alpha C_\beta + 2\cos\pb\,S_\alpha S_\beta,\\
+(C_\theta + S_\theta u)^n = C_{n\theta} + S_{n\theta}u,\\
+u^n = -U_{n-2}(\cos\pb) + U_{n-1}(\cos\pb)\,u\quad(n\ge 2).
+\end{gather*}
+\src{GS}
+
+\paragraph{Partial derivatives (corrected second order).}
+\begin{gather*}
+\partial_x\sin(x,y) = \frac{\cos(x,y)}{\sin(x+y)},\quad \partial_y\sin(x,y) = -\sin(x,y)\cot(x+y),\\
+\partial_x\cos(x,y) = -\cos(x,y)\cot(x+y),\quad
+\partial_y\cos(x,y) = \frac{\sin(x,y)}{\sin(x+y)},\\
+\partial_x\tan(x,y) = \frac{\cos x}{\sin y} = \tan(\tfrac\pi2\pm x,y),\quad \partial_y\tan(x,y) = -\tan(x,y)\cot y,\\
+\partial_x^2\sin = -2\cot(x+y)\,\partial_x\sin,\quad \partial_y^2\sin = \sin(x,y)\bigl(1+2\cot^2(x+y)\bigr),\\
+\partial_x^2\cos = \cos(x,y)\bigl(1+2\cot^2(x+y)\bigr),\quad
+\partial_y^2\cos = -2\cot(x+y)\,\partial_y\cos,\\ \partial_x^2\tan = -\tan(x,y),\quad
+\partial_y^2\tan = \tan(x,y)\bigl(1+2\cot^2 y\bigr).
+\end{gather*}
+\src{GS}
+
+\paragraph{Derivative with the frame fixed.} $Df = \partial_x f - \partial_y f$ (path $x+t$, $y-t$). For every integer $n\ge0$:
+\begin{gather*}
+D^n\sin(x,y) = \sin\bigl(x+\tfrac{n\pi}{2},\,y-\tfrac{n\pi}{2}\bigr),\qquad
+D^n\cos(x,y) = \cos\bigl(x+\tfrac{n\pi}{2},\,y-\tfrac{n\pi}{2}\bigr),\qquad D^2 f = -f,\\
+D^n\sin\bigl(x-\tfrac{n\pi}{2},\,y+\tfrac{n\pi}{2}\bigr) = \sin(x,y)\ \text{(primitives)},\\
+D^n\tan(x,y) = \sin(x+y)\Bigl(-\frac{d}{dy}\Bigr)^{n-1}\csc^2 y\quad(n\ge1).
+\end{gather*}
+\src{GS}
+
+\paragraph{Products for every $N\ge1$.}
+\begin{gather*}
+\sin(x,y) = \prod_{k=0}^{N-1}\sin\Bigl(\tfrac{x+\pi k}{N},\tfrac{y}{N}\Bigr),\quad
+\cos(x,y) = \prod_{k=0}^{N-1}\cos\Bigl(\tfrac{x}{N},\tfrac{y+\pi k}{N}\Bigr),\\
+\tan(x,y) = \prod_{k=0}^{N-1}\tan\Bigl(\tfrac{x+\pi k}{N},\tfrac{y+\pi k}{N}\Bigr).
+\end{gather*}\src{GS}
+
+\paragraph{General Sinus Transform.} Take $P_{N,k}(z) = u_k z^2 - 2Nv_kz - 2N^2u_k$ with exact $u_k = \sin(\pi k/N)$ and $v_k = \cos(\pi k/N)$, and set $S_N = \prod_k P_{N,k}(x)/P_{N,k}(x+y)$ ($C_N$ and $T_N$ likewise). With $\rho(\varepsilon) = \sqrt{1+\varepsilon^4/4}$ and $\delta(\varepsilon) = \arctan\frac{\varepsilon}{1-\varepsilon^2/2}$, for $N > \max(|x|,|y|,|x+y|)/\sqrt2$:
+\begin{gather*}
+S_N(x,y) = \Bigl(\frac{\rho(x/N)}{\rho((x+y)/N)}\Bigr)^N\frac{\sin(N\delta(x/N))}{\sin(N\delta((x+y)/N))},\\
+S_N = \sin(x,y) + \frac{x^3\cos x\sin(x+y) - (x+y)^3\sin x\cos(x+y)}{6N^2\sin^2(x+y)} + O(N^{-3}).
+\end{gather*}\src{GS}
+
+%=====================================================================
+\section{General Numbers: the plane in a leaning frame}
+%=====================================================================
+
+\paragraph{Axiom and the two angles of one length.}
+$\Gp = \G\,\vec u$, $\vec u = (\cos\pb,\sin\pb)$, $\G = \lvert\cos\pb+\sin\pb\rvert = \sqrt2\,\lvert\sin(\pb+\tfrac\pi4)\rvert$.
+For $1<A<\sqrt2$: $\pb_1 = \tfrac12\arcsin(A^2-1)$, $\pb_2 = \tfrac\pi2-\pb_1$ ($A = 1.16043$: $10.14^\circ$ and $79.86^\circ$). \src{GN}
+
+\paragraph{Rule of the Square and the product.} For $z = a+b\Gp$ and $w = c+d\Gp$:
+\[
+\Gp^2 = 2\G\cos\pb\,\Gp - \G^2,\qquad
+zw = (ac - \G^2bd) + (ad+bc+2\G\cos\pb\,bd)\,\Gp .
+\src{GN}
+\]
+
+\paragraph{Readings.}
+$\Re z = a$, $\Com z = b\Gp$, $\Sh z = a + b\G\cos\pb$, $\Ht z = b\G\sin\pb$, and
+$\lvert z\rvert^2 = a^2+2ab\G\cos\pb+b^2\G^2 = (\Sh z)^2+(\Ht z)^2$. \src{GN}
+
+\paragraph{Conjugate, skew flip, division.}
+$\bar z = (a+2b\G\cos\pb) - b\Gp$, $z+\bar z = 2\Sh z$, $\Re\bar z = 2\Sh z - \Re z$,
+$z\bar z = \lvert z\rvert^2$, $1/z = \bar z/\lvert z\rvert^2$. The skew flip is $a - b\Gp$, and
+$(a+b\Gp)(a-b\Gp) = a^2+b^2\G^2 - 2b^2\G\cos\pb\,\Gp$. The norm is multiplicative. \src{GN}
+
+\paragraph{Turning Unit and the bridge to $\mathbb C$.}
+$\mathcal J = -\cot\pb + \Gp/(\G\sin\pb)$, $\mathcal J^2 = -1$, $z = \Sh z + \Ht z\,\mathcal J$; the map
+$z\mapsto\Sh z + i\Ht z$ is an isomorphism of fields onto $\mathbb C$. \src{GN}
+
+\paragraph{Laws of the parts.}
+$\Re(zw) = \Re z\Re w - \G^2bd$, $\Com(zw) = \Sh(z)\Com(w)+\Sh(w)\Com(z)$,
+$\Sh(zw) = \Sh z\Sh w - \Ht z\Ht w$, $\Ht(zw) = \Sh z\Ht w + \Sh w\Ht z$,
+$\lvert\Re z\rvert \le \lvert z\rvert/\sin\pb$ (the bound is reached). \src{GN}
+
+\paragraph{Turning, powers, roots.}
+$e^{\theta\mathcal J} = C_\theta + S_\theta\vec u$; $(C_\theta+S_\theta\vec u)^n = C_{n\theta}+S_{n\theta}\vec u$;
+$\Gp^n = -\G^n\frac{\sin(n-1)\pb}{\sin\pb} + \G^{n-1}\frac{\sin n\pb}{\sin\pb}\Gp$;
+the powers lie on the spiral $\rho = \G^{\theta/\pb}$; the $n$-th roots are $\lvert z\rvert^{1/n}(C_{\theta_k}+S_{\theta_k}\vec u)$
+with $\theta_k = (\alpha+2\pi k)/n$. \src{GN}
+
+\paragraph{Cauchy--Riemann in a leaning frame.} For $f = U+V\Gp$ holomorphic:
+$\partial_bU = -\G^2\partial_aV$ and $\partial_bV = \partial_aU + 2\G\cos\pb\,\partial_aV$. \src{GN}
+
+\paragraph{Generalized complex numbers.} $\Gp^2 = p+q\Gp$ with $p = -\G^2$ and $q = 2\G\cos\pb$, so $q^2+4p<0$ (the elliptic case).
+Conversely, every elliptic pair $(p,q)$ is a leaning frame with length $\sqrt{-p}$ and angle $\arccos(q/2\sqrt{-p})$. \src{GN}
+
+%=====================================================================
+\section{Cosmic Mass}
+%=====================================================================
+
+\paragraph{The cosmic mass and its unit.}
+$\mu = m + q\,\Gp$, with $\G = s = \sqrt{K/G} = 1.16043\times10^{10}$ kg/C. The drawing length is $A = s/u$, and $\lvert\cos\pb+\sin\pb\rvert = A$; with $u = 10^{10}$ kg/C, $A = 1.16043$ and $\pb = 79.86^\circ$ (or $10.14^\circ$). In Planck or Stoney units $A = 1$ and $\pb = 90^\circ$. \src{CM}
+
+\paragraph{Cosmic Interaction Law and its reading.}
+\begin{gather*}
+\vec F_G = \frac{G\,\mu_a\mu_b}{r^2}\,\vec e_r,\qquad
+F = \frac{G\,\Re(\mu_a\mu_b)}{r^2} = \frac{G m_am_b - K q_aq_b}{r^2}\ \text{ at every angle},\\
+\Re\bigl[(a+b\Gp)(c+d\Gp)\bigr] = ac - s^2bd .
+\end{gather*}\src{CM}
+
+\paragraph{Full product (both coordinates).}
+\[
+\mu_a\mu_b = (m_am_b - s^2q_aq_b) + \bigl(m_aq_b + q_am_b + 2s\cos\pb\,q_aq_b\bigr)\Gp .
+\]
+The Composer coordinate holds the Coupling term $m_aq_b+q_am_b$ and the charge share $2s\cos\pb\,q_aq_b$.
+It is not read as a force: see the book's Chapter 10 and Section~\ref{sec:corrections}. \src{CM}
+
+\paragraph{Stoney mass.} $m_S = e\,s \approx 1.85921\times10^{-9}$ kg $=\sqrt{\alpha_{\mathrm{fs}}}\,m_P$. \src{CM}
+
+\paragraph{Cosmic Field Law and law of motion.} Fields with General Number values,
+$\uE = \vg + \ve\,\Gp$ and $\uB = \vB_g + \mathbf b\,\Gp$; sources
+$\rho_\mu = \rho_m+\rho_q\Gp$ and $\mathbf J_\mu = \mathbf J_m+\mathbf J_q\Gp$:
+\begin{gather*}
+\nabla\cdot\uE = -4\pi G\rho_\mu,\quad \nabla\cdot\uB = 0,\quad \nabla\times\uE = -\partial_t\uB,\quad
+\nabla\times\uB = -\frac{4\pi G}{c^2}\mathbf J_\mu + \frac{1}{c^2}\partial_t\uE,\\
+\Re(\mu)\frac{d\vv}{dt} = \Re\bigl[\mu(\uE+\vv\times\uB)\bigr]
+\iff m\frac{d\vv}{dt} = m(\vg+\vv\times\vB_g) + q(\vE+\vv\times\vB).
+\end{gather*}
+Each field equation splits into its two coordinates. The Composer set is Maxwell's, with $\vE = -s^2\ve$, $\vB = -s^2\mathbf b$ and $\mu_0 = 4\pi K/c^2$. The field of a source at rest is $\uE = -G\mu_s\vec e_r/r^2$. \src{CM}
+
+\paragraph{Kept quantities.}
+$\partial_t\rho_\mu + \nabla\cdot\mathbf J_\mu = 0$. Both fields obey the wave equation with speed $c$.
+\[
+u = -\frac{g^2+c^2B_g^2}{8\pi G} + \frac{E^2+c^2B^2}{8\pi K},\qquad
+\mathbf S = -\frac{c^2}{4\pi G}\Re(\uE\times\uB),\qquad \partial_tu + \nabla\cdot\mathbf S = -\Re(\uE\cdot\mathbf J_\mu).
+\]
+The momentum balance holds with the stress $T_{ij}$ of the paper. The action is
+\[
+S = \int dt\,\Bigl\{\sum\bigl[\tfrac12\Re(\mu)v^2 - \Re\bigl(\mu(\Phi-\vv\cdot\boldsymbol{\mathcal A})\bigr)\bigr]
+- \frac{1}{8\pi G}\int\Re\bigl[\uE\cdot\uE - c^2\uB\cdot\uB\bigr]\,dV\Bigr\}.
+\]\src{CM}
+
+\paragraph{Where the law fails (stated in the paper).}
+\begin{itemize}
+\item Frame dragging on LAGEOS comes out at $1/4$ of the measured value.
+\item There is no light bending and no Shapiro delay.
+\item Gravity waves carry negative energy.
+\item There is no conversion of rest mass into energy.
+\item The law is valid for slow bodies only.
+\end{itemize}
+\src{CM}
+
+%=====================================================================
+\section{Corrections and exclusions}\label{sec:corrections}
+%=====================================================================
+
+{\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{statement} & \textbf{status} & \textbf{correct form / note}\\
+\midrule
+$\tan(2\alpha,\phi)-\sec(2\alpha,\phi) = \sin(\alpha,\phi)$ & false & deleted\\
+$\tan(\alpha,\phi) = \sin(\tfrac\alpha2,\phi)+\sec(\alpha,\phi)$ & false & deleted\\
+$\partial_y^2\sin = \sin\,(2\cot^2(x+y)-1)$ & false & $\sin\,(1+2\cot^2(x+y))$\\
+$\partial_x^2\cos = \cos\,(2\cot^2(x+y)-1)$ & false & $\cos\,(1+2\cot^2(x+y))$\\
+$\partial_y^2\tan = \tan\,(2\cot^2(x+y)-1)$ & false & $\tan\,(1+2\cot^2y)$\\
+$D^2\sin = +\sin$, $D^2\cos = +\cos$ & false & $D^2 f = -f$\\
+$D^n$ and primitives by $\omega(z,n)$ & false for $n\equiv2,3$ & $D^nf(x,y) = f(x+\tfrac{n\pi}2,y-\tfrac{n\pi}2)$\\
+$\tan^{(n)} = n!\,\tan'\tan(\tfrac\pi2+y,y)^{n-1}$ & true only $n\le2$ & $D^n\tan = \sin(x+y)(-\tfrac{d}{dy})^{n-1}\csc^2y$\\
+rotation recurrence for $u_{n,k}$, $v_{n,k}$ ``exact'' & false & use exact sines; error accumulates otherwise\\
+five digits for $n\ge20$ at every point & false with the recurrence & rate $c(x,y)/N^2$, proved (Section 1)\\
+heat-equation analogy, $R^2 = 0.83$ & withdrawn & not evidence\\
+Composer coordinate as a force along the line, full size & excluded by measurement & neutron would carry $9.0\times10^{-19}e$; measured $(-0.2\pm0.8)\times10^{-21}e$; share below $\approx0.002$ (book, Ch.~10)\\
+charge share as a force along the line & excluded & hydrogen would bind at 5.71 eV, measured 13.598 eV (book, Ch.~10)\\
+Standard Model (book, Ch.~7), Closure Law (Ch.~8) & not verified & kept out of the papers; Closure Law is a refitted empirical law\\
+\bottomrule
+\end{tabularx}}
+
+\end{document}

@@ -1,0 +1,107 @@
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  \def\ang{79.86}
+  \def\R{2.2}
+  \pgfmathsetmacro{\bb}{\R/sqrt(1+cos(\ang))}
+  \pgfmathsetmacro{\aa}{\R/sqrt(1-cos(\ang))}
+  \draw[->, gray] (-3.0,0) -- (3.85,0) node[right] {$m$};
+  \draw[->, gray] (0,-3.2) -- (0,3.45) node[above] {$q\Gp$};
+  \draw[gray!55, densely dashed] (-1.7,-1.7) -- (1.28,1.28);
+  \draw[gray!55, densely dashed] (-1.97,1.97) -- (1.56,-1.56);
+  \node[gray!75!black, anchor=north east] at (-1.7,-1.7) {$q\Gp = m$};
+  \node[gray!75!black, anchor=south east] at (-1.97,1.97) {$q\Gp = -m$};
+  \begin{scope}
+    \clip (0,-3.25) rectangle (3.6,3.5);
+    \draw[very thick, rotate=45] (0,0) ellipse ({\bb} and {\aa});
+    \draw[gray!70, rotate=45] (0,0) ellipse ({\bb/2} and {\aa/2});
+  \end{scope}
+  \begin{scope}
+    \clip (-3.3,-3.25) rectangle (0,3.5);
+    \draw[thick, gray, densely dashed, rotate=45] (0,0) ellipse ({\bb} and {\aa});
+    \draw[gray!55, densely dashed, rotate=45] (0,0) ellipse ({\bb/2} and {\aa/2});
+  \end{scope}
+  \draw[<->, gray!75!black] (0,0) -- (225:\bb);
+  \node[gray!75!black, anchor=north west, inner sep=1pt] at (233:{0.62*\bb}) {$b$};
+  \draw[<->, gray!75!black] (0,0) -- (135:\aa);
+  \node[gray!75!black, anchor=south west, inner sep=1pt] at (127:{0.6*\aa}) {$a$};
+  \node[gray!75!black, anchor=south west, inner sep=1.5pt] at (1.1,0.02) {$r/2$};
+  \draw[fill=white] (-\R,0) circle (1.4pt);
+% ---- coordinates computed by gen.py / gen_frame.py (Remark 5.11: m = r sin(phi)/sin(phibar), c = r sin(alpha)/sin(phibar)) ----
+  % point N: alpha = 0 deg, (m, c) = (1, 0) r
+  \fill (2.2,0) circle (1.6pt);
+  \begin{scope}[shift={(2.44,0.28)}]
+    \fill[gray!14] (0,0) -- (0.66,0) -- (0.66,0) -- cycle;
+    \draw (0,0) -- (0.66,0);
+    \draw[Maroon!85!black, thick] (0,0) -- (0.66,0);
+  \end{scope}
+  % point 1: alpha = 18 deg, (m, c) = (0.896, 0.314) r
+  \fill (1.971,0.691) circle (1.6pt);
+  \node at (1.716,0.601) {1};
+  \begin{scope}[shift={(2.367,0.904)}]
+    \fill[gray!14] (0,0) -- (0.591,0) -- (0.628,0.204) -- cycle;
+    \draw (0,0) -- (0.628,0.204);
+    \draw[Maroon!85!black, thick] (0,0) -- (0.591,0);
+    \draw[RoyalBlue, thick] (0.591,0) -- (0.628,0.204);
+  \end{scope}
+  % point 2: alpha = 39.93 deg, (m, c) = (0.652, 0.652) r
+  \fill (1.434,1.434) circle (1.6pt);
+  \node at (1.244,1.244) {2};
+  \begin{scope}[shift={(1.723,1.894)}]
+    \fill[gray!14] (0,0) -- (0.43,0) -- (0.506,0.424) -- cycle;
+    \draw (0,0) -- (0.506,0.424);
+    \draw[Maroon!85!black, thick] (0,0) -- (0.43,0);
+    \draw[RoyalBlue, thick] (0.43,0) -- (0.506,0.424);
+  \end{scope}
+  % point 3: alpha = 62 deg, (m, c) = (0.312, 0.897) r
+  \fill (0.685,1.973) circle (1.6pt);
+  \node at (0.597,1.718) {3};
+  \begin{scope}[shift={(0.793,2.582)}]
+    \fill[gray!14] (0,0) -- (0.206,0) -- (0.31,0.583) -- cycle;
+    \draw (0,0) -- (0.31,0.583);
+    \draw[Maroon!85!black, thick] (0,0) -- (0.206,0);
+    \draw[RoyalBlue, thick] (0.206,0) -- (0.31,0.583);
+  \end{scope}
+  % point Pr: alpha = 79.86 deg, (m, c) = (0, 1) r
+  \fill (0,2.2) circle (1.6pt);
+  \begin{scope}[shift={(0.241,2.523)}]
+    \fill[gray!14] (0,0) -- (0,0) -- (0.116,0.65) -- cycle;
+    \draw (0,0) -- (0.116,0.65);
+    \draw[RoyalBlue, thick] (0,0) -- (0.116,0.65);
+  \end{scope}
+  % point 4: alpha = -22 deg, (m, c) = (0.994, -0.381) r
+  \fill (2.187,-0.837) circle (1.6pt);
+  \node at (1.935,-0.741) {4};
+  \begin{scope}[shift={(2.558,-1.059)}]
+    \fill[gray!14] (0,0) -- (0.656,0) -- (0.612,-0.247) -- cycle;
+    \draw (0,0) -- (0.612,-0.247);
+    \draw[Maroon!85!black, thick] (0,0) -- (0.656,0);
+    \draw[RoyalBlue, thick] (0.656,0) -- (0.612,-0.247);
+  \end{scope}
+  % point 5: alpha = -50.07 deg, (m, c) = (0.779, -0.779) r
+  \fill (1.714,-1.714) circle (1.6pt);
+  \node at (1.523,-1.523) {5};
+  \begin{scope}[shift={(2.002,-2.146)}]
+    \fill[gray!14] (0,0) -- (0.514,0) -- (0.424,-0.506) -- cycle;
+    \draw (0,0) -- (0.424,-0.506);
+    \draw[Maroon!85!black, thick] (0,0) -- (0.514,0);
+    \draw[RoyalBlue, thick] (0.514,0) -- (0.424,-0.506);
+  \end{scope}
+  % point 6: alpha = -78 deg, (m, c) = (0.383, -0.994) r
+  \fill (0.842,-2.186) circle (1.6pt);
+  \node at (0.745,-1.934) {6};
+  \begin{scope}[shift={(1.018,-2.764)}]
+    \fill[gray!14] (0,0) -- (0.253,0) -- (0.137,-0.646) -- cycle;
+    \draw (0,0) -- (0.137,-0.646);
+    \draw[Maroon!85!black, thick] (0,0) -- (0.253,0);
+    \draw[RoyalBlue, thick] (0.253,0) -- (0.137,-0.646);
+  \end{scope}
+  % point El: alpha = -100.14 deg, (m, c) = (0, -1) r
+  \fill (0,-2.2) circle (1.6pt);
+  \begin{scope}[shift={(0.349,-2.523)}]
+    \fill[gray!14] (0,0) -- (0,0) -- (-0.116,-0.65) -- cycle;
+    \draw (0,0) -- (-0.116,-0.65);
+    \draw[RoyalBlue, thick] (0,0) -- (-0.116,-0.65);
+  \end{scope}
+  \node[anchor=north west] at (2.42,-0.1) {neutral end};
+  \node[anchor=east] at (-0.12,2.6) {proton end};
+  \node[anchor=east] at (-0.12,-2.64) {electron end};
+\end{tikzpicture}

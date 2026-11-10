@@ -1,0 +1,354 @@
+
+1. The arithmetic agrees with arrows on the page
+------------------------------------------------
+  ok    Rule of the Square: page(G*G) = page(G)^2   [symbolic]
+  ok    Product of Proposition 4.23 is Wessel's product on the page   [symbolic]
+
+2. The rules of arithmetic (Theorem: a true relative plane is a field)
+----------------------------------------------------------------------
+  ok    order of a product: z1 z2 = z2 z1   [symbolic]
+  ok    grouping: (z1 z2) z3 = z1 (z2 z3)   [symbolic]
+  ok    distribution: z1 (z2 + z3) = z1 z2 + z1 z3   [symbolic]
+  ok    neutral numbers: z + 0 = z and 1 z = z   [symbolic]
+  ok    inverse: z (1/z) = 1   [symbolic]
+
+3. The conjugate
+----------------
+  ok    the conjugate is the mirror image in the real axis   [symbolic]
+  ok    conjugate of the conjugate is z   [symbolic]
+  ok    parts of the conjugate (Definition 4.11): Re(conj z) = a + 2b|G|cos(phibar), Com(conj z) = -b G = -Com(z)   [symbolic]
+  ok      Re(conj z) is Re(z) moved by twice the shadow of the Composer part b G   [symbolic]
+  ok      the real part stays only where cos(phibar) = 0: at pi/2, Re(conj z) = a   [symbolic]
+  ok    conjugate of a sum   [symbolic]
+  ok    conjugate of a product   [symbolic]
+  ok    z + conj(z) = 2 Sh(z)   [symbolic]
+  ok    z conj(z) = |z|^2, a real number   [symbolic]
+  ok    |z|^2 is the squared length on the page   [symbolic]
+  ok    |z|^2 = Sh(z)^2 + Ht(z)^2   [symbolic]
+  ok    G + conj(G) = 2 L cos(phibar)   [symbolic]
+  ok    G conj(G) = L^2   [symbolic]
+  ok    G and conj(G) are the roots of x^2 - 2L cos(phibar) x + L^2   [symbolic]
+  ok    the skew flip a - bG is not the mirror: (a+bG)(a-bG) has Composer coordinate -2L cos(phibar) b^2   [symbolic]
+  ok    the skew flip changes the length: |a - bG|^2 - |a + bG|^2 = -4 a b L cos(phibar)   [symbolic]
+
+4. Magnitude and division
+-------------------------
+  ok    |z1 z2|^2 = |z1|^2 |z2|^2 (the general two-squares identity)   [symbolic]
+  ok    division formula: [(ac + 2ad L cos + L^2 bd) + (bc - ad) G] / (c^2 + 2cd L cos + d^2 L^2)   [symbolic]
+  ok    the division formula is z1 conj(z2) / |z2|^2   [symbolic]
+  ok    1/G = (2 L cos(phibar) - G) / L^2   [symbolic]
+
+5. The Turning Unit, shadow and height
+--------------------------------------
+  ok    J is the arrow of length 1 straight up: page(J) = i   [symbolic]
+  ok    J^2 = -1   [symbolic]
+  ok    J = (G/|G| - cos(phibar)) / sin(phibar)   [symbolic]
+  ok    multiplying by J turns by a right angle: page(J z) = i page(z)   [symbolic]
+  ok    z = Sh(z) + Ht(z) J   [symbolic]
+  ok    z - conj(z) = 2 Ht(z) J   [symbolic]
+  ok    back from the upright frame: a = Sh - Ht cot(phibar), b = Ht/(L sin(phibar))   [symbolic]
+  ok    +J and -J are the only General Numbers whose square is -1   [symbolic]
+
+6. The polar form with one angle
+--------------------------------
+  ok    page(E(alpha)) = cos(alpha) + i sin(alpha): the unit number at the angle alpha   [symbolic]
+  ok    general Pythagoras: C^2 + 2 cos(phibar) C S + S^2 = 1   [symbolic]
+  ok    an arrow of length r at the angle alpha has a = r cos(alpha, phibar-alpha), bL = r sin(alpha, phibar-alpha)   [symbolic]
+  ok    its magnitude is r   [symbolic]
+
+7. Multiplying means turning
+----------------------------
+  ok    E(alpha) E(beta) = E(alpha + beta)   [symbolic]
+  ok    cos(a+b, pb-a-b) = cos(a, pb-a) cos(b, pb-b) - sin(a, pb-a) sin(b, pb-b)   [symbolic]
+  ok    sin(a+b, pb-a-b) = cos(a,pb-a) sin(b,pb-b) + sin(a,pb-a) cos(b,pb-b) + 2cos(pb) sin(a,pb-a) sin(b,pb-b)   [symbolic]
+  ok    quotient: E(alpha) / E(beta) = E(alpha - beta)   [symbolic]
+  ok    product in polar form: r E(alpha) times s E(beta) = r s E(alpha + beta)   [symbolic]
+  ok    Appendix A, projection angle + reciprocity: sin(a, pb-a-b) cos(b, pb-b) = sin(a, pb-a)   [symbolic]
+  ok      and reciprocity: sin(pb-b, b) = cos(b, pb-b)   [symbolic]
+  ok    Appendix A, projection angle + reciprocity: cos(a, pb-a-b) = cos(a, pb-a) - sin(a, pb-a) sin(b, pb-b)/cos(b, pb-b)   [symbolic]
+  ok    Appendix A, studied angle (second line): sin(a+b, pb-a-b) = sin(a, pb-a-b) + cos(a, pb-a-b) sin(b, pb-b)   [symbolic]
+  ok    Appendix A, direct consequence: cos(a+b, phi) = cos(a,phi) cos(b,phi) / (1 - sin(a,phi) sin(b,phi))   [symbolic]
+  ok    the chain gives the sine law (with general Pythagoras)   [symbolic]
+  ok    the chain gives the cosine law   [symbolic]
+  ok    double angle: cos(2a, pb-2a) = cos(a, pb-a)^2 - sin(a, pb-a)^2   [symbolic]
+  ok    double angle: sin(2a, pb-2a) = 2 sin(a, pb-a) [cos(a, pb-a) + cos(pb) sin(a, pb-a)]   [symbolic]
+
+8. Euler's formula and de Moivre's formula
+------------------------------------------
+  ok    cos(theta) + J sin(theta) = cos(theta, pb-theta) + sin(theta, pb-theta) G/|G|   [symbolic]
+  ok    Appendix A partial derivatives are right (sin(x,y)'_x and '_y)   [symbolic]
+  ok    Appendix A partial derivatives are right (cos(x,y)'_x and '_y)   [symbolic]
+  ok    d/dtheta E(theta) = J E(theta), from the Appendix A derivatives   [symbolic]
+  ok    E(0) = 1   [symbolic]
+  ok    e^{pi J} + 1 = 0: E(pi) = -1   [symbolic]
+  ok    G = |G| e^{phibar J}: |G| E(phibar) = G   [symbolic]
+  ok    J = e^{(pi/2) J}   [symbolic]
+  ok    conj(E(alpha)) = E(-alpha)   [symbolic]
+  ok    de Moivre, n = 2: E(theta)^2 = E(2 theta)   [symbolic]
+  ok    de Moivre, n = 3: E(theta)^3 = E(3 theta)   [symbolic]
+  ok    de Moivre, n = -1: E(theta)^-1 = E(-1 theta)   [symbolic]
+  ok    de Moivre, n = -2: E(theta)^-2 = E(-2 theta)   [symbolic]
+  ok    de Moivre for n = -6 ... 9 on the page, at 79.86 deg, pi/3 and 2.4 rad   [numeric]
+  ok    the exponential series of theta J sums to E(theta)   [numeric]
+
+9. The powers of the Composer Unit in its own frame
+---------------------------------------------------
+  ok    G^-3 = L^-3 cos(-3pb, 4pb) + L^-4 sin(-3pb, 4pb) G   [symbolic]
+  ok    G^-2 = L^-2 cos(-2pb, 3pb) + L^-3 sin(-2pb, 3pb) G   [symbolic]
+  ok    G^-1 = L^-1 cos(-1pb, 2pb) + L^-2 sin(-1pb, 2pb) G   [symbolic]
+  ok    G^1 = L^1 cos(1pb, 0pb) + L^0 sin(1pb, 0pb) G   [symbolic]
+  ok    G^2 = L^2 cos(2pb, -1pb) + L^1 sin(2pb, -1pb) G   [symbolic]
+  ok    G^3 = L^3 cos(3pb, -2pb) + L^2 sin(3pb, -2pb) G   [symbolic]
+  ok    G^4 = L^4 cos(4pb, -3pb) + L^3 sin(4pb, -3pb) G   [symbolic]
+  ok    G^5 = L^5 cos(5pb, -4pb) + L^4 sin(5pb, -4pb) G   [symbolic]
+  ok    G^6 = L^6 cos(6pb, -5pb) + L^5 sin(6pb, -5pb) G   [symbolic]
+  ok    G^7 = L^7 cos(7pb, -6pb) + L^6 sin(7pb, -6pb) G   [symbolic]
+  ok    G^8 = L^8 cos(8pb, -7pb) + L^7 sin(8pb, -7pb) G   [symbolic]
+  ok    step rule: G^(n+1) = 2 L cos(phibar) G^n - L^2 G^(n-1)  (n = 5)   [symbolic]
+  ok    n = 2 is the Rule of the Square   [symbolic]
+  ok    on the page, G^n is the arrow L^n at the angle n phibar (Theorem 4.1), n = 4   [symbolic]
+  ok    sin(n phibar)/sin(phibar) is the Chebyshev polynomial U_{n-1}(cos phibar), n = 1 ... 8   [symbolic]
+
+10. Roots
+---------
+  ok    the n roots w_k = |z|^(1/n) E((alpha + 2 pi k)/n) all satisfy w^n = z and are distinct   [numeric]
+  ok    roots of unity E(2 pi k / n) satisfy z^n = 1 and lie on the unit ring   [numeric]
+  ok    square root of G: [sqrt(L) / (2 cos(phibar/2))] (1 + G/|G|), squared, is G   [symbolic]
+  ok      and it is E(phibar/2) sqrt(L), on the ray of equal parts   [symbolic]
+  ok      Appendix A isosceles case: sin(t, t) = cos(t, t) = 1/(2 cos t)   [symbolic]
+  ok    (1 + G/|G|)^2 = 4 cos^2(phibar/2) G/|G|   [symbolic]
+
+11. Exponential, logarithm, matrix, change of plane, second mirror (Appendix F)
+-------------------------------------------------------------------------------
+  ok    e^z = e^{Sh(z)} [cos(Ht, pb-Ht) + sin(Ht, pb-Ht) G/|G|]  (on the page)   [symbolic]
+  ok    log of r e^{alpha J}: (ln r - alpha cot(phibar)) + alpha/(L sin(phibar)) G  =  ln r + alpha J   [symbolic]
+  ok      and its page value is ln r + i alpha   [symbolic]
+  ok    matrix of a product is the product of the matrices   [symbolic]
+  ok    det = |z|^2 and trace = 2 Sh(z)   [symbolic]
+  ok    the matrix of G obeys the Rule of the Square: M^2 = 2L cos(phibar) M - L^2   [symbolic]
+  ok    moving a number to another relative plane: same shadow, same height   [symbolic]
+  ok    from the complex plane: x + iy = (x - y cot(phibar)) + y/(L sin(phibar)) G   [symbolic]
+  ok    second mirror: z -> (G/|G|) conj(z) swaps the two unit coordinates   [symbolic]
+  ok    reciprocity in the frame: E(phibar - theta) = sin(theta, pb-theta) + cos(theta, pb-theta) G/|G|   [symbolic]
+
+11b. More laws listed in Appendix F
+-----------------------------------
+  ok    negative angle: cos(-t, pb+t) = cos(t, pb-t) + 2cos(pb) sin(t, pb-t)   [symbolic]
+  ok    negative angle: sin(-t, pb+t) = -sin(t, pb-t)   [symbolic]
+  ok    subtraction: cos(a-b, pb-a+b) = C(a)C(b) + S(a)S(b) + 2cos(pb) C(a)S(b)   [symbolic]
+  ok    subtraction: sin(a-b, pb-a+b) = S(a)C(b) - C(a)S(b)   [symbolic]
+  ok    multiplying by G/|G| turns by phibar: C(t + pb) = -S(t), S(t + pb) = C(t) + 2cos(pb) S(t)   [symbolic]
+  ok    multiplying by J turns by pi/2: C(t + pi/2) = -C cot(pb) - S/sin(pb), S(t + pi/2) = C/sin(pb) + S cot(pb)   [symbolic]
+  ok    conjugate in polar form: conj(r E(t)) = r [cos(-t, pb+t) + sin(-t, pb+t) G/|G|]   [symbolic]
+  ok    angle: tan(theta) = Ht(z)/Sh(z) (Theorem 4.10 with eta = |G| b/a)   [symbolic]
+  ok    Theorem 4.10: eta sin(pb)/(1 + eta cos(pb)) = Ht/Sh with eta = |G| b / a   [symbolic]
+  ok    Chebyshev: sin(2pb)/sin(pb) = 2cos(pb), sin(3pb)/sin(pb) = 4cos^2(pb) - 1, sin(4pb)/sin(pb) = 8cos^3 - 4cos   [symbolic]
+  ok    multiplying by J: page(J z) = i page(z), and J z = -(a cos(pb) + b|G|)/sin(pb) + Sh(z)/(|G| sin(pb)) G   [symbolic]
+  ok    quadratic formula: w^2 + P w + Q = 0 has the roots (-P +/- sqrt(P^2 - 4Q))/2, square root from the roots theorem   [numeric]
+
+12. At phibar = pi/2 every law is the law of Appendix C
+-------------------------------------------------------
+  ok    the Axiom gives L = |cos + sin| = 1 at pi/2   [symbolic]
+  ok    product -> (ac - bd) + (ad + bc) i   [symbolic]
+  ok    conjugate -> a - bi   [symbolic]
+  ok    z conj(z) -> a^2 + b^2   [symbolic]
+  ok    division -> [(ac + bd) + (bc - ad) i] / (c^2 + d^2)   [symbolic]
+  ok    two-squares identity -> (a^2+b^2)(c^2+d^2) = (ac-bd)^2 + (ad+bc)^2   [symbolic]
+  ok    Turning Unit -> i, and G/|G| -> i   [symbolic]
+  ok    shadow and height -> real and imaginary parts   [symbolic]
+  ok    unit number -> cos(theta) + i sin(theta)   [symbolic]
+  ok    addition formulas -> cos(a+b) = cos a cos b - sin a sin b, sin(a+b) = sin a cos b + cos a sin b   [symbolic]
+  ok    general Pythagoras -> cos^2 + sin^2 = 1   [symbolic]
+  ok    powers of G -> i^n = cos(n pi/2) + i sin(n pi/2), n = 1 ... 8   [symbolic]
+  ok    step rule -> i^(n+1) = -i^(n-1)   [symbolic]
+  ok    square root of G -> (1 + i)/sqrt(2)   [symbolic]
+  ok    exponential -> e^a (cos b + i sin b)   [symbolic]
+  ok    logarithm -> ln r + i alpha   [symbolic]
+  ok    matrix -> [[a, -b], [b, a]]   [symbolic]
+  ok    from the complex plane -> a = x, b = y   [symbolic]
+
+13. The formulas of Appendix A that the section uses (random tests)
+-------------------------------------------------------------------
+  ok    Appendix A: reciprocity sin(a,f) = cos(f,a)   [numeric, 3000 points]
+  ok    Appendix A: special case a + f = pi/2   [numeric, 3000 points]
+  ok    Appendix A: isosceles sin(t,t) = cos(t,t) = sec(t)/2   [numeric, 3000 points]
+  ok    Appendix A: pi-addition sin(a+p pi, f+q pi) = (-1)^q sin(a,f)   [numeric, 3000 points]
+  ok    Appendix A: pi-addition cos(a+p pi, f+q pi) = (-1)^p cos(a,f)   [numeric, 3000 points]
+  ok    Appendix A: studied-angle addition, line 1   [numeric, 3000 points]
+  ok    Appendix A: studied-angle addition, line 2   [numeric, 3000 points]
+  ok    Appendix A: studied-angle addition, line 3   [numeric, 3000 points]
+  ok    Appendix A: studied-angle addition, line 4   [numeric, 3000 points]
+  ok    Appendix A: projection-angle addition, sine   [numeric, 3000 points]
+  ok    Appendix A: projection-angle addition, cosine   [numeric, 3000 points]
+  ok    Appendix A: consequence cos(a+b,f) = cos cos / (1 - sin sin)   [numeric, 3000 points]
+  ok    Appendix A: double angle, sine   [numeric, 3000 points]
+  ok    Appendix A: double angle, cosine (solved form)   [numeric, 3000 points]
+
+14. Numbers of the worked examples, at phibar = 79.86 degrees
+-------------------------------------------------------------
+  cos = 0.17605, sin = 0.98438, |G| = 1.16043, 2|G|cos = 0.40860, |G|^2 = 1.34661
+  |G| cos = 0.20430, |G| sin = 1.14231, cot = 0.17885, 1/(|G| sin) = 0.87542
+
+  Worked example: the conjugate, the magnitude and the inverse of z = 1 + G
+    page of z      : 1.20430 1.14231
+    conjugate      : 1.40860 + (-1.00000) G   page: 1.20430 -1.14231
+    |z|^2 = z conj : 2.75521  |z| = 1.65988  check on page: 2.75521
+    1/z            : 0.51125 + (-0.36295) G  check z (1/z): 1.00000 + (0.00000) G
+    skew flip 1 - G: (1+G)(1-G) = 2.34661 + (-0.40860) G  |1-G| = 1.39212
+    (2 - G)/(1 + G): numerator 1.47059 + (-3.00000) G  denominator 2.75521  quotient 0.53375 + (-1.08885) G  check q(1+G): 2.00000 + (-1.00000) G
+    on the page    : 0.31130 -1.24380  vs 0.31130 -1.24380
+
+  Worked example: the Turning Unit, and 1 + G in the upright frame
+    J              : -0.17885 + (0.87542) G  J^2 = -1.00000 + (0.00000) G  page of J: 0.00000 1.00000
+    1 + G = Sh + Ht J with Sh = 1.20430  Ht = 1.14231
+    check Sh + Ht J: 1.00000 + (1.00000) G
+    J (1 + G)      : -1.35770 + (1.05427) G  page: -1.14231 1.20430  = i page(z): -1.14231 1.20430
+
+  Worked example: (1 + G) G, two ways
+    by Proposition 4.23: -1.34661 + (1.40860) G
+    |1+G| = 1.65988  angle = 43.487  ; |G| = 1.16043  angle = 79.860
+    product: length 1.92618  angle 123.347
+    cos(ap, pb-ap) = -0.69911  sin(ap, pb-ap) = 0.84861
+    real part = -1.34661   Composer coordinate = 1.40860
+    1+G: cos(a1, pb-a1) = 0.60245  sin(a1, pb-a1) = 0.69911  -> |z| cos = 1.00000  |z| sin / |G| = 1.00000
+
+  Worked example: G^3, three ways
+    by multiplying : -0.55022 + (-1.17966) G
+    by the formula : L^3 cos(3pb, -2pb) = -0.55022 ; L^2 sin(3pb, -2pb) = -1.17966
+    G^2            : -1.34661 + (0.40860) G
+    step rule      : 2|G|cos G^2 - |G|^2 G = -0.55022 + (-1.17966) G
+    on the page    : L^3 = 1.56265  at 239.58 deg: -0.79122 -1.34753
+                     read back: b = -1.17966  a = -0.55022
+    sin(3pb)/sin(pb) = -0.87602  = 3 - 4 sin^2 = -0.87602  ; sin(2pb)/sin(pb) = 2cos = 0.35211
+
+  Worked example: the square root of G and the sixth roots of unity
+    sqrt(|G|) = 1.07723  cos(pb/2) = 0.76683  factor = 0.70240
+    sqrt(G) = +/- 0.70240 + (0.60529) G   squared: -0.00000 + (1.00000) G
+    angle of sqrt(G): 39.930 deg; length 1.07723
+    sixth roots of unity (k, angle, real part, Composer coordinate, page x, page y):
+      0    0    1.00000    0.00000   page   1.00000   0.00000   z^6 = 1.00000 + (0.00000) G
+      1   60    0.34511    0.75814   page   0.50000   0.86603   z^6 = 1.00000 + (-0.00000) G
+      2  120   -0.65489    0.75814   page  -0.50000   0.86603   z^6 = 1.00000 + (-0.00000) G
+      3  180   -1.00000    0.00000   page  -1.00000   0.00000   z^6 = 1.00000 + (-0.00000) G
+      4  240   -0.34511   -0.75814   page  -0.50000  -0.86603   z^6 = 1.00000 + (-0.00000) G
+      5  300    0.65489   -0.75814   page   0.50000  -0.86603   z^6 = 1.00000 + (-0.00000) G
+
+15. The parts beside the shadow and the height (Subsection 4.9.7 and Appendix F.8)
+----------------------------------------------------------------------------------
+  ok    Prop 4.54 (1): Re(z) = Sh(z) - Ht(z) cot(pb), Com(z) = Ht(z)/(|G| sin pb) G   [symbolic]
+  ok    Prop 4.54 (1): Sh(z) = Re(z) + b|G| cos(pb) = Re(z) + Sh(Com z), Ht(z) = b|G| sin(pb) = Ht(Com z)   [symbolic]
+  ok    Prop 4.54 (2): Re, Com, Sh and Ht are additive and keep real factors   [symbolic]
+  ok    Prop 4.54 (3): the conjugate keeps the coordinates and mirrors the unit, conj(z) = a + b conj(G)   [symbolic]
+  ok    Prop 4.54 (3): G - conj(G) = 2 |G| sin(pb) J   [symbolic]
+  ok    Prop 4.54 (3): Re(z) = (G conj(z) - conj(G) z) / (G - conj(G))   [symbolic]
+  ok    Prop 4.54 (3): Com(z) = G (z - conj(z)) / (G - conj(G))   [symbolic]
+  ok    Prop 4.54 (3): Sh(z) = (z + conj z)/2 and Ht(z) J = (z - conj z)/2   [symbolic]
+  ok    Prop 4.54 (4): z - conj(z) = b (G - conj G), zero exactly when b = 0   [symbolic]
+  ok    Prop 4.54 (4): G conj(z) - conj(G) z = a (G - conj G), zero exactly when Re(z) = 0   [symbolic]
+  ok    F.8: a number t J on the upright axis has conj = -(t J), and z + conj z = 2 Sh(z)   [symbolic]
+  ok    Thm 4.55 (1): Re(z1 z2) = Re(z1) Re(z2) - |G|^2 b1 b2   [symbolic]
+  ok    Thm 4.55 (1): Com(z1 z2) = Sh(z1) Com(z2) + Sh(z2) Com(z1)   [symbolic]
+  ok    Thm 4.55 (2): Sh(z1 z2) = Sh(z1) Sh(z2) - Ht(z1) Ht(z2), Ht(z1 z2) = Sh(z1) Ht(z2) + Sh(z2) Ht(z1)   [symbolic]
+  ok    Thm 4.55 (2) on the page: Sh + i Ht of the product is the product of the arrows   [symbolic]
+  ok    Thm 4.55 (3): Re(z^2) = Re(z)^2 - |G|^2 b^2, Com(z^2) = 2 Sh(z) Com(z)   [symbolic]
+  ok    Thm 4.55 (3): Sh(z^2) = Sh(z)^2 - Ht(z)^2, Ht(z^2) = 2 Sh(z) Ht(z)   [symbolic]
+  ok    Prop 4.56 (1): Re(conj z) = 2 Sh(z) - Re(z), Com(conj z) = -Com(z), Sh(conj z) = Sh(z), Ht(conj z) = -Ht(z)   [symbolic]
+  ok    Prop 4.56 (1): the shadow is the midpoint of Re(z) and Re(conj z)   [symbolic]
+  ok    Prop 4.56 (1) on the page: z is as far from Re(z) as from Re(conj z), |b| |G| (isosceles triangle)   [symbolic]
+  ok    Prop 4.56 (2): Re(1/z) = (2 Sh - Re)/|z|^2, Com(1/z) = -Com(z)/|z|^2, Sh(1/z) = Sh/|z|^2, Ht(1/z) = -Ht/|z|^2   [symbolic]
+  ok    Prop 4.56 (3): Re(z1/z2) = [Re(z1) Re(conj z2) + |G|^2 b1 b2]/|z2|^2   [symbolic]
+  ok    Prop 4.56 (3): Com(z1/z2) = [Sh(z2) Com(z1) - Sh(z1) Com(z2)]/|z2|^2   [symbolic]
+  ok    Prop 4.56 (3): Sh(z1/z2) = [Sh1 Sh2 + Ht1 Ht2]/|z2|^2, Ht(z1/z2) = [Sh2 Ht1 - Sh1 Ht2]/|z2|^2   [symbolic]
+  ok    F.8: the top z1 conj(z2) of the quotient has these parts and readings   [symbolic]
+  ok    Cor 4.57 (1): Re(J z) = -Ht(z) - Sh(z) cot(pb), Com(J z) = Sh(z)/(|G| sin pb) G, Sh(J z) = -Ht(z), Ht(J z) = Sh(z)   [symbolic]
+  ok    Cor 4.57 (2): Re(G z) = -|G|^2 b, Com(G z) = Re(conj z) G   [symbolic]
+  ok    Cor 4.57 (2): Sh(G z) = |G|(Sh cos pb - Ht sin pb), Ht(G z) = |G|(Sh sin pb + Ht cos pb)   [symbolic]
+  ok    Cor 4.57: G z is the second column of the matrix of z (Appendix F.7)   [symbolic]
+  ok    Prop 4.58: Com(conj(z1) z2) = (a1 b2 - b1 a2) G   [symbolic]
+  ok    Prop 4.58: Ht(conj(z1) z2) = Sh1 Ht2 - Ht1 Sh2 = (a1 b2 - b1 a2) |G| sin(pb)   [symbolic]
+  ok    Prop 4.58: Re(conj(z1) z2) = Re(conj z1) Re(z2) + |G|^2 b1 b2, Sh(conj(z1) z2) = Sh1 Sh2 + Ht1 Ht2   [symbolic]
+  ok    Prop 4.58 on the page: Sh + i Ht of conj(z1) z2 is conj(arrow 1) times arrow 2 (dot product + i cross product)   [symbolic]
+  ok    Prop 4.58: two numbers on one line through 0, z2 = t z1, have a1 b2 - b1 a2 = 0   [symbolic]
+  ok    two laws carry neither cos(pb) nor sin(pb): Re(z1 z2) and Com(conj(z1) z2)   [symbolic]
+  ok    Cor 4.59, n = -2 ... 4: Re(z^n) = r^n C(n alpha), Com(z^n) = r^n S(n alpha) u, Sh = r^n cos, Ht = r^n sin   [symbolic]
+  ok    Cor 4.59: e^z = e^Sh(z) [C(Ht z) + S(Ht z) u] is exp of the arrow on the page   [symbolic]
+  ok    Cor 4.59: Sh(e^z) = e^Sh(z) cos Ht(z), Ht(e^z) = e^Sh(z) sin Ht(z)   [symbolic]
+  ok    Rem 4.60: |Sh|, |Ht| <= |z| and |Re|, |Com| <= |z|/sin(pb), on 20000 random numbers and planes   [numeric]
+  ok    Rem 4.60: the bounds are reached, Re at alpha = pb - pi/2 and Com at alpha = pi/2   [symbolic]
+  ok    Rem 4.60: the Composer part of J is 1/sin(pb) long   [symbolic]
+  ok    F.8 magnitude: |z|^2 = Re(z)^2 + 2 cos(pb) Re(z) b|G| + b^2|G|^2 = Sh(z)^2 + Ht(z)^2   [symbolic]
+  ok    F.8 powers of G, n = -2 ... 6: Re = -L^n sin((n-1)pb)/sin pb, Com = L^(n-1) (sin n pb/sin pb) G, Sh = L^n cos n pb, Ht = L^n sin n pb   [symbolic]
+  ok    F.8 table of six numbers, 1: real part, Composer coordinate, shadow, height   [symbolic]
+  ok    F.8 table of six numbers, G: real part, Composer coordinate, shadow, height   [symbolic]
+  ok    F.8 table of six numbers, conj(G): real part, Composer coordinate, shadow, height   [symbolic]
+  ok    F.8 table of six numbers, G^2: real part, Composer coordinate, shadow, height   [symbolic]
+  ok    F.8 table of six numbers, 1/G: real part, Composer coordinate, shadow, height   [symbolic]
+  ok    F.8 table of six numbers, J: real part, Composer coordinate, shadow, height   [symbolic]
+  ok    F.8 table at pi/2: the six numbers are 1, i, -i, -1, -i and i   [symbolic]
+  ok    pi/2: Re(z) = Sh(z) = a and the Composer coordinate is Ht(z) = b   [symbolic]
+  ok    pi/2: Prop 4.54 (3) gives Re z = (z + conj z)/2 and Com(z) = (z - conj z)/2 = i Im z   [symbolic]
+  ok    pi/2: Re(conj z) = Re(z) = a (Prop 4.56)   [symbolic]
+  ok    pi/2: Thm 4.55 gives Re(zw) = ac - bd and Com(zw) = (ad + bc) i   [symbolic]
+  ok    pi/2: Cor 4.57 gives Re(iz) = -b and Im(iz) = a for both units   [symbolic]
+  ok    pi/2: Prop 4.58 gives conj(z) w = (ac + bd) + (ad - bc) i   [symbolic]
+  ok    pi/2: the bound |z|/sin(pb) of Remark 4.60 is |z|   [symbolic]
+  ok    the laws of Subsection 4.9.7 on arrows multiplied on the page: 2460 pairs in 41 planes   [numeric]
+
+16. Numbers of the worked example of Subsection 4.9.7 and of Figure 4.20, at 79.86 degrees
+------------------------------------------------------------------------------------------
+  ok    |G|: 1.16043
+  ok    |G|^2: 1.34661
+  ok    cot(pb): 0.17885
+  ok    1/(|G| sin pb): 0.87542
+  ok    |G| cos(pb), one step across: 0.20430
+  ok    Sh(1 + G): 1.20430
+  ok    Ht(1 + G): 1.14231
+  ok    Re(conj z): 1.40860
+  ok      2 x 1.20430 - 1: 1.40860
+  ok      the shadow is halfway: (1 + 1.40860)/2: 1.20430
+  ok    Re(z^2): -0.34661
+  ok      1 - 1.34661: -0.34661
+  ok    Composer coordinate of z^2: 2.40860
+  ok      2 x 1.20430: 2.40860
+  ok    Sh(z^2): 0.14547
+  ok      1.20430^2 - 1.14231^2: 0.14547
+  ok    Ht(z^2), four places: 2.7514
+  ok      2 x 1.20430 x 1.14231, four places: 2.7514
+  ok      the walk across: -0.34661 + 2.40860 x 0.20430: 0.14547
+  ok      the walk up: 2.40860 x 1.14231, four places: 2.7514
+  ok    |z|^2: 2.75521
+  ok    Re(1/z): 0.51125
+  ok      1.40860/2.75521: 0.51125
+  ok    Composer coordinate of 1/z: -0.36295
+  ok      -1/2.75521: -0.36295
+  ok    Sh(1/z): 0.43710
+  ok      1.20430/2.75521: 0.43710
+  ok    Ht(1/z): -0.41460
+  ok      -1.14231/2.75521: -0.41460
+  ok    Re(G z): -1.34661
+  ok    Composer coordinate of G z, which is Re(conj z): 1.40860
+  ok    Re(J z): -1.35770
+  ok      -1.14231 - 1.20430 x 0.17885: -1.35770
+  ok    Composer coordinate of J z: 1.05427
+  ok      1.20430 x 0.87542: 1.05427
+  ok    Re of conj(z) (2 - G), the top of (2 - G)/(1 + G): 1.47059
+  ok    Composer coordinate of conj(z) (2 - G): -3.00000
+  ok      1 x (-1) - 1 x 2: -3.00000
+  ok    height of conj(z) (2 - G) = the signed area on the page: -3.42693
+  ok      -3 x 1.14231: -3.42693
+  ok      the height from the walk: -3 |G| sin(pb): -3.42693
+  ok      2 - G lies clockwise from 1 + G (the area is negative)
+  ok    J = -0.17885 + 0.87542 G, real part: -0.17885
+  ok    the Composer part of J, 1/sin(pb), four places: 1.0159
+  ok      0.87542 x 1.16043, four places: 1.0159
+  ok    Remark 4.60: 1/sin(pb) - 1 is about 1.6 percent: 1.6
+  ok    Figure 4.20: |G| sin(pb), one step up: 1.14231
+  ok    Figure 4.20: 2 |G| cos(pb), the base of the triangle: 0.40860
+  ok    Figure 4.20: the middle of the dashed leg, (0.20430 + 0.40860)/2: 0.30645
+  ok    Figure 4.20: the leg from Re(conj z) to z is |G| long: 1.16043
+  ok    Figure 4.20: the tip of z^2, across: 0.14547
+  ok    Figure 4.20: the tip of z^2, up: 2.75136
+
+============================================================
+  253 checks passed, 0 failed
+============================================================

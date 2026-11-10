@@ -1,0 +1,43 @@
+name: Verify formulas
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install SymPy and mpmath
+        run: pip install sympy mpmath
+
+      - name: Cosmic Mass paper (106 checks)
+        working-directory: verification/cosmic-mass
+        run: python verify_cmt.py ../../sources/cosmic-mass-paper
+
+      - name: General Numbers paper (204 checks)
+        working-directory: verification/general-numbers
+        run: python verify_paper.py "../../sources/general-numbers-paper/General Numbers.tex"
+
+      - name: Book algebra (253 checks)
+        working-directory: verification/general-numbers/book-algebra
+        run: python verify_general_number_algebra.py
+
+      - name: Book laws (144 laws)
+        working-directory: verification/general-numbers/book-laws-test
+        run: python test_general_number_laws.py
+
+      - name: Gazette version (9,304 checks)
+        working-directory: verification/general-numbers/gazette-version
+        run: python check_gazette.py
+
+      - name: General Sinus revision 3 (79 checks)
+        working-directory: verification/general-sinus
+        run: python verify_gsp.py

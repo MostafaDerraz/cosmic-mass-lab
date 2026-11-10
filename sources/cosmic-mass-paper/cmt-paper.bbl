@@ -1,0 +1,206 @@
+\begin{thebibliography}{30}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Newton(1687)]{Newton1687}
+Isaac Newton.
+\newblock \emph{Philosophi{\ae} Naturalis Principia Mathematica}.
+\newblock Joseph Streater, London, 1687.
+
+\bibitem[de~Coulomb(1788)]{Coulomb1785}
+Charles-Augustin de~Coulomb.
+\newblock Premier m{\'e}moire sur l'{\'e}lectricit{\'e} et le magn{\'e}tisme.
+\newblock In \emph{Histoire de l'Acad{\'e}mie Royale des Sciences, Ann{\'e}e
+  1785}, pages 569--577. Paris, 1788.
+
+\bibitem[Maxwell(1865)]{Maxwell1865}
+James~Clerk Maxwell.
+\newblock A dynamical theory of the electromagnetic field.
+\newblock \emph{Philosophical Transactions of the Royal Society of London},
+  155:\penalty0 459--512, 1865.
+\newblock \doi{10.1098/rstl.1865.0008}.
+
+\bibitem[Stoney(1881)]{Stoney1881}
+George~Johnstone Stoney.
+\newblock On the physical units of nature.
+\newblock \emph{Philosophical Magazine, Series 5}, 11:\penalty0 381--390, 1881.
+\newblock \doi{10.1080/14786448108627031}.
+
+\bibitem[Mohr et~al.(2025)Mohr, Newell, Taylor, and Tiesinga]{CODATA2022}
+Peter~J. Mohr, David~B. Newell, Barry~N. Taylor, and Eite Tiesinga.
+\newblock {CODATA} recommended values of the fundamental physical constants:
+  2022.
+\newblock \emph{Reviews of Modern Physics}, 97\penalty0 (2):\penalty0 025002,
+  2025.
+\newblock \doi{10.1103/RevModPhys.97.025002}.
+
+\bibitem[Heaviside(1893)]{Heaviside1893}
+Oliver Heaviside.
+\newblock A gravitational and electromagnetic analogy.
+\newblock \emph{The Electrician}, 31:\penalty0 281--282 and 359, 1893.
+
+\bibitem[Derraz(2026{\natexlab{a}})]{DerrazGN2026}
+Mostafa Derraz.
+\newblock {General Numbers: The Number Plane Beyond the Right Angle}.
+\newblock Preprint, Zenodo, 2026{\natexlab{a}}.
+\newblock Version 1, posted 9 November 2026.
+
+\bibitem[Derraz(2026{\natexlab{b}})]{Derraz2026GSP}
+Mostafa Derraz.
+\newblock {General Sinus Principles: Extension of Trigonometric Functions}.
+\newblock Preprint, Research Square, 2026{\natexlab{b}}.
+\newblock Posted 4 May 2026.
+
+\bibitem[Meurer et~al.(2017)Meurer, Smith, Paprocki, {\v{C}}ert{\'\i}k,
+  Kirpichev, Rocklin, Kumar, Ivanov, Moore, Singh, et~al.]{Meurer2017}
+Aaron Meurer, Christopher~P. Smith, Mateusz Paprocki, Ond{\v{r}}ej
+  {\v{C}}ert{\'\i}k, Sergey~B. Kirpichev, Matthew Rocklin, Amit Kumar, Sergiu
+  Ivanov, Jason~K. Moore, Sartaj Singh, et~al.
+\newblock {SymPy}: symbolic computing in {Python}.
+\newblock \emph{PeerJ Computer Science}, 3:\penalty0 e103, 2017.
+\newblock \doi{10.7717/peerj-cs.103}.
+
+\bibitem[Abbott et~al.(2017)]{Abbott2017GRB}
+B.~P. Abbott et~al.
+\newblock Gravitational waves and gamma-rays from a binary neutron star merger:
+  {GW170817} and {GRB} {170817A}.
+\newblock \emph{The Astrophysical Journal Letters}, 848:\penalty0 L13, 2017.
+\newblock \doi{10.3847/2041-8213/aa920c}.
+\newblock LIGO Scientific Collaboration, Virgo Collaboration, Fermi Gamma-ray
+  Burst Monitor and INTEGRAL.
+
+\bibitem[Lorentz(1895)]{Lorentz1895}
+Hendrik~Antoon Lorentz.
+\newblock \emph{Versuch einer {T}heorie der electrischen und optischen
+  {E}rscheinungen in bewegten {K}{\"o}rpern}.
+\newblock E. J. Brill, Leiden, 1895.
+
+\bibitem[Touboul et~al.(2022)]{Touboul2022}
+Pierre Touboul et~al.
+\newblock {MICROSCOPE} mission: Final results of the test of the equivalence
+  principle.
+\newblock \emph{Physical Review Letters}, 129:\penalty0 121102, 2022.
+\newblock \doi{10.1103/PhysRevLett.129.121102}.
+
+\bibitem[Sansonetti and Martin(2005)]{Sansonetti2005}
+Jean~E. Sansonetti and William~C. Martin.
+\newblock Handbook of basic atomic spectroscopic data.
+\newblock \emph{Journal of Physical and Chemical Reference Data}, 34\penalty0
+  (4):\penalty0 1559--2259, 2005.
+\newblock \doi{10.1063/1.1800011}.
+
+\bibitem[Williams(2024)]{NASAMoon}
+David~R. Williams.
+\newblock Moon fact sheet.
+\newblock NASA Goddard Space Flight Center,
+  \url{https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html}, 2024.
+\newblock Updated 11 January 2024.
+
+\bibitem[Baumann et~al.(1988)Baumann, G{\"a}hler, Kalus, and
+  Mampe]{Baumann1988}
+J.~Baumann, R.~G{\"a}hler, J.~Kalus, and W.~Mampe.
+\newblock Experimental limit for the charge of the free neutron.
+\newblock \emph{Physical Review D}, 37\penalty0 (11):\penalty0 3107--3112,
+  1988.
+\newblock \doi{10.1103/PhysRevD.37.3107}.
+
+\bibitem[Thomson(1897)]{Thomson1897}
+Joseph~John Thomson.
+\newblock Cathode rays.
+\newblock \emph{Philosophical Magazine}, 44\penalty0 (269):\penalty0 293--316,
+  1897.
+
+\bibitem[Will(2014)]{Will2014}
+Clifford~M. Will.
+\newblock The confrontation between general relativity and experiment.
+\newblock \emph{Living Reviews in Relativity}, 17:\penalty0 4, 2014.
+\newblock \doi{10.12942/lrr-2014-4}.
+
+\bibitem[Ciufolini and Pavlis(2004)]{Ciufolini2004}
+Ignazio Ciufolini and Erricos~C. Pavlis.
+\newblock A confirmation of the general relativistic prediction of the
+  {L}ense--{T}hirring effect.
+\newblock \emph{Nature}, 431:\penalty0 958--960, 2004.
+\newblock \doi{10.1038/nature03007}.
+
+\bibitem[Everitt et~al.(2011)Everitt, DeBra, Parkinson, Turneaure,
+  et~al.]{Everitt2011}
+C.~W.~F. Everitt, D.~B. DeBra, B.~W. Parkinson, J.~P. Turneaure, et~al.
+\newblock Gravity {P}robe {B}: Final results of a space experiment to test
+  general relativity.
+\newblock \emph{Physical Review Letters}, 106\penalty0 (22):\penalty0 221101,
+  2011.
+\newblock \doi{10.1103/PhysRevLett.106.221101}.
+
+\bibitem[Weisberg and Huang(2016)]{WeisbergHuang2016}
+Joel~M. Weisberg and Yuping Huang.
+\newblock Relativistic measurements from timing the binary pulsar {PSR}
+  {B1913+16}.
+\newblock \emph{The Astrophysical Journal}, 829:\penalty0 55, 2016.
+\newblock \doi{10.3847/0004-637X/829/1/55}.
+
+\bibitem[Abbott et~al.(2016)]{Abbott2016}
+B.~P. Abbott et~al.
+\newblock Observation of gravitational waves from a binary black hole merger.
+\newblock \emph{Physical Review Letters}, 116:\penalty0 061102, 2016.
+\newblock \doi{10.1103/PhysRevLett.116.061102}.
+\newblock LIGO Scientific Collaboration and Virgo Collaboration.
+
+\bibitem[Mashhoon(2003)]{Mashhoon2003}
+Bahram Mashhoon.
+\newblock Gravitoelectromagnetism: A brief review.
+\newblock arXiv preprint gr-qc/0311030, 2003.
+
+\bibitem[Einstein(1916)]{Einstein1916}
+Albert Einstein.
+\newblock Die {G}rundlage der allgemeinen {R}elativit{\"a}tstheorie.
+\newblock \emph{Annalen der Physik}, 49:\penalty0 769--822, 1916.
+\newblock \doi{10.1002/andp.19163540702}.
+
+\bibitem[Reissner(1916)]{Reissner1916}
+Hans Reissner.
+\newblock {\"U}ber die {E}igengravitation des elektrischen {F}eldes nach der
+  {E}insteinschen {T}heorie.
+\newblock \emph{Annalen der Physik}, 355\penalty0 (9):\penalty0 106--120, 1916.
+\newblock \doi{10.1002/andp.19163550905}.
+
+\bibitem[Nordstr{\"o}m(1918)]{Nordstrom1918}
+Gunnar Nordstr{\"o}m.
+\newblock On the energy of the gravitation field in {E}instein's theory.
+\newblock \emph{Proceedings of the Koninklijke Nederlandse Akademie van
+  Wetenschappen}, 20:\penalty0 1238--1245, 1918.
+
+\bibitem[Kaluza(1921)]{Kaluza1921}
+Theodor Kaluza.
+\newblock Zum unit{\"a}tsproblem der physik.
+\newblock \emph{Sitzungsberichte der Preussischen Akademie der Wissenschaften},
+  pages 966--972, 1921.
+
+\bibitem[Klein(1926)]{Klein1926}
+Oskar Klein.
+\newblock Quantentheorie und f{\"u}nfdimensionale relativit{\"a}tstheorie.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 37:\penalty0 895--906, 1926.
+
+\bibitem[Yaglom(1968)]{Yaglom1968}
+I.~M. Yaglom.
+\newblock \emph{Complex Numbers in Geometry}.
+\newblock Academic Press, New York, 1968.
+\newblock Translated from the Russian by E. J. F. Primrose.
+
+\bibitem[Harkin and Harkin(2004)]{HarkinHarkin2004}
+Anthony~A. Harkin and Joseph~B. Harkin.
+\newblock Geometry of generalized complex numbers.
+\newblock \emph{Mathematics Magazine}, 77\penalty0 (2):\penalty0 118--129,
+  2004.
+\newblock \doi{10.1080/0025570X.2004.11953236}.
+
+\bibitem[Kantor and Solodovnikov(1989)]{KantorSolodovnikov1989}
+I.~L. Kantor and A.~S. Solodovnikov.
+\newblock \emph{Hypercomplex Numbers: An Elementary Introduction to Algebras}.
+\newblock Springer-Verlag, New York, 1989.
+\newblock Translated from the Russian by A. Shenitzer.
+
+\end{thebibliography}

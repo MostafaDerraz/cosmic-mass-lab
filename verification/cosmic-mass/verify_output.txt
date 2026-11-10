@@ -1,0 +1,129 @@
+
+1. Constants, the size of the Composer Unit and the angle (Sections 1, 3 and 4)
+-------------------------------------------------------------------------------
+  ok    [val] eq:cu-size               size of the Composer Unit sqrt(K/G), kg/C: 1.16043 \times 10^{10}
+  ok    [val] eq:stoney-ratio          Stoney's ratio in the introduction: 1.16043 \times 10^{10}
+  ok    [num] eq:cu-size               the two forms agree: K = mu0 c^2 / (4 pi) to the CODATA digits
+  ok    [val] eq:cu-size               relative uncertainty of sqrt(K/G), half that of G: about one part in 10^5: 1.1e-05
+  ok    [val] eq:electron              Stoney mass e sqrt(K/G), kg: 1.85921 \times 10^{-9}
+  ok    [val] eq:electron              charge part of the electron over its mass: 2.04 \times 10^{21}
+  ok    [val] eq:two-laws              Coulomb over Newton for two electrons, K e^2 / (G me^2): 4.17 \times 10^{42}
+  ok    [num] eq:two-laws              that factor is the square of the charge-to-mass ratio of the electron through G
+  ok    [val] def:cosmic-mass          charge part of the electron over its mass (Section 4): 2.04 \times 10^{21}
+  ok    [val] def:cosmic-mass          charge part of the proton over its mass: 1.11 \times 10^{18}
+  ok    [sym] eq:axiom                 |cos p + sin p| = sqrt(2) |sin(p + pi/4)|
+  ok    [sym] eq:axiom, eq:our-angle   both roots p1 = arcsin(l/sqrt2) - pi/4 and p2 = pi/2 - p1 solve cos p + sin p = l
+  ok    [val] eq:our-angle             arcsine root, degrees: 10.14
+  ok    [val] eq:our-angle             mirror root, degrees: 79.86
+  ok    [val] eq:our-angle             mirror root to four decimals: 79.8605
+  ok    [val] eq:our-angle             shift of the root for one standard error of G, degrees: 0.0009
+  ok    [val] eq:our-angle             the held angle 79.86 lies within one standard error of the root: True
+  ok    [val] eq:our-angle             sin of the held angle: 0.98438
+  ok    [val] eq:our-angle             cos of the held angle: 0.17605
+  ok    [val] eq:our-angle             the length lies between 1 and sqrt 2, so both roots exist: True
+
+2. The number plane (Section 2)
+-------------------------------
+  ok    [sym] eq:gs                    the general sine and cosine return sin and cos when alpha + phi = pi/2
+  ok    [sym] eq:gs-pythagoras         general Pythagoras: sin^2 + cos^2 + 2 sin cos cos(alpha + phi) = 1
+  ok    [sym] eq:square                Rule of the Square: G^2 = 2 L cos(p) G - L^2 on the page
+  ok    [sym] eq:product               product of two General Numbers, both parts
+  ok    [sym] eq:shadow                shadow and height are the page coordinates: Sh = a + b L cos p, Ht = b L sin p
+
+3. Bodies at rest: the Cosmic Interaction Law (Section 5)
+---------------------------------------------------------
+  ok    [sym] law:interaction          mu_a mu_b = m_a m_b + (m_a q_b + q_a m_b) G + q_a q_b G^2 (three terms)
+  ok    [sym] prop:law-real            product of two cosmic masses: both coordinates
+  ok    [sym] prop:law-real, def:reading G Re(mu_a mu_b) = G m_a m_b - K q_a q_b when G L^2 = K
+  ok    [sym] prop:law-real            the angle appears only in the Composer coordinate
+  ok    [sym] def:real-reading         for a neutral body the real reading and the shadow agree: Re(a) = Sh(a) = a
+  ok    [sym] eq:cosmic-mass           the electron: q G = -e |G| u, a charge part of length mS pointing down the Composer axis
+  ok    [val] eq:cosmic-mass           charge part of the electron, e |G| in kg: 1.85921 \times 10^{-9}
+  ok    [sym] eq:real-product          Re[(a + bG)(c + dG)] = ac - L^2 bd, free of the angle
+  ok    [val] law:interaction          two protons 1 m apart, Newton term, N: 1.87 \times 10^{-64}
+  ok    [val] law:interaction          two protons 1 m apart, Coulomb-shaped term, N: 2.31 \times 10^{-28}
+  ok    [val] law:interaction          two protons 1 m apart, Coupling term (length of its Composer part), N: 4.15 \times 10^{-46}
+  ok    [sym] def:reading              with one real number m + lambda q, two like charges would attract: lambda^2 q_a q_b > 0
+  ok    [sym] eq:shadow-law            shadow of the product: m m + L cos p (m q + q m) + L^2 cos(2p) q q
+  ok    [sym] eq:shadow-law            times G, with G L = sqrt(KG) and G L^2 = K
+  ok    [val] eq:shadow-law            cos 2p at the arcsine root: 0.93801
+  ok    [val] eq:shadow-law            cos 2p at the mirror root: -0.93801
+  ok    [val] eq:shadow-law            the square leans at 2p, degrees: 159.72
+  ok    [num] eq:shadow-law            cos 2p < 0 for every p in (pi/4, 3pi/4) (the square points back)
+
+3b. The sign of the interaction at every angle (Proposition 5.4)
+----------------------------------------------------------------
+  ok    [sym] prop:sign                Re(G^2) = -L^2 for every angle: the real part of the Rule of the Square equals the angle-free -L^2
+  ok    [sym] prop:sign                F r^2 = G m_a m_b - K q_a q_b with no condition on the angle
+  ok    [num] prop:sign                two charges at six angles from 10.14 to 170 degrees: Re(q_a q_b G^2) = -L^2 q_a q_b at each
+
+4. Bodies in motion: the Unified Cosmic Law (Section 6)
+-------------------------------------------------------
+  ok    [sym] thm:un-waves             lap E - E_tt/c^2 = grad(R1) - curl(R3) + d_t R4: the source-free equations give waves at c
+  ok    [sym] thm:un-waves             lap B - B_tt/c^2 = grad(R2) - curl(R4) - d_t R3 / c^2
+  ok    [sym] thm:un-maxwell           div E - 4 pi K rho_q = -L^2 (div e + 4 pi G rho_q), with E = -L^2 e and K = G L^2
+  ok    [sym] thm:un-maxwell           curl E + d_t B = -L^2 (curl e + d_t b)
+  ok    [sym] thm:un-maxwell           curl B - (4 pi K/c^2) J_q - d_t E / c^2 = -L^2 (curl b + (4 pi G/c^2) J_q - d_t e / c^2)
+  ok    [sym] thm:un-maxwell           div B = -L^2 div b
+  ok    [num] thm:un-maxwell           the magnetic constant: 4 pi K / c^2 equals mu0 of CODATA 2022
+  ok    [sym] prop:un-split            with potentials, (F2) and (F3) hold in each coordinate separately
+  ok    [sym] prop:un-split            a General Number equation a + bG = 0 holds exactly when a = 0 and b = 0 (the page map is injective)
+  ok    [sym] thm:un-source            d_t rho_mu + div J_mu = 0 in both coordinates, from (F1) and (F4)
+  ok    [sym] thm:un-energy            d_t u + div S = -Re[E . J] for every field from potentials
+  ok    [sym] prop:un-two-faces        u = -(g^2 + c^2 Bg^2)/(8 pi G) + (E^2 + c^2 B^2)/(8 pi K)
+  ok    [sym] thm:un-momentum          f + d_t p_f = div T, component by component
+  ok    [sym] def:un-action, thm:un-action (ii) varying Phi gives (F1) in both coordinates
+  ok    [sym] def:un-action, thm:un-action (iii) varying A gives (F4) in both coordinates, all components
+  ok    [sym] thm:un-action, law:unified (i) varying the path gives (M): m a = Re[mu (E + v x B)]
+  ok    [sym] prop:un-lorentz          Re[mu(E + v x B)] = m (g + v x Bg) + q (E + v x B) with E = -L^2 e, B = -L^2 b
+  ok    [sym] def:un-field             the cosmic field of a body at rest gives the Cosmic Interaction Law: Re(mu E) = -G Re(mu mu_s)/r^2
+  ok    [sym] def:un-field             the field -G M r_hat / r^2 has no divergence and no curl away from the source
+  ok    [val] law:unified              Thomson's tube: rise of the electron at the screen, mm: 17.59
+  ok    [val] law:unified              electron in 1 T: turns per second: 2.7992 \times 10^{10}
+  ok    [val] law:unified              proton in crossed fields: drift speed, m/s: 1000.000
+  ok    [val] law:unified              hydrogen: speed of the classical orbit at a0 over c: 0.0072974
+  ok    [val] law:unified              hydrogen: energy to free the electron at Bohr's radius for the reduced mass, eV: 13.598
+  ok    [val] law:unified              the Moon and the Earth: two-body period, days: 27.28
+  ok    [val] law:unified              GW170817: about 2 s after about 130 million years, fraction: 5 \times 10^{-16}
+  ok    [val] law:unified              Gravity Probe B: a quarter of GR lies so many standard errors away: 3.8
+  ok    [val] law:unified              the numbers -37.2 +- 7.2 and -39.2 mas/yr are printed as given by Everitt et al.
+  ok    [val] law:unified              apparent charge of a neutron under the shadow reading, in e: 1.6 \times 10^{-19}
+  ok    [val] law:unified              that charge in standard errors of the measured neutron charge: 144
+  ok    [val] law:unified              the sidereal month of the fact sheet, days: 27.32
+
+7. The angle and the units, the tests of gravity, earlier work (Sections 6 and 7)
+---------------------------------------------------------------------------------
+  ok    [sym] prop:angle-invariance    the real part of a product equals ac - L^2 bd, which holds L but neither cos p nor sin p
+  ok    [sym] prop:angle-invariance    the field equations and Maxwell's fields hold L only (E = -L^2 e, K = G L^2)
+  ok    [sym] prop:angle-invariance    energy density and action are built from Re2 = x1 y1 - L^2 x2 y2, free of the angle
+  ok    [num] rem:natural-units        Planck units: m_P / q_P = 1/sqrt(4 pi eps0 G) = sqrt(K/G)
+  ok    [num] rem:natural-units        Stoney units: m_S / e = sqrt(K/G)
+  ok    [num] rem:natural-units        with A = 1, the only root in (0, 180) degrees, 135 excluded, is 90 degrees (grid of 0.01 degree)
+  ok    [sym] rem:natural-units        |cos p + sin p| = 1 means sin 2p = 0
+  ok    [val] rem:natural-units        m_S / m_P = sqrt(alpha_fs): 0.0854245
+  ok    [num] rem:natural-units        m_S/m_P equals sqrt(alpha_fs) to the CODATA digits
+  ok    [val] prop:angle-invariance    Table 6: drawing length for u = 1e10 kg/C: 1.16043
+  ok    [val] prop:angle-invariance    Table 6: drawing length for u = 1e11 kg/C: 0.116
+  ok    [val] prop:angle-invariance    Table 6: drawing length for u = 1e9 kg/C: 11.6
+  ok    [val] prop:angle-invariance    Table 6: roots for u = 1e10 kg/C, degrees: 10.14 79.86
+  ok    [val] eq:axiom                 the size in units of 1e9 kg/C has no root (beyond sqrt 2): 11.6 True
+  ok    [val] eq:axiom                 Gaussian units: 1/sqrt(G) in g per statcoulomb: 3871
+  ok    [val] eq:axiom                 in units of 1e11 kg/C: the length and its two roots, degrees: 0.116 130.29 139.71
+  ok    [val] eq:axiom                 in units of 1e9 kg/C (Section 4): 11.6
+  ok    [val] law:unified              Table 5: a quarter of the frame dragging of general relativity, mas/yr: -9.8
+  ok    [val] law:interaction          Coupling term against Coulomb for two protons, orders of magnitude: 18
+  ok    [val] eq:shadow-law            apparent neutron charge under the shadow reading, e (Discussion): 1.6 \times 10^{-19}
+  ok    [val] eq:shadow-law            against the error of the measured neutron charge, 1.1e-21 e: about 145 standard errors: 144
+  ok    [val] eq:electron              Stoney mass e sqrt(K/G), kg (Discussion): 1.85921 \times 10^{-9}
+  ok    [val] eq:cu-size               Methods prints the shift of the root for one standard error of G
+  ok    [val] def:cosmic-mass          the stage 4 paper no longer prints '306 bodies'
+  ok    [val] def:cosmic-mass          the stage 4 paper no longer prints '2,481'
+  ok    [val] def:cosmic-mass          the stage 4 paper no longer prints 'Garvey'
+  ok    [val] def:cosmic-mass          the stage 4 paper no longer prints 'registered'
+  ok    [val] def:cosmic-mass          the stage 4 paper no longer prints 'oganesson'
+
+8. Coverage of the numbered statements and labelled equations
+-------------------------------------------------------------
+  ok    [cov] all                      34 numbered statements and equations, each with at least one check
+
+106 of 106 checks pass (41 sym, 9 num, 55 val, 1 cov); 34 labels covered; 4.4 s

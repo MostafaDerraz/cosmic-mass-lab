@@ -1,0 +1,68 @@
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+% ---- coordinates computed by gen.py / gen_frame.py (Remark 5.11: m = r sin(phi)/sin(phibar), c = r sin(alpha)/sin(phibar)) ----
+  \fill[gray!7] (0,0) -- (79.86:3.0) arc[start angle=79.86, end angle=-100.14, radius=3.0] -- cycle;
+  \draw[gray!60] (0,0) circle (3.0);
+  \draw[->, gray] (-3.35,0) -- (4.6,0) node[anchor=north east] {mass axis};
+  \draw[gray!80, thick] (259.86:3.45) -- (79.86:3.45) node[pos=0.66, above, sloped, gray!80!black] {Composer axis};
+  % triangle 1: alpha = 18 deg, m = 0.896, c = 0.314 (in units of r)
+  \fill[gray!16, opacity=0.85] (0,0) -- (2.687,0) -- (2.853,0.927) -- cycle;
+  % triangle 2: alpha = 39.93 deg, m = 0.652, c = 0.652 (in units of r)
+  \fill[RoyalBlue!14, opacity=0.85] (0,0) -- (1.956,0) -- (2.3,1.926) -- cycle;
+  % triangle 3: alpha = 62 deg, m = 0.312, c = 0.897 (in units of r)
+  \fill[gray!16, opacity=0.85] (0,0) -- (0.935,0) -- (1.408,2.649) -- cycle;
+  % triangle 4: alpha = -22 deg, m = 0.994, c = -0.381 (in units of r)
+  \fill[gray!16, opacity=0.85] (0,0) -- (2.983,0) -- (2.782,-1.124) -- cycle;
+  % triangle 5: alpha = -50.07 deg, m = 0.779, c = -0.779 (in units of r)
+  \fill[gray!16, opacity=0.85] (0,0) -- (2.337,0) -- (1.926,-2.3) -- cycle;
+  % triangle 6: alpha = -78 deg, m = 0.383, c = -0.994 (in units of r)
+  \fill[gray!16, opacity=0.85] (0,0) -- (1.149,0) -- (0.624,-2.934) -- cycle;
+  \draw[gray!75!black] (2.987,0) arc[start angle=0, end angle=79.86, radius=0.3];
+  \draw[RoyalBlue, thick] (2.687,0) -- (2.853,0.927);
+  \draw (0,0) -- (2.853,0.927);
+  \draw[gray!75!black] (2.256,0) arc[start angle=0, end angle=79.86, radius=0.3];
+  \draw[RoyalBlue, thick] (1.956,0) -- (2.3,1.926);
+  \draw (0,0) -- (2.3,1.926);
+  \draw[gray!75!black] (1.235,0) arc[start angle=0, end angle=79.86, radius=0.3];
+  \draw[RoyalBlue, thick] (0.935,0) -- (1.408,2.649);
+  \draw (0,0) -- (1.408,2.649);
+  \draw[gray!75!black] (2.683,0) arc[start angle=180, end angle=259.86, radius=0.3];
+  \draw[RoyalBlue, thick] (2.983,0) -- (2.782,-1.124);
+  \draw (0,0) -- (2.782,-1.124);
+  \draw[gray!75!black] (2.037,0) arc[start angle=180, end angle=259.86, radius=0.3];
+  \draw[RoyalBlue, thick] (2.337,0) -- (1.926,-2.3);
+  \draw (0,0) -- (1.926,-2.3);
+  \draw[gray!75!black] (0.849,0) arc[start angle=180, end angle=259.86, radius=0.3];
+  \draw[RoyalBlue, thick] (1.149,0) -- (0.624,-2.934);
+  \draw (0,0) -- (0.624,-2.934);
+  \draw[Maroon!85!black, very thick] (0,0) -- (2.983,0);
+  \fill[Maroon!85!black] (2.687,0) circle (1.3pt);
+  \fill (2.853,0.927) circle (1.4pt);
+  \node at (18:3.27) {1};
+  \fill[Maroon!85!black] (1.956,0) circle (1.3pt);
+  \fill (2.3,1.926) circle (1.4pt);
+  \node at (39.93:3.27) {2};
+  \fill[Maroon!85!black] (0.935,0) circle (1.3pt);
+  \fill (1.408,2.649) circle (1.4pt);
+  \node at (62:3.27) {3};
+  \fill[Maroon!85!black] (2.983,0) circle (1.3pt);
+  \fill (2.782,-1.124) circle (1.4pt);
+  \node at (-22:3.27) {4};
+  \fill[Maroon!85!black] (2.337,0) circle (1.3pt);
+  \fill (1.926,-2.3) circle (1.4pt);
+  \node at (-50.07:3.27) {5};
+  \fill[Maroon!85!black] (1.149,0) circle (1.3pt);
+  \fill (0.624,-2.934) circle (1.4pt);
+  \node at (-78:3.27) {6};
+  \node[gray!75!black] at (2.32,0.33) {$\pb$};
+  \node[gray!75!black] at (1.97,-0.36) {$\pb$};
+  \draw[fill=white] (79.86:3) circle (1.7pt);
+  \draw[fill=white] (259.86:3) circle (1.7pt);
+  \draw[fill=white] (3,0) circle (1.7pt);
+  \node[anchor=south] at (79.86:3.55) {proton end};
+  \node[anchor=north] at (259.86:3.55) {electron end};
+  \node[anchor=south west] at (3.03,0.04) {neutral end};
+  \node[gray!75!black] at (166:1.9) {$m < 0$};
+  \node[gray!75!black, anchor=south east] at (128:3) {circle of radius $r$};
+  \fill (0,0) circle (1.5pt);
+  \node[anchor=north east] at (-0.04,-0.04) {$O$};
+\end{tikzpicture}

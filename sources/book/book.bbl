@@ -1,0 +1,826 @@
+\begin{thebibliography}{130}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abbott et~al.(2016)]{Abbott2016}
+B.~P. Abbott et~al.
+\newblock Observation of gravitational waves from a binary black hole merger.
+\newblock \emph{Physical Review Letters}, 116:\penalty0 061102, 2016.
+\newblock \doi{10.1103/PhysRevLett.116.061102}.
+\newblock LIGO Scientific Collaboration and Virgo Collaboration.
+
+\bibitem[Abbott et~al.(2017)]{Abbott2017GRB}
+B.~P. Abbott et~al.
+\newblock Gravitational waves and gamma-rays from a binary neutron star merger:
+  {GW170817} and {GRB} {170817A}.
+\newblock \emph{The Astrophysical Journal Letters}, 848:\penalty0 L13, 2017.
+\newblock \doi{10.3847/2041-8213/aa920c}.
+\newblock LIGO Scientific Collaboration, Virgo Collaboration, Fermi Gamma-ray
+  Burst Monitor and INTEGRAL.
+
+\bibitem[Anderson(1933)]{Anderson1933}
+Carl~D. Anderson.
+\newblock The positive electron.
+\newblock \emph{Physical Review}, 43:\penalty0 491--494, 1933.
+
+\bibitem[Anderson et~al.(2023)]{Anderson2023}
+E.~K. Anderson et~al.
+\newblock Observation of the effect of gravity on the motion of antimatter.
+\newblock \emph{Nature}, 621:\penalty0 716--722, 2023.
+\newblock \doi{10.1038/s41586-023-06527-1}.
+
+\bibitem[Argand(1806)]{Argand1806}
+Jean-Robert Argand.
+\newblock \emph{Essai sur une mani{\`e}re de repr{\'e}senter les quantit{\'e}s
+  imaginaires dans les constructions g{\'e}om{\'e}triques}.
+\newblock Paris, 1806.
+
+\bibitem[Arkani-Hamed et~al.(2007)Arkani-Hamed, Motl, Nicolis, and
+  Vafa]{ArkaniHamed2007}
+Nima Arkani-Hamed, Lubo{\v{s}} Motl, Alberto Nicolis, and Cumrun Vafa.
+\newblock The string landscape, black holes and gravity as the weakest force.
+\newblock \emph{Journal of High Energy Physics}, 2007\penalty0 (06):\penalty0
+  060, 2007.
+\newblock \doi{10.1088/1126-6708/2007/06/060}.
+
+\bibitem[Aston(1919)]{Aston1919}
+Francis~William Aston.
+\newblock A positive ray spectrograph.
+\newblock \emph{Philosophical Magazine, Series 6}, 38\penalty0 (228):\penalty0
+  707--714, 1919.
+\newblock \doi{10.1080/14786441208636004}.
+
+\bibitem[Baez(2002)]{Baez2002}
+John~C. Baez.
+\newblock The octonions.
+\newblock \emph{Bulletin of the American Mathematical Society}, 39\penalty0
+  (2):\penalty0 145--205, 2002.
+
+\bibitem[Barea et~al.(2005)Barea, Frank, Hirsch, and Van~Isacker]{Barea2005}
+Jos{\'e} Barea, Alejandro Frank, Jorge~G. Hirsch, and Piet Van~Isacker.
+\newblock Nuclear masses set bounds on quantum chaos.
+\newblock \emph{Physical Review Letters}, 94:\penalty0 102501, 2005.
+\newblock \doi{10.1103/PhysRevLett.94.102501}.
+
+\bibitem[Baumann et~al.(1988)Baumann, G{\"a}hler, Kalus, and
+  Mampe]{Baumann1988}
+J.~Baumann, R.~G{\"a}hler, J.~Kalus, and W.~Mampe.
+\newblock Experimental limit for the charge of the free neutron.
+\newblock \emph{Physical Review D}, 37\penalty0 (11):\penalty0 3107--3112,
+  1988.
+\newblock \doi{10.1103/PhysRevD.37.3107}.
+
+\bibitem[Bohr(1913)]{Bohr1913}
+Niels Bohr.
+\newblock On the constitution of atoms and molecules.
+\newblock \emph{Philosophical Magazine, Series 6}, 26\penalty0 (151):\penalty0
+  1--25, 1913.
+\newblock \doi{10.1080/14786441308634955}.
+
+\bibitem[Bohr(1920)]{Bohr1920}
+Niels Bohr.
+\newblock {\"U}ber die {S}erienspektra der {E}lemente.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 2:\penalty0 423--469, 1920.
+
+\bibitem[Bombelli(1572)]{Bombelli1572}
+Rafael Bombelli.
+\newblock \emph{L'Algebra}.
+\newblock Giovanni Rossi, Bologna, 1572.
+
+\bibitem[Bondi(1957)]{Bondi1957}
+Hermann Bondi.
+\newblock Negative mass in general relativity.
+\newblock \emph{Reviews of Modern Physics}, 29\penalty0 (3):\penalty0 423--428,
+  1957.
+\newblock \doi{10.1103/RevModPhys.29.423}.
+
+\bibitem[Borchert et~al.(2022)]{Borchert2022}
+M.~J. Borchert et~al.
+\newblock A 16-parts-per-trillion measurement of the antiproton-to-proton
+  charge--mass ratio.
+\newblock \emph{Nature}, 601:\penalty0 53--57, 2022.
+\newblock \doi{10.1038/s41586-021-04203-w}.
+
+\bibitem[Bressi et~al.(2011)Bressi, Carugno, Della~Valle, Galeazzi, Ruoso, and
+  Sartori]{Bressi2011}
+G.~Bressi, G.~Carugno, F.~Della~Valle, G.~Galeazzi, G.~Ruoso, and G.~Sartori.
+\newblock Testing the neutrality of matter by acoustic means in a spherical
+  resonator.
+\newblock \emph{Physical Review A}, 83:\penalty0 052101, 2011.
+\newblock \doi{10.1103/PhysRevA.83.052101}.
+
+\bibitem[Brooks and Smith(1987)]{BrooksSmith1987}
+Alison~S. Brooks and Catherine~C. Smith.
+\newblock Ishango revisited: New age determinations and cultural
+  interpretations.
+\newblock \emph{African Archaeological Review}, 5:\penalty0 65--78, 1987.
+
+\bibitem[{Bureau International des Poids et Mesures}(2019)]{BIPM2019}
+{Bureau International des Poids et Mesures}.
+\newblock \emph{The International System of Units ({SI})}.
+\newblock S{\`e}vres, 9th edition, 2019.
+
+\bibitem[Cardano(1545)]{Cardano1545}
+Gerolamo Cardano.
+\newblock \emph{Artis Magnae, sive de Regulis Algebraicis}.
+\newblock N{\"u}rnberg, 1545.
+
+\bibitem[Cavendish(1798)]{Cavendish1798}
+Henry Cavendish.
+\newblock Experiments to determine the density of the earth.
+\newblock \emph{Philosophical Transactions of the Royal Society of London},
+  88:\penalty0 469--526, 1798.
+
+\bibitem[Chadwick(1932)]{Chadwick1932}
+James Chadwick.
+\newblock Possible existence of a neutron.
+\newblock \emph{Nature}, 129:\penalty0 312, 1932.
+
+\bibitem[Clifford(1878)]{Clifford1878}
+William~Kingdon Clifford.
+\newblock Applications of {G}rassmann's extensive algebra.
+\newblock \emph{American Journal of Mathematics}, 1\penalty0 (4):\penalty0
+  350--358, 1878.
+
+\bibitem[Colebrooke(1817)]{Colebrooke1817}
+Henry~Thomas Colebrooke.
+\newblock \emph{Algebra, with Arithmetic and Mensuration, from the Sanscrit of
+  Brahmegupta and Bh{\'a}scara}.
+\newblock John Murray, London, 1817.
+
+\bibitem[Coleman and Mandula(1967)]{ColemanMandula1967}
+Sidney Coleman and Jeffrey Mandula.
+\newblock All possible symmetries of the {S} matrix.
+\newblock \emph{Physical Review}, 159\penalty0 (5):\penalty0 1251--1256, 1967.
+
+\bibitem[{Commission on Isotopic Abundances and Atomic
+  Weights}(2024)]{CIAAW2024}
+{Commission on Isotopic Abundances and Atomic Weights}.
+\newblock Standard atomic weights.
+\newblock \url{https://www.ciaaw.org/atomic-weights.htm}, 2024.
+\newblock Values of 2024, including the revisions for gadolinium, lutetium and
+  zirconium.
+
+\bibitem[de~Coulomb(1788)]{Coulomb1785}
+Charles-Augustin de~Coulomb.
+\newblock Premier m{\'e}moire sur l'{\'e}lectricit{\'e} et le magn{\'e}tisme.
+\newblock In \emph{Histoire de l'Acad{\'e}mie Royale des Sciences, Ann{\'e}e
+  1785}, pages 569--577. Paris, 1788.
+
+\bibitem[Derraz(2026{\natexlab{a}})]{Derraz2026GSP}
+Mostafa Derraz.
+\newblock {General Sinus Principles}: Extension of trigonometric functions.
+\newblock Research Square preprint, posted 4 May 2026, 2026{\natexlab{a}}.
+\newblock URL \url{https://doi.org/10.21203/rs.3.rs-9525842/v1}.
+
+\bibitem[Derraz(2026{\natexlab{b}})]{DerrazGNPreprint2026}
+Mostafa Derraz.
+\newblock {General Numbers}: The number plane beyond the right angle.
+\newblock Zenodo preprint, version 1, posted 9 November 2026,
+  2026{\natexlab{b}}.
+\newblock URL \url{https://doi.org/10.5281/zenodo.24091305}.
+
+\bibitem[d'Errico et~al.(2012)d'Errico, Backwell, Villa, Degano, Lucejko,
+  Bamford, Higham, Colombini, and Beaumont]{dErrico2012}
+Francesco d'Errico, Lucinda Backwell, Paola Villa, Ilaria Degano, Jeannette~J.
+  Lucejko, Marion~K. Bamford, Thomas F.~G. Higham, Maria~Perla Colombini, and
+  Peter~B. Beaumont.
+\newblock Early evidence of {San} material culture represented by organic
+  artifacts from {Border Cave}, {South Africa}.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 109\penalty0
+  (33):\penalty0 13214--13219, 2012.
+
+\bibitem[Descartes(1637)]{Descartes1637}
+Ren{\'e} Descartes.
+\newblock \emph{La G{\'e}om{\'e}trie}.
+\newblock Leiden, 1637.
+\newblock Appendix to the Discours de la M{\'e}thode.
+
+\bibitem[Dessler et~al.(1968)Dessler, Michel, Rorschach, and
+  Trammell]{Dessler1968}
+A.~J. Dessler, F.~C. Michel, H.~E. Rorschach, and G.~T. Trammell.
+\newblock Gravitationally induced electric fields in conductors.
+\newblock \emph{Physical Review}, 168:\penalty0 737--743, 1968.
+\newblock \doi{10.1103/PhysRev.168.737}.
+
+\bibitem[Dirac(1928)]{Dirac1928}
+Paul A.~M. Dirac.
+\newblock The quantum theory of the electron.
+\newblock \emph{Proceedings of the Royal Society of London A}, 117:\penalty0
+  610--624, 1928.
+
+\bibitem[Dirac(1931)]{Dirac1931}
+Paul A.~M. Dirac.
+\newblock Quantised singularities in the electromagnetic field.
+\newblock \emph{Proceedings of the Royal Society of London A}, 133:\penalty0
+  60--72, 1931.
+
+\bibitem[Drake(1957)]{Drake1957}
+Stillman Drake, editor.
+\newblock \emph{Discoveries and Opinions of Galileo}.
+\newblock Doubleday, New York, 1957.
+
+\bibitem[Du~Fay(1733)]{DuFay1733}
+Charles Fran{\c{c}}ois de~Cisternay Du~Fay.
+\newblock A letter from {Mons. Du Fay, F.R.S.} and of the {Royal Academy of
+  Sciences} at {Paris}, to {His Grace Charles Duke of Richmond and Lenox},
+  concerning {Electricity}.
+\newblock \emph{Philosophical Transactions of the Royal Society of London},
+  38:\penalty0 258--266, 1733.
+
+\bibitem[Dyson et~al.(1920)Dyson, Eddington, and Davidson]{Dyson1920}
+Frank~Watson Dyson, Arthur~Stanley Eddington, and Charles Davidson.
+\newblock A determination of the deflection of light by the {S}un's
+  gravitational field, from observations made at the total eclipse of {M}ay 29,
+  1919.
+\newblock \emph{Philosophical Transactions of the Royal Society of London A},
+  220:\penalty0 291--333, 1920.
+\newblock \doi{10.1098/rsta.1920.0009}.
+
+\bibitem[Eddington(1920)]{Eddington1920}
+Arthur~Stanley Eddington.
+\newblock The internal constitution of the stars.
+\newblock \emph{Nature}, 106\penalty0 (2653):\penalty0 14--20, 1920.
+\newblock \doi{10.1038/106014a0}.
+
+\bibitem[Einstein(1905)]{Einstein1905}
+Albert Einstein.
+\newblock Ist die {T}r{\"a}gheit eines {K}{\"o}rpers von seinem {E}nergieinhalt
+  abh{\"a}ngig?
+\newblock \emph{Annalen der Physik}, 18:\penalty0 639--641, 1905.
+
+\bibitem[Einstein(1915)]{Einstein1915}
+Albert Einstein.
+\newblock Erkl{\"a}rung der {P}erihelbewegung des {M}erkur aus der allgemeinen
+  {R}elativit{\"a}tstheorie.
+\newblock \emph{Sitzungsberichte der K{\"o}niglich Preussischen Akademie der
+  Wissenschaften}, pages 831--839, 1915.
+
+\bibitem[Einstein(1916)]{Einstein1916}
+Albert Einstein.
+\newblock Die {G}rundlage der allgemeinen {R}elativit{\"a}tstheorie.
+\newblock \emph{Annalen der Physik}, 49:\penalty0 769--822, 1916.
+
+\bibitem[Einstein(1921)]{Einstein1921}
+Albert Einstein.
+\newblock \emph{Geometrie und Erfahrung}.
+\newblock Springer, Berlin, 1921.
+
+\bibitem[Euler(1748)]{Euler1748}
+Leonhard Euler.
+\newblock \emph{Introductio in analysin infinitorum}.
+\newblock Lausanne, 1748.
+
+\bibitem[{Event Horizon Telescope Collaboration}(2019)]{EHT2019}
+{Event Horizon Telescope Collaboration}.
+\newblock First {M87} {E}vent {H}orizon {T}elescope results. {I}. {T}he shadow
+  of the supermassive black hole.
+\newblock \emph{The Astrophysical Journal Letters}, 875:\penalty0 L1, 2019.
+\newblock \doi{10.3847/2041-8213/ab0ec7}.
+
+\bibitem[Faraday(1851)]{Faraday1851}
+Michael Faraday.
+\newblock Experimental researches in electricity. twenty-fourth series. on the
+  possible relation of gravity to electricity.
+\newblock \emph{Philosophical Transactions of the Royal Society of London},
+  141:\penalty0 1--6, 1851.
+
+\bibitem[Fermi(1934)]{Fermi1934}
+Enrico Fermi.
+\newblock Versuch einer {T}heorie der $\beta$-{S}trahlen. {I}.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 88:\penalty0 161--177, 1934.
+
+\bibitem[Feynman(1948)]{Feynman1948}
+Richard~P. Feynman.
+\newblock Space-time approach to non-relativistic quantum mechanics.
+\newblock \emph{Reviews of Modern Physics}, 20:\penalty0 367--387, 1948.
+
+\bibitem[Fock(1926)]{Fock1926}
+Vladimir Fock.
+\newblock {\"U}ber die invariante {F}orm der {W}ellen- und der
+  {B}ewegungsgleichungen f{\"u}r einen geladenen {M}assenpunkt.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 39:\penalty0 226--232, 1926.
+
+\bibitem[Franklin(1751)]{Franklin1751}
+Benjamin Franklin.
+\newblock \emph{Experiments and Observations on Electricity, Made at
+  {Philadelphia} in {America}}.
+\newblock E. Cave, London, 1751.
+
+\bibitem[Galilei(1623)]{Galileo1623}
+Galileo Galilei.
+\newblock \emph{Il Saggiatore}.
+\newblock Giacomo Mascardi, Rome, 1623.
+
+\bibitem[Garvey and Kelson(1966)]{GarveyKelson1966}
+Gerald~T. Garvey and Igal Kelson.
+\newblock New nuclidic mass relationship.
+\newblock \emph{Physical Review Letters}, 16\penalty0 (5):\penalty0 197--200,
+  1966.
+\newblock \doi{10.1103/PhysRevLett.16.197}.
+
+\bibitem[Garvey et~al.(1969)Garvey, Gerace, Jaffe, Talmi, and
+  Kelson]{Garvey1969}
+Gerald~T. Garvey, William~J. Gerace, Robert~L. Jaffe, Igal Talmi, and Igal
+  Kelson.
+\newblock Set of nuclear-mass relations and a resultant mass table.
+\newblock \emph{Reviews of Modern Physics}, 41\penalty0 (4):\penalty0 S1--S80,
+  1969.
+\newblock \doi{10.1103/RevModPhys.41.S1}.
+
+\bibitem[Gauss(1831)]{Gauss1831}
+Carl~Friedrich Gauss.
+\newblock Theoria residuorum biquadraticorum, commentatio secunda, 1831.
+\newblock With the author's announcement in the G{\"o}ttingische gelehrte
+  Anzeigen; in Werke, vol.~2, G{\"o}ttingen, 1863.
+
+\bibitem[Grassmann(1844)]{Grassmann1844}
+Hermann Grassmann.
+\newblock \emph{Die lineale Ausdehnungslehre}.
+\newblock Otto Wigand, Leipzig, 1844.
+
+\bibitem[Haag et~al.(1975)Haag, {\L}opusza{\'n}ski, and Sohnius]{HLS1975}
+Rudolf Haag, Jan~T. {\L}opusza{\'n}ski, and Martin Sohnius.
+\newblock All possible generators of supersymmetries of the {S}-matrix.
+\newblock \emph{Nuclear Physics B}, 88:\penalty0 257--274, 1975.
+
+\bibitem[Hamilton(1834)]{Hamilton1834}
+William~Rowan Hamilton.
+\newblock On a general method in dynamics.
+\newblock \emph{Philosophical Transactions of the Royal Society of London},
+  124:\penalty0 247--308, 1834.
+
+\bibitem[Hamilton(1837)]{Hamilton1837}
+William~Rowan Hamilton.
+\newblock Theory of conjugate functions, or algebraic couples; with a
+  preliminary and elementary essay on algebra as the science of pure time.
+\newblock \emph{Transactions of the Royal Irish Academy}, 17:\penalty0
+  293--422, 1837.
+
+\bibitem[Hamilton(1844)]{Hamilton1844}
+William~Rowan Hamilton.
+\newblock On quaternions; or on a new system of imaginaries in algebra.
+\newblock \emph{Philosophical Magazine}, 25:\penalty0 489--495, 1844.
+
+\bibitem[Hamming(1980)]{Hamming1980}
+Richard~W. Hamming.
+\newblock The unreasonable effectiveness of mathematics.
+\newblock \emph{American Mathematical Monthly}, 87\penalty0 (2):\penalty0
+  81--90, 1980.
+
+\bibitem[Hartle and Hawking(1972)]{HartleHawking1972}
+J.~B. Hartle and S.~W. Hawking.
+\newblock Solutions of the {E}instein-{M}axwell equations with many black
+  holes.
+\newblock \emph{Communications in Mathematical Physics}, 26:\penalty0 87--101,
+  1972.
+\newblock \doi{10.1007/BF01645696}.
+
+\bibitem[Heaviside(1893)]{Heaviside1893}
+Oliver Heaviside.
+\newblock A gravitational and electromagnetic analogy.
+\newblock \emph{The Electrician}, 31:\penalty0 281--282 and 359, 1893.
+
+\bibitem[Hertz(1893)]{Hertz1893}
+Heinrich Hertz.
+\newblock \emph{Electric Waves}.
+\newblock Macmillan, London, 1893.
+\newblock Translated by D. E. Jones.
+
+\bibitem[Jackson and Okun(2001)]{JacksonOkun2001}
+J.~D. Jackson and L.~B. Okun.
+\newblock Historical roots of gauge invariance.
+\newblock \emph{Reviews of Modern Physics}, 73:\penalty0 663--680, 2001.
+\newblock \doi{10.1103/RevModPhys.73.663}.
+
+\bibitem[Kaluza(1921)]{Kaluza1921}
+Theodor Kaluza.
+\newblock Zum unit{\"a}tsproblem der physik.
+\newblock \emph{Sitzungsberichte der Preussischen Akademie der Wissenschaften},
+  pages 966--972, 1921.
+
+\bibitem[Kepler(1609)]{Kepler1609}
+Johannes Kepler.
+\newblock \emph{Astronomia Nova}.
+\newblock Heidelberg, 1609.
+\newblock English translation by W. H. Donahue, \emph{New Astronomy}, Cambridge
+  University Press, Cambridge, 1992.
+
+\bibitem[Klein(1926)]{Klein1926}
+Oskar Klein.
+\newblock Quantentheorie und f{\"u}nfdimensionale relativit{\"a}tstheorie.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 37:\penalty0 895--906, 1926.
+
+\bibitem[Kline(1972)]{Kline1972}
+Morris Kline.
+\newblock \emph{Mathematical Thought from Ancient to Modern Times}.
+\newblock Oxford University Press, New York, 1972.
+
+\bibitem[Kondev et~al.(2021)Kondev, Wang, Huang, Naimi, and Audi]{Kondev2021}
+Filip~G. Kondev, Meng Wang, W.~J. Huang, Sarah Naimi, and Georges Audi.
+\newblock The {NUBASE}2020 evaluation of nuclear physics properties.
+\newblock \emph{Chinese Physics C}, 45\penalty0 (3):\penalty0 030001, 2021.
+\newblock \doi{10.1088/1674-1137/abddae}.
+
+\bibitem[Lagrange(1788)]{Lagrange1788}
+Joseph-Louis Lagrange.
+\newblock \emph{M{\'e}chanique analitique}.
+\newblock Veuve Desaint, Paris, 1788.
+
+\bibitem[Lakatos(1970)]{Lakatos1970}
+Imre Lakatos.
+\newblock Falsification and the methodology of scientific research programmes.
+\newblock In Imre Lakatos and Alan Musgrave, editors, \emph{Criticism and the
+  Growth of Knowledge}, pages 91--196. Cambridge University Press, Cambridge,
+  1970.
+
+\bibitem[Le~Verrier(1846)]{LeVerrier1846}
+Urbain Le~Verrier.
+\newblock Sur la plan{\`e}te qui produit les anomalies observ{\'e}es dans le
+  mouvement d'{U}ranus. {D}{\'e}termination de sa masse, de son orbite et de sa
+  position actuelle.
+\newblock \emph{Comptes rendus hebdomadaires des s{\'e}ances de l'Acad{\'e}mie
+  des sciences}, 23:\penalty0 428--438, 1846.
+
+\bibitem[Lecoq~de Boisbaudran(1875)]{Lecoq1875}
+Paul-{\'E}mile Lecoq~de Boisbaudran.
+\newblock Caract{\`e}res chimiques et spectroscopiques d'un nouveau m{\'e}tal,
+  le gallium, d{\'e}couvert dans une blende de la mine de {P}ierrefitte.
+\newblock \emph{Comptes rendus hebdomadaires des s{\'e}ances de l'Acad{\'e}mie
+  des sciences}, 81:\penalty0 493--495, 1875.
+
+\bibitem[London(1927)]{London1927}
+Fritz London.
+\newblock Quantenmechanische {D}eutung der {T}heorie von {W}eyl.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 42:\penalty0 375--389, 1927.
+
+\bibitem[Lunney et~al.(2003)Lunney, Pearson, and Thibault]{Lunney2003}
+David Lunney, J.~M. Pearson, and C.~Thibault.
+\newblock Recent trends in the determination of nuclear masses.
+\newblock \emph{Reviews of Modern Physics}, 75:\penalty0 1021--1082, 2003.
+\newblock \doi{10.1103/RevModPhys.75.1021}.
+
+\bibitem[Majumdar(1947)]{Majumdar1947}
+S.~D. Majumdar.
+\newblock A class of exact solutions of {E}instein's field equations.
+\newblock \emph{Physical Review}, 72:\penalty0 390, 1947.
+\newblock \doi{10.1103/PhysRev.72.390}.
+
+\bibitem[Maor(1998)]{Maor1998}
+Eli Maor.
+\newblock \emph{Trigonometric Delights}.
+\newblock Princeton University Press, Princeton, 1998.
+
+\bibitem[Maxwell(1865)]{Maxwell1865}
+James~Clerk Maxwell.
+\newblock A dynamical theory of the electromagnetic field.
+\newblock \emph{Philosophical Transactions of the Royal Society of London},
+  155:\penalty0 459--512, 1865.
+
+\bibitem[Mendeleev(1871)]{Mendeleev1871}
+Dmitri Mendeleev.
+\newblock Die periodische {G}esetzm{\"a}ssigkeit der chemischen {E}lemente.
+\newblock \emph{Annalen der Chemie und Pharmacie}, Supplementband 8:\penalty0
+  133--229, 1871.
+
+\bibitem[Mentel(2014)]{Mentel2014}
+{\L}ukasz Mentel.
+\newblock mendeleev: A {P}ython resource for properties of chemical elements,
+  ions and isotopes.
+\newblock Software, \url{https://github.com/lmmentel/mendeleev}; version 1.3.0
+  used, 2014.
+
+\bibitem[Millikan(1913)]{Millikan1913}
+Robert~Andrews Millikan.
+\newblock On the elementary electrical charge and the {Avogadro} constant.
+\newblock \emph{Physical Review}, 2\penalty0 (2):\penalty0 109--143, 1913.
+\newblock \doi{10.1103/PhysRev.2.109}.
+
+\bibitem[Minkowski(1909)]{Minkowski1909}
+Hermann Minkowski.
+\newblock Raum und {Z}eit.
+\newblock \emph{Physikalische Zeitschrift}, 10:\penalty0 104--111, 1909.
+\newblock Lecture of 21 September 1908, Cologne.
+
+\bibitem[Misner et~al.(1973)Misner, Thorne, and Wheeler]{MTW1973}
+Charles~W. Misner, Kip~S. Thorne, and John~Archibald Wheeler.
+\newblock \emph{Gravitation}.
+\newblock W. H. Freeman, San Francisco, 1973.
+
+\bibitem[Mokhithi and Shock(2020)]{MokhithiShock2020}
+M.~Mokhithi and J.~Shock.
+\newblock Introduction to complex numbers.
+\newblock Lecture notes, version 1, Department of Mathematics and Applied
+  Mathematics, University of Cape Town, 2020.
+\newblock Licensed under CC BY 4.0.
+
+\bibitem[Morales et~al.(2009)Morales, L{\'o}pez~Vieyra, Hirsch, and
+  Frank]{Morales2009}
+Irving~O. Morales, Juan~C. L{\'o}pez~Vieyra, Jorge~G. Hirsch, and Alejandro
+  Frank.
+\newblock How good are the {G}arvey-{K}elson predictions of nuclear masses?
+\newblock arXiv preprint 0904.0419, 2009.
+
+\bibitem[Moseley(1913)]{Moseley1913}
+Henry G.~J. Moseley.
+\newblock The high-frequency spectra of the elements.
+\newblock \emph{Philosophical Magazine, Series 6}, 26:\penalty0 1024--1034,
+  1913.
+\newblock \doi{10.1080/14786441308635052}.
+
+\bibitem[Moseley(1914)]{Moseley1914}
+Henry G.~J. Moseley.
+\newblock The high-frequency spectra of the elements. {P}art {II}.
+\newblock \emph{Philosophical Magazine, Series 6}, 27:\penalty0 703--713, 1914.
+
+\bibitem[Needham(1997)]{Needham1997}
+Tristan Needham.
+\newblock \emph{Visual Complex Analysis}.
+\newblock Oxford University Press, Oxford, 1997.
+
+\bibitem[Newton(1687)]{Newton1687}
+Isaac Newton.
+\newblock \emph{Philosophi{\ae} Naturalis Principia Mathematica}.
+\newblock Joseph Streater, London, 1687.
+
+\bibitem[Newton(1713)]{Newton1713}
+Isaac Newton.
+\newblock \emph{Philosophi{\ae} Naturalis Principia Mathematica}.
+\newblock Cambridge, 2nd edition, 1713.
+\newblock With the General Scholium.
+
+\bibitem[Newton(1729)]{Motte1729}
+Isaac Newton.
+\newblock \emph{The Mathematical Principles of Natural Philosophy}.
+\newblock Benjamin Motte, London, 1729.
+\newblock Translated by Andrew Motte.
+
+\bibitem[Newton(1999)]{CohenWhitman1999}
+Isaac Newton.
+\newblock \emph{The {Principia}: Mathematical Principles of Natural
+  Philosophy}.
+\newblock University of California Press, Berkeley, 1999.
+\newblock Translated by I. Bernard Cohen and Anne Whitman.
+
+\bibitem[Nordstr{\"o}m(1918)]{Nordstrom1918}
+Gunnar Nordstr{\"o}m.
+\newblock On the energy of the gravitation field in {E}instein's theory.
+\newblock \emph{Proceedings of the Koninklijke Nederlandse Akademie van
+  Wetenschappen}, 20:\penalty0 1238--1245, 1918.
+
+\bibitem[O'Raifeartaigh and Straumann(2000)]{ORaifeartaighStraumann2000}
+Lochlainn O'Raifeartaigh and Norbert Straumann.
+\newblock Gauge theory: Historical origins and some modern developments.
+\newblock \emph{Reviews of Modern Physics}, 72:\penalty0 1--23, 2000.
+\newblock \doi{10.1103/RevModPhys.72.1}.
+
+\bibitem[Papapetrou(1947)]{Papapetrou1947}
+A.~Papapetrou.
+\newblock A static solution of the equations of the gravitational field for an
+  arbitrary charge-distribution.
+\newblock \emph{Proceedings of the Royal Irish Academy, Section A},
+  51:\penalty0 191--204, 1947.
+
+\bibitem[{Particle Data Group} et~al.(2024){Particle Data Group}, Navas,
+  et~al.]{PDG2024}
+{Particle Data Group}, S.~Navas, et~al.
+\newblock Review of particle physics.
+\newblock \emph{Physical Review D}, 110:\penalty0 030001, 2024.
+\newblock \doi{10.1103/PhysRevD.110.030001}.
+
+\bibitem[Planck(1899)]{Planck1899}
+Max Planck.
+\newblock {\"U}ber irreversible {S}trahlungsvorg{\"a}nge.
+\newblock \emph{Sitzungsberichte der K{\"o}niglich Preu{\ss}ischen Akademie der
+  Wissenschaften zu Berlin}, 5:\penalty0 440--480, 1899.
+
+\bibitem[Plofker(2009)]{Plofker2009}
+Kim Plofker.
+\newblock \emph{Mathematics in India}.
+\newblock Princeton University Press, Princeton, 2009.
+
+\bibitem[Popper(1959)]{Popper1959}
+Karl~R. Popper.
+\newblock \emph{The Logic of Scientific Discovery}.
+\newblock Hutchinson, London, 1959.
+\newblock Translation of \emph{Logik der Forschung}, Vienna: Springer, 1935.
+
+\bibitem[Prohaska et~al.(2022)Prohaska, Irrgeher, Benefield, B{\"o}hlke,
+  Chesson, Coplen, Ding, Dunn, Gr{\"o}ning, Holden, Meijer, Moossen, Possolo,
+  Takahashi, Vogl, Walczyk, Wang, Wieser, Yoneda, Zhu, and Meija]{Prohaska2022}
+Thomas Prohaska, Johanna Irrgeher, Jacqueline Benefield, John~K. B{\"o}hlke,
+  Lesley~A. Chesson, Tyler~B. Coplen, Tiping Ding, Philip J.~H. Dunn, Manfred
+  Gr{\"o}ning, Norman~E. Holden, Harro A.~J. Meijer, Heiko Moossen, Antonio
+  Possolo, Yoshio Takahashi, Jochen Vogl, Thomas Walczyk, Jun Wang, Michael~E.
+  Wieser, Shigekazu Yoneda, Xiang-Kun Zhu, and Juris Meija.
+\newblock Standard atomic weights of the elements 2021 ({IUPAC} technical
+  report).
+\newblock \emph{Pure and Applied Chemistry}, 94\penalty0 (5):\penalty0
+  573--600, 2022.
+\newblock \doi{10.1515/pac-2019-0603}.
+
+\bibitem[Reissner(1916)]{Reissner1916}
+Hans Reissner.
+\newblock {\"U}ber die {E}igengravitation des elektrischen {F}eldes nach der
+  {E}insteinschen {T}heorie.
+\newblock \emph{Annalen der Physik}, 355\penalty0 (9):\penalty0 106--120, 1916.
+\newblock \doi{10.1002/andp.19163550905}.
+
+\bibitem[{Royal Society and Royal Astronomical Society}(1919)]{Observatory1919}
+{Royal Society and Royal Astronomical Society}.
+\newblock Joint eclipse meeting of the {R}oyal {S}ociety and the {R}oyal
+  {A}stronomical {S}ociety, 1919, {N}ovember 6.
+\newblock \emph{The Observatory}, 42:\penalty0 389--398, 1919.
+
+\bibitem[Rutherford(1911)]{Rutherford1911}
+Ernest Rutherford.
+\newblock The scattering of $\alpha$ and $\beta$ particles by matter and the
+  structure of the atom.
+\newblock \emph{Philosophical Magazine}, 21\penalty0 (125):\penalty0 669--688,
+  1911.
+
+\bibitem[Sansonetti and Martin(2005)]{Sansonetti2005}
+Jean~E. Sansonetti and William~C. Martin.
+\newblock Handbook of basic atomic spectroscopic data.
+\newblock \emph{Journal of Physical and Chemical Reference Data}, 34\penalty0
+  (4):\penalty0 1559--2259, 2005.
+\newblock \doi{10.1063/1.1800011}.
+
+\bibitem[Satu{\l}a et~al.(1997)Satu{\l}a, Dean, Gary, Mizutori, and
+  Nazarewicz]{Satula1997}
+Wojciech Satu{\l}a, David~J. Dean, J.~Gary, Shoujirou Mizutori, and Witold
+  Nazarewicz.
+\newblock The origin of the {W}igner energy.
+\newblock arXiv preprint nucl-th/9702054, 1997.
+
+\bibitem[Schiff and Barnhill(1966)]{SchiffBarnhill1966}
+L.~I. Schiff and M.~V. Barnhill.
+\newblock Gravitation-induced electric field near a metal.
+\newblock \emph{Physical Review}, 151:\penalty0 1067--1071, 1966.
+\newblock \doi{10.1103/PhysRev.151.1067}.
+
+\bibitem[Schr{\"o}dinger(1926)]{Schrodinger1926}
+Erwin Schr{\"o}dinger.
+\newblock Quantisierung als {E}igenwertproblem ({Z}weite {M}itteilung).
+\newblock \emph{Annalen der Physik}, 79:\penalty0 489--527, 1926.
+
+\bibitem[Shen et~al.(1999)Shen, Crossley, and Lun]{Shen1999}
+Kangshen Shen, John~N. Crossley, and Anthony W.-C. Lun.
+\newblock \emph{The Nine Chapters on the Mathematical Art: Companion and
+  Commentary}.
+\newblock Oxford University Press, Oxford, 1999.
+
+\bibitem[Sommerfeld(1916)]{Sommerfeld1916}
+Arnold Sommerfeld.
+\newblock Zur {Q}uantentheorie der {S}pektrallinien.
+\newblock \emph{Annalen der Physik}, 51:\penalty0 1--94, 125--167, 1916.
+
+\bibitem[Steinmetz(1893)]{Steinmetz1893}
+Charles~Proteus Steinmetz.
+\newblock Complex quantities and their use in electrical engineering.
+\newblock In \emph{Proceedings of the International Electrical Congress}, pages
+  33--74, Chicago, 1893. American Institute of Electrical Engineers.
+
+\bibitem[Stoney(1881)]{Stoney1881}
+George~Johnstone Stoney.
+\newblock On the physical units of nature.
+\newblock \emph{Philosophical Magazine, Series 5}, 11:\penalty0 381--390, 1881.
+\newblock \doi{10.1080/14786448108627031}.
+
+\bibitem[Stoney(1894)]{Stoney1894}
+George~Johnstone Stoney.
+\newblock Of the ``electron,'' or atom of electricity.
+\newblock \emph{Philosophical Magazine, Series 5}, 38:\penalty0 418--420, 1894.
+
+\bibitem[Thomson(1897)]{Thomson1897}
+Joseph~John Thomson.
+\newblock Cathode rays.
+\newblock \emph{Philosophical Magazine}, 44\penalty0 (269):\penalty0 293--316,
+  1897.
+
+\bibitem[Thomson(1889)]{Kelvin1883}
+William Thomson.
+\newblock Electrical units of measurement.
+\newblock In \emph{Popular Lectures and Addresses}, volume~1. Macmillan,
+  London, 1889.
+\newblock Lecture of 3 May 1883.
+
+\bibitem[Tiesinga et~al.(2021)Tiesinga, Mohr, Newell, and Taylor]{CODATA2018}
+Eite Tiesinga, Peter~J. Mohr, David~B. Newell, and Barry~N. Taylor.
+\newblock {CODATA} recommended values of the fundamental physical constants:
+  2018.
+\newblock \emph{Reviews of Modern Physics}, 93\penalty0 (2):\penalty0 025010,
+  2021.
+
+\bibitem[Touboul et~al.(2022)]{Touboul2022}
+Pierre Touboul et~al.
+\newblock {MICROSCOPE} mission: Final results of the test of the equivalence
+  principle.
+\newblock \emph{Physical Review Letters}, 129:\penalty0 121102, 2022.
+\newblock \doi{10.1103/PhysRevLett.129.121102}.
+
+\bibitem[Van~Brummelen(2009)]{VanBrummelen2009}
+Glen Van~Brummelen.
+\newblock \emph{The Mathematics of the Heavens and the Earth: The Early History
+  of Trigonometry}.
+\newblock Princeton University Press, Princeton, 2009.
+
+\bibitem[von Helmholtz(1870)]{Helmholtz1870}
+Hermann von Helmholtz.
+\newblock {\"U}ber den ursprung und die bedeutung der geometrischen axiome,
+  1870.
+\newblock Lecture; English translation in Epistemological Writings, Reidel,
+  Dordrecht, 1977.
+
+\bibitem[von Weizs{\"a}cker(1935)]{Weizsacker1935}
+Carl~Friedrich von Weizs{\"a}cker.
+\newblock Zur {T}heorie der {K}ernmassen.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 96:\penalty0 431--458, 1935.
+\newblock \doi{10.1007/BF01337700}.
+
+\bibitem[Wang et~al.(2021)Wang, Huang, Kondev, Audi, and Naimi]{Wang2021}
+Meng Wang, W.~J. Huang, Filip~G. Kondev, Georges Audi, and Sarah Naimi.
+\newblock The {AME} 2020 atomic mass evaluation ({II}). {T}ables, graphs and
+  references.
+\newblock \emph{Chinese Physics C}, 45\penalty0 (3):\penalty0 030003, 2021.
+\newblock \doi{10.1088/1674-1137/abddaf}.
+
+\bibitem[Wessel(1799)]{Wessel1799}
+Caspar Wessel.
+\newblock Om directionens analytiske betegning.
+\newblock \emph{Nye Samling af det Kongelige Danske Videnskabernes Selskabs
+  Skrifter}, 5:\penalty0 469--518, 1799.
+\newblock Presented to the Royal Danish Academy in 1797.
+
+\bibitem[Weyl(1918)]{Weyl1918}
+Hermann Weyl.
+\newblock Gravitation und {E}lektrizit{\"a}t.
+\newblock \emph{Sitzungsberichte der K{\"o}niglich Preu{\ss}ischen Akademie der
+  Wissenschaften zu Berlin}, pages 465--480, 1918.
+
+\bibitem[Weyl(1929{\natexlab{a}})]{Weyl1929}
+Hermann Weyl.
+\newblock Elektron und {G}ravitation. {I}.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 56:\penalty0 330--352,
+  1929{\natexlab{a}}.
+
+\bibitem[Weyl(1929{\natexlab{b}})]{Weyl1929PNAS}
+Hermann Weyl.
+\newblock Gravitation and the electron.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 15\penalty0
+  (4):\penalty0 323--334, 1929{\natexlab{b}}.
+
+\bibitem[Whitehead(1925)]{Whitehead1925}
+Alfred~North Whitehead.
+\newblock \emph{Science and the Modern World}.
+\newblock Macmillan, New York, 1925.
+\newblock Lowell Lectures, 1925.
+
+\bibitem[Wigner(1937)]{Wigner1937}
+Eugene~P. Wigner.
+\newblock On the consequences of the symmetry of the nuclear {H}amiltonian on
+  the spectroscopy of nuclei.
+\newblock \emph{Physical Review}, 51\penalty0 (2):\penalty0 106--119, 1937.
+\newblock \doi{10.1103/PhysRev.51.106}.
+
+\bibitem[Wigner(1939)]{Wigner1939}
+Eugene~P. Wigner.
+\newblock On unitary representations of the inhomogeneous {L}orentz group.
+\newblock \emph{Annals of Mathematics}, 40\penalty0 (1):\penalty0 149--204,
+  1939.
+
+\bibitem[Wigner(1960)]{Wigner1960}
+Eugene~P. Wigner.
+\newblock The unreasonable effectiveness of mathematics in the natural
+  sciences.
+\newblock \emph{Communications on Pure and Applied Mathematics}, 13\penalty0
+  (1):\penalty0 1--14, 1960.
+
+\bibitem[Will(2014)]{Will2014}
+Clifford~M. Will.
+\newblock The confrontation between general relativity and experiment.
+\newblock \emph{Living Reviews in Relativity}, 17:\penalty0 4, 2014.
+\newblock \doi{10.12942/lrr-2014-4}.
+
+\bibitem[Witteborn and Fairbank(1967)]{WittebornFairbank1967}
+F.~C. Witteborn and W.~M. Fairbank.
+\newblock Experimental comparison of the gravitational force on freely falling
+  electrons and metallic electrons.
+\newblock \emph{Physical Review Letters}, 19:\penalty0 1049--1052, 1967.
+\newblock \doi{10.1103/PhysRevLett.19.1049}.
+
+\bibitem[Yukawa(1935)]{Yukawa1935}
+Hideki Yukawa.
+\newblock On the interaction of elementary particles. {I}.
+\newblock \emph{Proceedings of the Physico-Mathematical Society of Japan},
+  17:\penalty0 48--57, 1935.
+
+\bibitem[Zee(2010)]{Zee2010}
+Anthony Zee.
+\newblock \emph{Quantum Field Theory in a Nutshell}.
+\newblock Princeton University Press, Princeton, second edition, 2010.
+
+\end{thebibliography}

@@ -1,0 +1,47 @@
+% ======================================================================
+\section{The number plane behind the framework}\label{sec:plane}
+% ======================================================================
+
+The framework needs two pieces of mathematics, both available as preprints: a trigonometry of two variables for the oblique triangle~\citep{Derraz2026GSP}, and a number plane whose second axis leans~\citep{DerrazGN2026}. This section recalls what the rest of the paper uses, with the number of each statement in those papers.
+
+\subsection{The General Sinus in brief}\label{subsec:gs}
+
+For two angles $\alpha$ and $\phi$ with $\sin(\alpha + \phi) \neq 0$, the general sine, cosine and tangent are~\citep[Definition~3.6 and Theorem~3.7]{Derraz2026GSP}
+\begin{equation}\label{eq:gs}
+\sin(\alpha, \phi) = \frac{\sin\alpha}{\sin(\alpha + \phi)} , \qquad
+\cos(\alpha, \phi) = \frac{\sin\phi}{\sin(\alpha + \phi)} , \qquad
+\tan(\alpha, \phi) = \frac{\sin\alpha}{\sin\phi} .
+\end{equation}
+They return the classical functions when $\alpha + \phi = \pi/2$, and they read coordinates along oblique axes: a unit arrow at the angle $\alpha$ from the first of two axes that meet at the angle $\alpha + \phi$ has the coordinates $\cos(\alpha, \phi)$ and $\sin(\alpha, \phi)$ along them~\citep[Corollary~2.3 and Proposition~2.4]{DerrazGN2026}. They obey the general Pythagoras identity
+\begin{equation}\label{eq:gs-pythagoras}
+\sin^2(\alpha, \phi) + \cos^2(\alpha, \phi) + 2\sin(\alpha, \phi)\cos(\alpha, \phi)\cos(\alpha + \phi) = 1 ,
+\end{equation}
+which is the law of cosines of the triangle that the two coordinates make~\citep[Proposition~2.6]{DerrazGN2026}.
+
+\subsection{General Numbers: the relative plane, the Composer Unit and the Axiom}\label{subsec:gn}
+
+A General Number is $w = a + b\,\Gp$, with real numbers $a$ and $b$, where the Composer Unit $\Gp$ is an arrow at the angle $\pb$ to the real axis. One axiom fixes its length by its angle~\citep[Axiom~3.1]{DerrazGN2026}:
+\begin{equation}\label{eq:axiom}
+\lvert\Gp\rvert = \lvert\cos\pb + \sin\pb\rvert = \sqrt{2}\,\Bigl\lvert\sin\Bigl(\pb + \frac{\pi}{4}\Bigr)\Bigr\rvert .
+\end{equation}
+For each angle the General Numbers form a relative plane $\GNp$, and the complex plane is the relative plane $\pb = \pi/2$, where $\mathcal{G}_{\pi/2} = i$~\citep[Definition~3.2 and Proposition~3.4]{DerrazGN2026}. Every length $\ell$ with $1 < \ell < \sqrt{2}$ is the length of the Composer Unit at exactly two angles between $0$ and $\pi/2$: the \emph{arcsine root} $\pb_1 = \arcsin(\ell/\sqrt{2}) - \pi/4$ and the \emph{mirror root} $\pb_2 = \pi/2 - \pb_1$~\citep[Theorem~3.6]{DerrazGN2026}. We write $\up = \Gp/\lvert\Gp\rvert$ for the unit arrow along the Composer axis. The \emph{real part} of $w$ is $\Re(w) = a$, its \emph{Composer coordinate} is $b$, and its \emph{Composer part} is $b\,\Gp$~\citep[Definition~3.9]{DerrazGN2026}.
+
+\subsection{The Rule of the Square}\label{subsec:square}
+
+In a relative plane the square of the Composer Unit leans at twice its angle, and its parts are~\citep[Proposition~4.1]{DerrazGN2026}
+\begin{equation}\label{eq:square}
+\Gp^2 = 2\,\lvert\Gp\rvert\cos\pb\;\Gp - \lvert\Gp\rvert^2 .
+\end{equation}
+Its real part, $-\lvert\Gp\rvert^2$, is negative at every angle. The product of two General Numbers follows~\citep[Proposition~4.2]{DerrazGN2026}:
+\begin{equation}\label{eq:product}
+(a + b\,\Gp)(c + d\,\Gp) = \bigl(ac - \lvert\Gp\rvert^2\,bd\bigr) + \bigl(ad + bc + 2\,\lvert\Gp\rvert\cos\pb\;bd\bigr)\Gp .
+\end{equation}
+Every true relative plane, one with $0 < \pb < \pi$ and $\pb \neq 3\pi/4$~\citep[Definition~3.2]{DerrazGN2026}, is a field, a copy of $\C$ written in an oblique frame~\citep[Proposition~4.3 and Corollary~4.11]{DerrazGN2026}, so every law of complex arithmetic holds in it; what changes is how each law reads in the leaning frame.
+
+\subsection{Two readings of a number: the real part and the shadow}\label{subsec:readings}
+
+Two rules turn a General Number $w = a + b\,\Gp$ into one real number on the real axis~\citep[Definitions~3.9 and~3.10]{DerrazGN2026}. The \emph{real part} $\Re(w) = a$ walks back to the real axis along the Composer axis, the way the number was built. The \emph{shadow} drops the tip straight down,
+\begin{equation}\label{eq:shadow}
+\Sh(w) = a + b\,\lvert\Gp\rvert\cos\pb , \qquad \Ht(w) = b\,\lvert\Gp\rvert\sin\pb ,
+\end{equation}
+where $\Ht(w)$ is the height above the real axis. The two readings agree on real numbers and differ as soon as $b \neq 0$.

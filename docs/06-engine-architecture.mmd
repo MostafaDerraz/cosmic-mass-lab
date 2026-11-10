@@ -1,0 +1,49 @@
+%% Virtual universe of cosmic masses: engine architecture
+%% Open with any Mermaid viewer (VS Code Mermaid preview, mermaid.live, GitHub).
+flowchart LR
+    subgraph IN["Inputs"]
+        direction TB
+        U["Universe settings U1-U8<br/>frame angle, dimension, units,<br/>boundary, background E_cal and B_cal,<br/>fixed sources, inflow, population state"]
+        M["Matter<br/>cosmic masses mu = m + qG<br/>bodies and populations"]
+        L["Law selection L0-L8<br/>reading, sign, strength lambda,<br/>direction, terms, B_cal, inertia, range"]
+    end
+
+    subgraph ENG["Engine"]
+        direction TB
+        ALG["Algebra core<br/>General Numbers, Rule of the Square<br/>Re, Com, Sh, Ht, abs"]
+        FS["Field solver<br/>F1-F4 in both coordinates<br/>direct sum or grid"]
+        PROD["Product<br/>mu (E_cal + v x B_cal)"]
+        RD["Reading<br/>L0 or L1-L8 to Re and Com forces"]
+        INT["Integrator<br/>inertia L7, Verlet or Boris, adaptive dt"]
+        ENV["Environment modules (switchable)<br/>walls, inflow, heat bath, collection"]
+        CHK["Checks<br/>conservation of rho_mu, energy u, momentum"]
+
+        FS --> PROD
+        ALG --> PROD
+        PROD --> RD --> INT
+        ENV --> INT
+        INT --> CHK
+        CHK -->|"next step"| FS
+    end
+
+    subgraph OUT["Outputs"]
+        direction TB
+        VIEW["Live view<br/>Real plane and Composer plane"]
+        MEAS["Measurements<br/>Re and Com of forces, energy, momentum,<br/>mu(t) of each body, separation by sign"]
+        REP["Test reports<br/>T0-T9 pass, fail or finding"]
+    end
+
+    U --> ENG
+    M --> ENG
+    L --> RD
+    ENG --> VIEW
+    ENG --> MEAS
+    ENG --> REP
+
+    subgraph PIPE["Test pipeline"]
+        direction LR
+        T0["T0 gate<br/>consistency"] --> T9["T9<br/>book limits"] --> T12["T1-T2<br/>pairs, survival"] --> T36["T3-T6<br/>angle, many bodies,<br/>motion, populations"] --> T78["T7-T8<br/>robustness, limits"] --> UI["Interactive universe<br/>compare mode"]
+        T0 -.->|"fail"| FIX["Fix engine"]
+    end
+
+    REP --> PIPE

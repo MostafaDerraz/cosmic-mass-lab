@@ -1,0 +1,328 @@
+% Chapter 10, an open discussion of the Coupling Force (added on 8 November 2026, shortened on 9 November 2026; the full earlier text is in removed-in-shortening-2026-11-09/)
+% the statement type of a reading proposed for discussion, numbered with the theorems
+\makeatletter
+\@ifundefined{view}{\theoremstyle{definition}\newtheorem{view}[theorem]{View}\crefname{view}{View}{Views}\Crefname{view}{View}{Views}}{}
+\makeatother
+% notation of this chapter: the parts of a General Number (Chapter 4)
+\providecommand{\Com}{\operatorname{Com}}
+\providecommand{\Sh}{\operatorname{Sh}}
+%************************************************
+\chapter{What Is the Coupling Force? An Open Discussion}\label{ch:open}
+%************************************************
+
+\chapterlead{Two bodies give one product. Its real part is the force that Newton and Coulomb measured. Its Composer coordinate holds the Coupling term, which no measurement has yet read. This chapter gathers readings of that term, the author's two and several more, and gives each a status: what holds as mathematics, what measurement already excludes, and what stays open.}
+
+\scene{Z\"urich, spring 1918}
+
+On 1 March 1918 Hermann Weyl wrote to Albert Einstein that he had succeeded \enquote{to derive electricity and gravitation from a common source} \citep{ORaifeartaighStraumann2000}. In his geometry a measuring rod carried from place to place could change its length, and the rule of the change behaved like the electromagnetic potential \citep{Weyl1918}. Einstein objected that an atom is a clock: atoms carried along different paths would then shine in different colours, yet the lines of a spectrum are sharp. The idea survived by changing its meaning. Fock and London found the same factor in the phase of the quantum wave of a charged particle \citep{Fock1926,London1927}, and in 1929 Weyl rewrote his theory with a change of phase instead of length \citep{Weyl1929,Weyl1929PNAS,JacksonOkun2001}. This is gauge invariance, on which the theories of the electromagnetic, the weak and the strong forces are built today. Weyl's factor failed as one thing and succeeded as another.
+
+\bigskip
+
+The Coupling term of this book stands where Weyl's factor stood in 1918. Every measured force is read by the real part of a product (Definition~\ref{def:reading}). The other part, which holds the Coupling term, is left unread: read along the line between two bodies, any sizeable share of it would give the neutron a charge that it does not have (\Cref{subsec:test-sign}). This chapter discusses what that part could be. The author's two readings are stated as \emph{Views}, a statement type of this chapter: readings put forward for discussion, neither proved nor yet tested. Each reading, with those the chapter adds, gets a status: what holds as mathematics, what measurement excludes, and what stays open.
+
+%------------------------------------------------
+\section{One Product, Two Questions}\label{sec:op-product}
+%------------------------------------------------
+
+For two bodies with $\mu_a = m_a + q_a\Gp$ and $\mu_b = m_b + q_b\Gp$, Proposition~\ref{prop:law-real} gives the product
+\[
+\mu_a\mu_b = \underbrace{\bigl(m_a m_b - |\Gp|^2\,q_a q_b\bigr)}_{\text{real part}} + \underbrace{\bigl(m_a q_b + q_a m_b + 2\,|\Gp|\cos\pb\;q_a q_b\bigr)}_{\text{Composer coordinate}}\,\Gp .
+\]
+Both parts are in square kilograms, the Composer coordinate once it is multiplied by $|\Gp| = \sqrt{K/G}$.
+\begin{itemize}
+  \item \emph{The real part is the force.} Multiplied by $G/d^2$, it is Newton's gravity and Coulomb's law, each at full strength (Definition~\ref{def:reading}). Every measured force, energy and momentum of Chapters~\ref{ch:interaction} to~\ref{ch:unified} is read here.
+  \item \emph{The Composer coordinate is not read as a force.} It holds the Coupling term $m_a q_b + q_a m_b$ of Remark~\ref{rem:three-components}, which pairs the mass of each body with the charge of the other, and $2\,|\Gp|\cos\pb\;q_a q_b$, a share of the term of two charges moved there by the Rule of the Square (Proposition~\ref{prop:square-rule}), which this chapter calls the \emph{charge share} (\Cref{subsec:law-read}).
+\end{itemize}
+
+\begin{table}[tb]
+\myfloatalign
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X r r r@{}}
+\toprule
+\tableheadline{term} & \tableheadline{two protons} & \tableheadline{hydrogen} & \tableheadline{Earth, electron} \\
+\midrule
+gravity & $1.87 \times 10^{-64}$ & $3.63 \times 10^{-47}$ & $8.93 \times 10^{-30}$ \\
+two charges & $2.31 \times 10^{-28}$ & $8.24 \times 10^{-8}$ & $0$ \\
+Coupling term & $4.15 \times 10^{-46}$ & $7.41 \times 10^{-26}$ & $1.82 \times 10^{-8}$ \\
+charge share & $8.12 \times 10^{-29}$ & $2.90 \times 10^{-8}$ & $0$ \\
+\bottomrule
+\end{tabularx}
+\caption[The four terms of one product]{The four terms of one product, read like forces: multiplied by $G/d^2$, in newtons, with the Composer coordinate measured by its length. They are gravity $G\,m_a m_b/d^2$, two charges $K\,q_a q_b/d^2$, the Coupling term $\sqrt{GK}\,(m_a q_b + q_a m_b)/d^2$ and the charge share $2\cos\pb\,K\,q_a q_b/d^2$. The pairs are two protons $1$ m apart, the proton and the electron of hydrogen at the radius $a_0$, and the Earth, taken as neutral, and an electron at the ground. Only the first two terms are forces (Definition~\ref{def:reading}).}
+\label{tab:op-sizes}
+\end{table}
+
+\Cref{tab:op-sizes} gives the four terms read like forces. The Coupling term vanishes between two neutral bodies and between a particle and its antiparticle (\Cref{sec:al-coupling}), and it is not a force along the line: read that way, even its share $\cos\pb$ would give the neutron a charge some two hundred standard errors beyond what is measured (\Cref{subsec:test-sign}). For charged particles the charge share is much larger: $2 \times 10^{17}$ times the Coupling term for two protons, and more than a third of Coulomb's pull in hydrogen. The author's two views ask two questions of this product: what its Composer coordinate means, and whether a product of bodies can itself be a body.
+
+%------------------------------------------------
+\section{The First View: the Coupling Term as Two Masses}\label{sec:op-first}
+%------------------------------------------------
+
+\begin{view}[The Coupling Term as Two Masses]\label{view:op-masses}
+The Coupling term $(m_a q_b + m_b q_a)\,\Gp$ has the unit $\mathrm{kg}^2$, and it acts like the product of two masses in Newton's law: either of two masses $m_x m_y$, where $x$ and $y$ could be new particles, or of the total mass of the two bodies and one more mass, $(m_a + m_b)\,m_z$, where $z$ could be a new particle.
+\end{view}
+
+The charge part $q\Gp$ of a body is measured in kilograms, and for one elementary charge it is the Stoney mass $m_S \approx 1.85921 \times 10^{-9}$ kg (Definition~\ref{def:stoney-mass}). The second mass of the view gets a name.
+
+\begin{definition}[The Pair Mass]\label{def:op-pair-mass}
+For two bodies with $m_a + m_b \neq 0$, the \textbf{pair mass} is
+\[
+m_z = |\Gp|\,\frac{m_a q_b + m_b q_a}{m_a + m_b} = \frac{m_a\,(q_b\Gp) + m_b\,(q_a\Gp)}{m_a + m_b} ,
+\]
+the mean of the two charge parts, each weighted by the mass of the other body. Here, as on the identity card, $q\Gp$ stands for the signed length $q\,|\Gp|$ of the charge part.
+\end{definition}
+
+\begin{proposition}[The Coupling Term as Two Newton Pairs]\label{prop:op-pairs}
+Measured by its signed length, the Coupling term of two bodies is
+\[
+(m_a q_b + m_b q_a)\,|\Gp| = m_a\,(q_b\Gp) + m_b\,(q_a\Gp) = (m_a + m_b)\,m_z ,
+\]
+a sum of two products of a mass and a charge part, or one product of the total mass and the pair mass. Read like a force, multiplied by $G/d^2$, it is
+\[
+\frac{G\,m_a\,(q_b\Gp)}{d^2} + \frac{G\,m_b\,(q_a\Gp)}{d^2} = \frac{G\,(m_a + m_b)\,m_z}{d^2} ,
+\]
+two terms of the form of Newton's law, each between the mass of one body and the charge part of the other, or one between the total mass and the pair mass. Its ratio to the gravity term is $\eta_a + \eta_b$, the sum of the two charge-to-mass ratios $\eta = q\Gp/m$ of Remark~\ref{rem:charge-phase}.
+\end{proposition}
+
+\begin{proof}
+The first equality multiplies out the bracket, and the second is Definition~\ref{def:op-pair-mass} multiplied by $m_a + m_b$. The force is the same line multiplied by $G/d^2$. Dividing the Coupling term by $m_a m_b$ gives $q_b\Gp/m_b + q_a\Gp/m_a = \eta_b + \eta_a$.
+\end{proof}
+
+For two protons $m_z = m_S$, and for two electrons $m_z = -m_S$; for a proton and an electron $m_z \approx -0.99891\,m_S$, and for a neutron and a proton $m_z \approx 0.50034\,m_S$.
+
+\paragraph{The status of the first view.}
+\begin{description}
+  \item[Holds as mathematics.] The unit is right, both ways of writing the term are exact, and the formula names the two masses: the mass of one body and the charge part of the other (\Cref{prop:op-pairs}).
+  \item[Not unique.] Any other split into two masses would need a reason from outside the formula.
+  \item[A sign.] The pair mass has the sign of the charges, so it behaves more like a charge written in kilograms than like the mass of a new particle.
+  \item[Excluded as a force along the line.] A neutral body of mass $m$ in an electric field $E$ would feel the force $m\,E\,\sqrt{G/K}$, as if it carried the charge $\sqrt{G/K}\;m$: $9.0 \times 10^{-19}\,e$ for a neutron, whose charge is measured as $(-0.2 \pm 0.8) \times 10^{-21}\,e$ \citep{Baumann1988,Bressi2011,PDG2024}. The whole term misses by about eleven hundred standard errors, and any share of it acting along the line must be below about two parts in a thousand (\Cref{subsec:test-sign}).
+  \item[Open.] Read as a mass, the pair mass points to a definite place in the frame (\Cref{sec:op-diagonal}).
+\end{description}
+
+%------------------------------------------------
+\section{The Diagonal of the Frame}\label{sec:op-diagonal}
+%------------------------------------------------
+
+For two bodies with the same charge, the pair mass is their charge part. A body with $m = |q\Gp|$ lies on a diagonal of the Cosmic Mass Frame: the ray $\alpha = \pb/2 \approx 39.93^\circ$ for a positive charge, and $\alpha \approx 309.93^\circ$ for a negative one (\Cref{sec:sm-frame}, reading~3).
+
+\begin{proposition}[Three Zones for Two Equal Bodies]\label{prop:op-zones}
+Two equal bodies of positive mass $m$ and charge $q$, the distance $d$ apart, pull each other when $|q\Gp| < m$, push each other when $|q\Gp| > m$, and feel no force when $|q\Gp| = m$. On the cards, where bodies of positive mass have charge phase angles between $-100.14^\circ$ and $79.86^\circ$: they pull when $\alpha$ lies between $-50.07^\circ$ and $39.93^\circ$, push when it lies between $39.93^\circ$ and $79.86^\circ$ or between $-100.14^\circ$ and $-50.07^\circ$, and balance on the two diagonals.
+\end{proposition}
+
+\begin{proof}
+By Definition~\ref{def:reading} the force is $(G m^2 - K q^2)/d^2 = G\,\bigl(m^2 - (q\Gp)^2\bigr)/d^2$, since $K = G\,|\Gp|^2$. On the cards, a body of positive mass has $\sin(\pb - \alpha) > 0$ (Remark~\ref{rem:mass-charge-rep}), so its angle lies between $\pb - 180^\circ \approx -100.14^\circ$ and $\pb$, and twice its angle between $2\pb - 360^\circ$ and $2\pb$. In that range, \Cref{prop:law-cards} with $\alpha_a = \alpha_b = \alpha$ gives a pull exactly when $2\alpha$ lies between $\pb - 180^\circ$ and $\pb$, that is, when $\alpha$ lies between $\pb/2 - 90^\circ \approx -50.07^\circ$ and $\pb/2 \approx 39.93^\circ$, a push in the rest of the range, and no force on the two diagonals.
+\end{proof}
+
+The diagonals cut the frame into zones (\Cref{fig:op-zones}): the \emph{gravity side} near the mass axis, with the atoms, the neutron, planets and stars, and the \emph{charge side} near the charge axes, with every charged particle, ion and nucleus, the electron $2.0 \times 10^{21}$ times beyond the diagonal. On a diagonal two equal bodies can rest at any distance from each other (Remark~\ref{rem:stoney-planck}).
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  % zones for positive mass: gravity side between the diagonals, charge side beyond them
+  \fill[RoyalBlue!9] (0,0) -- (3.6,3.6) -- (4.6,3.6) -- (4.6,-3.6) -- (3.6,-3.6) -- cycle;
+  \fill[Maroon!8] (0,0) -- (3.6,3.6) -- (0,3.6) -- cycle;
+  \fill[Maroon!8] (0,0) -- (3.6,-3.6) -- (0,-3.6) -- cycle;
+  \fill[gray!6] (-3.6,-3.6) rectangle (0,3.6);
+  % axes
+  \draw[->, thick] (-3.8,0) -- (4.85,0) node[right] {$m$};
+  \draw[->, thick] (0,-3.8) -- (0,3.85) node[above] {$q\mathcal{G}_{\bar{\phi}}$};
+  % diagonals
+  \draw[very thick, RoyalBlue!75!black] (0,0) -- (3.6,3.6);
+  \draw[very thick, RoyalBlue!75!black] (0,0) -- (3.6,-3.6);
+  \node[RoyalBlue!75!black, anchor=south west, inner sep=1pt] at (3.62,3.6) {$\alpha = 39.93^\circ$};
+  \node[RoyalBlue!75!black, anchor=north west, inner sep=1pt] at (3.62,-3.6) {$\alpha = 309.93^\circ$};
+  % products of two charged particles: q G = -2 cos(phibar) m
+  \draw[thick, densely dashed, Maroon!80!black] (-3.6,1.2676) -- (4.6,-1.6197);
+  \node[Maroon!80!black, anchor=west, align=left, font=\scriptsize] at (4.68,-1.62) {products of two\\ charged particles,\\ $339.72^\circ$};
+  \node[Maroon!80!black, anchor=south west, align=left, font=\scriptsize] at (-3.55,1.33) {$159.72^\circ$};
+  % zone labels
+  \node[RoyalBlue!80!black, align=center] at (3.05,1.7) {\textbf{gravity side}\\ equal bodies pull};
+  \node[Maroon!80!black, align=center] at (1.05,2.75) {\textbf{charge side}\\ equal bodies\\ push};
+  \node[Maroon!80!black, align=center] at (1.05,-2.75) {\textbf{charge side}\\ equal bodies\\ push};
+  \node[gray!70!black, align=center] at (-1.85,-2.3) {negative mass:\\ no body};
+  % marks
+  \fill[RoyalBlue!75!black] (1,1) circle (1.8pt);
+  \draw[RoyalBlue!60] (1.06,0.94) -- (1.6,0.66);
+  \node[RoyalBlue!80!black, anchor=west, align=left, font=\scriptsize] at (1.62,0.62) {balanced speck,\\ $m = q\mathcal{G}_{\bar{\phi}} = m_S$};
+  \fill[Maroon!80!black] (0.03,1) circle (1.8pt);
+  \node[Maroon!80!black, anchor=east, font=\scriptsize] at (-0.06,1) {proton, $(0, 1)$};
+  \fill[Maroon!80!black] (0.03,-1) circle (1.8pt);
+  \node[Maroon!80!black, anchor=east, font=\scriptsize] at (-0.06,-1) {electron, $(0, -1)$};
+  \fill[black] (0.06,0) circle (1.6pt);
+  \node[anchor=south west, align=left, font=\scriptsize, inner sep=1pt] at (0.38,0.03) {atoms, neutron};
+  \node[RoyalBlue!80!black, anchor=north, align=center, font=\scriptsize] at (3.9,-0.12) {planets, stars,\\ charged black holes};
+\end{tikzpicture}
+\caption[The diagonal of the frame]{The Cosmic Mass Frame in three zones, with the mass $m$ across and the charge part $q\Gp$ up, in Stoney masses and not to scale beyond the marked points (\Cref{prop:op-zones}). The two diagonals $|q\Gp| = m$ (solid) are the lines of balance for two equal bodies, and the lines of extremal black holes in general relativity (Remark~\ref{rem:op-gr}). The dashed line holds the products of two charged particles (\Cref{prop:op-land}).}
+\label{fig:op-zones}
+\end{figure}
+
+The same line has a place in general relativity.
+
+\begin{remark}[The Diagonal in Einstein's Theory and Beyond]\label{rem:op-gr}
+\leavevmode
+\begin{enumerate}
+  \item \emph{The edge of the black holes.} In 1916 Hans Reissner, and in 1918 Gunnar Nordstr\"om, found the field of a charged body in Einstein's theory \citep{Reissner1916,Nordstrom1918}. A body of mass $m$ and charge $q$ can be a black hole only if $G m^2 \geq K q^2$, that is, if $|q\Gp| \leq m$: on the gravity side of the frame or on one of its diagonals. On a diagonal the black hole is called \emph{extremal}, and for one elementary charge its mass is exactly the Stoney mass $m_S$.
+  \item \emph{Balance at any distance.} In 1947 Sudhansu Datta Majumdar and Achilles Papapetrou found that bodies with $|q\Gp| = m$, all charged with the same sign, can rest in Einstein's theory at any distances from one another, any number of them \citep{Majumdar1947,Papapetrou1947}. In 1972 James Hartle and Stephen Hawking showed that these solutions describe several extremal black holes held in balance \citep{HartleHawking1972}. Remark~\ref{rem:stoney-planck} finds the same balance in the laws of Newton and Coulomb.
+  \item \emph{Gravity as the weakest force.} In a paper of 2006, published in 2007, Nima Arkani-Hamed, Lubo\v{s} Motl, Alberto Nicolis and Cumrun Vafa conjectured that any consistent quantum theory of gravity together with a force of charges must contain a particle whose charge part is at least as large as its mass, $|q\Gp| \geq m$: a particle on the charge side of the diagonal, or on it \citep{ArkaniHamed2007}. The electron lies there, by a factor of $2.0 \times 10^{21}$.
+\end{enumerate}
+\end{remark}
+
+These results belong to general relativity and to the search for a quantum theory of gravity, not to this book. They fall on the diagonal because all of them compare $G m^2$ with $K q^2$. On the upper diagonal one elementary charge goes with $1.86$ micrograms, about the mass of a grain of fine sand. Squeezed into a black hole, such a speck would be an extremal one, with a horizon of radius $G m_S/c^2 \approx 1.38 \times 10^{-36}$ m, $0.0854$ of the Planck length, where Einstein's theory alone cannot be trusted. The first view thus lands on a definite line, though by construction; whether the line means more than the condition $G m^2 = K q^2$, which the laws of Newton and Coulomb share with Einstein's, is open.
+
+%------------------------------------------------
+\section{The Second View: a Particle as a Product}\label{sec:op-second}
+%------------------------------------------------
+
+The identity card gives $m = r\cos(\alpha, \phi)$ and $q\Gp = r\sin(\alpha, \phi)$, with $\alpha + \phi = \pb$ (Remarks~\ref{rem:mass-charge-rep} and~\ref{rem:identity}). Equations~\eqref{eq:gs-product-sin} and~\eqref{eq:gs-product-cos} of \Cref{app:gs-transform} write each general function as a product of scaled copies of itself; for the card they read
+\[
+m = r\prod_{k=0}^{2^n - 1} \cos\Bigl(\frac{\alpha}{2^n}, \frac{\phi}{2^n} + \pi\frac{k}{2^n}\Bigr) , \qquad
+q\Gp = r\prod_{k=0}^{2^n - 1} \sin\Bigl(\frac{\alpha}{2^n} + \pi\frac{k}{2^n}, \frac{\phi}{2^n}\Bigr) .
+\]
+
+\begin{view}[A Particle as a Product of Particles]\label{view:op-products}
+Since the mass of a body is a product of many general cosines, and its charge part a product of many general sines, at other angles, a particle could be the result of many other particles.
+\end{view}
+
+The products hold for any number of factors, not only for powers of two.
+
+\begin{proposition}[The Products for Every Number of Factors]\label{prop:op-every-n}
+For every integer $N \geq 1$, and for all real $x$ and $y$ with $x + y \notin \pi\Z$ (the domains of \Cref{app:gs-domains}),
+\begin{align*}
+\sin(x, y) &= \prod_{k=0}^{N-1} \sin\Bigl(\frac{x + \pi k}{N}, \frac{y}{N}\Bigr) , \\
+\cos(x, y) &= \prod_{k=0}^{N-1} \cos\Bigl(\frac{x}{N}, \frac{y + \pi k}{N}\Bigr) ,
+\end{align*}
+and every factor lies in the domain of its function. For $N = 2^n$ these are equations~\eqref{eq:gs-product-sin} and~\eqref{eq:gs-product-cos}.
+\end{proposition}
+
+\begin{proof}
+The classical product of sines,
+\[
+\prod_{k=0}^{N-1} \sin\Bigl(\theta + \frac{\pi k}{N}\Bigr) = \frac{\sin(N\theta)}{2^{N-1}} ,
+\]
+follows from $\prod_{k=0}^{N-1}(1 - t\,\omega^k) = 1 - t^N$, with $\omega = e^{2\pi i/N}$ and $t = e^{2i\theta}$. Apply it with $N\theta = x$, with $N\theta = y$ and with $N\theta = x + y$, and divide:
+\begin{align*}
+\frac{\sin x}{\sin(x + y)} &= \prod_{k=0}^{N-1} \frac{\sin\bigl((x + \pi k)/N\bigr)}{\sin\bigl((x + y + \pi k)/N\bigr)} , \\
+\frac{\sin y}{\sin(x + y)} &= \prod_{k=0}^{N-1} \frac{\sin\bigl((y + \pi k)/N\bigr)}{\sin\bigl((x + y + \pi k)/N\bigr)} .
+\end{align*}
+By the definitions of \Cref{app:gs-definitions}, the left sides are $\sin(x, y)$ and $\cos(x, y)$, and the factors are the general sine at the angles $\bigl((x + \pi k)/N, y/N\bigr)$ and the general cosine at $\bigl(x/N, (y + \pi k)/N\bigr)$, whose two angles add up to $(x + y + \pi k)/N$ in both. No denominator vanishes, because their product is $\sin(x + y)/2^{N-1} \neq 0$, so every factor lies in the domain of \Cref{app:gs-domains}. When $0 < y < \pi$, the second angles $y/N$ and $(y + \pi k)/N$, with $k \leq N - 1$, also lie between $0$ and $\pi$, as in \Cref{app:gs-definitions}.
+\end{proof}
+
+\paragraph{What the factors are.}
+In the products for the card, the two angles of the factor numbered $k$ add up to $(\alpha + \phi + \pi k)/N = (79.86^\circ + 180^\circ \cdot k)/N$, not to $79.86^\circ$. A factor is a pure number from a triangle of another shape, not the card of a body, and all the kilograms stay in $r$. For the proton one factor carries the whole smallness of the mass: two factors give its mass part as $6.90 \times 10^{-19} \times 1.304$, and three as $6.59 \times 10^{-19} \times 0.868 \times 1.574$. The proton does have constituents, three quarks, but they combine by addition: its charge is the sum of theirs, and most of its mass is the energy that binds them \citep{PDG2024}.
+
+\paragraph{Products inside the frame.}
+With whole cards, the product multiplies the magnitudes and adds the charge phase angles, $\mu_a\mu_b = r_a r_b\,e^{(\alpha_a + \alpha_b)\Jp}$ (Proposition~\ref{prop:law-cards} and \Cref{thm:gn-turning}). Divided by a positive reference mass, which the view would have to name, it lands on the ray of the sum of the two angles.
+
+\begin{proposition}[Where Two Charged Particles Land]\label{prop:op-land}
+Let two bodies have charge parts much larger than their masses, $|q\Gp| \gg m$, as every charged particle, ion and nucleus has. Then, up to terms of the order of $m/|q\Gp|$, their product lies on one line through the origin, on which the charge part is $-2\cos\pb \approx -0.35210$ times the mass part: on the ray $2\pb \approx 159.72^\circ$, with a negative mass part, when the two charges have the same sign, and on the ray $2\pb + 180^\circ \approx 339.72^\circ$, with a positive mass part and a negative charge part, when they have opposite signs. If instead one body is neutral, the product is a positive multiple of the other and keeps its ray.
+\end{proposition}
+
+\begin{proof}
+In $\mu_a\mu_b = q_a q_b\,\Gp^2 + (m_a q_b + q_a m_b)\,\Gp + m_a m_b$ the first term is larger than the others by the factor $|q\Gp|/m$. By the Rule of the Square, $q_a q_b\,\Gp^2$ has the real part $-|\Gp|^2 q_a q_b$ and the Composer coordinate $2\,|\Gp|\cos\pb\;q_a q_b$, so its charge part, the coordinate times $|\Gp|$, is $-2\cos\pb$ times its real part. The real part is negative when $q_a q_b > 0$ and positive when $q_a q_b < 0$. The angles follow from \Cref{prop:law-cards}: the sum of two angles near $\pb$, or near $\pb + 180^\circ$, is near $2\pb$, and the sum of one of each is near $2\pb + 180^\circ$. If $q_a = 0$, then $\mu_a\mu_b = m_a\,\mu_b$, a positive multiple of $\mu_b$.
+\end{proof}
+
+Of this line, dashed in \Cref{fig:op-zones}, the ray $159.72^\circ$ lies in the half of negative mass and the ray $339.72^\circ$ in the empty middle of the frame (\Cref{sec:sm-model}, reading~7): no atom, ion or nucleus lies on either.
+
+\begin{remark}[Products Do Not Keep Charge]\label{rem:op-charge-kept}
+Read as bodies, products do not keep charge. A proton and an electron have together no charge, but their product has a charge part $-0.35210$ times its mass part (\Cref{prop:op-land}). A neutron and a proton have together the charge $e$, but their product, divided by a reference mass $m_0$, is $(m_n/m_0)\,\mu_p$, with the charge $e\,m_n/m_0$, equal to $e$ only if $m_0 = m_n$. Every composition in this book keeps charge exactly: in the fusions of Chapter~\ref{ch:closure} the charge parts add (Proposition~\ref{prop:fusion-frame}), and in Chapter~\ref{ch:unified} the Composer coordinate of the conserved source, the charge, is kept exactly (\Cref{thm:un-source}). The composition of bodies adds their cosmic masses, up to a real number, the mass of the energy that leaves or binds them (Proposition~\ref{prop:fusion-frame}). The product has another job: its real part is the force between them.
+\end{remark}
+
+\paragraph{The status of the second view.}
+\begin{description}
+  \item[Holds as mathematics.] The products are exact for every number of factors (\Cref{prop:op-every-n}).
+  \item[The factors are numbers.] They are not the cards of bodies: their two angles do not add up to $79.86^\circ$, and they carry no kilograms.
+  \item[Excluded as a law of composition.] Read as bodies, products do not keep charge (Remark~\ref{rem:op-charge-kept}), and products of charged particles land where no particle lives (\Cref{prop:op-land}).
+  \item[Open.] Whether a measured quantity, such as a relation among the masses of particles that their sum does not explain, follows the products. None is known.
+\end{description}
+
+%------------------------------------------------
+\section{Three More Readings}\label{sec:op-more}
+%------------------------------------------------
+
+\subsection{The Charge Share}\label{subsec:op-share}
+
+For charged particles the Composer coordinate is mostly the charge share (\Cref{tab:op-sizes}). Read along the line, the share is excluded by hydrogen (\Cref{subsec:test-sign}). There the charges are opposite, so it would push back with $0.352$ of Coulomb's pull, and since the energy that holds the electron grows with the square of the pull \citep{Bohr1913}, it would be $0.648^2 \times 13.598 \approx 5.71$ eV instead of the measured $13.598$ eV \citep{Sansonetti2005}.
+
+\subsection{Flipping Every Charge}\label{subsec:op-flip}
+
+\begin{proposition}[Flipping Every Charge]\label{prop:op-flip}
+If the charge of every body changes sign, $q \to -q$, and every mass is kept, then the real part of every product and its charge share are unchanged, and its Coupling term changes sign. In particular, the Coupling term of a particle and its antiparticle, $m\,(-q) + q\,m$, is zero.
+\end{proposition}
+
+\begin{proof}
+The real part $m_a m_b - |\Gp|^2 q_a q_b$ and the charge share $2\,|\Gp|\cos\pb\;q_a q_b$ hold the charges in pairs, and a pair of signs that both flip is kept. The Coupling term $m_a q_b + q_a m_b$ holds each charge once.
+\end{proof}
+
+So, set beside the same neutral mass, a particle and its antiparticle would differ only in the Coupling term: if it were a force, an electron and a positron near the Earth would be pushed in opposite directions. Antihydrogen falls as matter does, $(0.75 \pm 0.13 \pm 0.16)\,g$ \citep{Anderson2023}, but it is neutral and tests nothing here. The fall of a charged antiparticle has not been measured.
+
+\subsection{A Body in a Field}\label{subsec:op-field}
+
+For a body in a cosmic field $\uE = \vg + \ve\,\Gp$, Chapter~\ref{ch:unified} reads the force as the real part of $\mu\,\uE$ (Law~\ref{law:unified}), with the electric field $\vE = -|\Gp|^2\,\ve$. The Composer coordinate of the same product is, by \Cref{prop:three-terms} and the Rule of the Square,
+\[
+m\,\ve + q\,\vg + 2\,|\Gp|\cos\pb\;q\,\ve :
+\]
+mass with the charge part of the field, charge with gravity, and the charge share: Faraday's question again (\Cref{fig:faraday-coil}). Read as forces,
+\begin{itemize}
+  \item a charge $q$ in the gravity $g$ would feel the force $|q\Gp|\,g$, as if it sat in an electric field of $|\Gp|\,g \approx 1.14 \times 10^{11}$ V/m: $1$ nC would feel $114$ N;
+  \item a neutral mass $m$ in an electric field $E$ would feel the force $m\,E\sqrt{G/K}$, as if it carried the charge $\sqrt{G/K}\;m$ (\Cref{sec:op-first}).
+\end{itemize}
+
+\begin{remark}[Hidden Inside Metal]\label{rem:op-screen}
+A force that acts on each charge in proportion to its charge, whatever its mass, acts on charges exactly as an electric field does, and conductors and plasmas cancel such a field inside them, as they cancel any electric field: their free electrons move until the force on them vanishes. Schiff and Barnhill argued in 1966 that, for the weight of the electrons themselves, a field of $m_e g/e \approx 5.6 \times 10^{-11}$ V/m forms in and near a metal and holds them up \citep{SchiffBarnhill1966}; the size of that field in a real metal was soon disputed \citep{Dessler1968}. In 1967 Fred Witteborn and William Fairbank found that free electrons falling inside a copper tube feel almost no net force \citep{WittebornFairbank1967}. The half of the Coupling term that acts on a charge in gravity would be hidden in the same way, inside any closed box of metal. The half that acts on a mass in an electric field cannot be hidden: a neutral body has no free charges to move. And the two halves are one term seen from its two bodies: the piece $m_a q_b$ acts on body $a$ as a mass in the field of $b$, and on body $b$, equally and oppositely, as a charge in the gravity of $a$, with one strength. The limit that the neutron sets therefore holds for both halves.
+\end{remark}
+
+The decisive test is therefore the neutron in an electric field (\Cref{subsec:test-sign}). It limits both halves, including the half that an electron beam would feel, so the conclusion of \Cref{sec:al-coupling} stands.
+
+%------------------------------------------------
+\section{What Measurement Already Says}\label{sec:op-measured}
+%------------------------------------------------
+
+\Cref{tab:op-tests} sets each reading beside the measurements that already limit it.
+
+\begin{table}[tb]
+\myfloatalign
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.19\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.17\textwidth}@{}}
+\toprule
+\tableheadline{reading} & \tableheadline{what it would do} & \tableheadline{measurement} & \tableheadline{status} \\
+\midrule
+Coupling term along the line (\Cref{sec:op-first}) & a neutron acts as if charged, $9.0 \times 10^{-19}\,e$ & neutron charge \mbox{$(-0.2 \pm 0.8) \times 10^{-21}\,e$} & excluded; any share below about $0.002$ \\
+charge share along the line (\Cref{subsec:op-share}) & hydrogen holds its electron with $5.71$ eV & $13.598$ eV & excluded \\
+a charge in gravity (\Cref{subsec:op-field}) & every charge as if in $1.14 \times 10^{11}$ V/m & electrons in a copper tube & hidden by metal; its strength is the one the neutron limits \\
+Coupling term inside the atom (\Cref{tab:op-sizes}) & $9.0 \times 10^{-19}$ of Coulomb's pull in hydrogen & atomic spectra & too small to see; no test \\
+particle against antiparticle (\Cref{subsec:op-flip}) & opposite pushes near a neutral mass & antihydrogen falls, \mbox{$(0.75 \pm 0.13 \pm 0.16)\,g$} & neutral, so no test; charged antiparticles not measured \\
+products as bodies (\Cref{sec:op-second}) & charge not kept & every fusion of Chapter~\ref{ch:closure} & excluded as composition \\
+the diagonal (\Cref{sec:op-diagonal}) & the line of balance and of extremal black holes & none needed: the condition $G m^2 = K q^2$ of known laws & holds as mathematics; no new prediction \\
+\bottomrule
+\end{tabularx}
+\caption[What measurement already says]{What measurement already says about the readings of this chapter. The neutron charge is from \citet{Baumann1988}, \citet{Bressi2011} and \citet{PDG2024}, the energy of hydrogen from \citet{Sansonetti2005}, the electrons in copper from \citet{WittebornFairbank1967}, and the fall of antihydrogen from \citet{Anderson2023}; the diagonal is \Cref{prop:op-zones} and Remark~\ref{rem:op-gr}.}
+\label{tab:op-tests}
+\end{table}
+
+Measurement has excluded every reading of the Composer coordinate as a force along the line, at the size that the product gives it. It has said nothing about the coordinate as anything else, a mass, a property of a pair, a line of the frame, or a quantity that is not a force at all, as Weyl's phase was not a length. There the readings stay open.
+
+%------------------------------------------------
+\section{Questions for Volume~2}\label{sec:op-questions}
+%------------------------------------------------
+
+Volume~2 can try to answer each question below in the form that Chapter~\ref{ch:alignment} asks of a new prediction (\Cref{sec:al-coupling}): a number with its error, an experiment able to see it, agreement with every measurement that already limits it, and a result that would refute it, stated in advance.
+\begin{enumerate}
+  \item \emph{What reads the Composer coordinate?} A reading other than a force along the line, such as an energy, a phase or a property of pairs, must give a number that the measurements of \Cref{tab:op-tests} allow.
+  \item \emph{Is there one pair mass?} Does the law itself select one way of writing the Coupling term as two masses, and does any body carry the pair mass? A new particle would need a mass, a charge, and a way to make it or see it.
+  \item \emph{What is the diagonal?} Does the cosmic mass describe the extremal black hole, or the many bodies of Majumdar and Papapetrou, beyond the laws of Newton and Coulomb? The question needs the strong fields where this volume gives way to general relativity (Chapter~\ref{ch:unified}).
+  \item \emph{Does anything follow the product?} Is there a measured relation among the masses or charges of particles that their sum does not explain? Since every composition keeps charge, it could hold only among quantities that compositions do not add.
+  \item \emph{Does a charged antiparticle fall as its particle does?} Only the Coupling term would tell them apart near a neutral mass, within the limit that the neutron sets. The experiment is hard (Remark~\ref{rem:op-screen}), and it has not been done.
+  \item \emph{Does the angle belong to nature or to the units?} The angle of the Composer axis comes from one number, $1.16043$, the size of the Composer Unit once the factor $10^{10}$ is given to its direction (\Cref{subsec:cu-angle}); in other units, $\sqrt{K/G}$ is written with another number. Is $79.86^\circ$ a property of nature, or of the units in which $K$ and $G$ are written? No force in this volume can say, because the real part of a product does not contain the angle (\Cref{subsec:which-root}); a measurement that reads the Composer coordinate, if one exists, would be the first that could.
+\end{enumerate}
+
+Chapter~\ref{ch:allows} draws the frame in full, and the Coda looks back over the whole road.
+
+% keep the box together: break the page here if fewer than 12 lines are left
+\keepblock{12}
+\begin{plainwords}[What we have so far]
+\begin{itemize}
+  \item The product of two cosmic masses has two parts: the force, which is measured, and the Composer coordinate, which holds the Coupling term and the charge share and is not read.
+  \item The first view reads the Coupling term as two masses. That is exact, and for two equal bodies the second mass lies on the diagonal of the frame, the line of extremal black holes in general relativity. As a force along the line, it is excluded by the neutron.
+  \item The second view reads a particle as a product of particles. The products are exact for any number of factors, but the factors are numbers, not bodies, and products do not keep charge.
+  \item Every reading of the Composer coordinate as a force along the line is excluded; every reading of it as something else is open, and those are the questions of Volume~2.
+\end{itemize}
+\end{plainwords}

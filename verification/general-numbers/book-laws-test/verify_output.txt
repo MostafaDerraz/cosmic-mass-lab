@@ -1,0 +1,21 @@
+DIGITAL TEST OF THE ALGEBRA OF GENERAL NUMBERS (version 2)
+The Cosmic Mass, Volume 1: Section 4.9 with Subsection 4.9.7, and Appendix F with F.8 (draft of 6 November 2026)
+Run on 2026-11-10 17:09, Python 3.12.10, seed 20261106, 55.1 s
+
+Laws:              144 of 144 passed (25 of them new in 4.9.7 and F.8)
+Evaluations:       684,167
+Largest error:     9.5e-13 for the exact laws, 4.0e-09 with finite differences
+Negative controls: 14 of 14 wrong laws caught
+Complex case:      26 of 26 laws at pi/2 match Appendix C; exact: 12 of 12 checks hold
+Exact checks:      22 of 22 hold, with no rounding (6,600 exact cases)
+Worked examples:   107 of 107 printed numbers match
+Planted errors:    5 of 5 found
+Planes:            85 (79.86°, π/3, π/2, 89.9°, 90.1°, 60 random angles with the Axiom's length, 20 with a free length)
+
+IS THE COMPLEX PLANE STILL INSIDE, AS THE SPECIAL CASE pi/2?  YES
+  - All 26 laws of the complex case, 10 of them for 4.9.7 and F.8, hold at pi/2 against Appendix C, computed with Python's complex numbers; largest error 2.5e-14.
+  - Exact checks at pi/2, no rounding: 12 of 12 hold on 3,600 exact numbers. There the arithmetic of the leaning frame is exactly the arithmetic of the complex numbers.
+  - The 8 habits of the complex plane, used for the parts, are caught as wrong in every leaning plane (8 of 8), and they hold at pi/2.
+  - Approaching 90°, their largest miss falls from 4.0e+00 at 79.86° to 2.0e-14 at 90°, while the true laws hold at every step.
+
+All laws held. Reports written: test-report.html and test-report.txt

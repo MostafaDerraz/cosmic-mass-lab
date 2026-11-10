@@ -1,0 +1,83 @@
+% **************************************************************************************************************
+% The Cosmic Mass: One Number for Mass and Charge
+% Mostafa Derraz
+% Typeset with the IMISE classicthesis template (https://github.com/IMISE/imise-classicthesis),
+% based on "A Classic Thesis Style" by Andre Miede and Ivo Pletikosic.
+% Compile with: latexmk -pdf book.tex   (pdfLaTeX + BibTeX)
+% **************************************************************************************************************
+\RequirePackage{silence}
+    \WarningFilter{scrreprt}{Usage of package `titlesec'}
+    \WarningFilter{titlesec}{Non standard sectioning command detected}
+\documentclass[ american, twoside,openright,titlepage,numbers=noenddot,
+                headinclude,footinclude,cleardoublepage=empty,abstract=off,
+                BCOR=5mm,paper=a4,fontsize=11pt
+                ]{scrreprt}
+
+\input{classicthesis-config}
+
+\begin{document}
+\frenchspacing
+\raggedbottom
+\selectlanguage{american}
+\pagenumbering{roman}
+\pagestyle{plain}
+
+%********************************************************************
+% Front matter
+%*******************************************************
+\include{FrontBackmatter/Titlepage}
+\include{FrontBackmatter/Titleback}
+\cleardoublepage\include{FrontBackmatter/Epigraph}
+\cleardoublepage\include{FrontBackmatter/Preface}
+\cleardoublepage\include{FrontBackmatter/HowToRead}
+\cleardoublepage\include{FrontBackmatter/Contents}
+
+%********************************************************************
+% Main matter
+%*******************************************************
+\cleardoublepage
+\pagestyle{scrheadings}
+\pagenumbering{arabic}
+
+\cleardoublepage
+\part{Beyond the Right Angle}\label{pt:beyond}
+\include{Chapters/Chapter01}
+\include{Chapters/Alignment}
+\include{Chapters/Chapter02}
+\include{Chapters/Chapter03}
+
+\cleardoublepage
+\part{The Foundations of Cosmic Mass Theory}\label{pt:foundations}
+\include{Chapters/Chapter04}
+\include{Chapters/Chapter05}
+\include{Chapters/Chapter06}
+
+\cleardoublepage
+\part{From Nuclei to Fields}\label{pt:nuclei-fields}
+\include{Chapters/Chapter07}
+\include{Chapters/Chapter08}
+
+\cleardoublepage
+\part{Open Questions}\label{pt:open}
+\include{Chapters/Chapter09}
+\include{Chapters/Chapter10}
+
+\cleardoublepage
+\include{Chapters/Coda}
+
+%********************************************************************
+% Back matter
+%*******************************************************
+\appendix
+\cleardoublepage
+\part*{Appendix}
+\include{Chapters/AppendixA}
+\include{Chapters/AppendixB}
+\include{Chapters/AppendixC}
+\include{Chapters/AppendixD}
+\include{Chapters/AppendixE}
+\include{Chapters/AppendixF}
+
+\cleardoublepage\include{FrontBackmatter/Bibliography}
+\cleardoublepage\include{FrontBackmatter/Colophon}
+\end{document}

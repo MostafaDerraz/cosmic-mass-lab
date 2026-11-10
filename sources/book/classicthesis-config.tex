@@ -1,0 +1,185 @@
+% ****************************************************************************************************
+% classicthesis-config.tex
+% Adapted from the IMISE classicthesis template (https://github.com/IMISE/imise-classicthesis),
+% itself based on classicthesis by Andre Miede and Ivo Pletikosic.
+% Adapted for the book "The Cosmic Mass" by Mostafa Derraz.
+% ****************************************************************************************************
+
+% ****************************************************************************************************
+% 0. Encoding (and color names used by classicthesis, before any package loads xcolor)
+% ****************************************************************************************************
+\PassOptionsToPackage{dvipsnames,usenames}{xcolor}
+\PassOptionsToPackage{utf8}{inputenc}
+  \usepackage{inputenc}
+\PassOptionsToPackage{T1}{fontenc}
+  \usepackage{fontenc}
+
+% ****************************************************************************************************
+% 1. classicthesis options
+% ****************************************************************************************************
+\PassOptionsToPackage{
+  drafting=true,             % prints the version line at the bottom of pages (set to false for the final book)
+  tocaligned=false,
+  dottedtoc=false,
+  eulerchapternumbers=false,
+  floatperchapter=true,      % Figure 3.1, Table 3.1, ...
+  eulermath=false,
+  beramono=false,            % beramono is not installed here
+  palatino=true,
+  style=classicthesis
+}{classicthesis}
+
+% ****************************************************************************************************
+% 2. Book data (edit here)
+% ****************************************************************************************************
+\newcommand{\myTitle}{The Cosmic Mass\xspace}
+\newcommand{\mySubtitle}{One Number for Mass and Charge\xspace}
+\newcommand{\myVolume}{Volume 1\xspace}
+\newcommand{\myName}{Mostafa Derraz\xspace}
+\newcommand{\myAffiliation}{Independent Researcher\xspace}
+\newcommand{\myORCID}{0000-0002-2307-9298\xspace}
+\newcommand{\myEmail}{m.derraz@proton.me\xspace}
+\newcommand{\myLocation}{Morocco\xspace}
+\newcommand{\myTime}{2026\xspace}
+\newcommand{\myVersion}{First draft\xspace}
+
+% ****************************************************************************************************
+% 3. Packages
+% ****************************************************************************************************
+\PassOptionsToPackage{american}{babel}
+\usepackage{babel}
+\usepackage{csquotes}
+
+\usepackage[round,authoryear]{natbib}
+
+\PassOptionsToPackage{fleqn}{amsmath}
+  \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+\usepackage{graphicx}
+\usepackage{scrhack}
+\usepackage{xspace}
+\PassOptionsToPackage{activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10}{microtype}
+\usepackage{microtype}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}   % the symbol list of Appendix D, which runs over two pages
+\setlength{\extrarowheight}{3pt}
+\newcommand{\tableheadline}[1]{\multicolumn{1}{l}{\spacedlowsmallcaps{#1}}}
+\newcommand{\myfloatalign}{\centering}
+\setlength{\emergencystretch}{2.5em}
+\usepackage{enumitem}
+\setlist{itemsep=0.25em}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,angles,quotes,decorations.pathreplacing,patterns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage[most]{tcolorbox}
+
+% ****************************************************************************************************
+% 4. Her Majesty herself
+% ****************************************************************************************************
+\PassOptionsToPackage{hyperfootnotes=false}{hyperref}
+\usepackage{classicthesis}
+
+% Version line printed at the foot of each page while drafting (no dash)
+\ifdefined\PrelimText\renewcommand{\PrelimText}{\footnotesize[\,\myVersion, \today\,]}\fi
+
+\hypersetup{%
+  colorlinks=true, linktocpage=true, pdfstartpage=1, pdfstartview=FitV,%
+  breaklinks=true, pageanchor=true,%
+  pdfpagemode=UseOutlines,%
+  plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+  hypertexnames=true, pdfhighlight=/O,%
+  urlcolor=CTurl, linkcolor=CTlink, citecolor=CTcitation,%
+  pdftitle={\myTitle, \myVolume: \mySubtitle},%
+  pdfauthor={\myName},%
+  pdfsubject={General Sinus, General Numbers, Cosmic Mass},%
+  pdfkeywords={General Numbers, Composer Unit, Cosmic Mass, General Sinus, mass, electric charge},%
+  pdfcreator={pdfLaTeX},%
+  pdfproducer={LaTeX with hyperref and classicthesis}%
+}
+
+\usepackage{cleveref}
+
+% ****************************************************************************************************
+% 5. Theorem-like statements
+%    Axioms have their own counter; theorems, definitions and remarks share one counter,
+%    both numbered within the chapter. Within Chapters 4 and 6 this keeps the order and numbering of the
+%    original papers, with the chapter number raised by one since the new Chapter 2:
+%    Axiom 3.1, Theorem 5.6, Remark 5.15 of the papers are Axiom 4.1, Theorem 6.6, Remark 6.15 here.
+% ****************************************************************************************************
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{axiom}{Axiom}[chapter]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ****************************************************************************************************
+% 6. Notation used throughout the book
+% ****************************************************************************************************
+\newcommand{\pb}{\bar{\phi}}                        % projection angle of the composer axis
+\newcommand{\Gp}{\mathcal{G}_{\bar{\phi}}}          % Composer Unit
+\newcommand{\Ap}{\mathcal{A}_{\bar{\phi}}}          % amplitude of the Composer Unit
+\newcommand{\up}{\vec{u}_{\bar{\phi}}}              % direction of the Composer Unit
+\newcommand{\GN}{\mathbb{G}}                        % General Number Plane
+\newcommand{\GNp}{\mathbb{G}_{\bar{\phi}}}          % Relative Plane
+\newcommand{\xv}{\vec{x}}
+\newcommand{\yv}{\vec{y}}
+\newcommand{\er}{\vec{e}_r}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\seg}[1]{[#1]}                          % length of a segment, as in the papers
+\newcommand{\Zb}{\bar{Z}}                            % projected image of the point Z
+
+% ****************************************************************************************************
+% 7. Boxes and small layout helpers
+% ****************************************************************************************************
+\definecolor{plainbg}{RGB}{241,245,250}
+\definecolor{plainframe}{RGB}{95,120,160}
+\definecolor{notebg}{RGB}{250,246,238}
+\definecolor{noteframe}{RGB}{170,120,60}
+
+% "In plain words": an explanation in everyday language (never numbered)
+\newtcolorbox{plainwords}[1][In plain words]{%
+  enhanced, breakable, colback=plainbg, colframe=plainframe, boxrule=0pt, leftrule=2.5pt,
+  arc=0pt, outer arc=0pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fonttitle=\normalfont\scshape, coltitle=plainframe, colbacktitle=plainbg,
+  title={#1}, attach title to upper={\par\smallskip}, before skip=10pt, after skip=10pt,
+  lines before break=4}
+
+% "Worked example": a short calculation that uses the formulas exactly as stated (never numbered)
+\newtcolorbox{workedexample}[1][Worked example]{%
+  enhanced, breakable, colback=notebg, colframe=noteframe, boxrule=0pt, leftrule=2.5pt,
+  arc=0pt, outer arc=0pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fonttitle=\normalfont\scshape, coltitle=noteframe, colbacktitle=notebg,
+  title={#1}, attach title to upper={\par\smallskip}, before skip=10pt, after skip=10pt,
+  lines before break=4}
+
+% Start a new page here if fewer than #1 lines are left on the current page; do nothing otherwise
+\makeatletter
+\newcommand{\keepblock}[1]{\par\begingroup\dimen@=\pagegoal\advance\dimen@-\pagetotal
+  \ifdim\pagetotal>\z@\ifdim\dimen@<#1\baselineskip\newpage\fi\fi\endgroup}
+\makeatother
+
+% Place and date line that opens a historical scene (never left alone at the foot of a page)
+\newcommand{\scene}[1]{\par\medskip\noindent{\centering\spacedlowsmallcaps{#1}\par}\nobreak\medskip}
+
+% Author placeholders (easy to find and replace)
+\newcommand{\placeholder}[1]{\textcolor{Maroon}{[#1]}}
+
+% Chapter opening line
+\newcommand{\chapterlead}[1]{\begingroup\itshape #1\par\endgroup\bigskip}
+
+% Epigraph
+\newcommand{\bookepigraph}[2]{%
+  \begin{flushright}\begin{minipage}{0.78\textwidth}\raggedleft\itshape #1\\[0.4em]\normalfont\small #2\end{minipage}\end{flushright}\bigskip}

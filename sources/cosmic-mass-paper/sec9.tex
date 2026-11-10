@@ -1,0 +1,93 @@
+% ======================================================================
+\section{Discussion}\label{sec:discussion}
+% ======================================================================
+
+\subsection{What is new content and what is new form}\label{subsec:content-form}
+
+Two kinds of result appear in this paper, and they should be kept apart. The first kind is \emph{form}: the Cosmic Interaction Law read by its real part (\cref{prop:law-real,prop:sign}), and the field law with its split, its conservation laws and its action (\cref{prop:un-split,thm:un-maxwell,thm:un-action}). These write known physics with one number for each body; they are right where the old laws are right and predict nothing that the old laws do not. The second kind is \emph{statements that already fail}, the tests of general relativity (\cref{tab:gravity-tests}). The paper has no third kind, content that a future measurement could refute, for the parts it reads; such content can only come from the Composer coordinate, which it does not read (\cref{subsec:coupling}).
+
+A reformulation that predicts nothing new still has to earn its place, and a reader may fairly ask what this one gives. We see three modest uses. First, the difference of sign between gravity and Coulomb's force, and between the energy of a gravitational field and that of an electric one (\cref{prop:un-two-faces}), come from one rule of one number system, the Rule of the Square, read once, instead of from two signs set by hand; the difficulty Maxwell described in 1864, when he asked whether gravity could be a field like his, can be seen here as a consequence of that single rule. Second, every result is stated with its assumptions, proved, and checked by a script that recomputes each printed number (\cref{subsec:scripts}), so that others can check it and extend it. Third, the paper sets out what, as far as we can see, any extension would have to meet: the angle cancels from everything measured (\cref{prop:angle-invariance}), natural units return the complex plane (\cref{rem:natural-units}), and a reading of the Composer coordinate must pass the null results already known and survive a change of unit (\cref{subsec:open}). Whether such a reading exists is the question this paper leaves open.
+
+\subsection{Why a leaning plane and not the complex plane}\label{subsec:why-lean}
+
+Every true relative plane is a copy of $\C$ written in an oblique frame (\cref{subsec:square}). The complex number $m + \mathrm{i}\,q\sqrt{K/G}$ would therefore give the same real part of the product, $G\,m_a m_b - K\,q_a q_b$, and the same field law: for every measured quantity of \cref{sec:rest,sec:motion}, the complex plane would do. The two differ in three ways. In $\C$ the second unit has the length one, and the scale $\sqrt{K/G}$ must be put in as a separate constant; in a relative plane it is the length of the Composer Unit itself, and the Axiom ties that length to an angle. Only in a leaning plane, too, do the real part and the shadow differ~\cref{eq:shadow-law}; at $90^\circ$ they agree, and the question of \cref{subsec:why-sign} does not arise. And only in a leaning plane does the Composer coordinate of a product hold a term that depends on the angle, $2s\cos\pb\,q_a q_b$ (\cref{prop:law-real}); in $\C$ that term is zero. None of these changes a measured number. The leaning plane is a choice of form. It lets the length $\sqrt{K/G}$ set an angle, but only once a unit is chosen (\cref{subsec:angle-units}), so compared with $\C$ it needs one more input.
+
+\subsection{The angle and the units}\label{subsec:angle-units}
+
+The Axiom compares a length with the number $\lvert\cos\pb + \sin\pb\rvert$, which never exceeds $\sqrt2$, while the size $s$ of the Composer Unit carries the unit kg\,C$^{-1}$. As \cref{subsec:our-plane} set out, the Axiom can only be read for the pure number $A = s/u$, once a scale unit $u$ is chosen. There is one measured quantity, $s$, and two free choices, $u$ and the root, so every choice of frame reproduces the same $s$.
+
+\begin{proposition}[Angle invariance]\label{prop:angle-invariance}
+Let $u$ be any scale unit for which the Axiom has a root $\pb$ with $\lvert\cos\pb + \sin\pb\rvert = s/u$ in a true relative plane. Then every statement of \cref{sec:rest,sec:motion} that concerns a measured quantity, that is, \cref{prop:law-real,prop:sign}, \cref{def:reading}, \cref{prop:un-split}, \cref{thm:un-maxwell,thm:un-waves}, \cref{prop:un-lorentz}, \cref{thm:un-source,thm:un-energy}, \cref{prop:un-two-faces}, \cref{thm:un-momentum} and \cref{thm:un-action}, holds unchanged in the frame $(u, \pb)$, with every number of \cref{tab:un-results}.
+\end{proposition}
+
+\begin{proof}
+Each of these statements uses the plane only through the real part of a product of two General Numbers with real coefficients, $\Re[(a + b\,\Gp)(c + d\,\Gp)] = ac - s^2\,bd$~\cref{eq:real-product}, and through $G\,s^2 = K$~\cref{eq:cu-size}. Neither holds the angle or the unit $u$; only the physical size $s$ appears.
+\end{proof}
+
+\Cref{tab:frames} gives some of the frames. In units of $10^{9}$~kg\,C$^{-1}$, $A = 11.6$ is beyond $\sqrt2$ and the Axiom has no root; in Gaussian units, where $K = 1$, the same ratio is $1/\sqrt{G} \approx 3871$~g per statcoulomb.
+
+\begin{table}[t]
+\caption{Frames of the cosmic mass. Each row reads the same physical size $s = \sqrt{K/G}$ in a different scale unit $u$; the angles are the roots of the Axiom for the drawing length $A = s/u$~\citep[Theorem~3.6]{DerrazGN2026}. Every row gives the same measured physics (\cref{prop:angle-invariance}).}
+\label{tab:frames}
+\small\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+scale unit $u$ & drawing length $A = s/u$ & roots of the Axiom \\
+\midrule
+$10^{9}$~kg\,C$^{-1}$ & $11.6$ & none \\
+$10^{10}$~kg\,C$^{-1}$ (this paper) & $1.16043$ & $10.14^\circ$ and $79.86^\circ$ \\
+$10^{11}$~kg\,C$^{-1}$ & $0.116$ & $130.29^\circ$ and $139.71^\circ$ \\
+$m_P/q_P$ (Planck) or $m_S/e$ (Stoney) & $1$ & $90^\circ$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[Natural units]\label{rem:natural-units}
+With the Planck mass $m_P = \sqrt{\hbar c/G}$ and the Planck charge $q_P = \sqrt{4\pi\varepsilon_0\hbar c}$, one has $m_P/q_P = 1/\sqrt{4\pi\varepsilon_0 G} = \sqrt{K/G} = s$; with the Stoney mass $m_S = e\,s$ and the elementary charge, $m_S/e = s$ as well. In either system of natural units, therefore, $A = 1$. In a true relative plane the Axiom $\lvert\cos\pb + \sin\pb\rvert = 1$ then has the single root $\pb = \pi/2$, and the cosmic mass is the complex number $\mu = m + \mathrm{i}\,q\,s$. The lean of $79.86^\circ$ comes from the SI scale unit $10^{10}$~kg\,C$^{-1}$; in natural units the frame of the cosmic mass is the complex plane.
+\end{remark}
+
+The angle $79.86^\circ$ is therefore a property of the SI value of $s$ read in one chosen unit, and the choice between the two roots is a convention too (\cref{subsec:why-sign}). What depends on the angle is the shadow, which this paper does not use and which experiment excludes at the drawn angle (\cref{subsec:coupling}), and the Composer coordinate of a product, which this paper does not read. In our view, an angle other than $90^\circ$ could carry physics only if a principle that does not depend on units fixed it, and it would then have to predict a dimensionless number that was not put in (\cref{subsec:open}).
+
+\subsection{The Coupling term: an open question}\label{subsec:coupling}
+
+The third term of \cref{law:interaction}, $G(m_a q_b + q_a m_b)\,\Gp/r^2$, has no real part and exerts no force in the real reading. For two protons one metre apart its Composer part has the length $4.15 \times 10^{-46}$~N, eighteen orders of magnitude below their Coulomb force. Read by its shadow~\cref{eq:shadow-law}, it would act: a neutral body near a charge would feel a force in proportion to its mass, as if it carried the charge $m\cos\pb/\lvert\Gp\rvert$. For the neutron this is $1.6 \times 10^{-19}\,e$, while the measured charge of the free neutron is $(-0.4 \pm 1.1) \times 10^{-21}\,e$~\citep{Baumann1988}: the shadow reading is excluded by about 145 standard errors at the angle $79.86^\circ$, and the real reading predicts zero. Since the excluded share is $\cos\pb$, this test too depends on the unit that fixes the angle. What the Composer coordinate of a product means, if anything, we do not know. It holds the Coupling term and a share of the term of two charges, $2\lvert\Gp\rvert\cos\pb\,q_a q_b$, by far the larger for charged particles. A measurement tied to it would turn this part of the form into content.
+
+\subsection{Relation to earlier work}\label{subsec:earlier}
+
+The ratio $\sqrt{K/G}$ is Stoney's~\citep{Stoney1881}, and the Stoney mass $m_S = e\sqrt{K/G} \approx 1.85921 \times 10^{-9}$~kg is one of the oldest natural units; its relation to the Planck mass, $m_S = \sqrt{\alpha_{\mathrm{fs}}}\,m_P$, is standard. The same ratio appears in general relativity: the field of a charged mass found by Reissner~\citep{Reissner1916} and Nordstr\"om~\citep{Nordstrom1918} has a horizon only when $G\,m^2 \ge K\,q^2$, that is, when the mass part of the cosmic mass is at least as long as its charge part, $m \ge \lvert q\rvert\,s$. The cosmic mass does not use that solution, and this paper makes no claim about it. Heaviside's analogy between gravity and electromagnetism~\citep{Heaviside1893} has a long history, and its relation to linearized general relativity, with the factors that make the gravitomagnetic effects four times larger, is reviewed in~\citep{Mashhoon2003}. The real coordinate of the field law is that analogy and its Composer coordinate is Maxwell's theory~\citep{Maxwell1865}; what the field law offers is a way of writing the two with one number for each body and one action. Kaluza~\citep{Kaluza1921} and Klein~\citep{Klein1926} joined gravity and electromagnetism by a fifth dimension, in which charge is motion along the extra direction; the cosmic mass explores a different and much more limited road, a second axis in the number plane, and stays at the level of slow bodies. \Cref{tab:earlier} sets the three side by side. The mathematics, the General Sinus~\citep{Derraz2026GSP} and the General Numbers~\citep{DerrazGN2026}, is the author's earlier work, and the algebra of each relative plane is that of the elliptic generalized complex numbers studied there, whose geometry is described in~\citep{Yaglom1968,HarkinHarkin2004}. Every two-dimensional real algebra with a unit is isomorphic to the complex, the dual or the split-complex numbers~\citep{KantorSolodovnikov1989}, and every true relative plane is of the first kind.
+
+\begin{table}[t]
+\caption{The cosmic mass beside earlier ways of writing gravity and electromagnetism together.}
+\label{tab:earlier}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X@{}}
+\toprule
+ & Heaviside's analogy~\citep{Heaviside1893} and gravitoelectromagnetism~\citep{Mashhoon2003} & Kaluza--Klein~\citep{Kaluza1921,Klein1926} & cosmic mass (this paper) \\
+\midrule
+inputs of a body & mass, and separately charge & mass and charge, charge as motion in a fifth dimension & one General Number $\mu = m + q\,\Gp$ \\
+fields & two sets of Maxwell-type equations, one for each & one metric in five dimensions & one set with General Number values, split into two (\cref{prop:un-split}) \\
+mathematics & vector calculus & general relativity in five dimensions & vector calculus over a relative plane \\
+gravity tests & gravitoelectromagnetism is the slow, weak-field limit of general relativity and gives its frame dragging; Heaviside's form gives a quarter of it & contains general relativity & fails them (\cref{tab:gravity-tests}) \\
+new predictions & frame dragging, in gravitoelectromagnetism & a scalar field and a tower of massive states & none for slow bodies; the Composer coordinate is unread \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Open questions}\label{subsec:open}
+
+\begin{enumerate}[label=(\arabic*), leftmargin=2em]
+  \item \emph{The Composer coordinate.} The second coordinate of a product, $m_a q_b + q_a m_b + 2s\cos\pb\,q_a q_b$, holds the Coupling term and the whole of the angle. What it means, if anything, is open (\cref{subsec:coupling}).
+  \item \emph{What a reading would need to meet.} A reading that makes the Composer coordinate a measured quantity would need to agree with the null results already known: a neutron goes straight between charged plates, so no reading may act as a force along the line between a neutral body and a charge. And since $\cos\pb$ changes with the scale unit (\cref{tab:frames}), the reading would need either to fix $\pb$ by a principle that does not depend on units, or to use only quantities in which the choice of unit cancels.
+  \item \emph{Three roads for the angle.} (A) A principle fixes $\pb$, and the angle then predicts a dimensionless number that was not put in; the fine-structure constant would be a natural target, since $m_S^2 = \alpha_{\mathrm{fs}}\,m_P^2$. (B) A measurement that depends on $\cos\pb$ is found, which would fix the angle from data. (C) The angle stays a convention, the framework is a single-number form of classical physics, and in natural units its plane is the complex plane (\cref{rem:natural-units}). On present evidence (C) is the honest reading; (A) and (B) remain open, and may have no answer.
+  \item \emph{Relativity.} Where general relativity has been tested, the real coordinate of the field law gives way to it (\cref{tab:gravity-tests}); a relativistic form of the cosmic mass, if one exists, is not attempted here.
+\end{enumerate}
+
+\subsection{How the framework can fail}\label{subsec:fail}
+
+The framework makes two kinds of statement that measurement can test.
+\begin{enumerate}[label=(\roman*), leftmargin=2em]
+  \item \emph{The real reading.} A force between a neutral body and a charge beyond gravity, at the size that the shadow of the Coupling term would give, would refute the reading by the real part; the measured charge of the neutron already excludes the shadow reading by about 145 standard errors.
+  \item \emph{The field law.} It already fails the tests of general relativity (\cref{tab:gravity-tests}). These failures are part of the framework as stated.
+\end{enumerate}
+A future reading of the Composer coordinate, if one is found, would add a third kind, and it should name in advance the measurement that would refute it.
+

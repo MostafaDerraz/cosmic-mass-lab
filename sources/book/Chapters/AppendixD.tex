@@ -1,0 +1,152 @@
+%************************************************
+\chapter{Notation, Units and Constants}\label{app:notation}
+%************************************************
+
+This appendix gathers the symbols of the book in one place, with the place where each is introduced, followed by the units and the physical constants that the theory uses.
+
+%------------------------------------------------
+\section{Symbols}\label{app:symbols}
+%------------------------------------------------
+
+The symbols of the mathematics come first and those of the physics after them; \Cref{tab:dictionary} in Chapter~\ref{ch:interaction} pairs the words of the two.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth} >{\raggedright\arraybackslash}p{0.47\textwidth} >{\raggedright\arraybackslash}p{0.2\textwidth}@{}}
+\toprule
+\tableheadline{Symbol} & \tableheadline{Meaning} & \tableheadline{See} \\
+\midrule
+\endfirsthead
+\toprule
+\tableheadline{Symbol} & \tableheadline{Meaning} & \tableheadline{See} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{3}{@{}l}{\emph{The General Sinus}} \\
+$\alpha$ & studied angle & Def.~\ref{def:general-geometric} \\
+$\phi$ & projection angle & Def.~\ref{def:general-geometric} \\
+$\sin(\alpha, \phi)$, $\cos(\alpha, \phi)$, $\tan(\alpha, \phi)$ & general sine, cosine and tangent & Def.~\ref{def:general-geometric}, Thm.~\ref{thm:general-analytic} \\
+$\csc(\alpha, \phi)$, $\sec(\alpha, \phi)$, $\cot(\alpha, \phi)$ & their reciprocals & \Cref{app:gs-definitions} \\
+$\pb = \alpha + \phi$ & angle of the Com-axis of the composed circle & Def.~\ref{def:composed-circle} \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{The General Numbers}} \\
+$\GN$ & General Number Plane; also the set of all General Numbers & Axiom~\ref{ax:gn}, Def.~\ref{def:gn-set} \\
+$\GNp$ & relative plane, or subgeneral plane, at the angle $\pb$ & Def.~\ref{def:relative-plane} \\
+$\pb$ & angle of the Composer axis, which the Axiom calls a projection angle & Axiom~\ref{ax:gn} \\
+$\Gp$ & Composer Unit & Axiom~\ref{ax:gn} \\
+$\Ap$ & amplitude, the length of the Composer Unit & Axiom~\ref{ax:gn}, Def.~\ref{def:non-unified} \\
+$\up$ & direction of the Composer Unit & Axiom~\ref{ax:gn} \\
+$\xv$, $\yv$ & perpendicular unit arrows of the page & Axiom~\ref{ax:gn} \\
+$z = a + b\Gp$ & General Number & Axiom~\ref{ax:gn} \\
+$\Re(z) = a$ & real part of $z$ & Def.~\ref{def:gn-parts} \\
+$\Com(z) = b\Gp$ & Composer part of $z$ & Def.~\ref{def:gn-parts} \\
+$b$ & Composer coordinate of $z$, the number of steps of the Composer Unit & Def.~\ref{def:gn-parts} \\
+$\Sh(z)$ & shadow of $z$ on the real axis & Def.~\ref{def:shadow} \\
+$M$ & magnitude of a General Number & Def.~\ref{def:general-polar}, Thm.~\ref{thm:triangle} \\
+$O$, $P$, $Q$ & corners of the triangle of a General Number: the origin, the end of the real part, and the tip $z$ & \Cref{subsec:gn-triangle}, Rem.~\ref{rem:corner} \\
+$\eta$ & ratio of the two parts, $\Ap\,b/a$, which \Cref{thm:phase} writes $\Gp\,b/a$ & Thm.~\ref{thm:phase} \\
+$k$ & a whole number, $k \in \Z$ & Thm.~\ref{thm:phase} \\
+$\pb_1$, $\pb_2$ & arcsine root and mirror root of a length between $1$ and $\sqrt{2}$ & Thm.~\ref{thm:two-roots} \\
+$\pi/4 < \pb < 3\pi/4$ & backward band, where the square of the Composer Unit points backward & Thm.~\ref{thm:square-band} \\
+$\delta$ & angle between a General Number and the Composer axis & Prop.~\ref{prop:near-axis} \\
+$(a, B)$, $B = b\,\Ap$ & chart of the two parts, ruled by rings and rays & Thm.~\ref{thm:ellipse}, Def.~\ref{def:rings-rays} \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{The Cosmic Mass}} \\
+$P(A)$ & particle signature, the column $(m_a, q_a)$ & Def.~\ref{def:signature} \\
+$m$, $q$ & mass in kilograms and electric charge in coulombs & Def.~\ref{def:signature} \\
+$\er$ & unit direction vector from particle $A$ to particle $B$ & Rem.~\ref{rem:unit-direction} \\
+$r$ & distance between two particles; also the cosmic mass magnitude & Defs.~\ref{def:newton}, \ref{def:coulomb}; Rem.~\ref{rem:identity} \\
+$\vec{F}_N$, $\vec{F}_C$ & the forces of Newton and Coulomb & Defs.~\ref{def:newton}, \ref{def:coulomb} \\
+$\mu$ & cosmic mass & Def.~\ref{def:cosmic-mass} \\
+$q\Gp$ & charge part of the cosmic mass, in kilograms & Def.~\ref{def:cosmic-mass} \\
+$|\Gp| = \sqrt{K/G}$ & size of the Composer Unit, in kilograms per coulomb & \Cref{subsec:cu-size} \\
+$\vec{F}_G$ & cosmic interaction force & Thm.~\ref{thm:cosmic-law} \\
+$\alpha$, $\phi$ & charge phase angle and mass phase angle & Rem.~\ref{rem:identity} \\
+$(r, \alpha, \phi)$ & identity card of a particle & Rem.~\ref{rem:identity} \\
+$\eta$ & charge-to-mass ratio $q/m$ & Rem.~\ref{rem:charge-phase} \\
+$\Re(\mu_a \mu_b)$ & real part of the product of two cosmic masses, read as the force along the line & Prop.~\ref{prop:law-real}, Def.~\ref{def:reading} \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{The Cosmic Mass Standard Model}} \\
+$z$ & charge number of a body, $q = z\,e$ & \Cref{subsec:sm-stoney} \\
+$m_S$ & Stoney mass, the charge part of one elementary charge & Def.~\ref{def:stoney-mass} \\
+$m_P$ & Planck mass & Rem.~\ref{rem:stoney-planck} \\
+$\alpha_{\mathrm{fs}}$ & fine-structure constant & Rem.~\ref{rem:stoney-planck} \\
+$Z$, $A$ & atomic number; atomic mass in daltons & \Cref{sec:sm-cards} \\
+$B_e$ & binding energy of the electrons of an atom & \Cref{sec:sm-cards} \\
+$\delta$ & lean of a charged body from the charge axis & Rem.~\ref{rem:lean} \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{The Closure Law}} \\
+$N$, $A = z + N$ & number of neutrons of a nucleus with $z$ protons, and its mass number & \Cref{sec:cl-isotopes} \\
+$\mu(z, N)$, $m(z, N)$ & cosmic mass and mass of that nucleus & Def.~\ref{def:isotope-card} \\
+$\mathcal{L}_A$, $\mathcal{L}_B$ & the two closure loops of six neighbouring nuclei & Def.~\ref{def:closure-loops} \\
+$w$, $\tilde{m}$ & cusp constant, $22.75$ MeV, and the mass less its cusp term & \Cref{sec:cl-law} \\
+$\sigma(A)$ & error of the closure estimate & Law~\ref{law:closure} \\
+$\Delta\mu$, $Q = \Delta\mu\,c^2$ & mass lost in a fusion, and the energy it releases & Prop.~\ref{prop:fusion-frame}, Law~\ref{law:closure} \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{The Unified Cosmic Law}} \\
+$\boldsymbol{\mathcal{E}} = \mathbf{g} + \mathbf{e}\,\Gp$ & cosmic field; its real coordinate $\mathbf{g}$ is the field of gravity & Def.~\ref{def:un-field} \\
+$\boldsymbol{\mathcal{B}} = \mathbf{B}_g + \mathbf{b}\,\Gp$ & second cosmic field; $\mathbf{B}_g$ is the magnetic part of gravity & Law~\ref{law:unified}, \Cref{sec:un-split} \\
+$\rho_\mu$, $\mathbf{J}_\mu$ & density and current of cosmic mass & \Cref{sec:un-fields} \\
+$\mathbf{E}$, $\mathbf{B}$ & electric and magnetic fields, $-|\Gp|^2\,\mathbf{e}$ and $-|\Gp|^2\,\mathbf{b}$ & Thm.~\ref{thm:un-maxwell} \\
+$\mathbf{v}$ & velocity of a body & Law~\ref{law:unified} \\
+$u$, $\mathbf{S}$ & density and flow of energy & Thm.~\ref{thm:un-energy} \\
+$\Phi$, $\boldsymbol{\mathcal{A}}$ & potentials of the two cosmic fields & Def.~\ref{def:un-action} \\
+$S$ & action & Def.~\ref{def:un-action} \\
+\end{longtable}
+}
+
+Five letters do double duty, as in the chemistry and nuclear physics that Chapters~\ref{ch:standard-model} and~\ref{ch:closure} borrow. The letter $r$ is the distance between two particles in the force laws, and the cosmic mass magnitude of a single particle in Remarks~\ref{rem:mass-charge-rep} to~\ref{rem:identity-triangle}. The letter $\eta$ is the ratio of the two parts of a General Number in \Cref{thm:phase}, and the charge-to-mass ratio of a particle in Remark~\ref{rem:charge-phase}. The letter $z$ is a General Number in Chapter~\ref{ch:general-numbers}, and the charge number of a body in Chapter~\ref{ch:standard-model}. The letter $A$ is the atomic mass of a body, in daltons, in Chapter~\ref{ch:standard-model}, and the mass number $z + N$ of a nucleus in Chapter~\ref{ch:closure}. The letter $Q$ is a corner of the triangle of a General Number in Chapter~\ref{ch:general-numbers}, and the energy released by a fusion in Chapter~\ref{ch:closure}. The context always makes clear which is meant. The angle $\delta$ is the same in both of its places: the lean of Remark~\ref{rem:lean} is the angle of Proposition~\ref{prop:near-axis} for a cosmic mass.
+
+%------------------------------------------------
+\section{Units}\label{app:units}
+%------------------------------------------------
+
+The book uses the units of the International System \citep{BIPM2019}.
+\begin{description}
+  \item[kilogram, kg.] The unit of mass. Since 20 May 2019 it is defined by fixing the numerical value of Planck's constant.
+  \item[coulomb, C.] The unit of electric charge, the charge carried by a current of one ampere in one second. Since 20 May 2019 it is defined by fixing the numerical value of the elementary charge $e$, the size of the charge of the electron.
+  \item[metre, m, and newton, N.] The units of length and of force; one newton is one kilogram metre per second squared.
+  \item[kilogram per coulomb, kg/C.] The unit of the Composer Unit $\Gp$ (Definition~\ref{def:cosmic-mass}), which turns a charge into a mass so that both parts of a cosmic mass are measured in kilograms.
+  \item[dalton, u.] The unified atomic mass unit, one twelfth of the mass of an atom of carbon-12. Chapters~\ref{ch:standard-model} and~\ref{ch:closure} and Appendix~\ref{app:identity-cards} give the masses of atoms, ions and nuclei in daltons.
+  \item[electronvolt, eV.] The energy that one elementary charge gains across one volt, $1.602\,176\,634 \times 10^{-19}$ joule; one MeV is a million electronvolts. Chapter~\ref{ch:closure} gives the energies of nuclei and of fusions in MeV, and Chapter~\ref{ch:unified} the energy of hydrogen in eV.
+  \item[tesla, T, and volt per metre, V/m.] The units of the magnetic field and of the electric field, which Chapter~\ref{ch:unified} uses for bodies in motion.
+\end{description}
+In the displays of \Cref{subsec:relative-plane} and of Remark~\ref{rem:mass-charge-rep}, the kilogram is written Kg. Those displays are kept exactly as they were first written.
+
+%------------------------------------------------
+\section{Constants}\label{app:constants}
+%------------------------------------------------
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X l >{\raggedright\arraybackslash}p{0.38\textwidth}@{}}
+\toprule
+\tableheadline{Constant} & \tableheadline{Symbol} & \tableheadline{Value} \\
+\midrule
+gravitational constant & $G$ & $6.67430 \times 10^{-11}\ \mathrm{N\,m^2\,kg^{-2}}$ \\
+Coulomb constant & $K = 1/(4\pi\varepsilon_0)$ & $8.98755 \times 10^{9}\ \mathrm{N\,m^2\,C^{-2}}$ \\
+speed of light (exact) & $c$ & $299\,792\,458\ \mathrm{m\,s^{-1}}$ \\
+magnetic constant & $\mu_0$ & $1.25664 \times 10^{-6}\ \mathrm{N\,A^{-2}}$ \\
+elementary charge (exact) & $e$ & $1.602\,176\,634 \times 10^{-19}\ \mathrm{C}$ \\
+reduced Planck constant & $\hbar$ & $1.054\,571\,817 \times 10^{-34}\ \mathrm{J\,s}$ \\
+fine-structure constant & $\alpha_{\mathrm{fs}}$ & $1/137.036$ \\
+dalton & u & $1.660\,539\,07 \times 10^{-27}\ \mathrm{kg}$ \\
+electron mass & $m_e$ & $9.10938 \times 10^{-31}\ \mathrm{kg} = 0.000548580\ \mathrm{u}$ \\
+proton mass & $m_p$ & $1.67262 \times 10^{-27}\ \mathrm{kg}$ \\
+neutron mass & $m_n$ & $1.67493 \times 10^{-27}\ \mathrm{kg}$ \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Derived in Chapter~\ref{ch:interaction}}} \\
+size of the Composer Unit & $\sqrt{K/G}$ & $1.16043 \times 10^{10}\ \mathrm{kg\,C^{-1}}$ \\
+angle of the Composer axis & $\pb$ & $\approx 79.86^\circ$ (Remark~\ref{rem:angle-value}, \Cref{subsec:which-root}) \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Derived in Chapter~\ref{ch:standard-model}, at $\pb \approx 79.86^\circ$}} \\
+Stoney mass & $m_S = e\sqrt{K/G}$ & $1.85921 \times 10^{-9}\ \mathrm{kg}$ (Definition~\ref{def:stoney-mass}) \\
+Planck mass & $m_P = \sqrt{\hbar c/G}$ & $2.17643 \times 10^{-8}\ \mathrm{kg} \approx 11.706\, m_S$ \\
+lean of a charged body & $\delta$ & $\approx 5.0374 \times 10^{-17}{}^\circ \times m/|z|$, $m$ in u (Remark~\ref{rem:lean}) \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The values of $G$ and $K$ are those used in Chapter~\ref{ch:interaction}. The other values are rounded from the recommended values of the Committee on Data of the International Science Council \citep{CODATA2018}; the speed of light and the elementary charge are exact by definition \citep{BIPM2019}. The remarks of Chapter~\ref{ch:interaction} use the arcsine root; from \Cref{sec:why-mirror} on, the book uses the mirror root.

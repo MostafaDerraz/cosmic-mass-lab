@@ -1,0 +1,41 @@
+% ======================================================================
+\section{Formulary}\label{app:formulary}
+% ======================================================================
+
+\Cref{tab:formulary} gathers the formulas of the paper, with the statement or equation where each is given. Throughout, $\Gp$ is the Composer Unit, $s = \lvert\Gp\rvert = \sqrt{K/G}$, the frame is drawn at $\pb = 79.86^\circ$ (a convention, \cref{prop:angle-invariance}), and $\Re$ is the real part.
+
+\begin{table}[h]
+\caption{The formulas of the paper.}
+\label{tab:formulary}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}X r@{}}
+\toprule
+object & formula & where \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{The number plane}} \\
+general sine and cosine & $\sin(\alpha, \phi) = \sin\alpha/\sin(\alpha + \phi)$, \ $\cos(\alpha, \phi) = \sin\phi/\sin(\alpha + \phi)$ & \cref{eq:gs} \\
+Axiom & $\lvert\Gp\rvert = \lvert\cos\pb + \sin\pb\rvert$ & \cref{eq:axiom} \\
+Rule of the Square & $\Gp^2 = 2\lvert\Gp\rvert\cos\pb\,\Gp - \lvert\Gp\rvert^2$ & \cref{eq:square} \\
+real part and shadow & $\Re(a + b\Gp) = a$, \ $\Sh(a + b\Gp) = a + b\lvert\Gp\rvert\cos\pb$ & \cref{eq:shadow} \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{The cosmic mass and bodies at rest}} \\
+cosmic mass & $\mu = m + q\,\Gp$, \ $s = \lvert\Gp\rvert = \sqrt{K/G} \approx 1.16043 \times 10^{10}$~kg\,C$^{-1}$ & \cref{def:cosmic-mass} \\
+drawing length & $A = s/u$; \ $\lvert\cos\pb + \sin\pb\rvert = A$; \ $A = 1.16043$ for $u = 10^{10}$~kg\,C$^{-1}$ & \cref{eq:our-angle} \\
+Cosmic Interaction Law & $\vec{F}_G = G\,\mu_a\mu_b\,\er/r^2$ & \cref{law:interaction} \\
+its reading & $F = G\,\Re(\mu_a\mu_b)/r^2 = (G\,m_a m_b - K\,q_a q_b)/r^2$, at every angle & \cref{def:reading,prop:sign} \\
+Stoney mass & $m_S = e\,s \approx 1.85921 \times 10^{-9}$~kg $= \sqrt{\alpha_{\mathrm{fs}}}\,m_P$ & \cref{subsec:earlier} \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Bodies in motion}} \\
+field equations & $\nabla\cdot\uE = -4\pi G\rho_\mu$, \ $\nabla\cdot\uB = 0$, \ $\nabla\times\uE = -\partial_t\uB$, \ $\nabla\times\uB = -\frac{4\pi G}{c^2}\vJ_\mu + \frac{1}{c^2}\partial_t\uE$ & \cref{law:unified} \\
+law of motion & $\Re(\mu)\,d\vv/dt = \Re[\mu(\uE + \vv\times\uB)]$ & \cref{law:unified} \\
+Maxwell's fields & $\vE = -\lvert\Gp\rvert^2\ve$, \ $\vB = -\lvert\Gp\rvert^2\vb$ & \cref{thm:un-maxwell} \\
+energy density & $u = -(g^2 + c^2 B_g^2)/(8\pi G) + (E^2 + c^2 B^2)/(8\pi K)$ & \cref{prop:un-two-faces} \\
+action & $S = \int dt\,\{\sum[\tfrac12\Re(\mu)v^2 - \Re(\mu(\Phi - \vv\cdot\cosA))] - \frac{1}{8\pi G}\int\Re[\uE\cdot\uE - c^2\uB\cdot\uB]\,dV\}$ & \cref{def:un-action} \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{The angle}} \\
+invariance & every measured quantity depends on $s$ alone, through $\Re[(a + b\Gp)(c + d\Gp)] = ac - s^2 bd$ & \cref{prop:angle-invariance} \\
+natural units & $m_P/q_P = m_S/e = s$, so $A = 1$ and $\pb = 90^\circ$ & \cref{rem:natural-units} \\
+\bottomrule
+\end{tabularx}
+\end{table}

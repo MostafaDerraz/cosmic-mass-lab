@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\begin{loglogaxis}[width=0.82\textwidth, height=6.6cm, xmin=4, xmax=300, ymin=0.04, ymax=3,
+  xlabel={mass number $A$}, ylabel={error of the predicted mass (MeV)}, tick label style={font=\scriptsize}, label style={font=\small},
+  grid=major, grid style={gray!15}, legend style={font=\scriptsize, draw=none, at={(0.98,0.98)}, anchor=north east}, legend cell align=left]
+\addplot[only marks, mark=square, mark size=1.9pt, gray!80!black] coordinates {(5.657,2.4221) (11.314,0.9619) (19.596,0.5354) (27.713,0.3447) (39.192,0.2634) (55.426,0.2029) (78.384,0.1556) (110.851,0.1069) (143.108,0.0949) (178.885,0.0796) (244.949,0.0703)};\addlegendentry{without the cusp}
+\addplot[only marks, mark=*, mark size=1.9pt, RoyalBlue] coordinates {(5.657,2.0618) (11.314,0.8526) (19.596,0.4533) (27.713,0.2536) (39.192,0.2153) (55.426,0.1750) (78.384,0.1490) (110.851,0.1069) (143.108,0.0949) (178.885,0.0796) (244.949,0.0703)};\addlegendentry{with the cusp}
+\addplot[Maroon, thick, domain=5:290, samples=60] {sqrt((9.1/x)^2 + 0.063^2)};\addlegendentry{$\sigma(A)$ of Law~\ref{law:closure}}
+\addplot[gray, densely dashed, domain=6:290, samples=30] {8.5/x^0.96};\addlegendentry{$8.5/A^{0.96}$, first version}
+\end{loglogaxis}
+\end{tikzpicture}

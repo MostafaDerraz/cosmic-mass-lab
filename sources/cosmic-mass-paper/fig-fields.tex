@@ -1,0 +1,18 @@
+% The cosmic field of one source at rest in its two coordinates (Definition 6.1 and Theorem 6.4).
+\begin{tikzpicture}[>=Stealth, font=\footnotesize]
+  \begin{scope}
+    \foreach \a in {0,45,...,315} \draw[<-, thick, black!75] (\a:0.42) -- (\a:1.2);
+    \fill[black!35] (0,0) circle (0.26);
+    \node[align=center] at (0,-1.75) {(a) a mass $M$:\\ $\vg$ points in};
+  \end{scope}
+  \begin{scope}[xshift=4.3cm]
+    \foreach \a in {0,45,...,315} \draw[<-, thick, blue!60!black] (\a:0.42) -- (\a:1.2);
+    \fill[blue!25] (0,0) circle (0.26); \node at (0,0) {$+$};
+    \node[align=center] at (0,-1.75) {(b) a charge $q > 0$:\\ $\ve$ points in};
+  \end{scope}
+  \begin{scope}[xshift=8.6cm]
+    \foreach \a in {0,45,...,315} \draw[->, thick, blue!60!black] (\a:0.42) -- (\a:1.2);
+    \fill[blue!25] (0,0) circle (0.26); \node at (0,0) {$+$};
+    \node[align=center] at (0,-1.75) {(c) the same charge:\\ $\vE = -s^2\,\ve$ points out};
+  \end{scope}
+\end{tikzpicture}

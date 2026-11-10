@@ -1,0 +1,500 @@
+%************************************************
+\chapter{The Oblique Triangle}\label{ch:oblique}
+%************************************************
+
+\chapterlead{The sine and the cosine were born in a right triangle. In this chapter we let the triangle lean, and we watch what the two old functions become.}
+
+\scene{Egypt and Babylon, before 1500 BCE}
+
+Drive a stick upright into flat ground on a sunny day. The sun writes on the soil beside it. The shadow is long at dawn, short at noon and long again at dusk, and on a given day at a given hour it has the same length this year as it had last year. A stick used in this way is called a \emph{gnomon}, and it is one of the oldest scientific instruments we know.
+
+Notice what the gnomon really measures. It does not give you an angle in degrees. It gives you a \emph{ratio}: so much shadow for so much stick. Two sticks of different heights, standing in the same sun, cast shadows in the same proportion, and it is the proportion, not either length, that tells you where the sun is. The Egyptian scribes who wrote the Rhind papyrus used the same idea to describe the slope of a pyramid, as so many palms of run for each cubit of rise. The angle entered history in disguise, as a fraction.
+
+The Greeks gave that fraction its deepest reason. Two triangles with the same angles have sides in the same proportions, however large or small they are. This is the idea of \emph{similar} triangles, and it is what makes a table of trigonometry possible at all: if the ratios depended on the size of the triangle, every triangle would be its own private case and nothing could be written down once and for all.
+
+% ------------------------------------------------------------------
+% Figure: the angle in disguise (Chapter 2, scene "Egypt and Babylon, before 1500 BCE")
+% Place it right after the paragraph that begins "The Greeks gave that fraction
+% its deepest reason", and add "(\Cref{fig:gnomon})" at the end of the paragraph
+% that ends "The angle entered history in disguise, as a fraction."
+% Needs: tikz and xcolor with dvipsnames (both loaded by the book).
+% ------------------------------------------------------------------
+\begin{figure}[tbp]
+\myfloatalign
+% ================= (a) one stick through the day =================
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  \def\h{0.9}   % height of the stick
+  % a small sun: \drawsun{x}{y}
+  \newcommand{\drawsun}[2]{%
+    \foreach \k in {0,45,...,315} \draw[Orange, thick] ($(#1,#2)+(\k:0.17)$) -- ($(#1,#2)+(\k:0.27)$);
+    \fill[Goldenrod] (#1,#2) circle (0.13);
+  }
+  % ---------- dawn: the sun is low on the left, the shadow is long ----------
+  \begin{scope}
+    \draw[gray] (-1.9,0) -- (2.0,0);
+    \fill[gray!45] (-0.6,0) rectangle (1.87,-0.06);
+    \draw[Orange!70, dashed] (-1.55,1.24) -- (1.87,0);
+    \draw[very thick, brown!70!black] (-0.6,0) -- (-0.6,\h);
+    \drawsun{-1.55}{1.24}
+    \node[align=center] at (0.1,-0.5) {dawn:\\ a long shadow};
+  \end{scope}
+  % ---------- noon: the sun is high, the shadow is short ----------
+  \begin{scope}[xshift=3.95cm]
+    \draw[gray] (-0.9,0) -- (1.0,0);
+    \fill[gray!45] (0,0) rectangle (0.33,-0.06);
+    \draw[Orange!70, dashed] (-0.37,1.92) -- (0.33,0);
+    \draw[very thick, brown!70!black] (0,0) -- (0,\h);
+    \drawsun{-0.37}{1.92}
+    \node[align=center] at (0.05,-0.5) {noon:\\ a short shadow};
+  \end{scope}
+  % ---------- dusk: the sun is low on the right, the shadow is long again ----------
+  \begin{scope}[xshift=7.9cm]
+    \draw[gray] (-2.0,0) -- (1.9,0);
+    \fill[gray!45] (-1.87,0) rectangle (0.6,-0.06);
+    \draw[Orange!70, dashed] (1.55,1.24) -- (-1.87,0);
+    \draw[very thick, brown!70!black] (0.6,0) -- (0.6,\h);
+    \drawsun{1.55}{1.24}
+    \node[align=center] at (-0.1,-0.5) {dusk:\\ a long shadow again};
+  \end{scope}
+\end{tikzpicture}
+
+\par\smallskip
+{\small (a) the gnomon: the same hour gives the same shadow, year after year\par}
+\bigskip
+
+% ================= (b) two sticks, one sun =================
+\begin{minipage}[b]{0.53\textwidth}
+\centering
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  % one ray of the sun grazes the tops of both sticks and ends at T
+  \coordinate (T) at (5.0,0);
+  \fill[RoyalBlue!12] (2.0,0) -- (2.0,2.0) -- (T) -- cycle;   % big triangle
+  \fill[RoyalBlue!30] (3.5,0) -- (3.5,1.0) -- (T) -- cycle;   % small triangle
+  \draw[gray] (0.6,0) -- (5.5,0);
+  \draw[Orange!80, thick] (0.9,2.73) -- (T);
+  \foreach \k in {0,45,...,315} \draw[Orange, thick] ($(0.75,2.83)+(\k:0.17)$) -- ($(0.75,2.83)+(\k:0.27)$);
+  \fill[Goldenrod] (0.75,2.83) circle (0.13);
+  \draw[very thick, brown!70!black] (2.0,0) -- (2.0,2.0) node[above right=-1pt, black] {stick $2$, height $2$};
+  \draw[very thick, brown!70!black] (3.5,0) -- (3.5,1.0) node[above right=-1pt, black] {stick $1$, height $1$};
+  % the sun's angle, the same for both triangles
+  \draw[Maroon] (4.35,0) arc (180:146.3:0.65);
+  \node[Maroon, anchor=north west, align=left] at (5.02,-0.02) {same\\ angle};
+  % the shadows
+  \draw[decorate, decoration={brace, amplitude=4pt, mirror}] (3.5,-0.08) -- (5.0,-0.08) node[midway, below=4pt] {shadow $1.5$};
+  \draw[decorate, decoration={brace, amplitude=4pt, mirror}] (2.0,-0.65) -- (5.0,-0.65) node[midway, below=4pt] {shadow $3$};
+\end{tikzpicture}
+
+\smallskip
+{\footnotesize $\dfrac{\text{shadow}}{\text{stick}} = \dfrac{1.5}{1} = \dfrac{3}{2} = 1.5$ for both:\\ the ratio tells where the sun is\par}
+
+\smallskip
+{\small (b) two sticks, one sun: the same ratio\par}
+\end{minipage}\hfill
+% ================= (c) the slope of a pyramid as a fraction =================
+\begin{minipage}[b]{0.44\textwidth}
+\centering
+\begin{tikzpicture}[>=Stealth, scale=0.86, every node/.style={font=\footnotesize}]
+  % pyramid profile with a seked of 5 1/2 palms per cubit (7 palms) of rise
+  \fill[Goldenrod!25] (0,0) -- (2.2,2.8) -- (4.4,0) -- cycle;
+  \draw[thick, brown!60!black] (0,0) -- (2.2,2.8) -- (4.4,0);
+  \draw[gray] (-0.3,0) -- (4.8,0);
+  % the small triangle that the scribes measured
+  \fill[Maroon!20] (3.4,0) -- (3.4,1.273) -- (4.4,0) -- cycle;
+  \draw[very thick, Maroon] (3.4,0) -- (3.4,1.273) node[midway, left, align=right] {rise:\\ $1$ cubit\\ $= 7$ palms};
+  \draw[very thick, Maroon] (3.4,0) -- (4.4,0) node[midway, below] {run: $5\tfrac{1}{2}$ palms};
+  \draw (3.4,0.15) -- (3.55,0.15) -- (3.55,0);
+  % the angle that was never written down
+  \draw[black!70] (4.0,0) arc (180:128.2:0.4);
+  \node[font=\scriptsize] at (3.83,0.2) {$52^\circ$};
+\end{tikzpicture}
+
+\smallskip
+{\footnotesize the seked: $5\tfrac{1}{2}$ palms of run\\ for each cubit of rise;\\ no angle was written down\par}
+
+\smallskip
+{\small (c) a pyramid's slope as a fraction\par}
+\end{minipage}
+
+\caption[The angle in disguise]{The angle in disguise. (a) A gnomon, an upright stick, casts a long shadow at dawn, a short one at noon and a long one again at dusk; at the same hour of the same day of the year, its shadow has the same length. (b) Two sticks in the same sun. The taller stick is twice as tall, and its shadow is twice as long, so the ratio of shadow to stick, here $1.5$, is the same for both. It is the ratio, not the size, that tells where the sun is. The Greeks gave the reason: triangles with the same angles have their sides in the same proportions. (c) Egyptian scribes wrote the slope of a pyramid as a fraction, the \emph{seked}: so many palms of horizontal run for each cubit of rise, a cubit being seven palms. A seked of $5\frac{1}{2}$ palms, about the slope of the Great Pyramid, belongs to an angle of about $52^\circ$, but the angle itself was never written down: only the fraction.}
+\label{fig:gnomon}
+\end{figure}
+
+\scene{Rhodes, Alexandria, India and Baghdad, 150 BCE to 1000 CE}
+
+Astronomers needed numbers for angles, to follow the Sun, the Moon and the planets. Hipparchus and later Ptolemy built tables of \emph{chords}: for each arc of a circle, the length of the straight line joining its two ends. Indian astronomers made a small change that turned out to be a large one. They cut the chord in half. The half-chord sits inside a right triangle whose longest side is the radius of the circle, and it is exactly what we now call the sine \citep{Plofker2009,VanBrummelen2009}.
+
+The name has a curious story. The Sanskrit word for the half-chord, \emph{jya}, was written in Arabic letters as \emph{jyb}, a word with no meaning in Arabic. A later reader, seeing the bare consonants, read it as \emph{jaib}, a fold or a pocket, and by extension a bay. Latin translators then rendered that word faithfully as \emph{sinus}. Historians add some reservations to this traditional account, but its lesson is sound: the idea crossed three languages intact, while its name slipped along the way \citep{VanBrummelen2009,Maor1998}. The General Sinus of this chapter keeps the old Latin word on purpose.
+
+By 1600 the functions were defined, as they still are at school, on the sides of a right triangle. Everything you learned about sine and cosine rests on that one silent condition: somewhere in the triangle there is a right angle.
+
+%------------------------------------------------
+\section{The silent condition}\label{sec:silent-condition}
+%------------------------------------------------
+
+Let us make the classical definitions precise, in the notation of the General Sinus \citep{Derraz2026GSP}. Take an angle $\alpha$ with its vertex at a point $O$ and its first side along the $x$-axis. Pick any point $Z$ on the second side of the angle. Now drop $Z$ straight down onto the first side, so that it lands at a point we call $\Zb$ (read ``$Z$ bar''). The segment $Z\Zb$ is perpendicular to the first side, and we obtain the right triangle $OZ\Zb$ of \Cref{fig:projections}(a). Its sides have the familiar names: $\seg{OZ}$ is the hypotenuse (hypo), $\seg{O\Zb}$ is the adjacent side (adja), and $\seg{Z\Zb}$ is the opposite side (oppo).
+
+\begin{definition}[Relative trigonometric functions]\label{def:relative}
+The \emph{relative} trigonometric functions are the three ratios
+\begin{align*}
+\sin(\alpha) &= \frac{\seg{Z\Zb}}{\seg{OZ}} = \frac{\text{oppo}}{\text{hypo}}, \\
+\cos(\alpha) &= \frac{\seg{O\Zb}}{\seg{OZ}} = \frac{\text{adja}}{\text{hypo}}, \\
+\tan(\alpha) &= \frac{\seg{Z\Zb}}{\seg{O\Zb}} = \frac{\text{oppo}}{\text{adja}},
+\end{align*}
+together with their reciprocals $\csc(\alpha) = 1/\sin(\alpha)$, $\sec(\alpha) = 1/\cos(\alpha)$ and $\cot(\alpha) = 1/\tan(\alpha)$.
+\end{definition}
+
+The General Sinus papers call these the \emph{relative} functions, because they are relative to one particular way of projecting: straight down. They are well defined only when the angle at $\Zb$ is a right angle, $\pi/2$. That is an \emph{existential condition}. It quietly restricts the whole classical theory to a single kind of triangle.
+
+%------------------------------------------------
+\section{Letting the projection lean}\label{sec:lean}
+%------------------------------------------------
+
+Here is the one change that starts everything. Instead of dropping $Z$ straight down, slide it down along a slanted line until it meets the first side. The slanted line makes an angle $\phi$ with the segment $ZO$ at the point $Z$. We call $\phi$ the \emph{projection angle}, and $\alpha$ the \emph{studied angle}. The point where the slanted line lands is again called $\Zb$, and we obtain the triangle $OZ\Zb$ of \Cref{fig:projections}(b). It is no longer a right triangle. Its angles are $\alpha$ at $O$, $\phi$ at $Z$, and $\theta = \pi - (\alpha + \phi)$ at $\Zb$.
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, scale=1.0, every node/.style={font=\small}]
+  % ---------- (a) vertical projection ----------
+  \begin{scope}
+    \coordinate (O) at (0,0);
+    \coordinate (X) at (3.6,0);
+    \coordinate (Z) at (35:3.0);
+    \coordinate (Zb) at ($(O)!(Z)!(X)$);
+    \draw[gray, ->] (-0.2,0) -- (3.8,0);
+    \draw[thick] (O) -- (Z) -- (Zb) -- cycle;
+    \draw ($(Zb)+(-0.22,0)$) -- ++(0,0.22) -- ++(0.22,0);
+    \pic [draw, "$\alpha$", angle radius=0.75cm, angle eccentricity=1.3] {angle = X--O--Z};
+    \fill (Z) circle (1.3pt) node[above] {$Z$};
+    \fill (Zb) circle (1.3pt) node[below] {$\bar{Z}$};
+    \node[below left] at (O) {$O$};
+    \node[above left, font=\footnotesize] at ($(O)!0.55!(Z)$) {hypo};
+    \node[right, font=\footnotesize] at ($(Z)!0.5!(Zb)$) {oppo};
+    \node[below, font=\footnotesize] at ($(O)!0.5!(Zb)+(0,-0.05)$) {adja};
+    \node at (1.8,-0.95) {(a) straight down};
+  \end{scope}
+  % ---------- (b) projection at angle phi ----------
+  \begin{scope}[xshift=5.4cm]
+    \coordinate (O) at (0,0);
+    \coordinate (X) at (3.6,0);
+    \coordinate (Z) at (35:3.0);
+    \coordinate (Zb) at ($(Z)+(255:{3.0*sin(35)/sin(75)})$);
+    \draw[gray, ->] (-0.2,0) -- (3.8,0);
+    \draw[thick] (O) -- (Z) -- (Zb) -- cycle;
+    \draw[gray, dashed] (Z) -- ($(O)!(Z)!(X)$);
+    \pic [draw, "$\alpha$", angle radius=0.75cm, angle eccentricity=1.3] {angle = X--O--Z};
+    \pic [draw, "$\phi$", angle radius=0.55cm, angle eccentricity=1.45] {angle = O--Z--Zb};
+    \pic [draw, "$\theta$", angle radius=0.35cm, angle eccentricity=1.6] {angle = Z--Zb--O};
+    \fill (Z) circle (1.3pt) node[above] {$Z$};
+    \fill (Zb) circle (1.3pt) node[below] {$\bar{Z}$};
+    \node[below left] at (O) {$O$};
+    \node[above left, font=\footnotesize] at ($(O)!0.55!(Z)$) {base};
+    \node[right=0.32cm, font=\footnotesize] at ($(Z)!0.5!(Zb)$) {oppo};
+    \node[below, font=\footnotesize] at ($(O)!0.5!(Zb)+(0,-0.05)$) {adja};
+    \node at (1.8,-0.95) {(b) at the angle $\phi$};
+  \end{scope}
+\end{tikzpicture}
+\caption[Two ways to project a point]{Two ways to project a point $Z$ onto the first side of the angle $\alpha$. (a) Straight down, which gives the right triangle of classical trigonometry. (b) Along a slanted line that makes the projection angle $\phi$ with $ZO$, which gives an oblique triangle with angles $\alpha$, $\phi$ and $\theta = \pi - (\alpha + \phi)$.}
+\label{fig:projections}
+\end{figure}
+
+Why can we build functions on this new triangle? For the same reason as before: similarity.
+
+\begin{proposition}[Constancy of the projection ratio]\label{prop:constancy}
+For a fixed angle $\alpha$ and a fixed projection angle $\phi$, the ratios $\seg{Z_n \bar{Z}_n}/\seg{OZ_n}$, $\seg{O\bar{Z}_n}/\seg{OZ_n}$ and $\seg{Z_n \bar{Z}_n}/\seg{O\bar{Z}_n}$ are constant for all points $Z_n$ on the terminal side of $\alpha$. They depend only on $\alpha$ and $\phi$, not on the distance $\seg{OZ_n}$.
+\end{proposition}
+
+\begin{proof}
+For any two points $Z_m$ and $Z_n$ on the terminal side of $\alpha$, the triangles $OZ_m\bar{Z}_m$ and $OZ_n\bar{Z}_n$ share the angles $\alpha$ and $\phi$. By the angle-angle criterion they are similar, so their corresponding sides are proportional. The ratios therefore do not depend on the choice of the point.
+\end{proof}
+
+
+% ------------------------------------------------------------------
+% Figure: why the ratios do not depend on the point (Chapter 2, Section 2.2,
+% Proposition 2.2). Place it right after the paragraph that begins
+% "The sides of the new triangle need names", and end the sentence
+% "For the same reason as before: similarity." with "(\Cref{fig:constancy})".
+% Needs: tikz (calc, angles, quotes), booktabs and xcolor with dvipsnames
+% (all loaded by the book).
+% ------------------------------------------------------------------
+\begin{figure}[tbp]
+\myfloatalign
+% ================= (a) one angle, one slant, three points =================
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  \def\s{0.38}                          % centimetres per unit of length
+  \pgfmathsetmacro{\aang}{acos(29/36)}  % the studied angle alpha, about 36.3 degrees
+  \def\off{0.80}                        % distance of the ruler from the terminal side
+  \coordinate (O) at (0,0);
+  \foreach \n in {1,2,3} {
+    \coordinate (Z\n) at (\aang:{6*\n*\s});   % [OZ_n] = 6, 12, 18
+    \coordinate (B\n) at ({3*\n*\s},0);       % [O Zbar_n] = 3, 6, 9
+  }
+  % the three triangles, the small one drawn last
+  \fill[RoyalBlue!10] (O) -- (Z3) -- (B3) -- cycle;
+  \fill[RoyalBlue!20] (O) -- (Z2) -- (B2) -- cycle;
+  \fill[RoyalBlue!32] (O) -- (Z1) -- (B1) -- cycle;
+  % the two sides of the angle
+  \draw[gray, ->] (-0.3,0) -- (6.1,0) node[above left=1pt, font=\scriptsize] {first side};
+  \draw[thick] (O) -- (\aang:{19.4*\s}) node[right=1pt, font=\scriptsize, gray!70!black] {terminal side};
+  % the slanted lines, all with the same angle phi
+  \foreach \n in {1,2,3} {
+    \draw[Orange!85!black, thick] (Z\n) -- (B\n);
+    \pgfmathtruncatemacro{\len}{4*\n}
+    \node[Orange!85!black, right=1pt] at ($(Z\n)!0.5!(B\n)$) {$\len$};
+  }
+  % the angles
+  \pic [draw, "$\alpha$", angle radius=0.5cm, angle eccentricity=1.4] {angle = B1--O--Z1};
+  \foreach \n in {1,2,3}
+    \pic [draw=Maroon, text=Maroon, "$\phi$", angle radius=0.42cm, angle eccentricity=1.55] {angle = O--Z\n--B\n};
+  % the points
+  \node[below left] at (O) {$O$};
+  \foreach \n in {1,2,3} {
+    \fill (Z\n) circle (1.2pt) node[above left=-1pt] {$Z_{\n}$};
+    \fill (B\n) circle (1.2pt) node[below] {$\bar{Z}_{\n}$};
+  }
+  % a ruler along the terminal side: one tick per unit, numbers at 6, 12, 18
+  \draw[gray] ($(O)+({\aang+90}:\off)$) -- ($(Z3)+({\aang+90}:\off)$);
+  \foreach \tick in {0,...,18}
+    \draw[gray] ($(\aang:{\tick*\s})+({\aang+90}:{\off-0.04})$) -- ($(\aang:{\tick*\s})+({\aang+90}:{\off+0.04})$);
+  \foreach \pnt in {O,Z1,Z2,Z3}
+    \draw[gray] ($(\pnt)+({\aang+90}:{\off-0.08})$) -- ($(\pnt)+({\aang+90}:{\off+0.08})$);
+  \foreach \pnt/\dist in {Z1/6, Z2/12, Z3/18}
+    \node[gray!70!black, font=\scriptsize] at ($(\pnt)+({\aang+90}:{\off+0.24})$) {$\dist$};
+  \node[gray!70!black, font=\scriptsize, rotate=\aang] at ($(\aang:{3*\s})+({\aang+90}:{\off+0.26})$) {base $\seg{OZ_n}$};
+  % a ruler under the first side: one tick per unit, numbers at 3, 6, 9
+  \draw[gray] (0,-0.66) -- (B3 |- 0,-0.66);
+  \foreach \tick in {0,...,9}
+    \draw[gray] ({\tick*\s},-0.62) -- ({\tick*\s},-0.70);
+  \foreach \pnt in {O,B1,B2,B3}
+    \draw[gray] (\pnt |- 0,-0.58) -- (\pnt |- 0,-0.74);
+  \foreach \pnt/\dist in {B1/3, B2/6, B3/9}
+    \node[gray!70!black, font=\scriptsize, below=1pt] at (\pnt |- 0,-0.74) {$\dist$};
+  \node[gray!70!black, font=\scriptsize, anchor=west] at ($(B3 |- 0,-0.66)+(0.2,0)$) {adja $\seg{O\bar{Z}_n}$};
+  % the name of the slanted sides
+  \node[Orange!85!black, font=\scriptsize, anchor=west] at ($(B3)!0.25!(Z3)+(0.12,0)$) {oppo $\seg{Z_n\bar{Z}_n}$};
+  % comments
+  \node[anchor=north west, align=flush left, text width=4.4cm] at (6.3,3.6) {%
+    Keep the studied angle $\alpha$ and the projection angle $\phi$ fixed, and pick three points $Z_1$, $Z_2$, $Z_3$ on the terminal side.\par\smallskip
+    The angle $\phi$ is the same at every point, so the three slanted lines are parallel.\par\smallskip
+    The gray rulers show equal steps on both sides: the middle triangle is the small one zoomed $\times 2$, the big one is the small one zoomed $\times 3$. The sides grow, the angles stay.};
+\end{tikzpicture}
+
+\par\smallskip
+{\small (a) one angle, one slant, three points\par}
+\bigskip
+
+% ================= (b) measure and divide =================
+{\footnotesize
+\begin{tabular}{@{}llccc@{}}
+\toprule
+ & & $Z_1$ & $Z_2$ & $Z_3$ \\
+\midrule
+distance from $O$ & $\seg{OZ_n}$ & $6$ & $12$ & $18$ \\
+\midrule
+oppo / base & $\seg{Z_n \bar{Z}_n}/\seg{OZ_n}$ & $4/6 = \textcolor{Maroon}{2/3}$ & $8/12 = \textcolor{Maroon}{2/3}$ & $12/18 = \textcolor{Maroon}{2/3}$ \\
+adja / base & $\seg{O\bar{Z}_n}/\seg{OZ_n}$ & $3/6 = \textcolor{Maroon}{1/2}$ & $6/12 = \textcolor{Maroon}{1/2}$ & $9/18 = \textcolor{Maroon}{1/2}$ \\
+oppo / adja & $\seg{Z_n \bar{Z}_n}/\seg{O\bar{Z}_n}$ & $\textcolor{Maroon}{4/3}$ & $8/6 = \textcolor{Maroon}{4/3}$ & $12/9 = \textcolor{Maroon}{4/3}$ \\
+\bottomrule
+\end{tabular}\par}
+
+\smallskip
+{\footnotesize read along a row: the distance grows, the ratios stay the same\par}
+
+\smallskip
+{\small (b) measure and divide\par}
+
+\caption[Why the ratios do not depend on the point]{Why the ratios do not depend on the point. (a) The studied angle $\alpha$ and the projection angle $\phi$ are kept fixed, and three points $Z_1$, $Z_2$, $Z_3$ of the terminal side are projected. Since $\phi$ is the same at every point, the three slanted lines are parallel, and the triangles $OZ_n\bar{Z}_n$ all have the same angles: they are one triangle drawn at three sizes. (b) Measure and divide. The lengths double and triple, but each ratio of two sides is the same for the three points. Here $\alpha$ is about $36^\circ$ and $\phi$ about $26^\circ$, chosen so that every length is a whole number. The three constant numbers $2/3$, $1/2$ and $4/3$ depend only on $\alpha$ and $\phi$; \Cref{def:general-geometric} will call them $\sin(\alpha, \phi)$, $\cos(\alpha, \phi)$ and $\tan(\alpha, \phi)$.}
+\label{fig:constancy}
+\end{figure}
+
+
+%------------------------------------------------
+\section{The General Sinus}\label{sec:general-sinus}
+%------------------------------------------------
+
+We can now define the three functions of the oblique triangle. They have two variables, the studied angle $\alpha$ and the projection angle $\phi$.
+
+\begin{definition}[General trigonometric functions, geometric form]\label{def:general-geometric}
+The \emph{general} trigonometric functions are the three ratios
+\begin{align*}
+\sin(\alpha, \phi) &= \frac{\seg{Z\Zb}}{\seg{OZ}} = \frac{\text{oppo}}{\text{base}}, \\
+\cos(\alpha, \phi) &= \frac{\seg{O\Zb}}{\seg{OZ}} = \frac{\text{adja}}{\text{base}}, \\
+\tan(\alpha, \phi) &= \frac{\seg{Z\Zb}}{\seg{O\Zb}} = \frac{\text{oppo}}{\text{adja}},
+\end{align*}
+together with their reciprocals $\csc(\alpha, \phi)$, $\sec(\alpha, \phi)$ and $\cot(\alpha, \phi)$.
+\end{definition}
+
+A picture is a good start, but we also want formulas that we can compute with. They come from a rule you may remember from school, the \emph{law of sines}: in any triangle, each side divided by the sine of the angle facing it gives the same number.
+
+\begin{theorem}[General trigonometric functions, analytic form]\label{thm:general-analytic}
+For $\alpha \in \R$ and $\phi \in (0, \pi)$ with $\alpha + \phi \notin \pi\Z$,
+\begin{align*}
+\sin(\alpha, \phi) &= \frac{\sin(\alpha)}{\sin(\alpha + \phi)}, \\
+\cos(\alpha, \phi) &= \frac{\sin(\phi)}{\sin(\alpha + \phi)}, \\
+\tan(\alpha, \phi) &= \frac{\sin(\alpha)}{\sin(\phi)}.
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+Apply the law of sines to the triangle $OZ\Zb$ of \Cref{fig:projections}(b), with $\alpha = \angle ZO\Zb$, $\phi = \angle OZ\Zb$ and $\theta = \angle Z\Zb O$:
+\[
+\frac{\sin(\alpha)}{\seg{Z\Zb}} = \frac{\sin(\phi)}{\seg{O\Zb}} = \frac{\sin(\theta)}{\seg{OZ}} .
+\]
+Since $\theta = \pi - (\alpha + \phi)$ and $\sin(\pi - x) = \sin(x)$, we have $\sin(\theta) = \sin(\alpha + \phi)$. Dividing the first and third terms gives
+\[
+\frac{\sin(\alpha)}{\sin(\alpha + \phi)} = \frac{\seg{Z\Zb}}{\seg{OZ}} = \sin(\alpha, \phi),
+\]
+which is the first formula. Dividing the second and third terms gives the second, and dividing the first and second terms gives the third.
+\end{proof}
+
+The next result is the reason the General Sinus deserves its name. It says that the old functions are not replaced. They are found again, inside the new ones, at one special angle.
+
+\begin{corollary}[Classical recovery]\label{cor:classical}
+When $\alpha + \phi = \pi/2$, the general trigonometric functions reduce to the relative trigonometric functions:
+\begin{align*}
+\sin\left(\alpha, \tfrac{\pi}{2} - \alpha\right) &= \sin(\alpha), \\
+\cos\left(\alpha, \tfrac{\pi}{2} - \alpha\right) &= \cos(\alpha), \\
+\tan\left(\alpha, \tfrac{\pi}{2} - \alpha\right) &= \tan(\alpha).
+\end{align*}
+\end{corollary}
+
+\begin{proof}
+Substitute $\phi = \pi/2 - \alpha$ in \Cref{thm:general-analytic}. Then $\sin(\alpha + \phi) = \sin(\pi/2) = 1$, so $\sin(\alpha, \phi) = \sin(\alpha)/1 = \sin(\alpha)$. Similarly $\sin(\phi) = \sin(\pi/2 - \alpha) = \cos(\alpha)$, which gives $\cos(\alpha, \phi) = \cos(\alpha)/1 = \cos(\alpha)$ and $\tan(\alpha, \phi) = \sin(\alpha)/\cos(\alpha) = \tan(\alpha)$.
+\end{proof}
+
+\keepblock{7}
+\begin{plainwords}
+When $\alpha + \phi = \pi/2$, the third angle of the triangle is $\pi - \pi/2 = \pi/2$: the triangle is a right triangle again, with its right angle at $\Zb$. So the new functions give back the old ones exactly when the slanted projection happens to be straight down. The second variable $\phi$ turns the old ``existential condition'' into a number that we are free to choose.
+\end{plainwords}
+
+\begin{workedexample}
+Take $\alpha = \pi/4$ and $\phi = \pi/3$. Then $\alpha + \phi = 7\pi/12$, which is not a multiple of $\pi$, so the functions are well defined. By \Cref{thm:general-analytic},
+\begin{align*}
+\sin\left(\tfrac{\pi}{4}, \tfrac{\pi}{3}\right) &= \frac{\sin(\pi/4)}{\sin(7\pi/12)} = \frac{\sqrt{2}/2}{(\sqrt{6} + \sqrt{2})/4} \\
+&= \sqrt{3} - 1 \approx 0.732 .
+\end{align*}
+If $\seg{OZ} = 1$, the opposite side has length $\sin(\pi/4, \pi/3) \approx 0.732$. The relative function gives $\sin(\pi/4) = \sqrt{2}/2 \approx 0.707$, a different value, because it only knows how to project straight down.
+\end{workedexample}
+
+The three reciprocal functions are given explicitly by
+\begin{align*}
+\csc(\alpha, \phi) &= \frac{\sin(\alpha + \phi)}{\sin(\alpha)}, \\
+\sec(\alpha, \phi) &= \frac{\sin(\alpha + \phi)}{\sin(\phi)}, \\
+\cot(\alpha, \phi) &= \frac{\sin(\phi)}{\sin(\alpha)},
+\end{align*}
+and, just as in the classical theory, the tangent is the sine divided by the cosine:
+\[
+\frac{\sin(\alpha, \phi)}{\cos(\alpha, \phi)} = \frac{\sin(\alpha)}{\sin(\phi)} = \tan(\alpha, \phi).
+\]
+
+\Cref{tab:general-sine} lists the values of $\sin(\alpha, \phi)$ for the standard angles. Look at the three entries in color. They sit where $\alpha + \phi = \pi/2$, and they agree with the classical sines in the last row, exactly as \Cref{cor:classical} promises.
+
+The general functions have many more properties: the sine and the cosine trade places when the two angles are exchanged, special triangles give special values, and there are rules for adding angles. They are collected in \Cref{app:general-sinus}. The rest of this book needs only the definitions above and the circle of the next section, where the angle of the projection becomes the angle of a new axis.
+
+\begin{table}[tb]
+\myfloatalign
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{l cccc}
+\toprule
+$\sin(\alpha, \phi)$ & $\alpha = \pi/6$ & $\alpha = \pi/4$ & $\alpha = \pi/3$ & $\alpha = \pi/2$ \\
+\midrule
+$\phi = \pi/6$ & $\frac{\sqrt{3}}{3}$ & $\sqrt{3} - 1$ & \textcolor{Maroon}{$\frac{\sqrt{3}}{2}$} & $\frac{2\sqrt{3}}{3}$ \\
+$\phi = \pi/4$ & $\frac{\sqrt{6} - \sqrt{2}}{2}$ & \textcolor{Maroon}{$\frac{\sqrt{2}}{2}$} & $\frac{3\sqrt{2} - \sqrt{6}}{2}$ & $\sqrt{2}$ \\
+$\phi = \pi/3$ & \textcolor{Maroon}{$\frac{1}{2}$} & $\sqrt{3} - 1$ & $1$ & $2$ \\
+$\phi = \pi/2$ & $\frac{\sqrt{3}}{3}$ & $1$ & $\sqrt{3}$ & \emph{not defined} \\
+\midrule
+$\sin(\alpha)$ & $\frac{1}{2}$ & $\frac{\sqrt{2}}{2}$ & $\frac{\sqrt{3}}{2}$ & $1$ \\
+\bottomrule
+\end{tabular}
+\caption[Values of the general sine]{Values of the general sine $\sin(\alpha, \phi)$ for standard angles. The entries in color lie where $\alpha + \phi = \pi/2$ and equal the classical sine of the last row. The corner entry is not defined because there $\sin(\alpha + \phi) = \sin(\pi) = 0$.}
+\label{tab:general-sine}
+\end{table}
+
+%------------------------------------------------
+\section{The composed circle}\label{sec:composed-circle}
+%------------------------------------------------
+
+In classical trigonometry, the best picture of sine and cosine is the unit circle. A point at angle $\alpha$ on a circle of radius one has coordinates $(\cos\alpha, \sin\alpha)$, measured along two perpendicular axes. The General Sinus has a circle of its own.
+
+\begin{definition}[Composed trigonometric circle]\label{def:composed-circle}
+Let $\sigma$ be the unitary circle centered at a point $O$, with radius $1$ and the standard axes $(Ox, Oy)$. A second circle $\sigma_c$, centered at $O$ with radius $r_c = 1.2\, r$ (chosen only for visual clarity), is called the outer composed circle. A ray from $O$ determines a half-line called the composer axis, or \emph{Com-axis}. The angle between the $x$-axis and the Com-axis, measured counterclockwise, is the \emph{relative projection angle} $\pb$. The \emph{composed trigonometric circle} is the configuration made of the inner circle $\sigma$, the outer circle $\sigma_c$, the $x$-axis as the initial reference axis, and the Com-axis as the variable projection axis.
+\end{definition}
+
+The Com-axis is a generalization of the $y$-axis. When $\pb = \pi/2$ it coincides with the $y$-axis, and the composed circle reduces to the classical unit circle. For every other value, the Com-axis leans.
+
+How is the relative projection angle $\pb$ related to the two angles of our triangle? The projection line through $Z$ is parallel to the Com-axis, and the angles of the triangle add up to $\pi$. Following them around gives the simple relation
+\[
+\pb = \alpha + \phi .
+\]
+With it, the General Sinus becomes a way of reading coordinates.
+
+\begin{proposition}[Coordinate interpretation]\label{prop:coordinates}
+Place the triangle $OZ\Zb$ on the composed trigonometric circle with $\seg{OZ} = 1$. Then:
+\begin{itemize}
+  \item $\cos(\alpha, \phi)$ is the $x$-coordinate of $Z$, projected onto the $x$-axis along the Com-axis;
+  \item $\sin(\alpha, \phi)$ is the Com-coordinate of $Z$, projected onto the Com-axis.
+\end{itemize}
+\end{proposition}
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, scale=2.6, every node/.style={font=\small}]
+  \def\al{30}
+  \def\pbar{70}
+  \coordinate (O) at (0,0);
+  \coordinate (X) at (1.35,0);
+  \coordinate (Z) at (\al:1);
+  \coordinate (Zb) at ($(Z)+(\pbar+180:{sin(\al)/sin(\pbar)})$);
+  \coordinate (Com) at (\pbar:1.32);
+  % circles and axes
+  \draw[gray!45] (O) circle (1);
+  \draw[gray!25, dashed] (O) circle (1.2);
+  \draw[->, gray] (-1.3,0) -- (1.45,0) node[right] {$x$};
+  \draw[->, thick, Maroon] (O) -- (Com) node[above] {Com-axis};
+  % triangle
+  \draw[thick] (O) -- (Z);
+  \draw[very thick, RoyalBlue] (Zb) -- (Z);
+  \draw[very thick, Maroon!80!black] (O) -- (Zb);
+  % angles
+  \pic [draw, "$\alpha$", angle radius=0.42cm, angle eccentricity=1.35] {angle = X--O--Z};
+  \draw[gray] (0.52,0) arc (0:\pbar:0.52);
+  \node[gray] at (56:0.64) {$\bar{\phi}$};
+  \pic [draw, "$\phi$", angle radius=0.28cm, angle eccentricity=1.75] {angle = O--Z--Zb};
+  % points
+  \fill (Z) circle (0.7pt) node[above right] {$Z$};
+  \fill (Zb) circle (0.7pt) node[below] {$\bar{Z}$};
+  \node[below left] at (O) {$O$};
+  \node[left] at (-1,0.35) {$\sigma$};
+  \node[left] at (-1.13,0.55) {$\sigma_c$};
+  % labels of the two coordinates
+  \node[below, Maroon!80!black] at ($(O)!0.5!(Zb)+(0,-0.08)$) {$\cos(\alpha,\phi)$};
+  \node[right, RoyalBlue] at ($(Zb)!0.55!(Z)+(0.03,0)$) {$\sin(\alpha,\phi)$};
+\end{tikzpicture}
+\caption[The composed trigonometric circle]{The composed trigonometric circle. The point $Z$ lies on the unit circle $\sigma$ at the studied angle $\alpha$. Projecting it onto the $x$-axis along the leaning Com-axis (relative projection angle $\bar{\phi} = \alpha + \phi$) gives its two general coordinates: $\cos(\alpha, \phi)$ along the $x$-axis and $\sin(\alpha, \phi)$ along the direction of the Com-axis.}
+\label{fig:composed-circle}
+\end{figure}
+
+\begin{plainwords}
+On the classical unit circle, a point is read along two perpendicular axes, and its coordinates are $\cos\alpha$ and $\sin\alpha$. On the composed circle the same point is read along the $x$-axis and along a \emph{leaning} axis, and its two coordinates are $\cos(\alpha, \phi)$ and $\sin(\alpha, \phi)$ (\Cref{fig:composed-circle}). The General Sinus is, at heart, the trigonometry of a slanted frame of reference.
+\end{plainwords}
+
+One small warning helps avoid a common mistake. If we keep the \emph{projection angle} $\phi$ fixed and look at two different studied angles $\alpha$ and $\beta$, the two points need two different Com-axes, at the angles $\alpha + \phi$ and $\beta + \phi$. Drawing both angles against a single Com-axis is an error. The other way of looking is just as useful: if we keep the \emph{Com-axis} fixed at the angle $\pb$, then each studied angle $\alpha$ comes with its own projection angle $\phi = \pb - \alpha$. This second point of view is the one we will use in the next chapter.
+
+%------------------------------------------------
+\section{Where the General Sinus leads}\label{sec:gs-leads}
+%------------------------------------------------
+
+Look at what this chapter has given us. We started from a triangle that no longer needs a right angle, and we ended with a point read in a frame whose second axis leans at the angle $\pb$. The two numbers that describe the point, $\cos(\alpha, \phi)$ and $\sin(\alpha, \phi)$, are measured along two axes that are \emph{not} perpendicular.
+
+Now think back to the complex numbers of Chapter~\ref{ch:one-number}. A complex number $a + bi$ also describes a point with two numbers, but its two parts are always measured along perpendicular axes: the imaginary unit $i$ stands at a right angle to the real line, by construction. The pair of general coordinates does not fit into that frame. It asks for a number plane whose second axis is allowed to lean, a plane in which numbers can be added and multiplied just as complex numbers are, but whose second unit points in a direction of our choosing.
+
+That plane is the General Number Plane, and its second unit is the Composer Unit $\Gp$. They are the subject of the next chapter, and they are the heart of this book. Two things of this chapter travel on with them. The general cosine and sine become the two parts of a General Number written with a length and two angles (\Cref{def:general-polar}), and the triangle $OZ\Zb$ becomes the triangle that every General Number draws (\Cref{thm:triangle}). In Chapter~\ref{ch:interaction} the same triangle carries the mass and the charge of a particle.
+
+\begin{plainwords}[What we have so far]
+\begin{itemize}
+  \item Classical sine and cosine silently assume a right angle.
+  \item Letting the projection lean at an angle $\phi$ gives the General Sinus: $\sin(\alpha, \phi) = \sin(\alpha)/\sin(\alpha + \phi)$, $\cos(\alpha, \phi) = \sin(\phi)/\sin(\alpha + \phi)$, $\tan(\alpha, \phi) = \sin(\alpha)/\sin(\phi)$.
+  \item When $\alpha + \phi = \pi/2$, the classical functions come back exactly.
+  \item On the composed circle, $\cos(\alpha, \phi)$ and $\sin(\alpha, \phi)$ are the coordinates of a point read along the $x$-axis and along a leaning Com-axis at the angle $\pb = \alpha + \phi$.
+  \item These coordinates need a number plane whose second axis can lean. Chapter~\ref{ch:general-numbers} builds it, and the triangle of this chapter becomes the triangle of every General Number.
+\end{itemize}
+\end{plainwords}

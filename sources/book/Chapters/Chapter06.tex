@@ -1,0 +1,489 @@
+%************************************************
+\chapter{The Cosmic Mass Standard Model}\label{ch:standard-model}
+%************************************************
+
+\chapterlead{One fixed angle gives every body one triangle; all the triangles of one size make one ellipse; the ellipses make one frame; and in that frame every body of ordinary matter, from the electron to the nucleus of oganesson, has its own place.}
+
+\scene{Belfast, August 1874}
+
+In August 1874 the British Association for the Advancement of Science held its yearly meeting in Belfast, and on one of its mornings George Johnstone Stoney read a short paper to the section of mathematics and physics. Stoney was forty-eight. As a young man he had worked at Birr Castle beside the great telescope of the Earl of Rosse; since 1857 he had been the secretary of the Queen's University of Ireland, an administrative post that left physics to his spare time.
+
+His starting point was Faraday's law of electrolysis. When a current splits water or salt, the amount of matter set free is fixed by the amount of electricity that passes. Stoney read the law the other way round. \enquote{For each chemical bond which is ruptured within an electrolyte,} he wrote, \enquote{a certain quantity of electricity traverses the electrolyte which is the same in all cases} \citep{Stoney1894}. Electricity, then, comes in equal portions, and nature itself supplies the size of one portion. From the number of molecules in a gas, known only roughly at the time, he estimated it at \enquote{a twentieth (that is $10^{-20}$) of the quantity of electricity which was at that time called the ampere}, about sixteen times too small, as Robert Millikan's oil drops would show forty years later \citep{Millikan1913}.
+
+Stoney did something bolder with his portion of electricity. He put it beside two other constants that nature supplies, the speed of light and the constant of gravitation, and built from the three of them a whole system of units of length, time and mass \enquote{in which there shall be nothing arbitrary} \citep{Stoney1894}. His paper waited seven years for print \citep{Stoney1881}. In 1891 he gave his portion of electricity a name, the \emph{electron}, and six years later J.~J. Thomson found the particle that carries it \citep{Thomson1897}.
+
+Written with today's value of the charge, Stoney's unit of mass is $e\sqrt{K/G} \approx 1.85921 \times 10^{-9}$ kg, a little less than two micrograms. Chapter~\ref{ch:interaction} met this number without naming it, as the charge part of the electron and as the charge part of the proton (\Cref{fig:two-parts}). This chapter gives it its name and puts it to work. It is the step of the charge side of every particle triangle, in the same way that the dalton is the step of the mass side, and with it the triangles of all ordinary matter can be drawn in one frame.
+
+\bigskip
+
+Chapter~\ref{ch:interaction} ended with the law read in its own plane: Newton's gravity and Coulomb's law, each at full strength, in the relative plane whose Composer axis leans at $79.86^\circ$, the angle at which like charges push apart (\Cref{subsec:which-root}). This chapter starts from that fixed angle, builds a geometric frame from it one step at a time, and then places in that frame the 306 bodies of ordinary matter for which mass and charge are known: the electron, the proton and the neutron, the 118 atoms of the periodic table, 67 common ions, and the 118 bare nuclei.
+
+\begin{remark}[The Angle Held Fixed]\label{rem:sm-fixed-angle}
+In this chapter the angle of the Composer axis is held fixed at $\pb \approx 79.86^\circ$, with $\sin\pb \approx 0.98438$, $\cos\pb \approx 0.17605$ and $2\cos\pb \approx 0.35210$ (\Cref{tab:two-roots}).
+\end{remark}
+
+We call the result the \emph{Cosmic Mass Standard Model}. The name borrows a phrase that physics already uses for its theory of elementary particles and forces, so it is worth saying at once what is meant here. The model of this chapter is a standard frame: one set of coordinates, the same for every body, in which each body of ordinary matter has a fixed place, much as each element has its fixed place in the periodic table. It does not replace the Standard Model of particle physics and makes no claim about new particles. It shows the bodies we know, all at once, in the geometry of the cosmic mass.
+
+\paragraph{The road through this chapter.}
+The chapter climbs in six steps, shown in \Cref{fig:sm-map}, and each step takes one tool of Chapter~\ref{ch:general-numbers}. \Cref{sec:sm-triangle} draws one body as one triangle, the triangle of a General Number (\Cref{thm:triangle}, Remark~\ref{rem:corner}), and names the Stoney mass. \Cref{sec:sm-ellipse} draws all the triangles of one size at once and finds that they fill an ellipse (\Cref{thm:ellipse}). \Cref{sec:sm-frame} stacks the ellipses of all sizes into a polar-like frame, the rings and rays of Definition~\ref{def:rings-rays}. \Cref{sec:sm-where} shows where real matter falls in that frame, close to the axes (Proposition~\ref{prop:near-axis}), and why two lenses are needed to see it. \Cref{sec:sm-cards} computes the identity cards of all 306 bodies, and \Cref{sec:sm-model} plots them together: the Cosmic Mass Standard Model.
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth,
+    mapstep/.style={draw=RoyalBlue!55, fill=RoyalBlue!6, rounded corners=2pt, text width=2.3cm,
+                 align=flush center, inner sep=3.5pt, font=\footnotesize, minimum height=2.45cm, anchor=north},
+    mapflow/.style={->, thick, RoyalBlue!70}]
+  \node[mapstep] (s1) at (1.475,0) {\textbf{1. One body,\\ one triangle}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:sm-triangle}}\\[4pt]
+    angles $\alpha, \phi, \pb$;\\ the Stoney mass};
+  \node[mapstep] (s2) at (4.425,0) {\textbf{2. All triangles:\\ one ellipse}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:sm-ellipse}}\\[4pt]
+    one ellipse\\ for each size $r$};
+  \node[mapstep] (s3) at (7.375,0) {\textbf{3. One frame}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:sm-frame}}\\[4pt]
+    rings of equal $r$,\\ rays of equal $\alpha$};
+  \node[mapstep] (s4) at (1.475,-3.05) {\textbf{4. Where matter falls}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:sm-where}}\\[4pt]
+    the lean $\delta$;\\ two lenses};
+  \node[mapstep] (s5) at (4.425,-3.05) {\textbf{5. Identity cards}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:sm-cards}}\\[4pt]
+    atoms, ions,\\ nuclei, e, p, n};
+  \node[mapstep] (s6) at (7.375,-3.05) {\textbf{6. The standard model}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:sm-model}}\\[4pt]
+    306 bodies\\ in one frame};
+  \draw[mapflow] (s1.east) -- (s2.west);
+  \draw[mapflow] (s2.east) -- (s3.west);
+  \draw[mapflow, rounded corners=4pt] (s3.south) -- ++(0,-0.3) -| ($(s4.north)+(0,0.3)$) -- (s4.north);
+  \draw[mapflow] (s4.east) -- (s5.west);
+  \draw[mapflow] (s5.east) -- (s6.west);
+  \node[font=\footnotesize, text=gray!75!black, align=center] (c1) at (1.475,1.05) {from Chapter~\ref{ch:general-numbers}:\\ the triangle};
+  \node[font=\footnotesize, text=gray!75!black, align=center] (c2) at (4.425,1.05) {from Chapter~\ref{ch:general-numbers}:\\ the ellipse};
+  \node[font=\footnotesize, text=gray!75!black, align=center] (c3) at (7.375,1.05) {from Chapter~\ref{ch:general-numbers}:\\ rings and rays};
+  \draw[->, gray!70] (c1.south) -- (s1.north);
+  \draw[->, gray!70] (c2.south) -- (s2.north);
+  \draw[->, gray!70] (c3.south) -- (s3.north);
+  \node[font=\footnotesize, text=gray!75!black, align=center, anchor=east] (c4) at ($(s4.west)+(-0.3,-1.22)$) {from\\ Chapter~\ref{ch:general-numbers}:\\ close to the\\ Composer axis};
+  \draw[->, gray!70] (c4.east) -- ++(0.3,0);
+\end{tikzpicture}
+\caption[The road through the chapter]{The road through the chapter, from one fixed angle to one frame for all ordinary matter. Each box is one step, with the section where it is taken, and each step stands on a tool of Chapter~\ref{ch:general-numbers}.}
+\label{fig:sm-map}
+\end{figure}
+
+%------------------------------------------------
+\section{Step 1: One Body, One Triangle}\label{sec:sm-triangle}
+%------------------------------------------------
+
+Remarks~\ref{rem:identity} and~\ref{rem:identity-triangle} give every body a new identity card, the triplet $(r, \alpha, \phi)$, and draw it as a triangle (\Cref{fig:sm-triangle}). Its three sides are the mass $m$, laid along the mass axis from the origin $O$ to the corner $P$; the charge part $q\Gp$, laid from $P$ to the tip $Q$ along the direction of the Composer axis; and the cosmic magnitude $r$, the base $OQ$. Its three angles are:
+\begin{itemize}
+  \item the \emph{charge phase angle} $\alpha$ at $O$, which faces the charge side $q\Gp$;
+  \item the \emph{mass phase angle} $\phi$ at $Q$, which faces the mass side $m$;
+  \item the angle at the corner $P$, where the two sides meet. Because the charge side always leaves the mass axis at the angle $\pb$, this corner is always $180^\circ - \pb \approx 100.14^\circ$ when $m$ and $q\Gp$ have the same sign, and $\pb \approx 79.86^\circ$ when their signs differ (Remark~\ref{rem:corner}).
+\end{itemize}
+The three angles of a triangle add up to $180^\circ$, so $\alpha + \phi = \pb$ (Remark~\ref{rem:identity}). This is the whole of the geometry. From one body to the next only the two sides change; the corner angle never does.
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter06/fig-triangle}
+\caption[One body, one triangle]{One body, one triangle, drawn to scale at $79.86^\circ$. The mass $m$ runs along the mass axis from $O$ to $P$, the charge part $q\Gp = z\,m_S$ runs from $P$ to $Q$ along the direction of the Composer axis, and the cosmic magnitude $r$ closes the triangle. The corner at $P$ is always $100.14^\circ$ when the two parts have the same sign. The drawing uses $m = 2$ and $q\Gp = 1.5$ in any unit of mass, which give $r \approx 2.703$, $\alpha \approx 33.11^\circ$ and $\phi \approx 46.75^\circ$.}
+\label{fig:sm-triangle}
+\end{figure}
+
+\subsection{The Stoney Mass}\label{subsec:sm-stoney}
+
+The mass side of a triangle can take any value, but the charge side cannot. Every free body in nature carries a whole number of elementary charges, $q = z\,e$, where $z$ is the charge number: $z = -1$ for the electron, $z = +1$ for the proton, $z = +3$ for the iron ion Fe$^{3+}$, and $z = Z$, the atomic number, for a bare nucleus. (Quarks carry thirds of $e$, but no quark has ever been seen on its own.) The charge side $q\Gp = z\,e\,\Gp$ is therefore always a whole number of steps of one fixed length.
+
+\begin{definition}[Stoney Mass]\label{def:stoney-mass}
+The \textbf{Stoney mass} is the charge part of one elementary charge, the size of $e\,\Gp$ with $\Gp = \sqrt{K/G}$ (\Cref{subsec:relative-plane}):
+\begin{align*}
+m_S := e\sqrt{\frac{K}{G}} &\approx 1.602177 \times 10^{-19}\ \mathrm{C} \times 1.16043 \times 10^{10}\ \mathrm{kg/C} \\
+&\approx 1.85921 \times 10^{-9}\ \mathrm{kg}.
+\end{align*}
+A body of charge number $z$ has the charge part $q\Gp = z\,m_S$, laid along the Composer axis.
+\end{definition}
+
+\begin{remark}[The Stoney Mass and the Planck Mass]\label{rem:stoney-planck}
+The Stoney mass has two meanings.
+\begin{enumerate}
+  \item \emph{Balance.} The Composer Unit was sized so that $\Gp^2 G = K$ (\Cref{subsec:relative-plane}). Multiplied by $e^2$, this reads $G\,m_S^2 = K e^2$: two bodies of mass $m_S$, each carrying one elementary charge, attract each other by gravity exactly as strongly as they repel each other electrically. They are a balanced pair: in the laws of Newton and Coulomb, two such bodies can rest at any distance from each other. More generally, two bodies of positive mass are a balanced pair exactly when their charge phase angles add up to $\pb$, or to $\pb + 180^\circ$ when both charges are negative (\Cref{prop:law-cards}); a body of mass $m_S$ with one elementary charge has two equal parts and lies on the ray $\alpha = \pb/2 \approx 39.93^\circ$.
+  \item \emph{The Planck mass.} With the reduced Planck constant $\hbar$ and the speed of light $c$, the Planck mass is $m_P = \sqrt{\hbar c/G} \approx 2.17643 \times 10^{-8}$ kg, and the fine-structure constant is $\alpha_{\mathrm{fs}} = K e^2/(\hbar c) \approx 1/137.036$. Then
+  \begin{align*}
+  m_S^2 &= \frac{K e^2}{G} = \frac{K e^2}{\hbar c}\cdot\frac{\hbar c}{G} \\
+  &= \alpha_{\mathrm{fs}}\, m_P^2, \\
+  m_S &= \sqrt{\alpha_{\mathrm{fs}}}\; m_P \approx 0.0854245\, m_P .
+  \end{align*}
+  One Planck mass is $1/\sqrt{\alpha_{\mathrm{fs}}} \approx 11.706$ Stoney masses.
+\end{enumerate}
+\end{remark}
+
+The fine-structure constant is written $\alpha_{\mathrm{fs}}$ here, so that it is not confused with the charge phase angle $\alpha$.
+
+\scene{Berlin, May 1899}
+
+Twenty-five years after Stoney's paper, Max Planck was working on a problem that had nothing to do with electricity: how much light, of each color, a hot body gives off. In May 1899 he presented to the Prussian Academy of Sciences a paper on the radiation of heat in which a new constant of nature appeared; he wrote it $b$, and we now write it $h$. At the end of the paper he noticed what Stoney had noticed before him. With his new constant, the speed of light, the constant of gravitation and a constant of heat, it was possible to set up units of length, mass, time and temperature which, \enquote{independent of special bodies or substances, necessarily retain their meaning for all times and for all civilizations, even extraterrestrial and non-human ones} \citep{Planck1899}.
+
+Planck did not use the electric charge, and Stoney had not used Planck's constant, which did not yet exist. Their two units of mass therefore differ, and the number that links them was named only later. In 1916 Arnold Sommerfeld, explaining the fine splitting of the lines of hydrogen, met a pure number made of $e$, $\hbar$ and $c$, about $1/137$ \citep{Sommerfeld1916}. That number, the fine-structure constant, is exactly the bridge of Remark~\ref{rem:stoney-planck}: the Stoney mass is the Planck mass times its square root. Planck's own unit of mass, written with $h$ instead of $\hbar$, was $\sqrt{hc/G} \approx 5.46 \times 10^{-8}$ kg; today's Planck mass, $2.17643 \times 10^{-8}$ kg, is about $22$ micrograms, roughly the mass of a small grain of sand.
+
+In the frame of this chapter the Planck mass will appear as one ring among others, at $11.706$ Stoney masses, between the nuclei of sodium ($Z = 11$) and magnesium ($Z = 12$). Every nucleus from magnesium on has a cosmic magnitude larger than the Planck mass. This is a fact about sizes in the frame, not a new physical threshold: nothing happens to a nucleus at the Planck ring.
+
+\begin{workedexample}[Worked example: the identity card of Fe$^{3+}$]
+The iron ion Fe$^{3+}$ is an iron atom that has lost three electrons. Its charge number is $z = 3$.
+\begin{itemize}
+  \item \emph{Mass.} The atomic mass of iron is $55.845$ u. Three electrons, each $0.000548580$ u, are taken away: $m = 55.845 - 3 \times 0.000548580 \approx 55.843354$ u, or, with $1\ \mathrm{u} = 1.66053907 \times 10^{-27}$ kg, $m \approx 9.27301 \times 10^{-26}$ kg.
+  \item \emph{Charge part.} By \Cref{def:stoney-mass}, $q\Gp = 3\,m_S \approx 5.57763 \times 10^{-9}$ kg, about sixty million billion times the mass.
+  \item \emph{Magnitude.} Remark~\ref{rem:identity-triangle} at $79.86^\circ$ gives $r^2 = m^2 + (q\Gp)^2 + 0.35210\,m\,q\Gp$. The mass changes $r$ by less than one part in $10^{17}$, so $r \approx 5.57763 \times 10^{-9}$ kg $= 3\,m_S$.
+  \item \emph{Angles.} The tiny mass tips the triangle away from the charge axis by an angle $\delta$, which Remark~\ref{rem:lean} below gives as $\delta \approx 5.0374 \times 10^{-17}{}^\circ \times 55.843354/3 \approx 9.3768 \times 10^{-16}$ degree. So $\alpha = 79.86^\circ - 9.3768 \times 10^{-16}{}^\circ$ and $\phi = 9.3768 \times 10^{-16}$ degree, and indeed $\alpha + \phi = 79.86^\circ$.
+\end{itemize}
+\end{workedexample}
+
+\begin{plainwords}
+Charge comes in whole numbers of $e$, so the charge side of every triangle is a whole number of Stoney masses: one for the electron and the proton, three for Fe$^{3+}$, ninety-two for the nucleus of uranium. The Stoney mass is to the charge side what the dalton is to the mass side, the step of the ladder. It is also the mass of a speck whose gravity exactly balances the electric push of one elementary charge, and it is a fixed fraction, about one twelfth, of the Planck mass.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 2: All Triangles at Once: The Cosmic Mass Ellipse}\label{sec:sm-ellipse}
+%------------------------------------------------
+
+One angle is fixed and two sides are free. What shape holds all the triangles that this angle allows? To find out, we keep the size of the triangle fixed and let its shape change.
+
+\subsection{Eight Frames of a Film}\label{subsec:sm-film}
+
+Fix the base of the triangle, the cosmic magnitude $r$, and take it as the unit of length, $r = 1$. Its two base angles are $\alpha$ and $\phi$, and they always add up to $\pb \approx 79.86^\circ$. Now let $\alpha$ grow, step by step, from $0$ to $79.86^\circ$, so that $\phi$ shrinks from $79.86^\circ$ to $0$. \Cref{fig:sm-film} shows eight frames of this film. By Remark~\ref{rem:mass-charge-rep}, each frame has the two sides
+\[
+m = \frac{\sin\phi}{\sin\pb} = \frac{\sin(79.86^\circ - \alpha)}{0.98438}, \qquad q\Gp = \frac{\sin\alpha}{\sin\pb} = \frac{\sin\alpha}{0.98438}.
+\]
+At the start of the film the charge side is almost nothing and the triangle lies nearly flat on its base: a nearly neutral body. At the end the mass side is almost nothing: a nearly pure charge. In between, the two sides trade length, and in frame~4, near $\alpha = \phi = 39.93^\circ$, they are equal.
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter06/fig-film}
+\caption[Eight frames of a film]{Eight frames of a film: triangles with the same base $r = 1$ (black) and the same corner angle $100.14^\circ$, for $\alpha = 5^\circ, 15^\circ, \ldots, 75^\circ$. The mass side $m$ is dark red and the charge side $q\Gp$ blue, both in units of the base. The corner where they meet always lies on the dotted arc, part of a circle of radius $1/(2\sin\pb) \approx 0.508$ through the two ends of the base.}
+\label{fig:sm-film}
+\end{figure}
+
+Watch the corner where the two sides meet. Because its angle never changes, it always sees the base under the same angle, $100.14^\circ$, and an old theorem of Euclid says that all such points lie on one arc of a circle through the two ends of the base. The radius of that circle is $1/(2\sin\pb) \approx 0.50793$ times the base, and its centre lies $0.08942$ base-lengths below the middle of the base. With the base from $(0, 0)$ to $(1, 0)$, the corner moves on the circle $x^2 + y^2 = x - y\cot\pb$. The moving corner does not draw an ellipse; the ellipse appears in the next picture, when the two sides are read as a pair of numbers.
+
+\subsection{The Circle of the Tips}\label{subsec:sm-tips}
+
+In the relative plane itself, the same family looks even simpler (\Cref{fig:sm-tips}). Lay every triangle with its mass side along the mass axis, from the origin $O$ to the corner $P$. By Proposition~\ref{prop:circle-magnitude}, the tips of all the triangles of magnitude $r$ lie on one circle, and the charge sides $PQ$, all parallel to the Composer axis, are parallel to one another. Each point $Q$ of the circle is exactly one triangle: if $Q$ sits at the charge phase angle $\alpha$, the two sides are those of Remark~\ref{rem:mass-charge-rep}. Three places on the circle are special:
+\begin{itemize}
+  \item At $\alpha = 0$ the charge side vanishes and the triangle lies flat on the mass axis: a neutral body, such as the neutron or an atom, with $r = m$.
+  \item At $\alpha = \pb$ the mass side vanishes and the triangle lies flat on the Composer axis: a pure positive charge. The proton sits at this end, to within about $5 \times 10^{-17}$ degree (Remark~\ref{rem:lean}).
+  \item At $\alpha = \pb + 180^\circ \approx 259.86^\circ$ lies the pure negative charge. The electron sits at this end, to within about $3 \times 10^{-20}$ degree.
+\end{itemize}
+The Composer axis cuts the circle into two halves. On the half that holds the positive mass axis, from the electron end through the neutral end to the proton end, $m$ is positive: this half holds every real body. A tip on the other half would need a negative mass.
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter06/fig-circle}
+\caption[The circle of the tips]{All the particle triangles of one magnitude $r$ at $79.86^\circ$, in the relative plane: the mass side $m$ (dark red) from $O$ to the corner $P$, the charge side $q\Gp$ (blue) from $P$ to the tip $Q$, and the base $r$ (black) from $O$ to $Q$. The tips lie on the circle of radius $r$, and all the charge sides are parallel to the Composer axis: the gray arcs all measure $\pb$. Triangles 1 to 3 have a positive charge part, 4 to 6 a negative one, and triangle 2 has two equal parts. The shaded half, $m > 0$, holds every real body.}
+\label{fig:sm-tips}
+\end{figure}
+
+\subsection{The Ellipse}\label{subsec:sm-the-ellipse}
+
+Now forget the drawing and keep only the two sides, as the old identity card kept only a mass and a charge. Mark each triangle as one point, with the mass $m$ across and the charge part $q\Gp$ up, at right angles. The points of all the triangles of one magnitude fill one curve.
+
+\begin{corollary}[The Cosmic Mass Ellipse]\label{thm:cm-ellipse}
+Let the angle $\pb$ of the Composer axis be fixed, with $0 < \pb < 180^\circ$. For a fixed cosmic magnitude $r$, the pairs $(m, q\Gp)$ of all particle triangles of magnitude $r$ form the ellipse
+\[
+m^2 + (q\Gp)^2 + 2\cos\pb \cdot m\,q\Gp = r^2,
+\]
+which at $79.86^\circ$ reads $m^2 + (q\Gp)^2 + 0.35210 \cdot m\,q\Gp = r^2$. Its axes lie on the diagonals $q\Gp = m$ and $q\Gp = -m$, with the semi-axes
+\begin{align*}
+b &= \frac{r}{\sqrt{1 + \cos\pb}} \approx 0.92212\,r \quad \text{on the diagonal } q\Gp = m, \\
+a &= \frac{r}{\sqrt{1 - \cos\pb}} \approx 1.10167\,r \quad \text{on the diagonal } q\Gp = -m,
+\end{align*}
+so that $b/a = \tan(\pb/2) \approx 0.83702$. The eccentricity $e$ of the ellipse is given by $e^2 = 2\cos\pb/(1 + \cos\pb)$, so $e \approx 0.54717$, and its area is $\pi r^2/\sin\pb \approx 3.19144\,r^2$. As the charge phase angle $\alpha$ makes one turn, $0^\circ \le \alpha < 360^\circ$, the point
+\[
+m = r\,\frac{\sin(\pb - \alpha)}{\sin\pb}, \qquad q\Gp = r\,\frac{\sin\alpha}{\sin\pb}
+\]
+runs once around the ellipse.
+\end{corollary}
+
+\begin{proof}
+This is \Cref{thm:ellipse} for the cosmic mass: the real part is the mass $m$, the signed length of the Composer part is the charge part $q\Gp$, and the magnitude is $r$; the equation is the law of cosines of Remark~\ref{rem:identity-triangle}. At the mirror root, $\cos\pb \approx 0.17605$ and $\sin\pb \approx 0.98438$ (Remark~\ref{rem:sm-fixed-angle}) give $1/\sqrt{1.17605} \approx 0.92212$, $1/\sqrt{0.82395} \approx 1.10167$, $\tan 39.93^\circ \approx 0.83702$, $e^2 = 0.35210/1.17605$ and $\pi/0.98438 \approx 3.19144$.
+\end{proof}
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter06/fig-ellipse}
+\caption[The cosmic mass ellipse]{The cosmic mass ellipse. Each triangle of magnitude $r$ is marked by its two sides, $m$ across and $q\Gp$ up, at right angles, and together they fill the ellipse $m^2 + (q\Gp)^2 + 0.35210\,m\,q\Gp = r^2$ (\Cref{thm:cm-ellipse}), with the short semi-axis $b \approx 0.922\,r$ on the diagonal $q\Gp = m$ and the long one $a \approx 1.102\,r$ on $q\Gp = -m$. The small triangles, drawn with their true angles and the same base $r$, show which triangle each point stands for; the numbers match \Cref{fig:sm-tips}. The inner ellipse holds the triangles of magnitude $r/2$; the dashed half needs a negative mass.}
+\label{fig:sm-ellipse}
+\end{figure}
+
+\Cref{fig:sm-ellipse} draws the ellipse with the triangles of \Cref{fig:sm-tips} around it. Six readings follow.
+\begin{enumerate}
+  \item \emph{The four ends.} The ellipse crosses the axes at $\pm r$: the neutral end $(r, 0)$ and the two pure charge ends $(0, \pm r)$, where the proton and the electron sit.
+  \item \emph{The arc of real triangles.} Triangles whose two base angles are both positive, $0 < \alpha < 79.86^\circ$, fill the arc from the neutral end to the proton end; the eight frames of \Cref{fig:sm-film} are eight points of it. The rest of the ellipse belongs to triangles with a side of negative length: a negative charge part, as for anions and the electron, on the arc below the mass axis, and a negative mass on the dashed half, where no known body lies.
+  \item \emph{The short axis} lies on the diagonal $q\Gp = m$: two equal parts with the same sign, $\eta = 1$. The triangle is isosceles, with $\alpha = \phi = \pb/2 \approx 39.93^\circ$ and $r = m\sqrt{2 + 2\cos\pb} \approx 1.53366\,m$ (Remark~\ref{rem:special-triangles}). This is the balanced body of Remark~\ref{rem:stoney-planck}, whose charge part equals its mass: a speck of one Stoney mass, $1.86$ micrograms, carrying one elementary charge.
+  \item \emph{The long axis} lies on the diagonal $q\Gp = -m$: two equal parts with opposite signs, $\eta = -1$. The triangle is again isosceles, with the angle $\pb \approx 79.86^\circ$ at the corner and $r = m\sqrt{2 - 2\cos\pb} \approx 1.28370\,m$ (Remark~\ref{rem:special-triangles}). Opposite parts partly cancel, so for the same $r$ they can be longer, and the ellipse reaches further along this diagonal.
+  \item \emph{The shape belongs to the angle.} A different magnitude only scales the ellipse, so all sizes give nested copies of the same shape (the copy for $r/2$ is drawn). One shape, set by $\pb$ alone, holds every triangle that the angle allows, and the shape gives the angle back: $\pb = 2\arctan(b/a)$.
+  \item \emph{Where real matter falls.} Neutral bodies sit at the right end, each on the ellipse of its own size. Ions and nuclei sit at the top and bottom ends, on the ellipses of size $|z|\,m_S$, pushed off the ends only by their masses, which are $10^{16}$ to $10^{22}$ times smaller. The long stretches of the ellipse in between belong to bodies whose charge part is comparable to their mass, with a charge-to-mass ratio near $\sqrt{G/K} \approx 8.6 \times 10^{-11}$ C/kg.
+\end{enumerate}
+
+\subsection{How the Angle Shapes the Ellipse}\label{subsec:sm-shapes}
+
+Since the ellipse depends on nothing but $\pb$ (\Cref{thm:ellipse}), it shows at once what another angle would mean (\Cref{fig:sm-shapes,tab:sm-shapes}). All the ellipses pass through the same four ends, $(\pm r, 0)$ and $(0, \pm r)$; the angle only decides how they bulge between them. At $\pb = 90^\circ$ the middle term vanishes and the ellipse is a circle: every triangle is a right triangle, and the relative plane is the complex plane (\Cref{thm:classical-recovery}). At the mirror root the circle is slightly squeezed along the diagonal of equal signs, and at the arcsine root it becomes a thin needle along the diagonal of opposite signs.
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter06/fig-shapes}
+\caption[How the angle shapes the ellipse]{How the angle of the Composer axis shapes the ellipse of all triangles of one magnitude $r$ (\Cref{tab:sm-shapes}). The dots are the four ends that every ellipse shares, the dotted circle is the case $\pb = 90^\circ$, and the dashed line is the diagonal $q\Gp = m$. In (d) the needle leaves the frame and reaches $8.0\,r$ along $q\Gp = -m$.}
+\label{fig:sm-shapes}
+\end{figure}
+
+\begin{table}[tb]
+\myfloatalign
+\small
+\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X c c c c@{}}
+\toprule
+$\pb$ & \tableheadline{case} & $b/r$ & $a/r$ & $b/a$ & \tableheadline{eccentricity} \\
+\midrule
+$90^\circ$ & complex plane & $1$ & $1$ & $1$ & $0$ \\
+$79.86^\circ$ & mirror root & $0.92212$ & $1.10167$ & $0.83702$ & $0.54717$ \\
+$45^\circ$ & mirror line & $0.76537$ & $1.84776$ & $0.41421$ & $0.91018$ \\
+$10.14^\circ$ & arcsine root & $0.70988$ & $8.00141$ & $0.08872$ & $0.99606$ \\
+$0^\circ$ & a line, no plane & $0.70711$ & none & $0$ & $1$ \\
+\bottomrule
+\end{tabularx}
+\caption[The ellipse for five angles]{The ellipse of all triangles of magnitude $r$ for five angles of the Composer axis: the semi-axes $b$ (on $q\Gp = m$) and $a$ (on $q\Gp = -m$), their ratio $b/a = \tan(\pb/2)$, and the eccentricity. At $0^\circ$ the ellipse opens into two parallel lines.}
+\label{tab:sm-shapes}
+\end{table}
+
+\begin{plainwords}
+One angle, one shape. Every particle triangle has the same corner angle; only its two sides are free. Hold the base fixed and the corner slides along an arc of a circle. Read the two sides as a pair of numbers instead, and all the triangles of one size line up on an ellipse, whose shape is set by the angle alone: a circle at $90^\circ$, a slightly squeezed oval at the mirror root, a needle at the arcsine root. Its equation is the law of cosines, read as a curve.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 3: The Polar-Like Frame}\label{sec:sm-frame}
+%------------------------------------------------
+
+Polar coordinates name a point of the plane by a distance and an angle: circles of equal distance, rays of equal angle. The identity card $(r, \alpha, \phi)$ names a body in the same way, and the ellipses of \Cref{thm:cm-ellipse} are its circles. The frame is the chart of rings and rays of Definition~\ref{def:rings-rays}, drawn for the cosmic mass.
+
+\begin{definition}[The Cosmic Mass Frame]\label{def:cm-frame}
+The \textbf{Cosmic Mass Frame} is the plane of the two parts of the cosmic mass, the mass $m$ across and the charge part $q\Gp$ up, at right angles, ruled by two families of lines:
+\begin{itemize}
+  \item the \emph{rings}, the ellipses $m^2 + (q\Gp)^2 + 2\cos\pb\cdot m\,q\Gp = r^2$ of \Cref{thm:cm-ellipse}, one for each cosmic magnitude $r$;
+  \item the \emph{rays} of equal charge phase angle $\alpha$, straight lines from the origin.
+\end{itemize}
+A body with the identity card $(r, \alpha, \phi)$ is the point where its ring and its ray cross.
+\end{definition}
+
+Along a ray the ratio of the two parts stays fixed, $q\Gp/m = \eta = \sin\alpha/\sin(79.86^\circ - \alpha)$, the general tangent of Remark~\ref{rem:charge-mass-ratio}, and so does the mass phase angle $\phi = 79.86^\circ - \alpha$. The ring $r$ and the ray $\alpha$ cross at the point
+\[
+m = r\,\frac{\sin(79.86^\circ - \alpha)}{0.98438}, \qquad q\Gp = r\,\frac{\sin\alpha}{0.98438}
+\]
+of Remark~\ref{rem:mass-charge-rep}. The frame is therefore the General Sinus drawn as graph paper: the old card $(m, q)$ and the new card $(r, \alpha, \phi)$ are two names for the same point. In the relative plane the same frame is the ordinary polar frame, with circles and evenly spaced rays (\Cref{fig:sm-tips} shows one of its circles); drawing the two parts at right angles turns the circles into ellipses and moves the rays. \Cref{fig:sm-polar} draws it.
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter06/fig-polar}
+\caption[The Cosmic Mass Frame]{The Cosmic Mass Frame at $79.86^\circ$ (\Cref{def:cm-frame}), with $m$ across and $q\Gp$ up, in any unit of mass. Rings: the magnitudes $r = 0.5$ to $4$, numbered on the mass axis, where $r = m$. Rays: the charge phase angle $\alpha$, every $10^\circ$ and labeled every $30^\circ$; along each ray $\phi = 79.86^\circ - \alpha$ is fixed too. The blue point $(2, 1.5)$ reads $r \approx 2.70$ and $\alpha \approx 33.1^\circ$. The shaded half, $m > 0$, holds every real body.}
+\label{fig:sm-polar}
+\end{figure}
+
+Five readings follow.
+\begin{enumerate}
+  \item \emph{The two axes are rays.} The mass axis is the ray $\alpha = 0$, and $180^\circ$ on its negative side. The charge axis is the ray $\alpha = 79.86^\circ$, and $259.86^\circ$ below the origin; the rays just beyond it lean into the half of negative mass.
+  \item \emph{The rays are not evenly spread.} Between the positive mass and charge axes, $79.86$ degrees of $\alpha$ fill a right angle; in the next quarter, $100.14$ degrees do. The rays fan out a little where $m$ and $q\Gp$ have the same sign and crowd a little where their signs differ.
+  \item \emph{Reading along the axes and the diagonals.} On the mass axis $r = |m|$, and on the charge axis $r = |q\Gp|$, so the numbers on the mass axis also name the rings. The short axis of every ring lies on the ray $\alpha = \pb/2 \approx 39.93^\circ$, where $\eta = 1$, and the long axis on the ray $\alpha \approx -50.07^\circ = 309.93^\circ$, where $\eta = -1$.
+  \item \emph{Reading a point.} The blue point $(m, q\Gp) = (2, 1.5)$, in any unit of mass, lies between the rings $2.5$ and $3$ and between the rays $30^\circ$ and $40^\circ$. The remarks give its card exactly:
+  \begin{align*}
+  r &= \sqrt{4 + 2.25 + 0.35210 \cdot 3} \approx 2.703, \qquad \eta = 0.75, \\
+  \alpha &= \arctan\frac{0.98438 \cdot 0.75}{1 + 0.17605 \cdot 0.75} \approx 33.11^\circ, \\
+  \phi &= 79.86^\circ - \alpha \approx 46.75^\circ.
+  \end{align*}
+  It is the triangle of \Cref{fig:sm-triangle}.
+  \item \emph{Real bodies.} Neutral bodies lie on the ray $\alpha = 0$, positive charges near the ray $79.86^\circ$ and negative charges near the ray $259.86^\circ$. With the microgram as the unit, one elementary charge sits on the charge axis at $1.86$, the Stoney mass, so this frame has the right size for specks of dust that carry one or two elementary charges. Atoms, $10^{15}$ to $10^{18}$ times lighter, crowd at the origin.
+\end{enumerate}
+
+\begin{plainwords}
+Stack the ellipses of all sizes and add the rays of equal angle, and they become graph paper: rings instead of circles, rays instead of spokes. Any body can be found on it in two ways, by its old card, a mass and a charge, or by its new card, a magnitude and two angles. Both lead to the same point.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 4: Where Matter Falls}\label{sec:sm-where}
+%------------------------------------------------
+
+The frame is ready. Where in it do the bodies of ordinary matter lie? Two kinds of answer follow from the circle of the tips (\Cref{subsec:sm-tips}).
+
+A \emph{neutral body}, an atom or a neutron, has no charge part. Its triangle lies flat on the mass axis, so it sits on the ray $\alpha = 0$, with $\phi = 79.86^\circ$ and $r = m$: its ring is its mass.
+
+A \emph{charged body}, an ion, a nucleus, a proton or an electron, has a charge part $z\,m_S$ that dwarfs its mass. Its ring is therefore, to many digits, $r = |z|\,m_S$, and its triangle lies almost flat on the Composer axis. Almost, but not quite: the small mass tips it away from the charge axis by a tiny angle, which we call the \emph{lean}.
+
+\begin{remark}[The Lean of a Charged Body]\label{rem:lean}
+Let a body have the mass $m$ and the charge number $z \neq 0$, and let $|\eta| = |z|\,m_S/m$ be the size of its charge-to-mass ratio measured through the Composer Unit (Remark~\ref{rem:charge-phase}). The \textbf{lean} $\delta$ of its cosmic mass from the charge axis, and its two angles, are
+\begin{align*}
+z > 0\colon\quad \delta &= \arctan\frac{\sin\pb}{|\eta| + \cos\pb}, & \alpha &= \pb - \delta, \quad \phi = \delta; \\
+z < 0\colon\quad \delta &= \arctan\frac{\sin\pb}{|\eta| - \cos\pb}, & \alpha &= \pb + 180^\circ + \delta, \\
+& & \phi &= -180^\circ - \delta.
+\end{align*}
+For every body of ordinary matter $|\eta|$ lies between $10^{15}$ and $10^{22}$, so the arctangent equals its argument to many digits, and
+\begin{align*}
+\delta &\approx \frac{180^\circ}{\pi}\cdot\frac{\sin\pb \cdot 1\,\mathrm{u}}{m_S}\cdot\frac{m}{|z|} \\
+&\approx 5.0374 \times 10^{-17}\ \text{degree} \times \frac{m}{|z|},
+\end{align*}
+with $m$ in daltons. The lean is proportional to the mass per charge, $m/|z|$: one step of $10^{-15}$ degree of lean is $19.85$ daltons of mass per elementary charge.
+\end{remark}
+
+The formulas are Proposition~\ref{prop:near-axis} read for a cosmic mass, with $|\eta| = |z|\,m_S/m$, that is, Remark~\ref{rem:charge-phase} written for a small mass: the lean is the mass phase angle $\phi$ of a positive charge, and its distance from $-180^\circ$ for a negative one. Two bodies with the same mass per charge lie on the same ray, whatever their charge; they differ only in their ring. The heavier a body is for its charge, the more it leans. The electron, with $0.000549$ daltons per charge, leans least, by $2.8 \times 10^{-20}$ degree; the francium ion Fr$^+$, with $223$ daltons per charge, leans most, by $1.12 \times 10^{-14}$ degree.
+
+\scene{Cambridge, 1919}
+
+When the war ended, Francis William Aston went back to the Cavendish Laboratory in Cambridge, where J.~J. Thomson had invited him in 1910. Before the war, sorting beams of charged atoms with Thomson's method, Aston had seen that neon seemed to come in two kinds, of mass about $20$ and $22$; he called the second meta-neon, but could not prove that it was a separate kind of atom. In 1919 he finished an instrument to settle the question, which he called a positive ray spectrograph. A beam of ions passes first through an electric field and then through a magnetic field, arranged so that all the ions with the same ratio of mass to charge come together at one place on a photographic plate, whatever their speed. Each kind of ion leaves one sharp line \citep{Aston1919}.
+
+Neon gave two lines, at $20$ and $22$. Chlorine, whose atomic weight is $35.45$, gave lines at $35$ and $37$ and nothing in between. Element after element came apart into isotopes whose masses were very nearly whole numbers, and Aston went on to identify $212$ of the isotopes found in nature. In 1922 he received the Nobel Prize in Chemistry for the mass spectrograph and for the whole-number rule.
+
+Aston's instrument sorts ions by exactly the quantity that sets the lean in the Cosmic Mass Frame: the mass per charge. Every line on his plate is a ray of the frame.
+
+\subsection{Sixteen Orders of Magnitude}\label{subsec:sm-scale}
+
+Now try to draw all of ordinary matter in the frame at its true scale. The masses of atoms lie between $1.7 \times 10^{-27}$ and $4.9 \times 10^{-25}$ kg, while the charge part of a single elementary charge is $1.86 \times 10^{-9}$ kg, sixteen orders of magnitude larger. If the ring of one Stoney mass were drawn a metre from the origin, even the heaviest atom would lie less than $3 \times 10^{-16}$ metre from it, a small fraction of the width of a proton; and the leans, at most $10^{-14}$ degree, are invisible. Drawn true to scale, the whole of ordinary matter is a dot at the origin and a short row of dots up and down the charge axis (\Cref{fig:sm-truescale}a).
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter06/fig-truescale}
+\caption[Ordinary matter at true scale, and the radial lens]{(a) Ordinary matter in the Cosmic Mass Frame at true scale, in Stoney masses. All the atoms and the neutron fall on the origin, the ions sit within four Stoney masses of it, and the bare nuclei climb the charge axis one Stoney mass at a time, up to $118$; no lean can be seen. (b) The radial lens used in \Cref{fig:standard-model}: the distance from the origin along any ray, with neutral bodies measured in daltons, a break of sixteen orders of magnitude, and charged bodies measured in Stoney masses, evenly from ring $1$ to ring $4$ and logarithmically from ring $4$ to ring $118$.}
+\label{fig:sm-truescale}
+\end{figure}
+
+To see ordinary matter, the frame needs two lenses. Both are monotonic: they keep the order of the numbers, so rings stay rings, rays stay rays, and every body keeps its place relative to its neighbours.
+\begin{itemize}
+  \item \emph{The radial lens} (\Cref{fig:sm-truescale}b) gives the inner part of the frame to neutral bodies, with $r$ counted in daltons from $0$ to $300$ u, and the outer part to charged bodies, with $r$ counted in Stoney masses. Between the two lies a break of sixteen orders of magnitude. The rings of the ions, $1$ to $4$, are evenly spaced; beyond ring $4$ the rings of the nuclei come closer together, by the logarithm of $|z|$, so that ring $118$ fits on the page.
+  \item \emph{The angular lens} keeps the true angles on the half $m < 0$, where no body lies. Next to the charge axis it magnifies the lean $6.4 \times 10^{15}$ times, so that positive bodies fan out clockwise from $79.86^\circ$ and negative ones counterclockwise from $259.86^\circ$, each at an angle proportional to its mass per charge. Two thin sectors beside the mass axis hold all the remaining angles, squeezed.
+\end{itemize}
+
+\keepblock{10}
+\begin{plainwords}
+Matter uses the frame in a very lopsided way. Everything without charge lies on one line, the mass axis, and everything with charge lies on another, the charge axis, tipped away from it by angles smaller than anything a protractor could ever measure. To see the bodies, we magnify: the masses of atoms and the charges of ions on separate scales, and the tiny tips by a factor of six thousand million million. The tip of a charged body turns out to be its mass per charge, the very number that a mass spectrometer reads.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 5: The Identity Cards of Matter}\label{sec:sm-cards}
+%------------------------------------------------
+
+Every body of ordinary matter now has a recipe for its card. Only two numbers are needed, its mass $m$ and its charge number $z$; Remark~\ref{rem:identity-triangle} then gives $r$, and Remark~\ref{rem:lean} gives $\alpha$ and $\phi$. The bodies fall into five kinds, and the masses come from the following sources.
+\begin{itemize}
+  \item \emph{The electron, the proton and the neutron:} their masses and charges from CODATA 2018 \citep{CODATA2018}, as in \Cref{app:constants}.
+  \item \emph{Atoms} ($z = 0$, $118$ bodies): the standard atomic weights of 2024 \citep{Prohaska2022,CIAAW2024}; for the fourteen elements whose standard weight is an interval, the conventional value; and for the elements that have no standard weight, the mass number of their longest-lived isotope, as periodic tables print it, good to about $0.1\%$.
+  \item \emph{Cations and anions} ($67$ bodies): the common monatomic ions of chemistry, with charges from $-3$ to $+4$. An ion of charge number $z$ is its atom with $z$ electrons removed, or $|z|$ added:
+  \[
+  m_{\text{ion}} = A - z\,m_e ,
+  \]
+  where $A$ is the atomic mass and $m_e \approx 0.000548580$ u. A cation ($z > 0$) is lighter than its atom and an anion ($z < 0$) heavier. The energy that binds the moved electrons, below $10^{-7}$ u, is left out.
+  \item \emph{Nuclei} ($118$ bodies): each atom with all its $Z$ electrons removed, so that $z = Z$. The electrons were bound to the atom, and the energy of that binding, $B_e$, is given back as mass when they leave:
+  \begin{align*}
+  m_{\text{nucleus}} &= A - Z\,m_e + B_e/c^2, \\
+  B_e &\approx \bigl(14.4381\,Z^{2.39} + 1.55468 \times 10^{-6}\,Z^{5.35}\bigr)\ \mathrm{eV},
+  \end{align*}
+  a standard fit of the total binding energy of the electrons \citep{Lunney2003}. The correction is small: $0.00082$ u for uranium and at most $0.0016$ u, for oganesson.
+\end{itemize}
+A nucleus is here the average nucleus of the natural element, because the atomic mass is an average over the element's isotopes. That is why the hydrogen nucleus, $1.007451$ u, is a little heavier than the proton, $1.007276$ u: natural hydrogen holds some deuterium. The ion H$^+$ and the hydrogen nucleus are the same body; their masses differ only by the $14$ eV that bound the one electron.
+
+\scene{Manchester, 1913}
+
+In 1913 Henry Moseley, one of the youngest researchers in Ernest Rutherford's laboratory in Manchester, set out to measure the X-rays of the elements. Two years earlier Rutherford had found that every atom has a small, heavy nucleus with a positive charge (Chapter~\ref{ch:prologue}). Moseley made each element in turn the target of a beam of cathode rays and measured the X-rays it gave off by reflecting them from a crystal, the new method of William and Lawrence Bragg. For a dozen elements from calcium to zinc, the frequency of the strongest line rose in perfectly regular steps from one element to the next. \enquote{We have here a proof that there is in the atom a fundamental quantity,} he wrote, and: \enquote{This quantity can only be the charge on the central positive nucleus} \citep{Moseley1913}.
+
+That quantity is the atomic number $Z$. Before Moseley, the number of an element was only its place in Mendeleev's table; after him it was a measured charge. His X-rays put cobalt before nickel, against the order of their atomic weights, as chemists had always placed them, and in the second part of the work, finished in Oxford in 1914, they left exactly four places empty below gold, at $Z = 43$, $61$, $72$ and $75$, for elements still to be found \citep{Moseley1914}. On 10 August 1915 Moseley was killed at Gallipoli, aged twenty-seven.
+
+Moseley's number is the ring of a nucleus in the Cosmic Mass Frame: a bare nucleus has the charge number $z = Z$ and lies on the ring $Z\,m_S$.
+
+\begin{table}[tb]
+\myfloatalign
+\footnotesize
+\makebox[\textwidth][c]{\input{Chapters/Chapter06/tab-excerpt}}
+\caption[A few identity cards of matter]{A few identity cards of matter at $79.86^\circ$, out of the 306 of \Cref{app:identity-cards}. The magnitude $r$ of a charged body is $|z|\,m_S$ to many digits; the angles are written with the lean $\delta$ of Remark~\ref{rem:lean}, which is far too small to be written as a plain decimal.}
+\label{tab:sm-excerpt}
+\end{table}
+
+\Cref{tab:sm-excerpt} shows a few cards, and \Cref{app:identity-cards} gives all 306. The same cards come with this book as a workbook, \emph{Identity-Cards-data.xlsx}, in which every number is a live formula: the mass of each ion and each nucleus is calculated from the mass of its atom, so that a new atomic weight updates its ions and its nucleus at once; the columns give the mass in daltons and in kilograms, the charge part, the magnitude $r$, the three angles $\alpha$, $\phi$ and $\pb$, and the lean $\delta$. A spreadsheet keeps about fifteen digits, while $\alpha$ for a charged body differs from $79.86^\circ$ or $259.86^\circ$ only from its sixteenth to its twenty-second digit; the lean is therefore computed on its own, with the formula of Remark~\ref{rem:lean}, in which no digits cancel.
+
+\begin{workedexample}[Worked example: salt, and the nucleus of uranium]
+\emph{Na$^+$.} Sodium has the atomic mass $22.98976928$ u. The ion has lost one electron: $m = 22.98976928 - 0.00054858 = 22.98922070$ u. Its ring is $r = m_S \approx 1.85921 \times 10^{-9}$ kg, and its lean is $\delta \approx 5.0374 \times 10^{-17} \times 22.98922 \approx 1.15806 \times 10^{-15}$ degree. So $\alpha = 79.86^\circ - 1.15806 \times 10^{-15}{}^\circ$ and $\phi = 1.15806 \times 10^{-15}$ degree.
+
+\emph{Cl$^-$.} Chlorine, $35.45$ u, has gained one electron: $m = 35.45054858$ u. Its ring is again $m_S$, on the negative side, and its lean is $\delta \approx 1.78579 \times 10^{-15}$ degree, so $\alpha = 259.86^\circ + 1.78579 \times 10^{-15}{}^\circ$ and $\phi = -180^\circ - 1.78579 \times 10^{-15}{}^\circ$. In a grain of salt, each Na$^+$ and each Cl$^-$ lean the same way, towards positive mass, by amounts in the ratio of their masses.
+
+\emph{The uranium nucleus.} Uranium, $238.02891$ u, loses all $92$ electrons, $92 \times 0.00054858 \approx 0.05047$ u, and gains back their binding energy, about $763$ keV or $0.00082$ u: $m \approx 237.97926$ u. Its ring is $92\,m_S \approx 1.71047 \times 10^{-7}$ kg, almost eight Planck masses, and its lean is $\delta \approx 5.0374 \times 10^{-17} \times 237.97926/92 \approx 1.30304 \times 10^{-16}$ degree, about nine times less than the lean of Na$^+$: the uranium nucleus carries far more charge for its mass.
+\end{workedexample}
+
+%------------------------------------------------
+\section{Step 6: The Cosmic Mass Standard Model}\label{sec:sm-model}
+%------------------------------------------------
+
+\Cref{fig:standard-model} places all 306 bodies in one Cosmic Mass Frame, with the two lenses of \Cref{subsec:sm-scale}. This is the Cosmic Mass Standard Model: one frame, built from one fixed angle, in which every body of ordinary matter has its card and its place.
+
+\begin{figure}[p]
+\myfloatalign
+\makebox[\textwidth][c]{\begin{tikzpicture}[x=1mm, y=1mm, >=Stealth]\input{Chapters/Chapter06/fig-frame}\end{tikzpicture}}
+\caption[The Cosmic Mass Standard Model]{The Cosmic Mass Standard Model: all 306 bodies of \Cref{app:identity-cards} in the Cosmic Mass Frame at $79.86^\circ$, with $m$ across and $q\Gp$ up. Two lenses make them visible (\Cref{subsec:sm-scale}). Radially, the inner zone counts neutral bodies in daltons, the gray band is a break of sixteen orders of magnitude, and the outer zone counts charged bodies in Stoney masses, rings $1$ to $4$ evenly and rings $4$ to $118$ logarithmically; the dashed green ring is the Planck mass. Angularly, the lean of a charged body from the charge axis is magnified $6.4 \times 10^{15}$ times and labeled in $10^{-15}$ degree, true angles are kept on the half $m < 0$, and the hatched sectors hold the remaining angles, squeezed. Gray dots: atoms, on the mass axis. Blue: cations, and the proton as a square. Red: anions, and the electron as a square. Violet diamonds: bare nuclei, on the rings $Z = 1$ to $118$. \Cref{fig:sm-ions,fig:sm-spine,fig:sm-ruler} show the crowded parts with every name.}
+\label{fig:standard-model}
+\end{figure}
+
+Seven readings follow.
+\begin{enumerate}
+  \item \emph{Three directions.} Ordinary matter uses only three directions of the plane: the mass axis, for all neutral bodies; the positive charge axis, for the proton, the cations and the nuclei; and the negative charge axis, for the electron and the anions.
+  \item \emph{The lean is the mass per charge.} Along each charge axis the bodies fan out by their mass per charge (Remark~\ref{rem:lean}). The frame works like Aston's spectrograph: bodies with the same mass per charge share one ray, and \Cref{fig:sm-ions} shows the ions with their names, ring by ring.
+  \item \emph{Cations and anions lean the same way.} Both lean towards positive mass, clockwise from $79.86^\circ$ for positive charges and counterclockwise from $259.86^\circ$ for negative ones, because every mass is positive.
+  \item \emph{The nuclear spine.} The 118 nuclei climb the positive charge axis ring by ring and lean only $0.5$ to $1.3 \times 10^{-16}$ degree, because a nucleus carries much more charge for its mass than any ion. Their lean grows with $Z$ (\Cref{fig:sm-spine}). Light nuclei, from helium to calcium, hold about as many neutrons as protons, so their mass per charge is about $2$ daltons; heavy nuclei hold more neutrons than protons, and the mass per charge of uranium is $2.59$ daltons. The excess of neutrons in heavy nuclei, which keeps them together against the push of their protons, shows in the frame as a slow bend of the spine away from the charge axis.
+  \item \emph{The atoms.} Neutral atoms lie on the mass axis at $r = m$, from hydrogen at $1.008$ u to oganesson at $294$ u (\Cref{fig:sm-ruler}). The neutron lies beside hydrogen.
+  \item \emph{Three rings to remember.} Ring $1$ is the Stoney mass, the home of the proton, the electron and every singly charged ion. Ring $11.706$ is the Planck mass, between the nuclei of sodium and magnesium. Ring $92$ is the uranium nucleus, almost eight Planck masses.
+  \item \emph{The empty middle.} Between the axes lie bodies whose charge part is comparable to their mass, with a charge-to-mass ratio near $\sqrt{G/K} \approx 8.6 \times 10^{-11}$ C/kg. On the ray $\alpha = 39.93^\circ$ the two parts are equal: the balanced body of Remark~\ref{rem:stoney-planck}, which in the laws of Newton and Coulomb can rest at any distance from its twin. The next reading finds balanced partners for every charged body. In this region a part can even be longer than the ring: the mass exceeds the ring by up to $1.6\%$, for a body whose arrow stands at right angles to the Composer axis, $\alpha = \pb - 90^\circ$, with a negative charge part of $0.17605$ times its mass (Remark~\ref{rem:gn-long-parts}). No atom, ion or nucleus comes anywhere near; that region of the frame belongs to charged grains, planets, stars and black holes.
+\end{enumerate}
+
+\emph{One more reading: pairs on the frame.} The frame also reads the force between any two bodies (\Cref{prop:law-cards}): add the angles of their two rays, and the product of their two rings sets the scale. The sum decides the sign, a pull between $-100.14^\circ$ and $79.86^\circ$ and a push between $79.86^\circ$ and $259.86^\circ$. Two neutral bodies add up to $0^\circ$ and pull; two ions, nuclei or particles of the same sign add up to about $159.72^\circ$ and push, and of opposite signs to about $339.72^\circ$, and pull. A neutral body and an ion add up to an angle that lies the lean $\delta$ of the ion inside the band of pulls, and what is left is $r_a r_{\mathrm{ion}}\sin\delta/\sin\pb = m_a m_{\mathrm{ion}}$: their gravity alone, because the lean carries the mass of the ion, $r\sin\delta = m\sin\pb$ (Remarks~\ref{rem:mass-charge-rep} and~\ref{rem:lean}). In the frame itself, the border between the pulling and the pushing partners of a body is a straight line through $0$: its own ray mirrored in a diagonal of the frame, $q\Gp = m$ for a positive body and $q\Gp = -m$ for a negative one. The bodies on that line are its balanced partners.
+
+\begin{figure}[p]
+\myfloatalign
+\makebox[\textwidth][c]{\input{Chapters/Chapter06/fig-ions}}
+\caption[The ions, every one named]{The ions of \Cref{fig:standard-model}, every one named. The two magnified sectors next to the charge axis are unrolled: each ring $z$ becomes a line, and the lean $\delta$ runs across, in $10^{-15}$ degree, from the charge axis on the left. The scale on top reads the same lean as mass per charge. Blue: cations and the proton (square); red: anions and the electron (square); violet: the bare nuclei of hydrogen to beryllium, which share the rings $1$ to $4$ with the ions.}
+\label{fig:sm-ions}
+\end{figure}
+
+\begin{figure}[p]
+\myfloatalign
+\makebox[\textwidth][c]{\input{Chapters/Chapter06/fig-spine}}
+\caption[The nuclear spine]{The nuclear spine of \Cref{fig:standard-model}, unrolled: each nucleus at its ring $Z$, down the page, and at its lean $\delta$, across, in $10^{-16}$ degree. The dashed green line marks two daltons per charge, a nucleus with as many neutrons as protons; light nuclei lie on it, heavy ones to its right. The dashed green bar is the Planck mass, between sodium and magnesium.}
+\label{fig:sm-spine}
+\end{figure}
+
+\begin{figure}[tb]
+\myfloatalign
+\makebox[\textwidth][c]{\input{Chapters/Chapter06/fig-ruler}}
+\caption[The atoms on the mass axis]{The mass axis of \Cref{fig:standard-model}, unrolled: the 118 atoms and the neutron (square) at $r = m$, in daltons, in two lines from $0$ to $150$ u and from $150$ to $300$ u.}
+\label{fig:sm-ruler}
+\end{figure}
+
+\subsection{The Standard Model in Six Lines}\label{subsec:sm-summary}
+
+\Cref{tab:sm-summary} gathers the road of this chapter. Each line uses only what the lines above it established.
+
+\begin{table}[tb]
+\myfloatalign
+\small
+\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X@{}}
+\toprule
+\tableheadline{step} & \tableheadline{what is built} & \tableheadline{the formula} \\
+\midrule
+1 & one body, one triangle & $\alpha + \phi = \pb$; corner $100.14^\circ$; $q\Gp = z\,m_S$ \\
+2 & all triangles of one size & $m^2 + (q\Gp)^2 + 0.35210\,m\,q\Gp = r^2$ \\
+3 & the frame & rings of equal $r$, rays of equal $\alpha$ \\
+4 & where matter falls & $r = m$ or $r = |z|\,m_S$; $\delta \approx 5.0374 \times 10^{-17}{}^\circ \times m/|z|$ \\
+5 & the cards & $m_{\text{ion}} = A - z\,m_e$; $m_{\text{nucleus}} = A - Z\,m_e + B_e/c^2$ \\
+6 & the standard model & 306 bodies on three directions of one frame \\
+\bottomrule
+\end{tabularx}
+\caption[The standard model in six lines]{The Cosmic Mass Standard Model in six lines, all at the angle $79.86^\circ$ of the Composer axis.}
+\label{tab:sm-summary}
+\end{table}
+
+\subsection{What the Model Is, and What It Is Not}\label{subsec:sm-is-not}
+
+The Cosmic Mass Standard Model is a frame and a catalogue. It takes two numbers that physics has measured for every body, the mass and the charge, and writes them as one magnitude and two angles in a single geometry, built from one fixed angle. Everything in it can be checked with a spreadsheet, and the workbook that comes with this book does so for all 306 bodies.
+
+It is not a new law of nature. It predicts no new particle, and it moves no measured mass or charge. What it adds is a language: a single picture in which neutral matter, ions and nuclei stand side by side; a reading of the charge-to-mass ratio as an angle, exactly the quantity that Thomson's tube and Aston's spectrograph measured; and a family of ellipses whose shape is fixed by the angle of the Composer axis alone.
+
+One question remains open, and Chapter~\ref{ch:alignment} names it as the work of Volume~2: the physical meaning of the Composer coordinate of a product, which holds the Coupling term and a share of the term of two charges, by far the larger for charged particles (\Cref{subsec:law-read}), but is not read as a force (Definition~\ref{def:reading}). The frame itself rests on the angle $79.86^\circ$ of the Composer axis (Remark~\ref{rem:sm-fixed-angle}): its corner angle of $100.14^\circ$, its coefficient $0.35210$ and its lean of $5.0374 \times 10^{-17}$ degree per dalton all come from that angle. Until the Composer coordinate is tied to a measurement, the model is a more expressive way to see the bodies we know, which is exactly what it sets out to be.
+
+\begin{plainwords}
+Start with one angle, $79.86^\circ$, the angle at which like charges push apart (Chapter~\ref{ch:interaction}). Draw every body as a triangle whose corner always has the same angle. All the triangles of one size line up on an ellipse; the ellipses of all sizes, with the rays of equal angle, make graph paper. On that paper, every neutral body sits on one line, every positive body near a second line and every negative body near a third, each tipped by its mass per charge. That picture, with all 306 bodies in it, is the Cosmic Mass Standard Model.
+\end{plainwords}

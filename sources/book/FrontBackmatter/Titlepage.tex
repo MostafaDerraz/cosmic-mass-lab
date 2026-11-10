@@ -1,0 +1,42 @@
+%*******************************************************
+% Title page
+%*******************************************************
+\begin{titlepage}
+  \pdfbookmark[0]{\myTitle}{titlepage}
+  \begin{addmargin}[-1cm]{-3cm}
+    \begin{center}
+      \large
+      \hfill
+      \vfill
+
+      \begingroup
+        \color{Maroon}\spacedallcaps{\myTitle} \\ \medskip
+        \spacedlowsmallcaps{\myVolume} \\ \bigskip
+      \endgroup
+
+      \spacedlowsmallcaps{\mySubtitle}
+
+      \vspace{3.5em}
+
+      % Emblem: the composer axis leaning away from the real axis
+      \begin{tikzpicture}[scale=1.1]
+        \draw[->, thick, gray!70] (-0.2,0) -- (3.2,0);
+        \draw[->, thick, Maroon] (0,0) -- (60:2.6);
+        \draw[gray!60] (0.7,0) arc (0:60:0.7);
+        \node[gray] at (30:1.0) {\small $\bar{\phi}$};
+        \fill[Maroon] (0,0) circle (1.4pt);
+      \end{tikzpicture}
+
+      \vspace{3.5em}
+
+      \spacedlowsmallcaps{\myName}
+
+      \vfill
+
+      \myLocation\ \myTime
+
+      \medskip
+      {\small\color{gray}\myVersion}
+    \end{center}
+  \end{addmargin}
+\end{titlepage}

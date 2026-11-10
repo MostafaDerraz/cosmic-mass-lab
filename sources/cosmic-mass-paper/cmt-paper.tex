@@ -1,0 +1,448 @@
+\documentclass[11pt,a4paper]{article}
+% Mass and Charge as One General Number: research article for Royal Society Open Science (format-free first submission).
+% Stage 4: scope narrowed to the real reading (no frame of 306 bodies, no closure law of nuclear masses).
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,angles,quotes,patterns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{booktabs,array,tabularx}
+\usepackage{enumitem}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\hypersetup{pdftitle={Mass and Charge as One General Number: A Rewriting of Newton's, Coulomb's and Maxwell's Laws for Slow Bodies},
+  pdfauthor={Mostafa Derraz},
+  pdfkeywords={cosmic mass, General Numbers, General Sinus, Newton and Coulomb, Maxwell's equations, gravitoelectromagnetism}}
+
+% ---------- notation, as in the General Numbers paper ----------
+\newcommand{\pb}{\bar{\phi}}                    % angle of the Composer axis
+\newcommand{\Gp}{\mathcal{G}_{\bar{\phi}}}      % Composer Unit
+\newcommand{\up}{\vec{u}_{\bar{\phi}}}          % unit arrow along the Composer axis
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\stagenote}[1]{\par\noindent{\small\color{black!55}\itshape #1}\par\medskip}
+\newcommand{\Jp}{\mathcal{J}_{\bar{\phi}}}       % Turning Unit
+\newcommand{\GNp}{\mathbb{G}_{\bar{\phi}}}       % relative plane
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator{\Sh}{Sh}                    % shadow on the real axis
+\DeclareMathOperator{\Ht}{Ht}                    % height above the real axis
+\newcommand{\er}{\vec{e}_{r}}                   % unit arrow from body a to body b
+\newcommand{\uE}{\boldsymbol{\mathcal{E}}}      % cosmic field
+\newcommand{\uB}{\boldsymbol{\mathcal{B}}}      % second cosmic field
+\newcommand{\cosA}{\boldsymbol{\mathcal{A}}}    % vector potential
+\newcommand{\vg}{\mathbf{g}}\newcommand{\ve}{\mathbf{e}}\newcommand{\vB}{\mathbf{B}}\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vE}{\mathbf{E}}\newcommand{\vJ}{\mathbf{J}}\newcommand{\vv}{\mathbf{v}}\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vH}{\mathbf{H}}\newcommand{\vx}{\mathbf{x}}\newcommand{\vp}{\mathbf{p}}\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vS}{\mathbf{S}}\newcommand{\rhat}{\hat{\mathbf{r}}}
+% ---------- statements, numbered within sections ----------
+% Each type shares the theorem counter through an alias counter, so that
+% cleveref prints its own name (Proposition, Remark, ...) and not "Theorem".
+\usepackage{aliascnt}
+\newcommand{\sharedtheorem}[2]{%
+  \newaliascnt{#1}{theorem}\newtheorem{#1}[#1]{#2}\aliascntresetthe{#1}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\sharedtheorem{proposition}{Proposition}
+\sharedtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\sharedtheorem{definition}{Definition}
+\sharedtheorem{postulate}{Postulate}
+\theoremstyle{remark}
+\sharedtheorem{remark}{Remark}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{definition}{Definition}{Definitions}
+\crefname{remark}{Remark}{Remarks}
+\crefname{postulate}{Postulate}{Postulates}
+\Crefname{postulate}{Postulate}{Postulates}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\emergencystretch}{2em}
+\crefname{section}{section}{sections}
+\Crefname{section}{Section}{Sections}
+\crefname{subsection}{section}{sections}
+\Crefname{subsection}{Section}{Sections}
+\crefname{table}{table}{tables}
+\crefname{figure}{figure}{figures}
+\crefname{equation}{}{}
+\creflabelformat{equation}{(#2#1#3)}
+
+\begin{document}
+
+% ======================================================================
+% Title page
+% ======================================================================
+\begin{center}
+{\LARGE\bfseries Mass and Charge as One General Number:\\[3pt] A Rewriting of Newton's, Coulomb's and Maxwell's Laws\\[3pt] for Slow Bodies\par}
+\vspace{1.1em}
+{\large Mostafa Derraz\par}
+\vspace{0.4em}
+{\small Independent Scholar, Tangier, Morocco\\
+ORCID \href{https://orcid.org/0000-0002-2307-9298}{0000-0002-2307-9298}\\[2pt]
+Author for correspondence: Mostafa Derraz, \href{mailto:m.derraz@proton.me}{m.derraz@proton.me}\par}
+\vspace{0.6em}
+{\small\color{black!55}\itshape Draft for approval, stage 4: scope narrowed to the real reading.\par}
+\end{center}
+
+\vspace{0.4em}
+\noindent\textbf{Subject areas:} mathematical physics, gravitation, electromagnetism
+
+\smallskip
+\noindent\textbf{Keywords:} cosmic mass, General Numbers, General Sinus, Newton and Coulomb, Maxwell's equations, gravitoelectromagnetism
+
+\begin{center}\rule{0.6\textwidth}{0.4pt}\end{center}
+
+\noindent\textbf{Abstract.}
+Newton's and Coulomb's inverse-square laws have the same shape, yet physics labels each body twice, by its mass and by its charge. We explore describing each body by one number, its cosmic mass: its mass plus its charge times the second unit of a General Number plane. That unit has the size s, the square root of the ratio of the constants of Coulomb and Newton, and leans at an angle that one axiom ties to that size once a unit is chosen. Read by the real part of products, the cosmic mass reproduces Newton's and Coulomb's laws for bodies at rest, with like charges repelling at every angle, because the real part of the square of the second unit is minus s squared. For slow bodies in motion, an action written with it reproduces Newtonian gravity with Heaviside's gravitomagnetic field, Maxwell's equations and the Lorentz force. The result is a rewriting of known physics. Every measured quantity depends on s alone and not on the angle, which is a convention of the frame; in Planck or Stoney units the axiom returns the right angle of the complex plane. The law adds no prediction for slow bodies and fails the tests of general relativity. The second coordinate of a product, which holds a coupling of mass and charge and the whole of the angle, is not read here; we state what any future reading of it would need to satisfy.
+
+\begin{center}\rule{0.6\textwidth}{0.4pt}\end{center}
+
+% ======================================================================
+\section{Introduction}\label{sec:intro}
+% ======================================================================
+
+\subsection{Two laws with one shape}\label{subsec:two-laws}
+
+In 1687 Isaac Newton wrote the attraction between two bodies as a constant times the product of their masses, divided by the square of the distance between them~\citep{Newton1687}. A century later Charles-Augustin de Coulomb measured the force between two electric charges and found the same shape, with the product of the charges in place of the product of the masses~\citep{Coulomb1785}:
+\begin{equation}\label{eq:two-laws}
+F_{\mathrm{N}} = G\,\frac{m_a m_b}{r^2} , \qquad F_{\mathrm{C}} = K\,\frac{q_a q_b}{r^2} .
+\end{equation}
+The first is a pull; the second is a push when the two charges have the same sign. The two laws share one form, yet physics labels every body twice, by a mass for the first law and by a charge for the second, and keeps the two labels apart, with two constants of very different size. Two electrons repel each other about $4.17 \times 10^{42}$ times more strongly than they attract.
+
+Others have asked before how the two laws are related. On 8 December 1864, James Clerk Maxwell's \emph{A dynamical theory of the electromagnetic field} was read to the Royal Society: electricity and magnetism became one field, and light a wave in it~\citep{Maxwell1865}. Ten years later, in a paper read in 1874, George Johnstone Stoney noticed that the constants of the two inverse-square laws combine into a ratio of mass to charge,
+\begin{equation}\label{eq:stoney-ratio}
+\sqrt{K/G} \approx 1.16043 \times 10^{10}\ \mathrm{kg\,C^{-1}} ,
+\end{equation}
+at which two equal bodies pull by gravity as strongly as they push by electricity~\citep{Stoney1881,CODATA2022}; multiplied by the charge of the electron, it gives his natural unit of mass, now called the Stoney mass. And in 1893 Oliver Heaviside wrote Newton's gravity in Maxwell's form, with a second field, like the magnetic one, made by masses in motion~\citep{Heaviside1893}.
+
+\subsection{The question}\label{subsec:question}
+
+These facts suggest a modest question, which this paper examines. Can each body be described by \emph{one} number that carries both its mass and its charge, so that one product of two such numbers gives both inverse-square laws, and an action written with them reproduces both field theories, for slow bodies? A complex number has two parts, with a second unit of length one, so a scale such as $\sqrt{K/G}$ must be put into it as a separate constant. We use instead the General Number plane, in which the second unit has a length of its own and the Axiom ties that length to the angle of the second axis (\cref{sec:plane}). For every measured quantity of this paper the two choices give the same results, and in natural units they coincide (\cref{subsec:why-lean,subsec:angle-units}).
+
+\subsection{The idea in one line}\label{subsec:idea}
+
+We propose to describe each body by one number, its \emph{cosmic mass}
+\begin{equation}\label{eq:cosmic-mass}
+\mu = m + q\,\Gp ,
+\end{equation}
+a General Number~\citep{DerrazGN2026} whose second unit, the Composer Unit $\Gp$, leans to the real axis at an angle $\pb$ and has the length $\lvert\Gp\rvert = \sqrt{K/G}$. In the General Number plane one axiom ties the length of the Composer Unit to its angle, $\lvert\Gp\rvert = \lvert\cos\pb + \sin\pb\rvert$. Read in units of $10^{10}$~kg\,C$^{-1}$, the value~\cref{eq:stoney-ratio} gives the angle $\pb = 79.86^\circ$ (\cref{sec:cosmic-mass}); the angle depends on that choice of unit, and no measured quantity depends on the angle (\cref{subsec:angle-units}). The electron, for example, is the number
+\begin{equation}\label{eq:electron}
+\mu_e = m_e - m_S\,\up , \qquad m_S = e\sqrt{K/G} \approx 1.85921 \times 10^{-9}\ \mathrm{kg} ,
+\end{equation}
+where $\up$ is the unit arrow along the Composer axis. Its charge part, the Stoney mass $m_S$, is about $2.04 \times 10^{21}$ times its mass, and the square of that ratio is the factor $4.17 \times 10^{42}$ of \cref{subsec:two-laws}.
+
+\subsection{The results at a glance}\label{subsec:glance}
+
+Once the cosmic mass is defined (\cref{sec:cosmic-mass}), the paper takes two steps, the second resting on the first (\cref{fig:map}). For two bodies at rest (\cref{sec:rest}), the Cosmic Interaction Law $F = G\mu_a\mu_b/r^2$ has three terms: Newton's, one shaped like Coulomb's, and a Coupling term that mixes mass and charge. Read by its real part, it gives Newton's and Coulomb's laws exactly, with like charges pushing apart at every angle of the frame, and the Coupling term has no real part. For slow bodies in motion (\cref{sec:motion}), an action written with cosmic masses reproduces Newton's mechanics, Newtonian gravity with Heaviside's magnetic part, Maxwell's equations and the force of Lorentz, with waves at the speed of light and with the source, the energy and the momentum conserved; it adds no new prediction, and it fails the tests of general relativity. The discussion (\cref{sec:discussion}) shows that every measured quantity of both steps depends on the size $s = \sqrt{K/G}$ of the Composer Unit and not on its angle, compares the law with earlier work, and states what the unread Composer coordinate leaves open. \Cref{tab:glance} lists every result with its status.
+
+\begin{table}[t]
+\caption{The results at a glance. \emph{Proved}: a theorem with its proof. \emph{Form}: known physics in a new form, with no new prediction. \emph{Open}: a question the paper leaves open. \emph{Fails}: where the law disagrees with measurement.}
+\label{tab:glance}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xcl@{}}
+\toprule
+Result & Section & Status \\
+\midrule
+The real part of $G\mu_a\mu_b/r^2$ is Newton's law plus Coulomb's law, with like charges repelling at every angle & \ref{sec:rest} & proved; form \\
+The Coupling term $G(m_a q_b + q_a m_b)\Gp/r^2$ has no real part and is not read as a force & \ref{sec:rest} & open \\
+An action reproduces Newton's mechanics, Newtonian gravity with Heaviside's magnetic part, Maxwell's equations and the Lorentz force & \ref{sec:motion} & proved; form \\
+Both fields travel at the speed $c$; the source, the energy and the momentum are conserved & \ref{sec:motion} & proved \\
+Every measured quantity depends on $s = \sqrt{K/G}$ alone; the angle $79.86^\circ$ is a convention of the frame, and in Planck or Stoney units the Axiom returns $90^\circ$ & \ref{sec:discussion} & proved \\
+The magnetic part of gravity drags orbits a quarter as much as general relativity, whose value the LAGEOS satellites measure; gravity does not act on light; the waves of the gravity part carry negative energy; rest mass is conserved & \ref{sec:motion} & fails \\
+The meaning of the Composer coordinate of a product, and the conditions any reading of it would need to meet & \ref{sec:discussion} & open \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{What this paper does not claim}\label{subsec:not-claim}
+
+Most of what follows writes known physics in a new form, and we say so where it happens. In particular:
+\begin{itemize}[leftmargin=1.4em]
+  \item \emph{No new force between bodies at rest.} The real part of the Cosmic Interaction Law is Newton's law plus Coulomb's law, exactly; the Coupling term is not read as a force.
+  \item \emph{No new prediction, and no claim beyond slow bodies.} The field law repeats Newton's mechanics, Maxwell's equations and the force of Lorentz, and it fails where general relativity has been tested; \cref{subsec:un-limits} states how, once.
+  \item \emph{No explanation of the constants, and no physical angle.} $G$, $K$ and $e$ come from measurement, and $K$ enters the law as an input: the size $s = \sqrt{K/G}$ of the Composer Unit is fixed so that the term of two charges has Coulomb's strength. The scale $s$ is Stoney's, and the angle $79.86^\circ$ follows from its value read in units of $10^{10}$~kg\,C$^{-1}$, a choice of unit: in other units it changes or does not exist, and in Planck or Stoney units it is the right angle of the complex plane, while no measured quantity depends on it (\cref{subsec:angle-units}).
+  \item \emph{No reading of the second coordinate.} The Composer coordinate of a product, which holds the Coupling term and the whole of the angle, is not read as a measured quantity, and this paper does not say what it means (\cref{subsec:coupling}).
+\end{itemize}
+
+\subsection{A map of the paper}\label{subsec:map}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[>=Stealth,
+  box/.style={draw=black!55, fill=black!3, rounded corners=2pt, text width=4.05cm, align=center, inner sep=4pt, font=\small, minimum height=3.3cm, anchor=north},
+  feed/.style={draw=black!40, dashed, rounded corners=2pt, text width=8.4cm, align=center, inner sep=4pt, font=\small},
+  flow/.style={->, thick, black!65},
+  status/.style={font=\footnotesize\itshape, text=black!60}]
+\node[feed] (s23) at (2.525,1.0) {\S\ref{sec:plane} the number plane: General Sinus and General Numbers\qquad \S\ref{sec:methods} methods};
+\node[box] (s4) at (0,0) {\textbf{\S\ref{sec:cosmic-mass} The cosmic mass}\\[3pt] one number for each body\\ $\mu = m + q\,\Gp$\\ $|\Gp| = s = \sqrt{K/G}$\\ read by the real part\\[4pt] {\footnotesize\itshape postulates}};
+\node[box] (s5) at (5.05,0) {\textbf{\S\ref{sec:rest} Bodies at rest}\\[3pt] a law, $G\mu_a\mu_b/r^2$;\\ its real part is Newton\\ plus Coulomb, exactly\\[4pt] {\footnotesize\itshape proved; form}};
+\node[box] (s6) at (10.1,0) {\textbf{\S\ref{sec:motion} Bodies in motion}\\[3pt] an action that\ reproduces Newton,\\ Heaviside, Maxwell, Lorentz\\[4pt] {\footnotesize\itshape proved; form;\\ fails where general\\ relativity is needed}};
+\node[box] (s9) at (5.05,-3.95) {\textbf{\S\ref{sec:discussion} Discussion}\\[3pt] the angle is a convention;\\ earlier work;\\ the open coordinate;\\ how the framework can fail};
+\draw[flow] (s23.south -| s4.north) -- (s4.north);
+\draw[flow] (s4.east |- 0,-1.65) -- (s5.west |- 0,-1.65);
+\draw[flow] (s5.east |- 0,-1.65) -- (s6.west |- 0,-1.65);
+\draw[flow, rounded corners=4pt] (s6.south) -- ++(0,-0.3) -| (s9.north);
+\end{tikzpicture}
+\caption{A map of the paper. One number for each body (\cref{sec:cosmic-mass}) is used to write a law for bodies at rest (\cref{sec:rest}) and an action for slow bodies in motion (\cref{sec:motion}); the discussion (\cref{sec:discussion}) shows that the angle of the frame is a convention and states what is left open. The words in italics give the status of each step, as in \cref{tab:glance}.}
+\label{fig:map}
+\end{figure}
+
+\Cref{sec:plane} recalls the two pieces of mathematics the framework stands on: the General Sinus, a trigonometry of two variables for the oblique triangle~\citep{Derraz2026GSP}, and the General Numbers, whose second axis leans~\citep{DerrazGN2026}. \Cref{sec:methods} gives the constants~\citep{CODATA2022} and the scripts that verify every law and recompute every number printed in the paper. \Cref{sec:cosmic-mass} states the cosmic mass and its reading, and \cref{sec:rest,sec:motion} take the two steps of \cref{fig:map}. \Cref{sec:discussion} separates new content from new form, shows that the angle of the frame is a convention, compares the law with earlier work and with the tests of gravity, and states what is left open and how the framework can fail. \Cref{sec:conclusion} concludes. The electronic supplementary material holds the scripts.
+
+\input{sec2}
+\input{sec3}
+\input{sec4}
+\input{sec5}
+\input{sec6}
+\input{sec9}
+
+% ======================================================================
+\section{Conclusion}\label{sec:conclusion}
+% ======================================================================
+
+This paper has explored one way of writing the classical laws of gravity and electricity together, with one number for each body. The cosmic mass $\mu = m + q\,\Gp$ lives in a General Number plane whose second unit has the size $s = \sqrt{K/G}$. Read by the real part of products, it reproduces Newton's and Coulomb's laws for bodies at rest, with the minus sign between them supplied by the Rule of the Square at every angle; and, for slow bodies in motion, an action written with it reproduces Newton's mechanics, Newtonian gravity with Heaviside's gravitomagnetic field, Maxwell's equations and the force of Lorentz.
+
+This is a new form for known physics, and we have said so at each step. Every measured quantity depends on $s$ alone. The angle $79.86^\circ$ is the frame that belongs to the unit $10^{10}$~kg\,C$^{-1}$; other units give other angles, and the natural units of Planck and Stoney give the right angle of the complex plane. The law changes no force between bodies at rest, adds no prediction for slow bodies, and fails the tests of general relativity (\cref{tab:gravity-tests}).
+
+What remains open is the second coordinate of a product, where the Coupling term and the angle live. This paper does not read it. A reading that turns it into measured physics would need to agree with the null results already known, such as the straight path of a neutron between charged plates, and either to fix the angle by a principle that does not depend on units or to use only quantities in which the choice of unit cancels.
+
+
+% ======================================================================
+% End statements required by Royal Society Open Science
+% ======================================================================
+\section*{Ethics}
+This work did not involve human participants, animals or field work.
+
+\section*{Data accessibility}
+All the data used are published: the CODATA 2022 constants~\citep{CODATA2022}, and the measured values cited in \cref{tab:un-results,tab:gravity-tests}. No new data were generated. The Python script \texttt{verify\_cmt.py}, which checks every numbered statement and recomputes every computed number of the paper, is provided with its README and its output as electronic supplementary material, and will be deposited in a public repository on acceptance.
+
+\section*{Declaration of AI use}
+The author used an AI assistant (Claude, by Anthropic) while preparing this article: to draft and edit text from the author's own manuscripts, to propose the structure and the scope of the paper, to typeset it in \LaTeX, to write and run the verification script, to compile and check the references, and to review the draft. The framework, its mathematics and its conclusions are the author's own work, set out in the author's earlier papers and manuscripts. The author has reviewed the whole text and the script, and takes full responsibility for the content of the article.
+
+\section*{Authors' contributions}
+M.D.: conceptualization, formal analysis, investigation, methodology, writing (original draft), writing (review and editing). The sole author gave final approval for publication and agrees to be held accountable for the work performed therein.
+
+\section*{Conflict of interest declaration}
+I declare I have no financial competing interests. The framework of this paper is also set out in a book by the author, \emph{The Cosmic Mass, Volume~1}, in preparation; the two mathematical papers it rests on~\citep{Derraz2026GSP,DerrazGN2026} are the author's own.
+
+\section*{Funding}
+No funding has been received for this article.
+
+% Bibliography embedded (unsrtnat output of cmt-paper.bib), so the paper builds without BibTeX.
+\begin{thebibliography}{30}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Newton(1687)]{Newton1687}
+Isaac Newton.
+\newblock \emph{Philosophi{\ae} Naturalis Principia Mathematica}.
+\newblock Joseph Streater, London, 1687.
+
+\bibitem[de~Coulomb(1788)]{Coulomb1785}
+Charles-Augustin de~Coulomb.
+\newblock Premier m{\'e}moire sur l'{\'e}lectricit{\'e} et le magn{\'e}tisme.
+\newblock In \emph{Histoire de l'Acad{\'e}mie Royale des Sciences, Ann{\'e}e
+  1785}, pages 569--577. Paris, 1788.
+
+\bibitem[Maxwell(1865)]{Maxwell1865}
+James~Clerk Maxwell.
+\newblock A dynamical theory of the electromagnetic field.
+\newblock \emph{Philosophical Transactions of the Royal Society of London},
+  155:\penalty0 459--512, 1865.
+\newblock \doi{10.1098/rstl.1865.0008}.
+
+\bibitem[Stoney(1881)]{Stoney1881}
+George~Johnstone Stoney.
+\newblock On the physical units of nature.
+\newblock \emph{Philosophical Magazine, Series 5}, 11:\penalty0 381--390, 1881.
+\newblock \doi{10.1080/14786448108627031}.
+
+\bibitem[Mohr et~al.(2025)Mohr, Newell, Taylor, and Tiesinga]{CODATA2022}
+Peter~J. Mohr, David~B. Newell, Barry~N. Taylor, and Eite Tiesinga.
+\newblock {CODATA} recommended values of the fundamental physical constants:
+  2022.
+\newblock \emph{Reviews of Modern Physics}, 97\penalty0 (2):\penalty0 025002,
+  2025.
+\newblock \doi{10.1103/RevModPhys.97.025002}.
+
+\bibitem[Heaviside(1893)]{Heaviside1893}
+Oliver Heaviside.
+\newblock A gravitational and electromagnetic analogy.
+\newblock \emph{The Electrician}, 31:\penalty0 281--282 and 359, 1893.
+
+\bibitem[Derraz(2026{\natexlab{a}})]{DerrazGN2026}
+Mostafa Derraz.
+\newblock {General Numbers: The Number Plane Beyond the Right Angle}.
+\newblock Preprint, Zenodo, 2026{\natexlab{a}}.
+\newblock Version 1, posted 9 November 2026.
+
+\bibitem[Derraz(2026{\natexlab{b}})]{Derraz2026GSP}
+Mostafa Derraz.
+\newblock {General Sinus Principles: Extension of Trigonometric Functions}.
+\newblock Preprint, Research Square, 2026{\natexlab{b}}.
+\newblock Posted 4 May 2026.
+
+\bibitem[Meurer et~al.(2017)Meurer, Smith, Paprocki, {\v{C}}ert{\'\i}k,
+  Kirpichev, Rocklin, Kumar, Ivanov, Moore, Singh, et~al.]{Meurer2017}
+Aaron Meurer, Christopher~P. Smith, Mateusz Paprocki, Ond{\v{r}}ej
+  {\v{C}}ert{\'\i}k, Sergey~B. Kirpichev, Matthew Rocklin, Amit Kumar, Sergiu
+  Ivanov, Jason~K. Moore, Sartaj Singh, et~al.
+\newblock {SymPy}: symbolic computing in {Python}.
+\newblock \emph{PeerJ Computer Science}, 3:\penalty0 e103, 2017.
+\newblock \doi{10.7717/peerj-cs.103}.
+
+\bibitem[Abbott et~al.(2017)]{Abbott2017GRB}
+B.~P. Abbott et~al.
+\newblock Gravitational waves and gamma-rays from a binary neutron star merger:
+  {GW170817} and {GRB} {170817A}.
+\newblock \emph{The Astrophysical Journal Letters}, 848:\penalty0 L13, 2017.
+\newblock \doi{10.3847/2041-8213/aa920c}.
+\newblock LIGO Scientific Collaboration, Virgo Collaboration, Fermi Gamma-ray
+  Burst Monitor and INTEGRAL.
+
+\bibitem[Lorentz(1895)]{Lorentz1895}
+Hendrik~Antoon Lorentz.
+\newblock \emph{Versuch einer {T}heorie der electrischen und optischen
+  {E}rscheinungen in bewegten {K}{\"o}rpern}.
+\newblock E. J. Brill, Leiden, 1895.
+
+\bibitem[Touboul et~al.(2022)]{Touboul2022}
+Pierre Touboul et~al.
+\newblock {MICROSCOPE} mission: Final results of the test of the equivalence
+  principle.
+\newblock \emph{Physical Review Letters}, 129:\penalty0 121102, 2022.
+\newblock \doi{10.1103/PhysRevLett.129.121102}.
+
+\bibitem[Sansonetti and Martin(2005)]{Sansonetti2005}
+Jean~E. Sansonetti and William~C. Martin.
+\newblock Handbook of basic atomic spectroscopic data.
+\newblock \emph{Journal of Physical and Chemical Reference Data}, 34\penalty0
+  (4):\penalty0 1559--2259, 2005.
+\newblock \doi{10.1063/1.1800011}.
+
+\bibitem[Williams(2024)]{NASAMoon}
+David~R. Williams.
+\newblock Moon fact sheet.
+\newblock NASA Goddard Space Flight Center,
+  \url{https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html}, 2024.
+\newblock Updated 11 January 2024.
+
+\bibitem[Baumann et~al.(1988)Baumann, G{\"a}hler, Kalus, and
+  Mampe]{Baumann1988}
+J.~Baumann, R.~G{\"a}hler, J.~Kalus, and W.~Mampe.
+\newblock Experimental limit for the charge of the free neutron.
+\newblock \emph{Physical Review D}, 37\penalty0 (11):\penalty0 3107--3112,
+  1988.
+\newblock \doi{10.1103/PhysRevD.37.3107}.
+
+\bibitem[Thomson(1897)]{Thomson1897}
+Joseph~John Thomson.
+\newblock Cathode rays.
+\newblock \emph{Philosophical Magazine}, 44\penalty0 (269):\penalty0 293--316,
+  1897.
+
+\bibitem[Will(2014)]{Will2014}
+Clifford~M. Will.
+\newblock The confrontation between general relativity and experiment.
+\newblock \emph{Living Reviews in Relativity}, 17:\penalty0 4, 2014.
+\newblock \doi{10.12942/lrr-2014-4}.
+
+\bibitem[Ciufolini and Pavlis(2004)]{Ciufolini2004}
+Ignazio Ciufolini and Erricos~C. Pavlis.
+\newblock A confirmation of the general relativistic prediction of the
+  {L}ense--{T}hirring effect.
+\newblock \emph{Nature}, 431:\penalty0 958--960, 2004.
+\newblock \doi{10.1038/nature03007}.
+
+\bibitem[Everitt et~al.(2011)Everitt, DeBra, Parkinson, Turneaure,
+  et~al.]{Everitt2011}
+C.~W.~F. Everitt, D.~B. DeBra, B.~W. Parkinson, J.~P. Turneaure, et~al.
+\newblock Gravity {P}robe {B}: Final results of a space experiment to test
+  general relativity.
+\newblock \emph{Physical Review Letters}, 106\penalty0 (22):\penalty0 221101,
+  2011.
+\newblock \doi{10.1103/PhysRevLett.106.221101}.
+
+\bibitem[Weisberg and Huang(2016)]{WeisbergHuang2016}
+Joel~M. Weisberg and Yuping Huang.
+\newblock Relativistic measurements from timing the binary pulsar {PSR}
+  {B1913+16}.
+\newblock \emph{The Astrophysical Journal}, 829:\penalty0 55, 2016.
+\newblock \doi{10.3847/0004-637X/829/1/55}.
+
+\bibitem[Abbott et~al.(2016)]{Abbott2016}
+B.~P. Abbott et~al.
+\newblock Observation of gravitational waves from a binary black hole merger.
+\newblock \emph{Physical Review Letters}, 116:\penalty0 061102, 2016.
+\newblock \doi{10.1103/PhysRevLett.116.061102}.
+\newblock LIGO Scientific Collaboration and Virgo Collaboration.
+
+\bibitem[Mashhoon(2003)]{Mashhoon2003}
+Bahram Mashhoon.
+\newblock Gravitoelectromagnetism: A brief review.
+\newblock arXiv preprint gr-qc/0311030, 2003.
+
+\bibitem[Einstein(1916)]{Einstein1916}
+Albert Einstein.
+\newblock Die {G}rundlage der allgemeinen {R}elativit{\"a}tstheorie.
+\newblock \emph{Annalen der Physik}, 49:\penalty0 769--822, 1916.
+\newblock \doi{10.1002/andp.19163540702}.
+
+\bibitem[Reissner(1916)]{Reissner1916}
+Hans Reissner.
+\newblock {\"U}ber die {E}igengravitation des elektrischen {F}eldes nach der
+  {E}insteinschen {T}heorie.
+\newblock \emph{Annalen der Physik}, 355\penalty0 (9):\penalty0 106--120, 1916.
+\newblock \doi{10.1002/andp.19163550905}.
+
+\bibitem[Nordstr{\"o}m(1918)]{Nordstrom1918}
+Gunnar Nordstr{\"o}m.
+\newblock On the energy of the gravitation field in {E}instein's theory.
+\newblock \emph{Proceedings of the Koninklijke Nederlandse Akademie van
+  Wetenschappen}, 20:\penalty0 1238--1245, 1918.
+
+\bibitem[Kaluza(1921)]{Kaluza1921}
+Theodor Kaluza.
+\newblock Zum unit{\"a}tsproblem der physik.
+\newblock \emph{Sitzungsberichte der Preussischen Akademie der Wissenschaften},
+  pages 966--972, 1921.
+
+\bibitem[Klein(1926)]{Klein1926}
+Oskar Klein.
+\newblock Quantentheorie und f{\"u}nfdimensionale relativit{\"a}tstheorie.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 37:\penalty0 895--906, 1926.
+
+\bibitem[Yaglom(1968)]{Yaglom1968}
+I.~M. Yaglom.
+\newblock \emph{Complex Numbers in Geometry}.
+\newblock Academic Press, New York, 1968.
+\newblock Translated from the Russian by E. J. F. Primrose.
+
+\bibitem[Harkin and Harkin(2004)]{HarkinHarkin2004}
+Anthony~A. Harkin and Joseph~B. Harkin.
+\newblock Geometry of generalized complex numbers.
+\newblock \emph{Mathematics Magazine}, 77\penalty0 (2):\penalty0 118--129,
+  2004.
+\newblock \doi{10.1080/0025570X.2004.11953236}.
+
+\bibitem[Kantor and Solodovnikov(1989)]{KantorSolodovnikov1989}
+I.~L. Kantor and A.~S. Solodovnikov.
+\newblock \emph{Hypercomplex Numbers: An Elementary Introduction to Algebras}.
+\newblock Springer-Verlag, New York, 1989.
+\newblock Translated from the Russian by A. Shenitzer.
+
+\end{thebibliography}
+
+\appendix
+\renewcommand{\thesection}{\Alph{section}}
+\input{appA}
+
+\end{document}

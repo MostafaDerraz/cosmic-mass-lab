@@ -1,0 +1,89 @@
+Section 2: definitions
+  ok   thm:analytic (law of sines, geometry)    worst rel. error 4.07e-17
+  ok   cor:classical                            worst rel. error 1.06e-49
+Section 3: coordinates
+  ok   prop:coordinates                         worst rel. error 4.68e-50
+  ok   prop:pythagoras                          worst rel. error 7.3e-48
+Section 4: symmetries and special values
+  ok   prop:exchange (sin=cos swapped)          worst rel. error 0.0
+  ok   prop:exchange (tan=cot swapped)          worst rel. error 1.19e-51
+  ok   prop:exchange (csc=sec swapped)          worst rel. error 0.0
+  ok   prop:exchange (csc=sin(a+p,-p))          worst rel. error 1.19e-51
+  ok   prop:exchange (sec=tan(a+p,p))           worst rel. error 1.2e-51
+  ok   prop:exchange (cot=cos(a-p,p))           worst rel. error 1.11e-51
+  ok   prop:symmetry (sin(-a,-p))               worst rel. error 0.0
+  ok   prop:symmetry (cos(-a,-p))               worst rel. error 0.0
+  ok   prop:symmetry (sin(-a,p)=sin(a,-p))      worst rel. error 0.0
+  ok   prop:symmetry (pi shifts)                worst rel. error 7.66e-47
+  ok   prop:special (phi=pi/2)                  worst rel. error 4.6e-49
+  ok   prop:special (theta,theta)               worst rel. error 2.66e-51
+  ok   special value pi/3 all six = 1           worst rel. error 0.0
+  ok   special value pi/5 = 1/tau               worst rel. error 5.98e-52
+Section 5: addition formulas
+  ok   lem:ptolemy                              worst rel. error 2.24e-51
+  ok   eq:add-sin                               worst rel. error 3.35e-50
+  ok   eq:add-cos                               worst rel. error 2.37e-49
+  ok   eq:add-tan                               worst rel. error 3.87e-51
+  ok   eq:add-closed (cos)                      worst rel. error 1.63e-49
+  ok   eq:add-closed (sec)                      worst rel. error 4.32e-50
+  ok   eq:addp-sin                              worst rel. error 1.17e-51
+  ok   eq:addp-cos                              worst rel. error 5.44e-50
+  ok   cor:double (sin)                         worst rel. error 6.18e-50
+  ok   cor:double (cos)                         worst rel. error 2.75e-49
+  ok   cor:double (sec)                         worst rel. error 3.17e-49
+  ok   cor:double (tan)                         worst rel. error 1.33e-51
+  ok   cor:double (half angle)                  worst rel. error 1.26e-49
+Section 6: derivatives (SymPy, compared at 50 digits)
+  ok   prop:partials d_x sin                    worst rel. error 1.68e-51
+  ok   prop:partials d_y sin                    worst rel. error 2.2e-51
+  ok   prop:partials d_x cos                    worst rel. error 1.69e-51
+  ok   prop:partials d_y cos                    worst rel. error 3.27e-51
+  ok   prop:partials d_x tan                    worst rel. error 0.0
+  ok   prop:partials d_y tan                    worst rel. error 1.36e-51
+  ok   prop:partials d_xx sin                   worst rel. error 1.49e-51
+  ok   prop:partials d_yy sin                   worst rel. error 2.68e-51
+  ok   prop:partials d_xx cos                   worst rel. error 2.95e-51
+  ok   prop:partials d_yy cos                   worst rel. error 2.44e-51
+  ok   prop:partials d_xx tan                   worst rel. error 0.0
+  ok   prop:partials d_yy tan                   worst rel. error 2.15e-51
+  ok   thm:shift D^1 sin                        worst rel. error 0.0
+  ok   thm:shift D^1 cos                        worst rel. error 0.0
+  ok   D^1 tan formula                          worst rel. error 2.21e-51
+  ok   cor:primitives n=1 (sin)                 worst rel. error 0.0
+  ok   thm:shift D^2 sin                        worst rel. error 0.0
+  ok   thm:shift D^2 cos                        worst rel. error 0.0
+  ok   D^2 tan formula                          worst rel. error 3.7e-51
+  ok   cor:primitives n=2 (sin)                 worst rel. error 0.0
+  ok   thm:shift D^3 sin                        worst rel. error 0.0
+  ok   thm:shift D^3 cos                        worst rel. error 0.0
+  ok   D^3 tan formula                          worst rel. error 4.43e-51
+  ok   cor:primitives n=3 (sin)                 worst rel. error 0.0
+  ok   thm:shift D^4 sin                        worst rel. error 0.0
+  ok   thm:shift D^4 cos                        worst rel. error 0.0
+  ok   D^4 tan formula                          worst rel. error 1.03e-50
+  ok   cor:primitives n=4 (sin)                 worst rel. error 0.0
+  ok   thm:shift D^5 sin                        worst rel. error 0.0
+  ok   thm:shift D^5 cos                        worst rel. error 0.0
+  ok   D^5 tan formula                          worst rel. error 3.78e-51
+  ok   cor:primitives n=5 (sin)                 worst rel. error 0.0
+  ok   thm:shift D^6 sin                        worst rel. error 0.0
+  ok   thm:shift D^6 cos                        worst rel. error 0.0
+  ok   D^6 tan formula                          worst rel. error 7.8e-51
+  ok   cor:primitives n=6 (sin)                 worst rel. error 0.0
+Section 7: product identities and the General Sinus Transform
+  ok   thm:products, N = 1..40                  worst rel. error 2.37e-49
+  ok   rem:accuracy N=64    printed 1.6e-02, computed 1.6e-02, N^2*err = 66.3
+  ok   rem:accuracy N=1024  printed 6.3e-05, computed 6.3e-05, N^2*err = 66.1
+  ok   rem:accuracy N=16384 printed 2.5e-07, computed 2.5e-07, N^2*err = 66.1
+  ok   rem:accuracy N^2*err = 66.1 at N=100   computed 66.1
+  ok   rem:accuracy N^2*err = 66.1 at N=3000  computed 66.1
+Section 6: fixed frame (Proposition 6.2)
+  ok   prop:fixed-frame, eq:oblique-euler, De Moivre worst rel. error 3.43e-49
+Section 7: closed form and rate of the General Sinus Transform
+  ok   thm:GST-closed (N = 4, 7, 16, 33, 100)   worst rel. error 1.84e-48
+  ok   cor:GST-rate coefficient c(x,y)          worst rel. error 6.89e-6
+  ok   rem:accuracy c(0.3,2.7) = 66.14           computed 66.1385
+  ok   rem:accuracy N^2 err at N=64 = 66.28      computed 66.2793
+  ok   rem:accuracy N^2 err at N=1000 = 66.12    computed 66.1193
+
+79 checks passed, 0 failed.

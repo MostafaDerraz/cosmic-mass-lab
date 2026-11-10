@@ -1,0 +1,210 @@
+%************************************************
+\chapter[Prologue: Limits of Physics Language]{Prologue: On the Expressive Limits of Physics Language}\label{ch:prologue}
+%************************************************
+
+\chapterlead{Before we write the law, a pause. Why should the language of physics ever need to grow? And what, exactly, do we ask it to say in this book?}
+
+\scene{Rome, 1623}
+
+In the autumn of 1618, three comets appeared in the sky over Europe. Everybody watched them, and everybody argued about them. Were they fires in the upper air, just above the clouds, as Aristotle had taught? Or were they bodies far beyond the Moon, as the Danish astronomer Tycho Brahe had argued for an earlier comet?
+
+The following year, Orazio Grassi, a Jesuit mathematician at the Roman College, published a lecture on the comets, and he sided with Tycho. Galileo Galilei, already the most famous scientist in Italy, answered through one of his pupils. Grassi replied under a false name, in a book he called \emph{The Astronomical and Philosophical Balance}. Galileo took his time, and in 1623 he published his answer under the sharpest title he could find: \emph{Il Saggiatore}, \emph{The Assayer}, after the delicate scales that goldsmiths use to weigh gold. Grassi's balance, the title implied, was far too coarse for the job \citep{Galileo1623,Drake1957}.
+
+It is in this quarrel, in the middle of an argument about comets, that Galileo wrote the most famous passage ever written about mathematics and nature. In our own translation from the Italian:
+
+\begin{quote}
+\itshape Philosophy is written in this very great book which lies continually open before our eyes (I mean the universe), but it cannot be understood unless one first learns to understand the language and to know the characters in which it is written. It is written in the language of mathematics, and its characters are triangles, circles and other geometric figures, without which it is humanly impossible to understand a word of it; without these, one wanders in vain through a dark labyrinth.
+\end{quote}
+
+Two details deserve a second look. The passage is often quoted in a shorter and grander form: \enquote{Mathematics is the language in which God has written the universe.} Galileo never wrote that line. God does not appear in the passage, and its subject is philosophy, in the old sense of natural philosophy. And Galileo's characters are not equations. They are triangles and circles, because in 1623 there was not yet any algebraic physics to speak of. Galileo worked with geometry.
+
+The second detail is almost comic. On the comets themselves, Grassi was right and Galileo was wrong. Comets really are bodies far beyond the Moon, and Galileo had suggested that they might be tricks of light, a little like a rainbow. He lost the argument on the facts and won it on the language, and it is the language that we remember.
+
+Ten years later, Galileo's own story darkened. In 1633 the Roman Inquisition condemned him, and he spent the rest of his life under house arrest in his villa at Arcetri, in the hills above Florence. He could no longer publish in Italy. Yet his last great book, on motion and on the strength of materials, was carried out of the country and printed in Leiden in 1638, by which time he was blind. The man was silenced. His language was not.
+
+This double fate is where the present chapter begins. The Cosmic Mass Theory reads it in two directions. On the one hand, Galileo defined the relationship between the two schools of thought: mathematics is the language of physics, and without it physics remains speechless. On the other hand, and somehow, Galileo also allows us to doubt the extent of the expressive capacity of mathematics, and to ask whether this language can be extended to new concepts that physics could obey and speak. If nature is a book written in a language, we can read only as much of it as our alphabet allows.
+
+%------------------------------------------------
+\section{A language that grows}\label{sec:language-grows}
+%------------------------------------------------
+
+Galileo named his alphabet: triangles, circles and other figures. The history of physics since his time is, among other things, the history of that alphabet growing larger. A few moments from that history show the pattern better than any argument can.
+
+\paragraph{Kepler lets go of the circle.}
+Johannes Kepler believed in this alphabet, years before Galileo gave it a name, and it nearly defeated him. For two thousand years, astronomers had described the heavens with circles, and with circles riding on circles. Kepler, working in Prague with the observations that Tycho Brahe had gathered over a lifetime, spent years trying to fit the orbit of Mars with circles. His best circular model missed Tycho's observations by eight minutes of arc, about a quarter of the width of the full Moon. A less careful astronomer would have blamed the observations. Kepler wrote instead that, because these eight minutes could not be ignored, they alone showed the way to reform the whole of astronomy \citep{Kepler1609}. He let the circle go, and he found the ellipse.
+
+Notice what Kepler did \emph{not} do. He did not throw away geometry. He kept the language and enlarged one of its words. The circle did not disappear either: a circle is simply an ellipse whose two axes are equal, so the old shape survived as a special case of the new one. Part~\ref{pt:beyond} of this book did exactly the same thing with the right angle (\Cref{fig:two-habits}).
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\small}]
+  % ---------- (a) the circle and the ellipse ----------
+  \begin{scope}
+    \draw[gray, dashed] (0,0) circle (1.25);
+    \draw[very thick, Maroon] (0,0) ellipse (1.55 and 1.05);
+    \fill[Orange] (1.14,0) circle (2.4pt) node[left=2pt] {Sun};
+    \fill[RoyalBlue] (-0.62,0.962) circle (1.8pt) node[above left] {Mars};
+    \node at (0,-1.75) {(a) from the circle to the ellipse};
+  \end{scope}
+  % ---------- (b) the right angle and the leaning axis ----------
+  \begin{scope}[xshift=5.0cm, yshift=-1.05cm]
+    \draw[->, gray] (-0.4,0) -- (2.6,0) node[right] {real};
+    \draw[->, gray, dashed] (0,0) -- (0,2.25);
+    \draw[gray] (0.2,0) -- (0.2,0.2) -- (0,0.2);
+    \draw[->, very thick, Maroon] (0,0) -- (55:2.35);
+    \draw[gray] (0.6,0) arc (0:55:0.6);
+    \node[gray] at (27:0.85) {$\bar{\phi}$};
+    \node at (1.1,-0.7) {(b) from the right angle to $\bar{\phi}$};
+  \end{scope}
+\end{tikzpicture}
+\caption[Two habits let go]{Two habits let go. (a) Kepler replaced the circular orbit of Mars (dashed) by an ellipse with the Sun at a focus, because the best circle missed the observations by eight minutes of arc. (b) The General Number Plane replaces the right angle between its two axes (dashed) by an angle $\bar{\phi}$. In both cases the old shape survives as a special case: a circle is an ellipse with equal axes, and the right angle is the case $\bar{\phi} = \pi/2$. Both drawings are exaggerated for clarity.}
+\label{fig:two-habits}
+\end{figure}
+
+\paragraph{Newton describes without explaining.}
+Newton's law of gravitation predicted the orbits of the planets, the tides and the return of comets. It said nothing about \emph{how} one body pulls another across empty space, and to many of his critics this was a scandal. In 1713, in a short essay added to the second edition of the \emph{Principia}, Newton answered with three Latin words that became famous: \emph{hypotheses non fingo}, \enquote{I frame no hypotheses} in the English translation of 1729. He had not been able to discover the cause of gravity from the phenomena, and he would not invent one; it was enough that gravity really exists and acts according to the law he had set out \citep{Newton1713,Motte1729}. Since that day, much of physics has accepted that a mathematical law which reproduces the measurements is a complete theory, even when nobody can say what lies behind it.
+
+\paragraph{The equations know more than their authors.}
+Michael Faraday, the greatest experimenter of the nineteenth century, had almost no training in mathematics. He saw the space around a magnet as filled with lines of force, and hardly anyone took his pictures seriously, because they came without mathematics. In 1857 he wrote to the young James Clerk Maxwell and asked whether mathematicians could not translate their results out of their \enquote{hieroglyphics} into ordinary language, so that experimenters might work on them too. Maxwell did more than translate. He gave Faraday's lines a mathematical form, and by 1865 his equations contained something that Faraday's pictures had not: a wave, travelling at a speed that could be computed from two electrical constants measured on a laboratory bench. The speed came out equal to the speed of light \citep{Maxwell1865}. Light was an electromagnetic wave. Heinrich Hertz, who produced such waves in his laboratory in Karlsruhe in 1887, later summed up the lesson in a single line: \enquote{Maxwell's theory is Maxwell's system of equations} \citep{Hertz1893}. The theory \emph{was} its language.
+
+\paragraph{Kelvin: numbers, or nothing much.}
+William Thomson, Lord Kelvin, spent much of his life on telegraph cables and on the definition of electrical units. In 1883 he told an audience of engineers that when you can measure what you are speaking about, and express it in numbers, you know something about it; but when you cannot express it in numbers, your knowledge is of a meagre and unsatisfactory kind \citep{Kelvin1883}. For Kelvin, physics is mathematical not because nature is secretly made of numbers, but because without numbers nothing can be checked, and nothing can be built.
+
+\paragraph{Helmholtz and Einstein: even geometry can change.}
+In 1870 Hermann von Helmholtz asked his listeners to imagine thinking beings who live on a surface, flat creatures on a sphere, say. Their straightest lines would be great circles, the angles of their triangles would add up to more than two right angles, and their geometry would feel as natural to them as ours does to us. The rules of geometry, Helmholtz concluded, are not laws of thought fixed in advance; we learn them from the world we live in \citep{Helmholtz1870}. Forty-five years later, Albert Einstein wrote gravity itself as the curvature of space and time, with a geometry that mathematicians had built decades earlier for its own sake. In a lecture of 1921 he drew the famous line: as far as the laws of mathematics refer to reality, they are not certain, and as far as they are certain, they do not refer to reality \citep{Einstein1921}.
+
+\paragraph{Wigner and Hamming: a miracle, or a choice?}
+In 1960 the physicist Eugene Wigner gave this whole story its name: \emph{the unreasonable effectiveness of mathematics in the natural sciences} \citep{Wigner1960}. Mathematicians build their ideas for their own beauty, he observed, and then those ideas turn out, again and again, to describe the world with absurd precision. He called it a miracle that we neither understand nor deserve. Twenty years later the mathematician and engineer Richard Hamming gave a more down-to-earth answer, and one of his sentences could stand as the motto of this book \citep{Hamming1980}:
+\begin{quote}
+\itshape Mathematics does not always work. When we found that scalars did not work for forces, we invented a new mathematics, vectors. And going further we have invented tensors.
+\end{quote}
+
+\begin{plainwords}
+The language of physics is not fixed. When it is too small for what physics must say, somebody enlarges it: the ellipse, the calculus, vectors, curved geometry, and, in Chapter~\ref{ch:one-number}, the complex numbers. Each time, the old words survive inside the new ones as special cases. That is how the General Sinus and the General Numbers of Part~\ref{pt:beyond} were built: the right triangle and the complex plane are still there, as the cases $\alpha + \phi = \pi/2$ and $\bar{\phi} = \pi/2$.
+\end{plainwords}
+
+%------------------------------------------------
+\section{When the language is too small}\label{sec:too-small}
+%------------------------------------------------
+
+The history above is a history of successes, and it is easy to tell it backwards, knowing how each story ended. At the moment when the language was too small, however, it was never obvious that the fault lay with the language. There were always two ways to read the difficulty.
+
+The first reading says: \emph{the world is not as simple as we hoped}. Nature follows one rule here and another rule there, and our task is to map where each rule applies. The second reading says: \emph{our language is not yet rich enough}. Nature may follow one rule everywhere, and what looks like a change of rule is only the place where our words run out.
+
+Kepler faced exactly this choice. He could have given Mars a rule of its own, a circle with special corrections valid for Mars alone, and for a while he tried several such repairs. What he found in the end was one shape, the ellipse, that worked for Mars and for every other planet.
+
+The Cosmic Mass Theory makes the same choice on purpose. Doubting the expressive capacity of mathematics has shaped the philosophical method of the theory, rather than hastening to doubt the consistency of Existence, the cosmos itself. To see what this means in practice, we need one more scene.
+
+\scene{Manchester, 1911}
+
+In Ernest Rutherford's laboratory in Manchester, Hans Geiger and Ernest Marsden had fired tiny, fast alpha particles at a sheet of gold foil far thinner than a page. Almost all of them went straight through. A very few bounced back, which Rutherford later compared to firing a heavy shell at a sheet of tissue paper and seeing it come back at you. In 1911 he explained why: nearly all the mass of an atom, and all of its positive charge, is packed into a tiny \emph{nucleus} at its centre \citep{Rutherford1911}. By 1932, when James Chadwick discovered the neutron \citep{Chadwick1932}, the picture was clear. A nucleus is made of protons and neutrons, pressed together within a few femtometres, a few millionths of a billionth of a metre.
+
+And here Coulomb's law raised an alarm. Protons all carry positive charge, and like charges repel. At the distance between two protons in a nucleus, about $10^{-15}$ m, Coulomb's law gives a push of roughly $230$ newtons. That is about the weight of a large suitcase, pushing apart two particles that each weigh about $10^{-26}$ newtons. By Coulomb's law alone, no nucleus with more than one proton could hold together for an instant. Yet such nuclei exist, and most of the nuclei around us are perfectly stable.
+
+Physics answered by adding a new force. The \emph{strong nuclear force} attracts protons and neutrons to one another, more strongly than the electric repulsion pushes the protons apart, but only across very short distances: beyond the size of a nucleus it fades away almost completely. In 1935 Hideki Yukawa gave it a theory. The force, he proposed, is carried by a new particle, and the mass of that particle sets how far the force can reach \citep{Yukawa1935}. The particle, the pion, was found in 1947. A second new force, the \emph{weak nuclear force}, was needed to explain a kind of radioactivity in which a neutron turns into a proton, giving out an electron and an almost invisible particle, the antineutrino \citep{Fermi1934}. It reaches even less far. With these two forces, physics can explain why nuclei hold together, how the Sun shines by fusing hydrogen into helium, and why very heavy nuclei can split.
+
+So physics now counts four fundamental interactions. Two of them, gravity and electromagnetism, reach as far as you like, weakening with the square of the distance but never stopping. The other two act only inside domains the size of a nucleus, or smaller (\Cref{fig:ranges}).
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\small}]
+  % scale: x = (exponent + 20) * 0.17 cm
+  % ---------- the four bars ----------
+  \draw[line width=4.5pt, Maroon!80] (0,3.2) -- (7.82,3.2);
+  \draw[->, thick, Maroon] (7.82,3.2) -- (8.35,3.2);
+  \node[anchor=south west, inner sep=1pt] at (0,3.36) {gravity};
+  \node[anchor=west] at (8.4,3.2) {no limit};
+  \draw[line width=4.5pt, RoyalBlue!80] (0,2.35) -- (7.82,2.35);
+  \draw[->, thick, RoyalBlue] (7.82,2.35) -- (8.35,2.35);
+  \node[anchor=south west, inner sep=1pt] at (0,2.51) {electromagnetism};
+  \node[anchor=west] at (8.4,2.35) {no limit};
+  \draw[line width=4.5pt, ForestGreen!80] (0,1.5) -- (0.85,1.5);
+  \node[anchor=south west, inner sep=1pt] at (0,1.66) {strong nuclear};
+  \node[anchor=west] at (0.95,1.5) {about $10^{-15}$ m};
+  \draw[line width=4.5pt, Orange!90] (0,0.65) -- (0.34,0.65);
+  \node[anchor=south west, inner sep=1pt] at (0,0.81) {weak nuclear};
+  \node[anchor=west] at (0.44,0.65) {about $10^{-18}$ m};
+  % ---------- the distance axis ----------
+  \draw[->, gray] (0,0) -- (8.35,0) node[right] {distance};
+  \foreach \x/\lab in {0/{10^{-20}}, 1.7/{10^{-10}}, 3.4/{10^{0}}, 5.1/{10^{10}}, 6.8/{10^{20}}}
+    { \draw[gray] (\x,0.07) -- (\x,-0.07) node[below] {\footnotesize $\lab$ m}; }
+  \foreach \x/\lab in {1.7/atom, 3.4/you, 4.59/Earth, 6.97/galaxy}
+    { \fill[gray] (\x,0) circle (1.3pt); \node[above, font=\scriptsize, gray] at (\x,0.04) {\lab}; }
+\end{tikzpicture}
+\caption[How far the four interactions reach]{How far the four interactions reach, on a scale where each step is a factor of ten. Gravity and electromagnetism weaken as $1/r^2$ but never stop. The strong nuclear force acts across distances about the size of a nucleus, and the weak nuclear force across even shorter ones. The ranges are rough orders of magnitude.}
+\label{fig:ranges}
+\end{figure}
+
+%------------------------------------------------
+\section{Two necessities}\label{sec:two-necessities}
+%------------------------------------------------
+
+The Cosmic Mass Theory reads this history in its own way, and it is this reading that sets the present book in motion. At this point, in this reading, physics changed its path in a structural way. It began to define a range of \emph{intermittent domains}: places where a force must show itself and places where it must not, domains where a force can exist and domains where it cannot. The strong force, in particular, came with an existential condition: it could act only, and exclusively, within the domain of the nucleus, since otherwise its own existence would be impossible.
+
+Such an approach, the theory argues, amounts to accepting a \emph{necessity of inconsistency of the cosmos}: the necessity that the laws of force change from one domain of nature to another. And it asks two questions, which are the real starting point of this book. \emph{What if the reason lay in the way we interpreted these results, given the limited expressive capacity of mathematics? Could the judgment that the cosmos is inconsistent be a kind of haste, like the haste that Galileo faced?}
+
+Against the necessity of inconsistency, the Cosmic Mass Theory sets a double hypothesis:
+\begin{enumerate}
+  \item the \emph{necessity of consistency of the cosmos}: the same laws hold everywhere, at every scale;
+  \item the \emph{necessity of extending the expressive capacity of mathematics}: past experiments may have been read imprecisely, through a language that could not yet say what they were showing.
+\end{enumerate}
+The two hypotheses hold each other up. As that paper puts it, if a unified mathematical framework for the fundamental forces is possible, then the only reason for its existence lies in the necessity of consistency of the cosmos.
+
+It is only fair to say how most physicists see the same history, and the theory itself is careful not to turn its reading into an accusation. The strong and weak forces are not boundaries drawn by hand. Today they are described by detailed theories that have passed an enormous number of experimental tests, and the short reach of each force comes out of its theory: in Yukawa's picture, from the mass of the particle that carries it. Nothing in this book disputes those results. The theory states its own position with a memorable image. If nine hundred and ninety-nine articles support the approach of intermittent domains of existence of forces, and the cosmic mass theory is the thousandth, then its aim is not criticism. Its aim is to broaden the diversity of the methods and approaches used to explain causes, and to avoid fanaticism towards any school or any scholar, whatever their scientific standing, since theories, like all other intellectual productions, exist to be discussed.
+
+\begin{plainwords}
+There are two ways to react when the known laws do not seem to fit a new fact. One is to say that nature changes its rules from place to place, and to draw the borders of each rule. The other is to say that the rules may be the same everywhere, and that our mathematics is not yet rich enough to show it. This book takes the second road. It does so as a hypothesis to be tested, not as a verdict on the physics of the nucleus.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Intrinsic and extrinsic}\label{sec:intrinsic}
+%------------------------------------------------
+
+The double hypothesis leads the theory to sort the forces in its own way. Gravity and electrostatics are called \emph{intrinsic} forces: they come from properties that every particle carries with it, at every moment and everywhere, namely its mass and its charge. The strong and weak nuclear forces are called \emph{extrinsic}: in this reading, they belong to the context in which they were born, the nucleus. In the same spirit, mass and charge are treated as intrinsic concepts, while heat, radiation and energy are treated as extrinsic ones.
+
+This sorting is a choice of starting point, not a verdict on the nuclear forces. It tells us where the Cosmic Mass Theory begins: with the two quantities that every particle carries, and with the two laws, Newton's and Coulomb's, that are written with them. That paper also hoped to bring heat and radiation into the same single number. This book is more modest. It keeps to the two intrinsic quantities, and it asks the most direct question that they allow.
+
+%------------------------------------------------
+\section{What this book asks, and what it does not}\label{sec:scope}
+%------------------------------------------------
+
+It is important to be exact about the scope of the theory, because a phrase like \enquote{one law for gravity and electricity} can easily be heard as more than it is. \Cref{tab:scope} sets out the boundaries.
+
+\begin{table}[tb]
+\myfloatalign
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth} >{\raggedright\arraybackslash\hsize=1.2\hsize}X >{\raggedright\arraybackslash\hsize=0.8\hsize}X@{}}
+\toprule
+ & \tableheadline{In this book} & \tableheadline{Not attempted} \\
+\midrule
+Inputs & two measured quantities per particle: its mass in kilograms [kg] and its charge in coulombs [C] & any other property of particles \\
+Behaviours & attraction and repulsion between two particles, along the line that joins them (Chapter~\ref{ch:interaction}); the masses of nuclei and the energy of fusion (Chapter~\ref{ch:closure}); bodies in motion and their fields (Chapter~\ref{ch:unified}) & the strong and weak nuclear forces themselves; a unification of the four fundamental forces \\
+Laws & Newton's law and Coulomb's law as the real part of one law, which also contains a new term, the Coupling Force, not read as a force; the Closure Law of the nuclei; one law of fields and motion that holds Newton's gravity, Maxwell's equations and the force of Lorentz & heat; quantum versions of the laws; gravity where general relativity is needed \\
+Mathematics & the General Sinus and the General Number Plane, which contain classical trigonometry and the complex numbers as special cases & replacing the mathematics of physics; the classical tools remain valid \\
+Status & a proposal, stated with all its assumptions, to be tested; its new predictions are the work of Volume~2 & an established result of physics \\
+\bottomrule
+\end{tabularx}
+\caption[The scope of this book]{The scope of this book. The Cosmic Mass Theory starts from the two intrinsic quantities of a particle and the two behaviours they produce.}
+\label{tab:scope}
+\end{table}
+
+In one sentence: the Cosmic Mass Theory takes mass and charge, the two intrinsic quantities of a particle, and gives them one number; from that number it writes one law, meant to describe both attraction and repulsion, and then it opens that law up to see what is inside. Part~\ref{pt:nuclei-fields} then follows the same number into the nuclei, and into bodies in motion and their fields.
+
+%------------------------------------------------
+\section{The ladder of correctness}\label{sec:ladder-correctness}
+%------------------------------------------------
+
+Why take such a step at all, when the two classical laws work so well on their own? The theory gives an answer that is closer to an attitude than to an argument. We may not yet have reached a high enough level of correctness in the way we read nature, it says, and so the door remains open to climb higher on the \emph{ladder of correctness}. Experiments may remain pointless if mathematics stays speechless in front of the numbers they measure.
+
+The theory describes physics as the expressed perception of Existence. It begins with the alphabetic language of words, and it reaches its highest form when it can speak mathematics. This is why the growth of mathematics is not a side issue for physics. Each new word in the mathematical language is a new way of perceiving. The complex plane did not only describe rotation; it made rotation something that engineers can see, add and multiply without a second thought, as Steinmetz showed for alternating currents in 1893 \citep{Steinmetz1893}.
+
+Part~\ref{pt:beyond} has already built the new words. The General Sinus lets a triangle lean. The General Number Plane lets the second axis of the number plane lean. It is time to give these words their first physical sentence, and to ask the question that the whole book has been preparing: \emph{can a single number carry both the mass and the charge of a particle, and can one law, written with that number, hold for every pair of particles?}
+
+\begin{plainwords}[What we have so far]
+\begin{itemize}
+  \item Galileo wrote that nature is a book in the language of mathematics, with triangles, circles and other figures as its characters. We can read only as much of that book as our alphabet allows.
+  \item Physics has enlarged its alphabet many times: Kepler's ellipse, Newton's law that describes without explaining, Maxwell's equations, the geometries of Helmholtz and Einstein, vectors and tensors. Each time, the old words survived as special cases.
+  \item When the facts and the laws disagree, we can doubt the world, and give each force its own domain, or doubt the language. The Cosmic Mass Theory chooses the second road: the necessity of consistency of the cosmos, and the necessity of a more expressive mathematics.
+  \item The scope of this book is deliberately narrow: mass and charge as inputs, attraction and repulsion as behaviours, and one law that contains the laws of Newton and Coulomb together with one new term; Part~\ref{pt:nuclei-fields} carries the same number into the nuclei and into bodies in motion (\Cref{tab:scope}).
+\end{itemize}
+\end{plainwords}

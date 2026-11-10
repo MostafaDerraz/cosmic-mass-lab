@@ -1,0 +1,266 @@
+% Chapter 11, what the frame allows: antimatter, negative mass and black holes (added on 9 November 2026 and shortened the same day; the full earlier text is in removed-in-shortening-2026-11-09/)
+% notation of this chapter: the parts of a General Number (Chapter 4)
+\providecommand{\Com}{\operatorname{Com}}
+\providecommand{\Sh}{\operatorname{Sh}}
+%************************************************
+\chapter{What the Frame Allows: Antimatter, Negative Mass and Black Holes}\label{ch:allows}
+\chaptermark{What the Frame Allows}% the full title is too wide for the running head
+%************************************************
+
+\chapterlead{Ordinary matter uses only three directions of the Cosmic Mass Frame. This chapter reads the whole of it, one step at a time: the mirror images of the particles, which are antimatter and lie on the same three directions; the half of negative mass, which nature has left empty so far; and the side where gravity wins over charge, where the black holes are. Each answer says what has been measured and what is only allowed.}
+
+\scene{Pasadena, August 1932}
+
+On 2 August 1932, at the California Institute of Technology, Carl Anderson photographed in a cloud chamber the track of a particle from the cosmic rays. A magnetic field bent the track, and a plate of lead across the chamber showed which way the particle had come: its charge was positive, yet its track ran far longer than a proton's could, so its mass was far smaller. Anderson called it the positive electron, and in the same paper named it the positron \citep{Anderson1933}. Paul Dirac had described such a particle the year before. His equation of 1928 for the electron has solutions of negative energy \citep{Dirac1928}, and in 1931 he wrote that a missing one would be \enquote{a new kind of particle, unknown to experimental physics, having the same mass and opposite charge to an electron} \citep{Dirac1931}. In the language of this book, the positron is the electron with its charge part turned around.
+
+\bigskip
+
+Chapter~\ref{ch:standard-model} found that ordinary matter uses only three directions of the frame: the mass axis and the two ends of the charge axis (\Cref{sec:sm-model}). This chapter reads the whole frame in seven steps, with the tools of the earlier chapters. For black holes it quotes, and does not derive, Einstein's theory: the horizons of a charged body, and the rule that a settled black hole is described by its mass, charge and spin.
+
+%------------------------------------------------
+\section{Step 1: The Frame, Once More}\label{sec:fa-frame}
+%------------------------------------------------
+
+A body of mass $m$ and charge $q$ has the cosmic mass $\mu = m + q\Gp$ (Definition~\ref{def:cosmic-mass}) and the identity card $(r, \alpha, \phi)$, with $\alpha + \phi = 79.86^\circ$, $m = r\cos(\alpha, \phi)$ and $q\Gp = r\sin(\alpha, \phi)$ (Remarks~\ref{rem:identity} and~\ref{rem:mass-charge-rep}). As on the card, $q\Gp$ is the signed length of the charge part in kilograms: one Stoney mass $m_S \approx 1.85921 \times 10^{-9}$ kg for each elementary charge (Definition~\ref{def:stoney-mass}). The Cosmic Mass Frame draws $m$ across and $q\Gp$ up (Definition~\ref{def:cm-frame}). Four facts about it are all that this chapter needs.
+\begin{enumerate}
+  \item \emph{The rings lean.} Every ring is an ellipse whose short axis lies on the diagonal $q\Gp = m$ and whose long axis lies on $q\Gp = -m$ (\Cref{thm:cm-ellipse}). A point and its mirror image in the mass axis therefore lie, in general, on two different rings.
+  \item \emph{Ordinary matter uses three directions.} Neutral bodies lie on the mass axis, positive charges near the ray $79.86^\circ$ and negative charges near $259.86^\circ$, each leaning towards positive mass by the lean $\delta$ of Remark~\ref{rem:lean} (\Cref{sec:sm-model}).
+  \item \emph{The diagonals balance.} On the diagonals $|q\Gp| = m$, two equal bodies neither pull nor push; nearer the mass axis they pull, and nearer the charge axes they push (Proposition~\ref{prop:op-zones}).
+  \item \emph{One half is empty.} No known body has $m < 0$ (\Cref{fig:sm-polar}).
+\end{enumerate}
+
+%------------------------------------------------
+\section{Step 2: The Mirror of a Particle}\label{sec:fa-mirror}
+%------------------------------------------------
+
+Every particle has an antiparticle, with the same mass and the opposite charge: the positron for the electron, the antiproton for the proton. The masses of the antiproton and the proton agree to better than one part in $10^9$, and their charge-to-mass ratios to $16$ parts in $10^{12}$ \citep{PDG2024,Borchert2022}; antihydrogen, the atom of an antiproton and a positron, falls as ordinary matter does, within the errors of the experiment \citep{Anderson2023}.
+
+\begin{definition}[The Antiparticle on the Frame]\label{def:fa-anti}
+The antiparticle of a body with the cosmic mass $\mu = m + q\Gp$ has the cosmic mass
+\[
+\tilde{\mu} = m - q\Gp ,
+\]
+with the same mass and the opposite charge part. It is the skew flip of Remark~\ref{rem:gn-skew-flip} applied to $\mu$, not its conjugate (Definition~\ref{def:gn-conjugate}).
+\end{definition}
+
+The conjugate would not do: it keeps the length of $\mu$ but changes its real part to $m + 2q|\Gp|\cos\pb$ (Definition~\ref{def:gn-conjugate} and \Cref{thm:gn-conjugate}), for the electron a negative mass about $7 \times 10^{20}$ times larger than its own. The skew flip keeps the mass, as measurement asks, and pays for it with a change of length (Remark~\ref{rem:gn-skew-flip}).
+
+\begin{proposition}[The Antiparticle on the Frame]\label{prop:fa-mirror}
+Let a body have the mass $m > 0$ and the charge part $q\Gp$, and let $\tilde{\mu}$ be the cosmic mass of its antiparticle.
+\begin{enumerate}
+  \item In the frame, $\tilde{\mu}$ is the mirror image of $\mu$ in the mass axis.
+  \item Its cosmic magnitude $\tilde{r}$ obeys $\tilde{r}^2 = r^2 - 4m\,(q\Gp)\cos\pb$. The antiparticle of a positive charge lies on a smaller ring than its particle, and that of a negative charge on a larger one; when the charge part is much larger than the mass, the two rings differ by about $2\cos\pb\;m \approx 0.35210\,m$.
+  \item Its ray leans from the other end of the charge axis, also towards positive mass, by the lean of Remark~\ref{rem:lean} written for the opposite sign of the charge. For every particle, ion and nucleus the two leans agree to many digits.
+  \item A neutral body is its own mirror: if $q = 0$, then $\tilde{\mu} = \mu$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) The frame draws $m$ across and $q\Gp$ up (Definition~\ref{def:cm-frame}); $\tilde{\mu}$ keeps the first and reverses the second. (2) Remark~\ref{rem:gn-skew-flip} with $a = m$ and $b = q$ gives $|m - q\Gp|^2 = |\mu|^2 - 4mq\,|\Gp|\cos\pb$. When $|q\Gp|$ is much larger than $m$, $r \approx |q\Gp| + \cos\pb\;m$ for a positive charge and $r \approx |q\Gp| - \cos\pb\;m$ for a negative one, and the flip exchanges the two. (3) Remark~\ref{rem:lean} gives the lean of a body with charge number $z$ from the size $|\eta| = |z|\,m_S/m$ of its charge-to-mass ratio, which the flip keeps: $\arctan\bigl(\sin\pb/(|\eta| + \cos\pb)\bigr)$ for $z > 0$ and $\arctan\bigl(\sin\pb/(|\eta| - \cos\pb)\bigr)$ for $z < 0$, both towards positive mass. Their ratio differs from $1$ by about $2\cos\pb/|\eta|$, less than $10^{-15}$ for every body of ordinary matter. (4) If $q = 0$, then $m - q\Gp = m + q\Gp$.
+\end{proof}
+
+So the positron sits beside the proton at the upper end of the charge axis, and the antiproton beside the electron at the lower end (\Cref{fig:fa-whole}). The proton's ring is larger than the antiproton's by $0.35210\,m_p$, about three parts in $10^{19}$ of the ring. Every measured quantity of a particle and its antiparticle follows from their masses and charges, so the difference of rings is, so far, a feature of the leaning frame, not of anything measured.
+
+%------------------------------------------------
+\section{Step 3: A Particle and Its Mirror}\label{sec:fa-pair}
+%------------------------------------------------
+
+The product of a particle and its antiparticle gives the force between them, and their sum gives the body they make together.
+
+\begin{proposition}[A Particle and Its Antiparticle]\label{prop:fa-pair}
+Let $\tilde{\mu} = m - q\Gp$ be the antiparticle of $\mu = m + q\Gp$.
+\begin{enumerate}
+  \item Their product has the real part $m^2 + (q\Gp)^2$ and the Composer coordinate $-2|\Gp|\cos\pb\;q^2$: the Coupling term is zero, and only the charge share of \Cref{sec:op-product} is left.
+  \item Two of them, the distance $d$ apart, pull each other with the force
+  \[
+  F = \frac{G m^2 + K q^2}{d^2} :
+  \]
+  gravity and the electric force pull together, each at full strength.
+  \item Their sum is the real number $\mu + \tilde{\mu} = 2m$: the charge parts cancel, and the pair, taken as one body, lies on the mass axis, on the ring $2m$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) Proposition~\ref{prop:law-real} with $m_a = m_b = m$, $q_a = q$ and $q_b = -q$ gives the real part $m^2 + |\Gp|^2 q^2$ and the Composer coordinate $-mq + qm - 2|\Gp|\cos\pb\;q^2$. (2) Definition~\ref{def:reading}, with $G\,|\Gp|^2 = K$. (3) General Numbers add part by part (Definition~\ref{def:gn-product}).
+\end{proof}
+
+\emph{Annihilation.} A particle and its antiparticle can disappear together into light: an electron and a positron at rest usually become two gamma rays of $511$ keV each, the light that the scanners of positron emission tomography detect. In the language of \Cref{prop:fusion-frame}, the loss of cosmic mass is the whole sum, $2m$, and it is real, so light, which carries no charge, can take all of it. A real sum is needed but is not enough: a single neutron, or an atom of hydrogen, also has a real cosmic mass, and neither can vanish into light. A particle and its antiparticle can, because every other number that nature keeps, such as the baryon number, cancels between them as well (\Cref{sec:fa-neutral}). All of the pair can therefore leave as energy,
+\[
+E = 2mc^2 .
+\]
+For an electron and a positron that is $1.022$ MeV, while a fusion releases only a small real part of the sum (\Cref{prop:fusion-frame}). The reverse also happens: a gamma ray of at least $1.022$ MeV passing near a nucleus can turn into an electron and a positron, a real number splitting into two equal and opposite charge parts, so that the charge is kept.
+
+%------------------------------------------------
+\section{Step 4: What Two Numbers Cannot Tell}\label{sec:fa-neutral}
+%------------------------------------------------
+
+Statement~4 of \Cref{prop:fa-mirror} has a consequence that the frame cannot escape. The antineutron has the mass of the neutron and no charge, so it lies at the same point of the frame; so do an atom of hydrogen and an atom of antihydrogen. Yet a neutron and an antineutron that meet annihilate. They differ in numbers that the cosmic mass does not hold, such as the baryon number, $+1$ for the neutron and $-1$ for the antineutron \citep{PDG2024}, and, by the symmetry that turns a particle into its antiparticle, the sign of the magnetic moment.
+
+\begin{remark}[The Limit of Two Numbers]\label{rem:fa-two-numbers}
+The cosmic mass holds two numbers. For a charged body they tell a particle from its own antiparticle, through the sign of the charge part, though not, on their own, whether a body is matter or antimatter: the positron sits with the protons. For a neutral body they do not tell even a particle from its antiparticle. A cosmic mass that told every particle from its antiparticle would need at least one more number, such as the baryon number, and, in the language of this book, one more axis. Whether such an axis belongs in the General Numbers is a question for Volume~2.
+\end{remark}
+
+%------------------------------------------------
+\section{Step 5: The Half of Negative Mass}\label{sec:fa-negative}
+%------------------------------------------------
+
+The half $m < 0$ is open in the mathematics, and antimatter, whose mass is positive, does not live there. The real reading cannot say whether a body of negative mass exists, but it can say what one would do: its inertia, the real part of its cosmic mass (Law~\ref{law:unified}), would be negative, so it would move against the force that acts on it.
+
+\begin{proposition}[Negative Mass in the Real Reading]\label{prop:fa-negative}
+Let two neutral bodies with the masses $m_a$ and $m_b$ start at rest, the distance $d$ apart, and move by the law of motion of Chapter~\ref{ch:unified}. At the first instant:
+\begin{enumerate}
+  \item if $m_a > 0$ and $m_b > 0$, each accelerates towards the other;
+  \item if $m_a < 0$ and $m_b < 0$, each accelerates away from the other;
+  \item if $m_a > 0 > m_b$, both accelerate in the same direction, from the negative mass towards the positive one: the positive mass runs away, and the negative mass chases it. If $m_b = -m_a$, the two accelerations are equal at every instant: the distance stays $d$, and the pair speeds up without end, while its total momentum and its total kinetic energy stay zero.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By Definition~\ref{def:reading}, the force on body $a$ along the direction from $a$ to $b$ is $F = G m_a m_b/d^2$, and by Law~\ref{law:unified} its acceleration along that direction is $F/m_a = G m_b/d^2$. In the same way, body $b$ accelerates towards $a$ at $G m_a/d^2$. (1) Both accelerations are positive: each body moves towards the other. (2) Both are negative: each moves away. (3) Body $a$ moves towards $b$ at $G m_b/d^2 < 0$, that is, away from $b$; body $b$ moves towards $a$ at $G m_a/d^2 > 0$. Both move in the direction from $b$ to $a$, with the sizes $G|m_b|/d^2$ and $G m_a/d^2$, which are equal when $m_b = -m_a$. The two bodies start at rest with equal accelerations, so they keep one velocity $v$: the distance stays $d$, the forces keep their sizes, and the accelerations stay equal. Then $m_a v + m_b v = 0$ and $\tfrac{1}{2}m_a v^2 + \tfrac{1}{2}m_b v^2 = 0$.
+\end{proof}
+
+Hermann Bondi found the same behaviour in Einstein's theory in 1957 \citep{Bondi1957}. Nothing like it has been seen, and antimatter, which was once a candidate, falls down \citep{Anderson2023}. This half of the frame is room, not a prediction.
+
+%------------------------------------------------
+\section{Step 6: Black Holes on the Frame}\label{sec:fa-black-holes}
+%------------------------------------------------
+
+A black hole is a region of space from which not even light can escape; its edge is called the horizon. Astronomers now observe them: in 2015 LIGO recorded the gravitational waves of two black holes merging into one \citep{Abbott2016}, and in 2019 the Event Horizon Telescope imaged the shadow of the black hole at the centre of the galaxy M87 \citep{EHT2019}. Chapter~\ref{ch:open} recalled from Einstein's theory where a charged body can be a black hole: on the gravity side of the frame, $|q\Gp| < m$, or on its diagonals (Remark~\ref{rem:op-gr}). The theory also gives the horizons, and the cosmic mass can write them. In this step $r$ is the distance from the centre of the body, not a cosmic magnitude.
+
+\begin{proposition}[Horizons Written with the Cosmic Mass]\label{prop:fa-horizons}
+In Einstein's theory, let a spherical body of mass $m > 0$ and charge $q$, with no spin, collapse. If $\Re(\mu^2) \geq 0$, it can become a black hole, with horizons at the radii
+\[
+r_\pm = \frac{G}{c^2}\Bigl(m \pm \sqrt{\Re(\mu^2)}\Bigr) , \qquad \Re(\mu^2) = m^2 - (q\Gp)^2
+\]
+(if $q = 0$, then $r_- = 0$ and only $r_+$ is a horizon); if $\Re(\mu^2) < 0$, its field has no horizon at any radius. A body of negative mass has no horizon. Since $G\,\Re(\mu^2)/d^2$ is the force between two copies of the body the distance $d$ apart (Definition~\ref{def:reading}), a charged body of positive mass can be a black hole exactly when two copies of it would not push each other apart.
+\end{proposition}
+
+\begin{proof}
+Outside the body its field is the one found by Reissner and Nordström \citep{Reissner1916,Nordstrom1918}. Its horizons lie where the time coefficient of that field vanishes \citep{MTW1973},
+\[
+1 - \frac{2Gm}{c^2 r} + \frac{G K q^2}{c^4 r^2} = 0 , \qquad\text{that is,}\qquad r^2 - \frac{2Gm}{c^2}\,r + \frac{G K q^2}{c^4} = 0 .
+\]
+The roots are $r = (G/c^2)\bigl(m \pm \sqrt{m^2 - (K/G)\,q^2}\bigr)$. Since $K/G = |\Gp|^2$ (\Cref{subsec:cu-size}), the quantity under the root is $m^2 - |\Gp|^2 q^2$, the real part of $\mu^2$ (Proposition~\ref{prop:law-real} with $\mu_a = \mu_b = \mu$). Real roots exist exactly when it is not negative. If $q = 0$, the smaller root is the centre, $r = 0$, which is not a horizon. If $m < 0$, two real roots would have the sum $2Gm/c^2 < 0$ and the product $GKq^2/c^4 \geq 0$, so neither would be positive. The last sentence is Definition~\ref{def:reading} for two equal bodies.
+\end{proof}
+
+This is the formula of Reissner and Nordström, written with the cosmic mass; the law of this book does not reach it, because horizons belong to the strong fields where that law gives way to Einstein's theory (Chapter~\ref{ch:unified}). What the cosmic mass adds is a reading: the number that decides whether a body can be a black hole, $\Re(\mu^2)$, also decides whether two copies of it pull or push (\Cref{fig:fa-horizons}). For the mass of the Sun, $Gm/c^2 \approx 1.477$ km: with no charge the horizon is at $2.95$ km, and with a charge part equal to the mass, about $1.7 \times 10^{20}$ C, far more than any star could keep, the two horizons meet at $1.48$ km.
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, x=6.2cm, y=1.55cm, every node/.style={font=\footnotesize}]
+  \fill[Maroon!8] (1,0) rectangle (1.32,2.3);
+  \draw[->, thick] (0,0) -- (1.38,0);
+  \node[anchor=north east] at (1.38,-0.3) {charge part over mass, $|q\mathcal{G}_{\bar{\phi}}|/m$};
+  \draw[->, thick] (0,0) -- (0,2.45) node[above, align=center] {horizon radius, in units of $Gm/c^2$};
+  \foreach \x/\l in {0/0, 0.5/0.5, 1/1} \draw (\x,0.04) -- (\x,-0.04) node[below] {$\l$};
+  \foreach \y in {1,2} \draw (0.012,\y) -- (-0.012,\y) node[left] {$\y$};
+  \draw[very thick, RoyalBlue!80!black, domain=0:1, samples=120] plot (\x, {1 + sqrt(max(0, 1 - \x*\x))});
+  \draw[very thick, RoyalBlue!50, densely dashed, domain=0:1, samples=120] plot (\x, {1 - sqrt(max(0, 1 - \x*\x))});
+  \fill[RoyalBlue!80!black] (1,1) circle (1.6pt);
+  \node[anchor=west, RoyalBlue!80!black] at (0.03,2.15) {$r_+$, outer horizon};
+  \node[anchor=west, RoyalBlue!60!black] at (0.02,0.34) {$r_-$, inner horizon};
+  \node[anchor=east, align=right, RoyalBlue!80!black, font=\scriptsize] at (0.95,1.0) {one horizon,\\ $Gm/c^2$, on\\ the diagonal};
+  \node[align=center, Maroon!80!black] at (1.16,1.3) {charge\\ side:\\ no\\ horizon};
+  \draw[densely dotted, gray] (0.5,0) -- (0.5,1.866);
+  \fill[RoyalBlue!80!black] (0.5,1.866) circle (1.4pt);
+  \fill[RoyalBlue!50] (0.5,0.134) circle (1.4pt);
+\end{tikzpicture}
+\caption[Two horizons]{The two horizons of a charged body of positive mass (\Cref{prop:fa-horizons}), in units of $Gm/c^2$, as its charge part grows. With no charge there is one horizon at $2Gm/c^2$; as the charge part grows the two horizons approach each other, and on the diagonal, $|q\Gp| = m$, they meet at $Gm/c^2$. Beyond it, on the charge side, there is no horizon. The two dots mark a charge part of half the mass.}
+\label{fig:fa-horizons}
+\end{figure}
+
+\begin{remark}[What the Cosmic Mass Leaves Out]\label{rem:fa-leaves-out}
+\leavevmode
+\begin{enumerate}
+  \item \emph{Spin.} A black hole that has settled is described by three numbers: its mass, its charge and its spin \citep{MTW1973}. The cosmic mass holds two of them. Real black holes spin, and spin moves the horizons; a full card for a black hole would need a third number, as neutral antimatter did in Step~4.
+  \item \emph{Charge.} Real black holes are expected to carry almost no charge, because the gas around them holds charges of both signs and the kind that is pulled in cancels the charge. On the frame they lie on the mass axis, far out: the black hole of M87 on the ring of about $7 \times 10^{48}$ Stoney masses. Charged and extremal black holes are allowed, but none has been observed.
+  \item \emph{Matter and antimatter.} A black hole made of antimatter is, once it has settled, the same as one made of matter with the same mass, charge and spin. On the frame the two are one point, as neutral matter and antimatter were in Step~4.
+  \item \emph{The diagonals.} On the diagonals sit the extremal black holes, which, when all their charges have the same sign, can rest beside one another at any distances (Remark~\ref{rem:op-gr}).
+\end{enumerate}
+\end{remark}
+
+%------------------------------------------------
+\section{Step 7: The Whole Frame}\label{sec:fa-whole}
+%------------------------------------------------
+
+\Cref{fig:fa-whole} and \Cref{tab:fa-whole} put the six steps together. Every place of the frame has a status: measured, where bodies have been observed; allowed, where the mathematics and Einstein's theory leave room but nothing has been seen; and empty so far.
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\footnotesize}]
+  % zones for positive mass, as in the zones figure of Chapter 10
+  \fill[RoyalBlue!9] (0,0) -- (3.6,3.6) -- (4.6,3.6) -- (4.6,-3.6) -- (3.6,-3.6) -- cycle;
+  \fill[Maroon!8] (0,0) -- (3.6,3.6) -- (0,3.6) -- cycle;
+  \fill[Maroon!8] (0,0) -- (3.6,-3.6) -- (0,-3.6) -- cycle;
+  \fill[gray!6] (-3.6,-3.6) rectangle (0,3.6);
+  \draw[->, thick] (-3.8,0) -- (4.85,0) node[right] {$m$};
+  \draw[->, thick] (0,-3.8) -- (0,3.85) node[above] {$q\mathcal{G}_{\bar{\phi}}$};
+  \draw[very thick, RoyalBlue!75!black] (0,0) -- (3.6,3.6);
+  \draw[very thick, RoyalBlue!75!black] (0,0) -- (3.6,-3.6);
+  % charge axes: matter and antimatter
+  \node[Maroon!80!black, anchor=west, align=left, font=\scriptsize] at (0.12,3.25) {protons,\\ positrons,\\ cations, nuclei};
+  \node[Maroon!80!black, anchor=west, align=left, font=\scriptsize] at (0.12,-3.25) {electrons,\\ antiprotons,\\ anions, antinuclei};
+  \draw[Maroon!80!black, line width=2pt] (0.02,1.4) -- (0.02,3.0);
+  \draw[Maroon!80!black, line width=2pt] (0.02,-1.4) -- (0.02,-3.0);
+  % mass axis: neutral matter and antimatter
+  \draw[black, line width=2pt] (0.15,0.02) -- (1.3,0.02);
+  \node[anchor=north west, align=left, font=\scriptsize] at (0.95,-0.08) {atoms and antiatoms,\\ neutrons and antineutrons};
+  % gravity side, far out
+  \node[RoyalBlue!80!black, align=center, font=\scriptsize] at (3.55,0.62) {planets, stars,\\ black holes};
+  \node[RoyalBlue!80!black, align=center] at (2.75,1.75) {\textbf{gravity side}};
+  % diagonals
+  \node[RoyalBlue!75!black, anchor=south west, align=left, font=\scriptsize] at (3.62,3.45) {balanced specks,\\ extremal black holes};
+  \node[RoyalBlue!75!black, anchor=north west, align=left, font=\scriptsize] at (3.62,-3.45) {the same, with\\ negative charge};
+  % charge side label
+  \node[Maroon!80!black, align=center] at (1.1,2.2) {\textbf{charge}\\ \textbf{side}};
+  \node[Maroon!80!black, align=center] at (1.1,-2.2) {\textbf{charge}\\ \textbf{side}};
+  % negative mass half
+  \node[gray!70!black, align=center] at (-1.85,1.6) {\textbf{negative mass}};
+  \node[gray!70!black, align=center, font=\scriptsize] at (-1.85,0.95) {allowed by the mathematics,\\ empty so far};
+\end{tikzpicture}
+\caption[The whole frame]{The whole frame, with the mass $m$ across and the charge part $q\Gp$ up, not to scale. Charged particles and their antiparticles lie on the two ends of the charge axis, mirror images in the mass axis; neutral matter and neutral antimatter share the points of the mass axis; planets, stars and black holes lie on the gravity side, far out; balanced specks and extremal black holes lie on the diagonals; the half of negative mass is empty so far.}
+\label{fig:fa-whole}
+\end{figure}
+
+\begin{table}[tb]
+\myfloatalign
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.27\textwidth}@{}}
+\toprule
+\tableheadline{place on the frame} & \tableheadline{what lies there} & \tableheadline{status} \\
+\midrule
+upper end of the charge axis & protons, positive ions, nuclei; positrons and other positive antiparticles & measured \\
+lower end of the charge axis & electrons, negative ions; antiprotons and antinuclei & measured \\
+mass axis & atoms, neutrons; antiatoms and antineutrons, at the same points & measured; matter and antimatter not told apart \\
+gravity side, far out & planets, stars, black holes & measured; black holes expected to be nearly neutral \\
+diagonals & balanced specks, extremal black holes & specks: ordinary grains, one elementary charge for every $1.86$ micrograms, nothing measured singles them out; extremal black holes: allowed, not observed \\
+charge side, between the diagonals and the charge axes & charged grains and specks of dust, whose charge part is larger than their mass & measured \\
+half of negative mass & nothing known & allowed by the mathematics; empty so far \\
+\bottomrule
+\end{tabularx}
+\caption[What the frame allows]{What the frame allows. The measurements are those of \Cref{sec:fa-mirror,sec:fa-pair,sec:fa-neutral,sec:fa-negative,sec:fa-black-holes} and, for charged grains, Millikan's oil drops \citep{Millikan1913}, recalled in Chapter~\ref{ch:standard-model}.}
+\label{tab:fa-whole}
+\end{table}
+
+The frame, then, holds more than the bodies of Chapter~\ref{ch:standard-model}: antimatter on the same three lines as matter, charged grains between the axes, and black holes far out on the mass axis. Nature does not use everything the frame allows, and four questions stay open for Volume~2.
+\begin{enumerate}
+  \item \emph{A third number.} Neutral matter and neutral antimatter share their points, and a black hole's spin has no place on the card. Does the cosmic mass need a third number, and with it one more axis?
+  \item \emph{The ring of an antiparticle.} A charged particle and its antiparticle lie on rings that differ by about $0.35$ of their mass. Does anything that can be measured read the ring?
+  \item \emph{The diagonals.} Extremal black holes are allowed, and none has been seen; a balanced speck is an ordinary grain. Does the diagonal mean more than the condition $G m^2 = K q^2$ (question~3 of \Cref{sec:op-questions})?
+  \item \emph{The half of negative mass.} The mathematics allows it, and the real reading says what a body there would do. Is there one?
+\end{enumerate}
+
+% keep the box together: break the page here if fewer than 12 lines are left
+\keepblock{12}
+\begin{plainwords}[What we have so far]
+\begin{itemize}
+  \item An antiparticle is the skew flip of its particle, $m - q\Gp$: its mirror image in the mass axis.
+  \item A particle and its antiparticle pull each other with the force \mbox{$(G m^2 + K q^2)/d^2$}; their sum, $2m$, is real and their other labels cancel, so all of it can leave as energy.
+  \item Two numbers cannot tell neutral matter from neutral antimatter.
+  \item A body of negative mass would move against every force on it; none has been seen.
+  \item In Einstein's theory, a charged body of positive mass can be a black hole exactly when two copies of it would not push each other apart, and its horizons are
+  \[
+  r_\pm = \frac{G}{c^2}\Bigl(m \pm \sqrt{\Re(\mu^2)}\Bigr) .
+  \]
+\end{itemize}
+\end{plainwords}

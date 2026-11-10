@@ -1,0 +1,383 @@
+%************************************************
+\chapter{The Algebra of General Numbers: A Formulary}\label{app:gn-algebra}
+%************************************************
+% Appendix F (added 6 November 2026), included by book.tex after \include{Chapters/AppendixE}.
+% Every law below was checked with verify_general_number_algebra.py and by an independent review.
+\providecommand{\Jp}{\mathcal{J}_{\bar{\phi}}}                      % the Turning Unit
+\providecommand{\Ht}{\operatorname{Ht}}                              % the height above the real axis
+\providecommand{\Sh}{\operatorname{Sh}}                              % the shadow on the real axis
+\providecommand{\Com}{\operatorname{Com}}                            % the Composer part (Definition 4.11)
+% start a new page if fewer than #1 lines are left (the same command as in Section 4.9)
+\makeatletter
+\providecommand{\gnkeep}[1]{\par\penalty\z@\begingroup\dimen@=\pagegoal\advance\dimen@-\pagetotal
+  \ifdim\pagetotal>\z@\ifdim\dimen@<#1\baselineskip\newpage\fi\fi\endgroup}
+\makeatother
+% one row of a table of laws: the name of the law, then the law and its complex case side by side
+\providecommand{\gnlaw}[3]{\multicolumn{2}{@{}l@{}}{\small\itshape #1}\\* #2 & #3 \\ \addlinespace[4pt]}
+% the two columns of the tables
+\newenvironment{gnlaws}{%
+  \begin{longtable}{@{}>{\small\raggedright\arraybackslash}p{0.62\textwidth}@{\hspace{0.04\textwidth}}>{\small\raggedright\arraybackslash}p{0.32\textwidth}@{}}
+  \toprule
+  \multicolumn{1}{@{}l}{\spacedlowsmallcaps{in a relative plane}} & \multicolumn{1}{l@{}}{\spacedlowsmallcaps{the complex case}} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endlastfoot}
+  {\end{longtable}}
+% the same two columns for the last section, with a wider left column for its longer laws;
+% there a line breaks only between two formulas, never inside one
+\newenvironment{gnlawswide}{%
+  \begin{longtable}{@{}>{\small\raggedright\arraybackslash\relpenalty=10000 \binoppenalty=10000 }p{0.64\textwidth}@{\hspace{0.03\textwidth}}>{\small\raggedright\arraybackslash}p{0.32\textwidth}@{}}
+  \toprule
+  \multicolumn{1}{@{}l}{\spacedlowsmallcaps{in a relative plane}} & \multicolumn{1}{l@{}}{\spacedlowsmallcaps{the complex case}} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endlastfoot}
+  {\end{longtable}}
+
+This appendix lists the laws of \Cref{sec:gn-algebra}, each beside its complex case, in the order of Appendix~\ref{app:complex}. The letters follow that appendix, so that each line can be read against it. The same laws are collected in the formulary of \citet[Appendix~A]{DerrazGNPreprint2026}.
+\begin{itemize}
+  \item $z = a + b\Gp$ and $w = c + d\Gp$ are General Numbers of one true relative plane $\GNp$ (Remark~\ref{rem:line-no-plane}).
+  \item $|\Gp| = |\cos\pb + \sin\pb|$ is the length of the Composer Unit, $\up = \Gp/|\Gp|$ is its direction, and $\Jp$ is the Turning Unit (Definition~\ref{def:gn-turning-unit}).
+  \item $\theta$ is the angle of a number, the studied angle of Definition~\ref{def:general-polar}, and $\pb - \theta$ is its projection angle. For short, $C_\theta = \cos(\theta, \pb - \theta)$ and $S_\theta = \sin(\theta, \pb - \theta)$.
+\end{itemize}
+The right-hand column, the complex case, gives the same law at $\pb = \pi/2$. There $|\Gp| = 1$, the three numbers $\Gp$, $\up$ and $\Jp$ are all $i$, and $C_\theta$ and $S_\theta$ are $\cos\theta$ and $\sin\theta$ (Corollary~\ref{cor:classical}). Otherwise the two columns differ only in names, which the right-hand column writes as Appendix~\ref{app:complex} does: $\operatorname{Re}$ and $\operatorname{Im}$ for the parts, and $r$ for $|z|$ in the polar forms. A few laws are not stated in \Cref{sec:gn-algebra}; a line under each table says where they come from.
+
+% keep the heading with its table: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+%------------------------------------------------
+\section{The two units}\label{app:f-units}
+%------------------------------------------------
+
+\begin{gnlaws}
+\gnlaw{the Rule of the Square (Proposition~\ref{prop:square-rule})}
+  {$\Gp^2 = 2|\Gp|\cos\pb\;\Gp - |\Gp|^2$, \quad $\up^2 = 2\cos\pb\;\up - 1$}
+  {$i^2 = -1$}
+\gnlaw{the Composer Unit and its conjugate (\Cref{thm:gn-conjugate})}
+  {$\Gp + \overline{\Gp} = 2|\Gp|\cos\pb$, \quad $\Gp\,\overline{\Gp} = |\Gp|^2$}
+  {$i + (-i) = 0$, \quad $i\,(-i) = 1$}
+\gnlaw{the Turning Unit (\Cref{thm:gn-turning-unit})}
+  {$\Jp = \dfrac{\up - \cos\pb}{\sin\pb} = -\cot\pb + \dfrac{\Gp}{|\Gp|\sin\pb}$, \quad $\Jp^2 = -1$}
+  {$i^2 = -1$}
+\gnlaw{the square roots of $-1$}
+  {$\Jp$ and $-\Jp$}
+  {$i$ and $-i$}
+\gnlaw{shadow and height (Proposition~\ref{prop:gn-shadow-height})}
+  {$\Sh(z) = a + b|\Gp|\cos\pb$, \quad $\Ht(z) = b|\Gp|\sin\pb$}
+  {$a$ and $b$, the real and imaginary parts}
+\gnlaw{the two frames}
+  {$z = a + b\Gp = \Sh(z) + \Ht(z)\,\Jp$}
+  {$z = a + bi$}
+\gnlaw{back to the leaning frame}
+  {$a = \Sh(z) - \Ht(z)\cot\pb$, \quad $b = \dfrac{\Ht(z)}{|\Gp|\sin\pb}$}
+  {$a$ and $b$}
+\gnlaw{from the complex plane}
+  {$x + iy = (x - y\cot\pb) + \dfrac{y}{|\Gp|\sin\pb}\,\Gp$}
+  {$x + iy$}
+\gnlaw{to another true relative plane $\mathbb{G}_{\bar{\psi}}$}
+  {$z = a' + b'\mathcal{G}_{\bar{\psi}}$ with $b' = \dfrac{\Ht(z)}{|\mathcal{G}_{\bar{\psi}}|\sin\bar{\psi}}$, \quad $a' = \Sh(z) - \Ht(z)\cot\bar{\psi}$}
+  {at $\bar{\psi} = \pi/2$: \newline $a' = \Sh(z)$, \quad $b' = \Ht(z)$}
+\end{gnlaws}
+The shadow and the height are read on the page, so they do not depend on the frame: a number keeps them when it is written in the complex plane or in another relative plane, and the last two lines follow from Proposition~\ref{prop:gn-shadow-height}.
+
+% keep the heading with its table: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+%------------------------------------------------
+\section{Arithmetic}\label{app:f-arithmetic}
+%------------------------------------------------
+
+\begin{gnlaws}
+\gnlaw{sum}
+  {$(a + b\Gp) + (c + d\Gp) = (a + c) + (b + d)\,\Gp$}
+  {$(a + c) + (b + d)\,i$}
+\gnlaw{product (Proposition~\ref{prop:un-real-product})}
+  {$(a + b\Gp)(c + d\Gp)$ \newline $\quad = (ac - |\Gp|^2 bd) + (ad + bc + 2|\Gp|\cos\pb\;bd)\,\Gp$}
+  {$(ac - bd) + (ad + bc)\,i$}
+\gnlaw{the rules of arithmetic (\Cref{thm:gn-field})}
+  {order, grouping, distribution; $0$, $1$, opposites and inverses: a field}
+  {the same}
+\gnlaw{conjugate (Definition~\ref{def:gn-conjugate})}
+  {$\bar{z} = (a + 2b|\Gp|\cos\pb) - b\Gp$, the mirror image in the real axis}
+  {$\bar{z} = a - bi$}
+\gnlaw{the parts of the conjugate (Definitions~\ref{def:gn-parts} and~\ref{def:gn-conjugate})}
+  {$\Re(\bar{z}) = a + 2b|\Gp|\cos\pb$, \quad $\Com(\bar{z}) = -b\Gp = -\Com(z)$}
+  {$\operatorname{Re}\bar{z} = \operatorname{Re} z$, \newline $\operatorname{Im}\bar{z} = -\operatorname{Im} z$}
+\gnlaw{a number times its conjugate}
+  {$z\bar{z} = a^2 + 2ab|\Gp|\cos\pb + b^2|\Gp|^2 = |z|^2$}
+  {$z\bar{z} = a^2 + b^2$}
+\gnlaw{a number plus or minus its conjugate}
+  {$z + \bar{z} = 2\Sh(z)$, \quad $z - \bar{z} = 2\Ht(z)\,\Jp$}
+  {$z + \bar{z} = 2a$, \quad $z - \bar{z} = 2bi$}
+\gnlaw{the conjugate of a sum and of a product}
+  {$\overline{z + w} = \bar{z} + \bar{w}$, \quad $\overline{zw} = \bar{z}\,\bar{w}$, \quad $\bar{\bar{z}} = z$}
+  {the same}
+\gnlaw{inverse (\Cref{thm:gn-division})}
+  {$\dfrac{1}{z} = \dfrac{(a + 2b|\Gp|\cos\pb) - b\Gp}{a^2 + 2ab|\Gp|\cos\pb + b^2|\Gp|^2}$, \quad $\dfrac{1}{\Gp} = \dfrac{2|\Gp|\cos\pb - \Gp}{|\Gp|^2}$}
+  {$\dfrac{1}{z} = \dfrac{a - bi}{a^2 + b^2}$, \quad $\dfrac{1}{i} = -i$}
+\gnlaw{quotient (\Cref{thm:gn-division})}
+  {$\dfrac{a + b\Gp}{c + d\Gp} = \dfrac{(ac + 2ad|\Gp|\cos\pb + bd|\Gp|^2) + (bc - ad)\,\Gp}{c^2 + 2cd|\Gp|\cos\pb + d^2|\Gp|^2}$}
+  {$\dfrac{(ac + bd) + (bc - ad)\,i}{c^2 + d^2}$}
+\gnlaw{the skew flip, which is not the conjugate (Remark~\ref{rem:gn-skew-flip})}
+  {$(a + b\Gp)(a - b\Gp) = a^2 + b^2|\Gp|^2 - 2b^2|\Gp|\cos\pb\;\Gp$}
+  {$(a + bi)(a - bi) = a^2 + b^2$}
+\end{gnlaws}
+
+% keep the heading with its table: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+%------------------------------------------------
+\section{The plane}\label{app:f-plane}
+%------------------------------------------------
+
+\begin{gnlaws}
+\gnlaw{magnitude (\Cref{thm:triangle})}
+  {$|z| = \sqrt{a^2 + 2ab|\Gp|\cos\pb + b^2|\Gp|^2} = \sqrt{\Sh(z)^2 + \Ht(z)^2}$}
+  {$|z| = \sqrt{a^2 + b^2}$}
+\gnlaw{the magnitude of a product (\Cref{thm:gn-two-squares})}
+  {$|zw| = |z|\,|w|$}
+  {the same}
+\gnlaw{the two-squares identity, with $zw = p + q\Gp$}
+  {$(a^2 + 2ab|\Gp|\cos\pb + b^2|\Gp|^2) \times {}$ \newline $(c^2 + 2cd|\Gp|\cos\pb + d^2|\Gp|^2) = {}$ \newline $p^2 + 2pq|\Gp|\cos\pb + q^2|\Gp|^2$}
+  {$(a^2 + b^2)(c^2 + d^2) = {}$ \newline $(ac - bd)^2 + (ad + bc)^2$}
+\gnlaw{angle (\Cref{thm:phase})}
+  {$\tan\theta = \dfrac{\Ht(z)}{\Sh(z)} = \dfrac{b|\Gp|\sin\pb}{a + b|\Gp|\cos\pb}$}
+  {$\tan\theta = \dfrac{b}{a}$}
+\gnlaw{polar form (\Cref{thm:gn-polar})}
+  {$z = |z|\,\bigl[\cos(\theta, \pb - \theta) + \sin(\theta, \pb - \theta)\,\up\bigr] = |z|\,(C_\theta + S_\theta\,\up)$}
+  {$z = r(\cos\theta + i\sin\theta)$}
+\gnlaw{the parts in polar form}
+  {$a = |z|\,C_\theta$, \quad $b\,|\Gp| = |z|\,S_\theta$}
+  {$a = r\cos\theta$, \quad $b = r\sin\theta$}
+\gnlaw{the general Pythagoras identity}
+  {$C_\theta^2 + 2\cos\pb\;C_\theta S_\theta + S_\theta^2 = 1$}
+  {$\cos^2\theta + \sin^2\theta = 1$}
+\gnlaw{the opposite angle}
+  {$C_{-\theta} = C_\theta + 2\cos\pb\;S_\theta$, \quad $S_{-\theta} = -S_\theta$}
+  {$\cos(-\theta) = \cos\theta$, \newline $\sin(-\theta) = -\sin\theta$}
+\gnlaw{the conjugate in polar form}
+  {$\bar{z} = |z|\,(C_{-\theta} + S_{-\theta}\,\up)$: the same magnitude, the opposite angle}
+  {$\bar{z} = r(\cos\theta - i\sin\theta)$}
+\gnlaw{the mirror in the bisector of the two axes}
+  {$z \mapsto \up\,\bar{z}$ sends $x + y\,\up$ to $y + x\,\up$}
+  {$z \mapsto i\bar{z}$ sends $a + bi$ to $b + ai$}
+\gnlaw{reciprocity (Appendix~\ref{app:general-sinus})}
+  {$C_{\pb - \theta} = S_\theta$ and $S_{\pb - \theta} = C_\theta$: the unit number at the angle $\pb - \theta$ has the two parts of the one at $\theta$, swapped}
+  {$\cos(\tfrac{\pi}{2} - \theta) = \sin\theta$, \newline $\sin(\tfrac{\pi}{2} - \theta) = \cos\theta$}
+\end{gnlaws}
+The angle is the one of \Cref{thm:phase}, whose ratio $\eta = |\Gp|\,b/a$ gives $\eta\sin\pb/(1 + \eta\cos\pb) = \Ht(z)/\Sh(z)$. The opposite angle follows from $\sin(\pb + \theta) = \sin(\pb - \theta) + 2\cos\pb\sin\theta$. The mirror in the line at the angle $\pb/2$, which halves the angle between the two axes, keeps the length of a number and turns its angle $\theta$ into $\pb - \theta$; reciprocity, $\sin(\alpha, \phi) = \cos(\phi, \alpha)$, says the same in the General Sinus.
+
+% keep the heading with its table: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+%------------------------------------------------
+\section{Multiplying means turning}\label{app:f-turning}
+%------------------------------------------------
+
+\begin{gnlaws}
+\gnlaw{product in polar form (\Cref{thm:gn-turning})}
+  {$|z|\,(C_{\theta_1} + S_{\theta_1}\up) \cdot |w|\,(C_{\theta_2} + S_{\theta_2}\up) = |z|\,|w|\,(C_{\theta_1 + \theta_2} + S_{\theta_1 + \theta_2}\up)$}
+  {$r_1r_2\bigl(\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)\bigr)$}
+\gnlaw{quotient in polar form}
+  {$\dfrac{z}{w} = \dfrac{|z|}{|w|}\,(C_{\theta_1 - \theta_2} + S_{\theta_1 - \theta_2}\up)$}
+  {$\dfrac{r_1}{r_2}\bigl(\cos(\theta_1 - \theta_2) + i\sin(\theta_1 - \theta_2)\bigr)$}
+\gnlaw{addition along the Composer axis, cosine}
+  {$C_{\alpha + \beta} = C_\alpha C_\beta - S_\alpha S_\beta$}
+  {$\cos(\alpha + \beta) = {}$ \newline $\cos\alpha\cos\beta - \sin\alpha\sin\beta$}
+\gnlaw{addition along the Composer axis, sine}
+  {$S_{\alpha + \beta} = C_\alpha S_\beta + S_\alpha C_\beta + 2\cos\pb\;S_\alpha S_\beta$}
+  {$\sin(\alpha + \beta) = {}$ \newline $\sin\alpha\cos\beta + \cos\alpha\sin\beta$}
+\gnlaw{subtraction, cosine}
+  {$C_{\alpha - \beta} = C_\alpha C_\beta + S_\alpha S_\beta + 2\cos\pb\;C_\alpha S_\beta$}
+  {$\cos(\alpha - \beta) = {}$ \newline $\cos\alpha\cos\beta + \sin\alpha\sin\beta$}
+\gnlaw{subtraction, sine}
+  {$S_{\alpha - \beta} = S_\alpha C_\beta - C_\alpha S_\beta$}
+  {$\sin(\alpha - \beta) = {}$ \newline $\sin\alpha\cos\beta - \cos\alpha\sin\beta$}
+\gnlaw{double angle}
+  {$C_{2\alpha} = C_\alpha^2 - S_\alpha^2$, \quad $S_{2\alpha} = 2S_\alpha\,(C_\alpha + \cos\pb\;S_\alpha)$}
+  {$\cos 2\alpha = \cos^2\alpha - \sin^2\alpha$, \newline $\sin 2\alpha = 2\sin\alpha\cos\alpha$}
+\gnlaw{a turn by $\pb$, the product by $\up$}
+  {$C_{\theta + \pb} = -S_\theta$, \quad $S_{\theta + \pb} = C_\theta + 2\cos\pb\;S_\theta$}
+  {$\cos(\theta + \tfrac{\pi}{2}) = -\sin\theta$, \newline $\sin(\theta + \tfrac{\pi}{2}) = \cos\theta$}
+\gnlaw{a quarter turn, the product by $\Jp$}
+  {$C_{\theta + \pi/2} = -C_\theta\cot\pb - \dfrac{S_\theta}{\sin\pb}$, \quad $S_{\theta + \pi/2} = \dfrac{C_\theta}{\sin\pb} + S_\theta\cot\pb$}
+  {$\cos(\theta + \tfrac{\pi}{2}) = -\sin\theta$, \newline $\sin(\theta + \tfrac{\pi}{2}) = \cos\theta$}
+\gnlaw{a half turn, the product by $-1$}
+  {$C_{\theta + \pi} = -C_\theta$, \quad $S_{\theta + \pi} = -S_\theta$}
+  {$\cos(\theta + \pi) = -\cos\theta$, \newline $\sin(\theta + \pi) = -\sin\theta$}
+\end{gnlaws}
+The subtraction formulas are the addition formulas with the opposite angle of \Cref{app:f-plane}, and the double angle is $\beta = \alpha$. A turn by $\pb$ is the product by $\up = e^{\pb\Jp}$, a quarter turn the product by $\Jp$, and a half turn the product by $e^{\pi\Jp} = -1$; the last is also the $\pi$-addition identity of Appendix~\ref{app:general-sinus}. In the complex plane the turn by $\pb$ and the quarter turn are one and the same.
+
+% keep the heading with its table: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+%------------------------------------------------
+\section{Euler's formula and de Moivre's formula}\label{app:f-euler}
+%------------------------------------------------
+
+\begin{gnlaws}
+\gnlaw{Euler's formula (\Cref{thm:gn-euler})}
+  {$e^{\theta\Jp} = \cos(\theta, \pb - \theta) + \sin(\theta, \pb - \theta)\,\up = C_\theta + S_\theta\,\up$}
+  {$e^{i\theta} = \cos\theta + i\sin\theta$}
+\gnlaw{exponential form}
+  {$z = |z|\,e^{\theta\Jp}$, \quad $\bar{z} = |z|\,e^{-\theta\Jp}$}
+  {$z = re^{i\theta}$, \quad $\bar{z} = re^{-i\theta}$}
+\gnlaw{the two units as exponentials}
+  {$\Gp = |\Gp|\,e^{\pb\Jp}$, \quad $\Jp = e^{(\pi/2)\Jp}$}
+  {$i = e^{i\pi/2}$}
+\gnlaw{Euler's identity}
+  {$e^{\pi\Jp} + 1 = 0$}
+  {$e^{i\pi} + 1 = 0$}
+\gnlaw{the rate of turning (Remark~\ref{rem:gn-euler-derivative})}
+  {$\dfrac{d}{d\theta}\,e^{\theta\Jp} = \Jp\,e^{\theta\Jp}$}
+  {$\dfrac{d}{d\theta}\,e^{i\theta} = i\,e^{i\theta}$}
+\gnlaw{de Moivre's formula (\Cref{thm:gn-de-moivre})}
+  {$(C_\theta + S_\theta\,\up)^n = C_{n\theta} + S_{n\theta}\,\up$}
+  {$(\cos\theta + i\sin\theta)^n = {}$ \newline $\cos n\theta + i\sin n\theta$}
+\gnlaw{the powers of the Composer Unit (\Cref{cor:gn-powers})}
+  {$\Gp^n = |\Gp|^n C_{n\pb} + |\Gp|^{n-1}S_{n\pb}\,\Gp$ \newline $\quad = -|\Gp|^n\,\dfrac{\sin\,(n - 1)\pb}{\sin\pb} + |\Gp|^{n-1}\,\dfrac{\sin n\pb}{\sin\pb}\,\Gp$}
+  {$i^n = \cos\dfrac{n\pi}{2} + i\sin\dfrac{n\pi}{2}$}
+\gnlaw{the step rule}
+  {$\Gp^{n+1} = 2|\Gp|\cos\pb\;\Gp^n - |\Gp|^2\,\Gp^{n-1}$}
+  {$i^{n+1} = -i^{n-1}$}
+\gnlaw{the numbers $\sin n\pb/\sin\pb$, for $n = 1, 2, 3, 4$}
+  {$1$, \quad $2\cos\pb$, \quad $4\cos^2\pb - 1$, \quad $8\cos^3\pb - 4\cos\pb$}
+  {$1$, \quad $0$, \quad $-1$, \quad $0$}
+\gnlaw{the exponential of a General Number}
+  {$e^z = e^{\Sh(z)}\,\bigl(C_{\Ht(z)} + S_{\Ht(z)}\,\up\bigr)$}
+  {$e^{a + bi} = e^a(\cos b + i\sin b)$}
+\gnlaw{the logarithm, for $-\pi < \theta \le \pi$}
+  {$\ln z = \ln|z| + \theta\Jp = (\ln|z| - \theta\cot\pb) + \dfrac{\theta}{|\Gp|\sin\pb}\,\Gp$}
+  {$\ln z = \ln r + i\theta$}
+\end{gnlaws}
+The numbers $\sin n\pb/\sin\pb$ are polynomials in $\cos\pb$, the Chebyshev polynomials $U_{n-1}(\cos\pb)$ of the second kind; the step rule makes each one from the two before it. The exponential of a General Number follows from $z = \Sh(z) + \Ht(z)\Jp$ and the rule $e^{w_1 + w_2} = e^{w_1}e^{w_2}$, and the logarithm from $z = |z|\,e^{\theta\Jp}$.
+
+% keep the heading with its table: break the page here if fewer than 12 lines are left
+\gnkeep{12}
+%------------------------------------------------
+\section{Roots}\label{app:f-roots}
+%------------------------------------------------
+
+\begin{gnlaws}
+\gnlaw{the $n$-th roots of $z$ (\Cref{thm:gn-roots})}
+  {$w_k = |z|^{1/n}\,\bigl(C_{\theta_k} + S_{\theta_k}\,\up\bigr)$, \quad $\theta_k = \dfrac{\theta + 2\pi k}{n}$, \quad $k = 0, \dots, n - 1$}
+  {$w_k = |z|^{1/n}\,e^{i(\theta + 2\pi k)/n}$}
+\gnlaw{the roots of unity}
+  {$C_{2\pi k/n} + S_{2\pi k/n}\,\up$}
+  {$e^{2\pi ik/n}$}
+\gnlaw{the square roots of the Composer Unit (\Cref{cor:gn-sqrt})}
+  {$\pm\dfrac{\sqrt{|\Gp|}}{2\cos(\pb/2)}\,(1 + \up)$}
+  {$\pm\dfrac{1 + i}{\sqrt{2}}$}
+\gnlaw{one step along each axis, squared}
+  {$(1 + \up)^2 = 4\cos^2(\pb/2)\;\up$}
+  {$(1 + i)^2 = 2i$}
+\gnlaw{the quadratic equation $v^2 + Pv + Q = 0$}
+  {$v = \dfrac{-P \pm \sqrt{P^2 - 4Q}}{2}$, with the square roots of the first line}
+  {the same}
+\end{gnlaws}
+The fourth line follows from $\up^2 = 2\cos\pb\;\up - 1$ and $1 + \cos\pb = 2\cos^2(\pb/2)$. The fifth holds in every field in which each number has its two square roots, and the first line gives them.
+
+% keep the heading with its table: break the page here if fewer than 22 lines are left
+\gnkeep{22}
+%------------------------------------------------
+\section{The matrix of a General Number}\label{app:f-matrix}
+%------------------------------------------------
+
+\begin{gnlaws}
+\gnlaw{the matrix of $z$}
+  {$\begin{pmatrix} a & -|\Gp|^2 b \\ b & a + 2b|\Gp|\cos\pb \end{pmatrix}$}
+  {$\begin{pmatrix} a & -b \\ b & a \end{pmatrix}$}
+\gnlaw{products}
+  {the matrix of $zw$ is the product of the matrices of $z$ and $w$}
+  {the same}
+\gnlaw{determinant and trace}
+  {$\det = |z|^2$, \quad trace $= 2\Sh(z)$}
+  {$\det = a^2 + b^2$, \quad trace $= 2a$}
+\gnlaw{the matrix of the Composer Unit}
+  {$\begin{pmatrix} 0 & -|\Gp|^2 \\ 1 & 2|\Gp|\cos\pb \end{pmatrix}$, which obeys the Rule of the Square: $M^2 = 2|\Gp|\cos\pb\,M - |\Gp|^2$}
+  {$\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$, with $M^2 = -1$}
+\end{gnlaws}
+Multiplying by $z$ sends $1$ to $a + b\Gp$ and $\Gp$ to $-|\Gp|^2 b + (a + 2b|\Gp|\cos\pb)\,\Gp$, by Proposition~\ref{prop:un-real-product}; these two pairs of parts are the columns of the matrix.
+
+% keep the heading with its table: break the page here if fewer than 16 lines are left
+\gnkeep{16}
+%------------------------------------------------
+\section{The parts beside the shadow and the height}\label{app:f-parts}
+%------------------------------------------------
+
+A number has two pairs of coordinates: its parts, $\Re(z) = a$ and $\Com(z) = b\Gp$ (Definition~\ref{def:gn-parts}), counted in the leaning frame, and its shadow and height, counted in the upright frame (Proposition~\ref{prop:gn-shadow-height}). In each row the law for the parts comes first, and under it the same law for the shadow and the height; beside them stands the complex case, where the two pairs are one. Each row cites the statements that prove it, most of them in \Cref{subsec:gn-parts-beside}.
+
+\begin{gnlawswide}
+\gnlaw{the two pairs (Definitions~\ref{def:gn-parts} and~\ref{def:shadow}, Proposition~\ref{prop:gn-shadow-height})}
+  {$\Re(z) = a$, \quad $\Com(z) = b\Gp$; \newline $\Sh(z) = a + b|\Gp|\cos\pb$, \quad $\Ht(z) = b|\Gp|\sin\pb$}
+  {$\operatorname{Re} z = a$, \quad $\Com(z) = bi$; \newline the two pairs are one}
+\gnlaw{from one pair to the other (Proposition~\ref{prop:gn-parts-readings})}
+  {$\Re(z) = \Sh(z) - \Ht(z)\cot\pb$, \quad $\Com(z) = \Ht(z)\,\Gp/(|\Gp|\sin\pb)$; \newline $\Sh(z) = \Re(z) + \Sh\bigl(\Com(z)\bigr)$, \quad $\Ht(z) = \Ht\bigl(\Com(z)\bigr)$}
+  {the shadow is the real part, and $\Com(z) = i\operatorname{Im} z$}
+\gnlaw{sum and real multiple (Proposition~\ref{prop:gn-parts-readings})}
+  {$\Re(z + w) = \Re(z) + \Re(w)$ and $\Re(kz) = k\,\Re(z)$ for every real $k$, and the same for $\Com$, for $\Sh$ and for $\Ht$}
+  {the same for $\operatorname{Re}$ \newline and for $\operatorname{Im}$}
+\gnlaw{magnitude (\Cref{thm:triangle}, Proposition~\ref{prop:gn-shadow-height})}
+  {$|z|^2 = \Re(z)^2 + 2\cos\pb\;\Re(z)\,b|\Gp| + b^2|\Gp|^2$; \newline $|z|^2 = \Sh(z)^2 + \Ht(z)^2$}
+  {$|z|^2 = a^2 + b^2$}
+\gnlaw{from a number and its conjugate (Proposition~\ref{prop:gn-parts-readings})}
+  {$\Re(z) = (\Gp\bar{z} - \overline{\Gp}z)/(\Gp - \overline{\Gp})$, \quad $\Com(z) = \Gp\,(z - \bar{z})/(\Gp - \overline{\Gp})$, \newline with $\Gp - \overline{\Gp} = 2|\Gp|\sin\pb\;\Jp$; \newline $\Sh(z) = (z + \bar{z})/2$, \quad $\Ht(z)\,\Jp = (z - \bar{z})/2$}
+  {$\operatorname{Re} z = (z + \bar{z})/2$, \newline $i\operatorname{Im} z = (z - \bar{z})/2$}
+\gnlaw{real numbers, pure Composer numbers and multiples of $\Jp$ (Proposition~\ref{prop:gn-parts-readings})}
+  {$\Com(z) = 0$ exactly when $\bar{z} = z$, \newline $\Re(z) = 0$ exactly when $\Gp\bar{z} = \overline{\Gp}z$; \newline $\Ht(z) = 0$ exactly when $\bar{z} = z$, \newline $\Sh(z) = 0$ exactly when $\bar{z} = -z$}
+  {real numbers: $\bar{z} = z$, \newline imaginary numbers: $\bar{z} = -z$}
+\gnlaw{product (\Cref{thm:gn-parts-product})}
+  {$\Re(zw) = \Re(z)\Re(w) - |\Gp|^2 bd$, \newline $\Com(zw) = \Sh(z)\Com(w) + \Sh(w)\Com(z)$; \newline $\Sh(zw) = \Sh(z)\Sh(w) - \Ht(z)\Ht(w)$, \newline $\Ht(zw) = \Sh(z)\Ht(w) + \Sh(w)\Ht(z)$}
+  {$\operatorname{Re}(zw) = ac - bd$, \newline $\operatorname{Im}(zw) = ad + bc$}
+\gnlaw{square (\Cref{thm:gn-parts-product})}
+  {$\Re(z^2) = \Re(z)^2 - |\Gp|^2 b^2$, \quad $\Com(z^2) = 2\Sh(z)\Com(z)$; \newline $\Sh(z^2) = \Sh(z)^2 - \Ht(z)^2$, \quad $\Ht(z^2) = 2\Sh(z)\Ht(z)$}
+  {$\operatorname{Re}(z^2) = a^2 - b^2$, \newline $\operatorname{Im}(z^2) = 2ab$}
+\gnlaw{conjugate (Proposition~\ref{prop:gn-parts-conjugate})}
+  {$\Re(\bar{z}) = 2\Sh(z) - \Re(z)$, \quad $\Com(\bar{z}) = -\Com(z)$, \newline so $\Sh(z) = \bigl[\Re(z) + \Re(\bar{z})\bigr]/2$; \newline $\Sh(\bar{z}) = \Sh(z)$, \quad $\Ht(\bar{z}) = -\Ht(z)$}
+  {$\operatorname{Re}\bar{z} = a$, \newline $\operatorname{Im}\bar{z} = -b$}
+\gnlaw{inverse (Proposition~\ref{prop:gn-parts-conjugate})}
+  {$\Re(1/z) = \bigl[2\Sh(z) - \Re(z)\bigr]/|z|^2$, \quad $\Com(1/z) = -\Com(z)/|z|^2$; \newline $\Sh(1/z) = \Sh(z)/|z|^2$, \quad $\Ht(1/z) = -\Ht(z)/|z|^2$}
+  {the two parts of \newline $\dfrac{a - bi}{a^2 + b^2}$}
+\gnlaw{quotient, with the top $z\bar{w}$ (Proposition~\ref{prop:gn-parts-conjugate})}
+  {$\Re(z/w) = \Re(z\bar{w})/|w|^2$ \ with \ $\Re(z\bar{w}) = \Re(z)\Re(\bar{w}) + |\Gp|^2 bd$, \newline $\Com(z/w) = \Com(z\bar{w})/|w|^2$ \ with \ $\Com(z\bar{w}) = \Sh(w)\Com(z) - \Sh(z)\Com(w)$; \newline $\Sh(z/w) = \Sh(z\bar{w})/|w|^2$ \ with \ $\Sh(z\bar{w}) = \Sh(z)\Sh(w) + \Ht(z)\Ht(w)$, \newline $\Ht(z/w) = \Ht(z\bar{w})/|w|^2$ \ with \ $\Ht(z\bar{w}) = \Sh(w)\Ht(z) - \Sh(z)\Ht(w)$}
+  {the two parts of \newline $\dfrac{(ac + bd) + (bc - ad)\,i}{c^2 + d^2}$}
+\gnlaw{a quarter turn, the product by $\Jp$ (\Cref{cor:gn-parts-turns})}
+  {$\Re(\Jp z) = -\Ht(z) - \Sh(z)\cot\pb$, \quad $\Com(\Jp z) = \Sh(z)\,\Gp/(|\Gp|\sin\pb)$; \newline $\Sh(\Jp z) = -\Ht(z)$, \quad $\Ht(\Jp z) = \Sh(z)$}
+  {$\operatorname{Re}(iz) = -b$, \newline $\operatorname{Im}(iz) = a$}
+\gnlaw{the product by the Composer Unit (\Cref{cor:gn-parts-turns})}
+  {$\Re(\Gp z) = -|\Gp|^2 b$, \quad $\Com(\Gp z) = \Re(\bar{z})\,\Gp$; \newline $\Sh(\Gp z) = |\Gp|\bigl(\Sh(z)\cos\pb - \Ht(z)\sin\pb\bigr)$, \newline $\Ht(\Gp z) = |\Gp|\bigl(\Sh(z)\sin\pb + \Ht(z)\cos\pb\bigr)$}
+  {the product by $i$, \newline as in the line above}
+\gnlaw{the powers of the Composer Unit (\Cref{thm:shadow-product}, Corollaries~\ref{cor:gn-powers} and~\ref{cor:gn-two-trig})}
+  {$\Re(\Gp^n) = -|\Gp|^n\sin\,(n - 1)\pb/\sin\pb$, \quad $\Com(\Gp^n) = |\Gp|^{n-1}\,(\sin n\pb/\sin\pb)\,\Gp$; \newline $\Sh(\Gp^n) = |\Gp|^n\cos n\pb$, \quad $\Ht(\Gp^n) = |\Gp|^n\sin n\pb$}
+  {$\operatorname{Re}(i^n) = \cos(n\pi/2)$, \newline $\operatorname{Im}(i^n) = \sin(n\pi/2)$}
+\gnlaw{powers, and for $n = 1$ the polar form (\Cref{cor:gn-two-trig})}
+  {$\Re(z^n) = |z|^n C_{n\theta}$, \quad $\Com(z^n) = |z|^n S_{n\theta}\,\up$; \newline $\Sh(z^n) = |z|^n\cos n\theta$, \quad $\Ht(z^n) = |z|^n\sin n\theta$}
+  {$\operatorname{Re}(z^n) = r^n\cos n\theta$, \newline $\operatorname{Im}(z^n) = r^n\sin n\theta$}
+\gnlaw{exponential (\Cref{cor:gn-two-trig})}
+  {$\Re(e^z) = e^{\Sh(z)}\,C_{\Ht(z)}$, \quad $\Com(e^z) = e^{\Sh(z)}\,S_{\Ht(z)}\,\up$; \newline $\Sh(e^z) = e^{\Sh(z)}\cos\Ht(z)$, \quad $\Ht(e^z) = e^{\Sh(z)}\sin\Ht(z)$}
+  {$\operatorname{Re}(e^z) = e^a\cos b$, \newline $\operatorname{Im}(e^z) = e^a\sin b$}
+\gnlaw{signed area and dot product (Proposition~\ref{prop:gn-signed-area})}
+  {$\Com(\bar{z}w) = (ad - bc)\,\Gp$, \quad $\Re(\bar{z}w) = \Re(\bar{z})\Re(w) + |\Gp|^2 bd$; \newline $\Ht(\bar{z}w) = \Sh(z)\Ht(w) - \Ht(z)\Sh(w)$, which is $(ad - bc)\,|\Gp|\sin\pb$, \newline $\Sh(\bar{z}w) = \Sh(z)\Sh(w) + \Ht(z)\Ht(w)$}
+  {$\operatorname{Im}(\bar{z}w) = ad - bc$, \newline $\operatorname{Re}(\bar{z}w) = ac + bd$}
+\gnlaw{size (Remark~\ref{rem:gn-long-parts})}
+  {$|\Re(z)| \le |z|/\sin\pb$, \quad $|\Com(z)| \le |z|/\sin\pb$; \newline $|\Sh(z)| \le |z|$, \quad $|\Ht(z)| \le |z|$}
+  {$|\operatorname{Re} z| \le |z|$, \newline $|\operatorname{Im} z| \le |z|$}
+\end{gnlawswide}
+From the third row on, the laws for the shadow and the height are the laws of the complex numbers, read in the upright frame, word for word; the first two rows pass from one frame to the other. The laws for the parts are the same arithmetic counted in the leaning frame, where the lean shows. Written out in the coordinates $a$, $b$, $c$ and $d$, two of them carry neither $\cos\pb$ nor $\sin\pb$, and nor do their special cases: the real part of $zw$, which is $ac - |\Gp|^2bd$, and the Composer part of $\bar{z}w$, which is $(ad - bc)\,\Gp$. The angle enters the first only through the length $|\Gp|$. In the row of real numbers, the lines for the shadow and the height follow from $z + \bar{z} = 2\Sh(z)$ and $z - \bar{z} = 2\Ht(z)\,\Jp$.
+
+% keep the table of the six numbers together: break the page here if fewer than 14 lines are left
+\gnkeep{14}
+The parts, the shadow and the height of six numbers that recur:
+\begin{center}
+\small
+\begin{tabular}{@{}lllll@{}}
+\toprule
+ & \spacedlowsmallcaps{real part} & \spacedlowsmallcaps{Composer part} & \spacedlowsmallcaps{shadow} & \spacedlowsmallcaps{height} \\
+\midrule
+$1$ & $1$ & $0$ & $1$ & $0$ \\
+$\Gp$ & $0$ & $\Gp$ & $|\Gp|\cos\pb$ & $|\Gp|\sin\pb$ \\
+$\overline{\Gp}$ & $2|\Gp|\cos\pb$ & $-\Gp$ & $|\Gp|\cos\pb$ & $-|\Gp|\sin\pb$ \\
+$\Gp^2$ & $-|\Gp|^2$ & $2|\Gp|\cos\pb\;\Gp$ & $|\Gp|^2\cos 2\pb$ & $|\Gp|^2\sin 2\pb$ \\
+$1/\Gp$ & $2\cos\pb/|\Gp|$ & $-\Gp/|\Gp|^2$ & $\cos\pb/|\Gp|$ & $-\sin\pb/|\Gp|$ \\
+$\Jp$ & $-\cot\pb$ & $\Gp/(|\Gp|\sin\pb)$ & $0$ & $1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+At $\pb = \pi/2$ the six numbers are $1$, $i$, $-i$, $-1$, $-i$ and $i$. The first two columns then give the real part and $i$ times the imaginary part, and the last two the real part and the imaginary part.

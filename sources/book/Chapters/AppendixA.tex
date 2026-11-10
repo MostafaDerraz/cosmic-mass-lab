@@ -1,0 +1,215 @@
+%************************************************
+\chapter{The General Sinus: A Formulary}\label{app:general-sinus}
+%************************************************
+
+This appendix collects the main formulas of the General Sinus, in the order of the paper \emph{General Sinus Principles} \citep{Derraz2026GSP}. Chapter~\ref{ch:oblique} explains where they come from. Here they are simply listed, with a sentence of guidance where it helps. As in the paper, the calculus formulas at the end use the letters $(x, y)$ in place of $(\alpha, \phi)$.
+
+%------------------------------------------------
+\section{Definitions}\label{app:gs-definitions}
+%------------------------------------------------
+
+For a studied angle $\alpha$ and a projection angle $\phi$, the general trigonometric functions are the ratios of the sides of the oblique triangle $OZ\Zb$ (Definition~\ref{def:general-geometric}). By the law of sines (\Cref{thm:general-analytic}), for $\alpha \in \R$ and $\phi \in (0, \pi)$ with $\alpha + \phi \notin \pi\Z$,
+\begin{align}
+\sin(\alpha, \phi) &= \frac{\sin(\alpha)}{\sin(\alpha + \phi)}, \\
+\cos(\alpha, \phi) &= \frac{\sin(\phi)}{\sin(\alpha + \phi)}, \\
+\tan(\alpha, \phi) &= \frac{\sin(\alpha)}{\sin(\phi)} .
+\end{align}
+The reciprocal functions are
+\begin{align}
+\csc(\alpha, \phi) &= \frac{\sin(\alpha + \phi)}{\sin(\alpha)}, \\
+\sec(\alpha, \phi) &= \frac{\sin(\alpha + \phi)}{\sin(\phi)}, \\
+\cot(\alpha, \phi) &= \frac{\sin(\phi)}{\sin(\alpha)} ,
+\end{align}
+and, as in classical trigonometry,
+\begin{equation}
+\frac{\sin(\alpha, \phi)}{\cos(\alpha, \phi)} = \frac{\sin(\alpha)}{\sin(\phi)} = \tan(\alpha, \phi) .
+\end{equation}
+When $\alpha + \phi = \pi/2$ the triangle is a right triangle, and the general functions become the classical ones (\Cref{cor:classical}).
+
+%------------------------------------------------
+\section{Domains and periodicity}\label{app:gs-domains}
+%------------------------------------------------
+
+The six functions are defined on the following domains, and take real values there:
+\begin{align}
+\sin(\alpha, \phi)&: \quad \alpha \in \R, \ \phi \in \R, \ \alpha + \phi \notin \pi\Z, \\
+\cos(\alpha, \phi)&: \quad \alpha \in \R, \ \phi \in \R, \ \alpha + \phi \notin \pi\Z, \\
+\tan(\alpha, \phi)&: \quad \alpha \in \R, \ \phi \in \R, \ \phi \notin \pi\Z, \\
+\csc(\alpha, \phi)&: \quad \alpha \in \R, \ \phi \in \R, \ \alpha \notin \pi\Z, \\
+\sec(\alpha, \phi)&: \quad \alpha \in \R, \ \phi \in \R, \ \phi \notin \pi\Z, \\
+\cot(\alpha, \phi)&: \quad \alpha \in \R, \ \phi \in \R, \ \alpha \notin \pi\Z.
+\end{align}
+For any $(\alpha, \phi) \in \R^2$ there are unique $\alpha' \in [0, 2\pi)$ and $\phi' \in [0, 2\pi)$ with $\alpha = \alpha' + 2k\pi$ and $\phi = \phi' + 2m\pi$ for some $k, m \in \Z$, and
+\begin{align}
+\sin(\alpha, \phi) &= \sin(\alpha', \phi'), \\
+\cos(\alpha, \phi) &= \cos(\alpha', \phi'), \\
+\tan(\alpha, \phi) &= \tan(\alpha', \phi').
+\end{align}
+
+%------------------------------------------------
+\section{Reciprocity and reciprocal identities}\label{app:gs-reciprocity}
+%------------------------------------------------
+
+Exchanging the two angles exchanges the sine and the cosine:
+\begin{align}
+\sin(\alpha, \phi) &= \cos(\phi, \alpha), & \cos(\alpha, \phi) &= \sin(\phi, \alpha), \\
+\tan(\alpha, \phi) &= \cot(\phi, \alpha), & \csc(\alpha, \phi) &= \sec(\phi, \alpha).
+\end{align}
+The reciprocal functions are themselves general functions with shifted arguments:
+\begin{align}
+\csc(\alpha, \phi) &= \sin(\alpha + \phi, -\phi), \\
+\sec(\alpha, \phi) &= \tan(\alpha + \phi, \phi), \\
+\cot(\alpha, \phi) &= \cos(\alpha - \phi, \phi).
+\end{align}
+
+%------------------------------------------------
+\section{Special cases}\label{app:gs-special}
+%------------------------------------------------
+
+When $\alpha + \phi = \pi/2$, the general functions coincide with the classical ones:
+\begin{align}
+\sin(\alpha, \phi) &= \sin(\alpha), & \csc(\alpha, \phi) &= \csc(\alpha), \\
+\cos(\alpha, \phi) &= \cos(\alpha), & \sec(\alpha, \phi) &= \sec(\alpha), \\
+\tan(\alpha, \phi) &= \tan(\alpha), & \cot(\alpha, \phi) &= \cot(\alpha).
+\end{align}
+When $\phi = \pi/2$, the right angle moves to the other end of the opposite side:
+\begin{align}
+\sin(\alpha, \pi/2) &= \tan(\alpha), & \csc(\alpha, \pi/2) &= \cot(\alpha), \\
+\cos(\alpha, \pi/2) &= \sec(\alpha), & \sec(\alpha, \pi/2) &= \cos(\alpha), \\
+\tan(\alpha, \pi/2) &= \sin(\alpha), & \cot(\alpha, \pi/2) &= \csc(\alpha).
+\end{align}
+When $\alpha = \phi = \theta$, the triangle is isosceles:
+\begin{align}
+\sin(\theta, \theta) &= \cos(\theta, \theta) = \tfrac{1}{2}\sec(\theta), & \tan(\theta, \theta) &= 1, \\
+\csc(\theta, \theta) &= \sec(\theta, \theta) = 2\cos(\theta), & \cot(\theta, \theta) &= 1.
+\end{align}
+For $\theta = \pi/3$ all six functions equal $1$; for $\theta = \pi/5$, $\sin(\theta, \theta) = \varphi^{-1}$ and $\csc(\theta, \theta) = \varphi$, where $\varphi = (\sqrt{5} + 1)/2$ is the golden ratio.
+
+%------------------------------------------------
+\section{Symmetry and \texorpdfstring{$\pi$}{pi}-addition identities}\label{app:gs-symmetry}
+%------------------------------------------------
+
+For $(i, i', j, j') \in \{-1, 1\}^4$,
+\begin{align}
+\sin(i\alpha, j\phi) &= \sin(i'\alpha, j'\phi) \quad \text{whenever } ij = i'j', \\
+\cos(i\alpha, j\phi) &= \cos(i'\alpha, j'\phi) \quad \text{whenever } ij = i'j', \\
+\tan(i\alpha, j\phi) &= ij\tan(\alpha, \phi).
+\end{align}
+For $(p, q) \in \Z^2$,
+\begin{align}
+\sin(\alpha + p\pi, \phi + q\pi) &= (-1)^q \sin(\alpha, \phi), \\
+\cos(\alpha + p\pi, \phi + q\pi) &= (-1)^p \cos(\alpha, \phi), \\
+\tan(\alpha + p\pi, \phi + q\pi) &= (-1)^{p+q} \tan(\alpha, \phi).
+\end{align}
+The sign of the general sine depends only on the shift of the projection angle, and the sign of the general cosine only on the shift of the studied angle.
+
+%------------------------------------------------
+\section{Addition formulas}\label{app:gs-addition}
+%------------------------------------------------
+
+For the studied angle, for all $\alpha$, $\beta$, $\phi$ in the respective domains,
+\begin{align}
+\sin(\alpha + \beta, \phi) &= \sin(\alpha, \phi) + \cos(\alpha, \phi)\sin(\beta, \phi)\cos(\alpha, \phi + \beta), \\
+\sin(\alpha + \beta, \phi) &= \sin(\alpha, \phi) + \cos(\alpha, \phi)\sin(\beta, \phi + \alpha), \\
+\cos(\alpha + \beta, \phi) &= \cos(\alpha, \phi)\cos(\beta, \phi) \nonumber \\
+&\quad + \cos(\alpha, \phi)\sin(\beta, \phi)\sin(\alpha, \phi + \beta), \\
+\cos(\alpha + \beta, \phi) &= \cos(\alpha, \phi)\cos(\beta, \phi) \nonumber \\
+&\quad + \sin(\alpha, \phi)\sin(\beta, \phi)\cos(\alpha + \beta, \phi).
+\end{align}
+For the projection angle,
+\begin{align}
+\sin(\alpha, \phi + \theta) &= \sin(\alpha, \phi)\sin(\alpha + \phi, \theta), \\
+\cos(\alpha, \phi + \theta) &= \cos(\alpha, \phi) + \sin(\alpha, \phi)\cos(\alpha + \phi, \theta).
+\end{align}
+Two direct consequences are
+\begin{align}
+\sec(\alpha + \beta, \phi) &= \sec(\alpha, \phi)\sec(\beta, \phi) - \tan(\alpha, \phi)\tan(\beta, \phi), \\
+\cos(\alpha + \beta, \phi) &= \frac{\cos(\alpha, \phi)\cos(\beta, \phi)}{1 - \sin(\alpha, \phi)\sin(\beta, \phi)} .
+\end{align}
+
+%------------------------------------------------
+\section{Double-angle and half-angle identities}\label{app:gs-double}
+%------------------------------------------------
+
+Doubling the studied angle gives
+\begin{align}
+\sin(2\alpha, \phi) &= \sin(\alpha, \phi)\bigl(\cos(2\alpha, \phi) + 1\bigr), \\
+\cos(2\alpha, \phi) &= \cos(\alpha, \phi)^2 + \sin(\alpha, \phi)^2\cos(2\alpha, \phi).
+\end{align}
+The second identity contains $\cos(2\alpha, \phi)$ on both sides; solving it gives
+\begin{equation}
+\cos(2\alpha, \phi) = \frac{\cos(\alpha, \phi)^2}{1 - \sin(\alpha, \phi)^2},
+\end{equation}
+in close analogy with the classical identity $\cos(2\alpha) = (1 - \tan^2\alpha)/(1 + \tan^2\alpha)$. Further consequences are
+\begin{align}
+\sec(2\alpha, \phi) &= \sec(\alpha, \phi)^2 - \tan(\alpha, \phi)^2, \\
+\sin(2\alpha, \phi) - \sin(\alpha, \phi) &= \sin(\alpha, \phi)\cos(2\alpha, \phi).
+\end{align}
+Halving the studied angle gives, in the same way,
+\begin{align}
+\cos(\alpha, \phi) &= \cos\left(\tfrac{\alpha}{2}, \phi\right)^2 + \sin\left(\tfrac{\alpha}{2}, \phi\right)^2\cos(\alpha, \phi), \\
+\cos(\alpha, \phi) &= \frac{\cos\left(\frac{\alpha}{2}, \phi\right)^2}{1 - \sin\left(\frac{\alpha}{2}, \phi\right)^2}, \\
+\sec(\alpha, \phi) &= \sec\left(\tfrac{\alpha}{2}, \phi\right)^2 - \tan\left(\tfrac{\alpha}{2}, \phi\right)^2 .
+\end{align}
+
+%------------------------------------------------
+\section{Partial derivatives}\label{app:gs-derivatives}
+%------------------------------------------------
+
+In the formulas below, $f'_x$ and $f'_y$ are the ordinary partial derivatives of a general function $f(x, y)$ with respect to its first and second variable:
+\begin{align}
+\sin(x, y)'_x &= \frac{\sin(y)}{\sin(x + y)^2} = \frac{\cos(x, y)}{\sin(x + y)}, \\
+\sin(x, y)'_y &= -\frac{\sin(x)\cos(x + y)}{\sin(x + y)^2} = -\sin(x, y)\cot(x + y), \\
+\cos(x, y)'_x &= -\frac{\sin(y)\cos(x + y)}{\sin(x + y)^2} = -\cos(x, y)\cot(x + y), \\
+\cos(x, y)'_y &= \frac{\sin(x)}{\sin(x + y)^2} = \frac{\sin(x, y)}{\sin(x + y)}, \\
+\tan(x, y)'_x &= \frac{\cos(x)}{\sin(y)} = \tan\left(\tfrac{\pi}{2} \pm x, y\right), \\
+\tan(x, y)'_y &= -\frac{\sin(x)\cos(y)}{\sin(y)^2} = -\tan(x, y)\cot(y).
+\end{align}
+They satisfy the following relations:
+\begin{align}
+\cos(x, y) - \sin(x + y)\,\sin(x, y)'_x &= 0, \\
+\sin(x, y) + \tan(x + y)\,\sin(x, y)'_y &= 0, \\
+\cos(x, y) + \tan(x + y)\,\cos(x, y)'_x &= 0, \\
+\sin(x, y) - \sin(x + y)\,\cos(x, y)'_y &= 0, \\
+\tan\left(\tfrac{\pi}{2} + x, y\right) - \tan(x, y)'_x &= 0, \\
+\tan(x, y) + \tan(y)\,\tan(x, y)'_y &= 0.
+\end{align}
+
+%------------------------------------------------
+\section{The General Sinus Transform}\label{app:gs-transform}
+%------------------------------------------------
+
+The general functions can be written as products of scaled copies of themselves. For all $n \in \mathbb{N}$ and $(x, y)$ in the respective domains,
+\begin{align}
+\sin(x, y) &= \prod_{k=0}^{2^n - 1} \sin\left(\frac{x}{2^n} + \pi\frac{k}{2^n}, \frac{y}{2^n}\right), \label{eq:gs-product-sin} \\
+\cos(x, y) &= \prod_{k=0}^{2^n - 1} \cos\left(\frac{x}{2^n}, \frac{y}{2^n} + \pi\frac{k}{2^n}\right), \label{eq:gs-product-cos} \\
+\tan(x, y) &= \prod_{k=0}^{2^n - 1} \tan\left(\frac{x}{2^n} + \pi\frac{k}{2^n}, \frac{y}{2^n} + \pi\frac{k}{2^n}\right).
+\end{align}
+For $n = 1$ the first product is the exact factorisation
+\begin{equation}
+\sin(x, y) = \sin\left(\frac{x}{2}, \frac{y}{2}\right)\sin\left(\frac{x}{2} + \frac{\pi}{2}, \frac{y}{2}\right),
+\end{equation}
+which expresses a general sine as the product of two general sines at half the arguments.
+
+As $n$ grows, every argument $z/2^n$ becomes small, and each factor can be replaced by a ratio of two polynomials of the second degree. For $n \in \mathbb{N}$ and $k \in \mathbb{N}_0$, define
+\begin{equation}
+a_n = \frac{\pi}{2^n}, \qquad b_n = \frac{\pi^2}{2^{2n+1}},
+\end{equation}
+with $u_{n,0} = 0$, $v_{n,0} = 1$ and
+\begin{align}
+u_{n,k+1} &= a_n v_{n,k} + (1 - b_n)\,u_{n,k}, \\
+v_{n,k+1} &= (1 - b_n)\,v_{n,k} - a_n u_{n,k}.
+\end{align}
+These sequences approximate $u_{n,k} \approx \sin(\pi k/2^n)$ and $v_{n,k} \approx \cos(\pi k/2^n)$, more closely as $n$ grows. The \emph{General Sinus Transform} then approximates the three functions by products of ratios of polynomials:
+\begin{align}
+\sin(x, y) &\approx \prod_{k=0}^{2^n - 1} \frac{u_{n,k}x^2 - 2^{n+1}v_{n,k}x - 2^{2n+1}u_{n,k}}{u_{n,k}(x + y)^2 - 2^{n+1}v_{n,k}(x + y) - 2^{2n+1}u_{n,k}}, \\
+\cos(x, y) &\approx \prod_{k=0}^{2^n - 1} \frac{u_{n,k}y^2 - 2^{n+1}v_{n,k}y - 2^{2n+1}u_{n,k}}{u_{n,k}(x + y)^2 - 2^{n+1}v_{n,k}(x + y) - 2^{2n+1}u_{n,k}}, \\
+\tan(x, y) &\approx \prod_{k=0}^{2^n - 1} \frac{u_{n,k}x^2 - 2^{n+1}v_{n,k}x - 2^{2n+1}u_{n,k}}{u_{n,k}y^2 - 2^{n+1}v_{n,k}y - 2^{2n+1}u_{n,k}} .
+\end{align}
+The paper reports that $n \geq 20$ gives at least five correct decimal places. That accuracy holds when the factors use exact values of $\sin(\pi k/2^n)$ and $\cos(\pi k/2^n)$; with the recurrences above, the error is larger, especially when $x + y$ comes close to $\pi$. The transform plays for the general functions the part that Taylor series play for the classical ones, except that it multiplies instead of adding.
+
+%------------------------------------------------
+\section*{Still to come}
+%------------------------------------------------
+
+\placeholder{Author: the tangent addition and double-angle formulas, two further identities for the general tangent, the second-order partial derivatives, the total derivatives under the convention that the projection angle varies clockwise, and the $n$-th derivatives and primitives of the paper will be added here once the checks listed in the action plan are settled.}

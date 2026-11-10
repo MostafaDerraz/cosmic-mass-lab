@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+
+\bibitem{Wessel}
+Caspar Wessel.
+\newblock Om {Directionens} analytiske {Betegning}.
+\newblock {\em Nye Samling af det Kongelige Danske Videnskabernes Selskabs
+  Skrifter}, 5:469--518, 1799.
+
+\bibitem{Argand}
+Jean-Robert Argand.
+\newblock {\em Essai sur une mani{\`e}re de repr{\'e}senter les quantit{\'e}s
+  imaginaires dans les constructions g{\'e}om{\'e}triques}.
+\newblock Paris, 1806.
+
+\bibitem{Hamilton}
+William~Rowan Hamilton.
+\newblock Theory of conjugate functions, or algebraic couples.
+\newblock {\em Transactions of the Royal Irish Academy}, 17:293--422, 1837.
+
+\bibitem{HarkinHarkin}
+Anthony~A. Harkin and Joseph~B. Harkin.
+\newblock Geometry of generalized complex numbers.
+\newblock {\em Mathematics Magazine}, 77(2):118--129, 2004.
+
+\bibitem{KantorSolodovnikov}
+I.~L. Kantor and A.~S. Solodovnikov.
+\newblock {\em Hypercomplex Numbers: An Elementary Introduction to Algebras}.
+\newblock Springer-Verlag, New York, 1989.
+
+\bibitem{Yaglom}
+I.~M. Yaglom.
+\newblock {\em Complex Numbers in Geometry}.
+\newblock Academic Press, New York, 1968.
+
+\bibitem{DerrazGSP}
+Mostafa Derraz.
+\newblock {General Sinus} principles: extension of trigonometric functions.
+\newblock Research Square preprint, doi:10.21203/rs.3.rs-9525842/v1, 2026.
+
+\bibitem{MasonHandscomb}
+J.~C. Mason and D.~C. Handscomb.
+\newblock {\em {Chebyshev} Polynomials}.
+\newblock Chapman \& Hall/CRC, Boca Raton, 2003.
+
+\bibitem{DerrazGN}
+Mostafa Derraz.
+\newblock {General Numbers}: the number plane beyond the right angle.
+\newblock Zenodo preprint, doi:10.5281/zenodo.24091305, 2026.
+
+\end{thebibliography}

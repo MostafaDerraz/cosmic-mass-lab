@@ -1,0 +1,19 @@
+% The product of two cosmic masses as four rectangles (Law 5.1 and Proposition 5.2). Not to scale.
+\begin{tikzpicture}[every node/.style={font=\small}]
+  \def\wa{3.9}\def\wb{2.9}\def\ha{1.7}\def\hb{1.4}
+  \fill[black!10] (0,0) rectangle (\wa,\ha);
+  \fill[black!3] (\wa,0) rectangle ({\wa+\wb},\ha);
+  \fill[black!3] (0,-\hb) rectangle (\wa,0);
+  \fill[blue!12] (\wa,-\hb) rectangle ({\wa+\wb},0);
+  \draw[black!60] (0,-\hb) rectangle ({\wa+\wb},\ha);
+  \draw[black!60] (\wa,-\hb) -- (\wa,\ha);
+  \draw[black!60] (0,0) -- ({\wa+\wb},0);
+  \node at ({\wa/2},{\ha+0.3}) {$m_b$};
+  \node at ({\wa+\wb/2},{\ha+0.3}) {$q_b\,\Gp$};
+  \node[anchor=east] at (-0.1,{\ha/2}) {$m_a$};
+  \node[anchor=east] at (-0.1,{-\hb/2}) {$q_a\,\Gp$};
+  \node[align=center] at ({\wa/2},{\ha/2}) {$m_a m_b$\\[1pt] {\footnotesize gravity}\\[-1pt] {\footnotesize\itshape real}};
+  \node[align=center] at ({\wa+\wb/2},{\ha/2}) {$m_a q_b\,\Gp$\\[1pt] {\footnotesize Coupling term}\\[-1pt] {\footnotesize\itshape Composer only}};
+  \node[align=center] at ({\wa/2},{-\hb/2}) {$q_a m_b\,\Gp$\\[1pt] {\footnotesize Coupling term}\\[-1pt] {\footnotesize\itshape Composer only}};
+  \node[align=center] at ({\wa+\wb/2},{-\hb/2}) {$q_a q_b\,\Gp^2$\\[1pt] {\footnotesize real part $-s^2 q_a q_b$:}\\[-1pt] {\footnotesize Coulomb's push}};
+\end{tikzpicture}

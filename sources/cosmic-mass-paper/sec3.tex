@@ -1,0 +1,11 @@
+% ======================================================================
+\section{Methods}\label{sec:methods}
+% ======================================================================
+
+\subsection{Constants and units}\label{subsec:constants}
+
+All constants are the CODATA 2022 recommended values~\citep{CODATA2022}, in SI units: $G = 6.67430(15) \times 10^{-11}$~m$^3$\,kg$^{-1}$\,s$^{-2}$, $K = 1/(4\pi\varepsilon_0)$ with $\varepsilon_0 = 8.8541878188(14) \times 10^{-12}$~F\,m$^{-1}$, the exact $c$ and $e$, the masses of the electron, the proton and the neutron, the fine-structure constant, the Bohr radius and the Rydberg energy. The size of the Composer Unit, $s = \lvert\Gp\rvert = \sqrt{K/G} \approx 1.16043 \times 10^{10}$~kg\,C$^{-1}$, is known to about one part in $10^5$, half the relative uncertainty of $G$. No measured quantity of this paper depends on the angle of the Composer axis (\cref{subsec:angle-units}). Where a figure or a number of the frame needs an angle, we read $s$ in units of $10^{10}$~kg\,C$^{-1}$ (\cref{subsec:our-plane}), which gives the mirror root $79.8605^\circ$ of the Axiom; one standard error of $G$ moves it by $0.0009^\circ$. We hold the angle at $\pb = 79.86^\circ$, as in the worked examples of~\citep{DerrazGN2026}.
+
+\subsection{Verification and scripts}\label{subsec:scripts}
+
+A Python script, given in the electronic supplementary material, checks the paper. \texttt{verify\_cmt.py} checks every numbered statement, symbolically with SymPy~\citep{Meurer2017} where it is algebra or calculus and numerically otherwise, recomputes every computed number printed in the paper, and ends with a coverage check that every numbered statement of the paper has at least one check. Values taken from the literature are checked only as printed. On the text submitted here, \texttt{verify\_cmt.py} passes all 106 of its checks: 41 symbolic, 9 numerical and 55 printed values, and the coverage check of the 34 numbered statements and labelled equations.

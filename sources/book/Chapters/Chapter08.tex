@@ -1,0 +1,593 @@
+% the statement type of an empirical law, numbered with the theorems (as in Chapter 7)
+\makeatletter
+\@ifundefined{law}{\theoremstyle{definition}\newtheorem{law}[theorem]{Law}\crefname{law}{Law}{Laws}\Crefname{law}{Law}{Laws}}{}
+\makeatother
+% notation of this chapter: the parts of a General Number (Chapter 3), and vectors in bold
+\providecommand{\Com}{\operatorname{Com}}
+\providecommand{\Sh}{\operatorname{Sh}}
+\newcommand{\uE}{\boldsymbol{\mathcal{E}}}   % cosmic field
+\newcommand{\uB}{\boldsymbol{\mathcal{B}}}   % second cosmic field
+\newcommand{\cosA}{\boldsymbol{\mathcal{A}}}   % cosmic vector potential
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vE}{\mathbf{E}}
+\newcommand{\vB}{\mathbf{B}}
+\newcommand{\vJ}{\mathbf{J}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vS}{\mathbf{S}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vH}{\mathbf{H}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vL}{\mathbf{L}}
+\newcommand{\rhat}{\hat{\mathbf{r}}}
+%************************************************
+\chapter{The Unified Cosmic Law}\label{ch:unified}
+%************************************************
+
+\chapterlead{One number for each body, one reading for every measurement, and one action. From them come Newton's mechanics, Newton's gravity with a small magnetic part, Maxwell's equations and the force of Lorentz. For slow bodies the law says nothing that physics did not already know, and it fails where general relativity is needed; what it adds is the form.}
+
+\scene{London, December 1864}
+
+On 8 December 1864 a paper by James Clerk Maxwell, then thirty-three and professor of natural philosophy at King's College London, was read to the Royal Society: \emph{A Dynamical Theory of the Electromagnetic Field}. It gathered electricity and magnetism into one set of equations for a field that fills space, and from those equations it found waves whose speed came out close to the measured speed of light. \enquote{This velocity is so nearly that of light,} Maxwell wrote, \enquote{that it seems we have strong reason to conclude that light itself (including radiant heat, and other radiations if any) is an electromagnetic disturbance in the form of waves propagated through the electromagnetic field according to electromagnetic laws} \citep{Maxwell1865}.
+
+In the same paper he turned to gravity. \enquote{After tracing to the action of the surrounding medium both the magnetic and the electric attractions and repulsions, and finding them to depend on the inverse square of the distance, we are naturally led to inquire whether the attraction of gravitation, which follows the same law of the distance, is not also traceable to the action of a surrounding medium.} The answer troubled him. Like charges push apart, but like masses pull together, and in a field of his kind that one change of sign turns the energy of gravity below zero: \enquote{The intrinsic energy of the field of gravitation must therefore be less wherever there is a resultant gravitating force.} The medium would have to hold \enquote{an enormous intrinsic energy} when undisturbed, and \enquote{the presence of dense bodies} would \enquote{diminish this energy wherever there is a resultant attraction.} Maxwell stopped there: \enquote{As I am unable to understand in what way a medium can possess such properties, I cannot go any further in this direction in searching for the cause of gravitation.}
+
+Twenty-nine years later Oliver Heaviside wrote the equations of gravity in Maxwell's form, with a second field, like the magnetic one, made by masses in motion, and waves that cross space at a finite speed \citep{Heaviside1893}. In 1915 general relativity replaced them. For slow bodies it gives equations of Heaviside's form, but with the magnetic effects of gravity four times larger than his.
+
+\bigskip
+
+This book took the same road from the other end. Chapter~\ref{ch:interaction} put mass and charge into one number for each body, the cosmic mass, and found one law for the pull between two bodies at rest: read by its real part, it is Newton's law and Coulomb's law at once (Proposition~\ref{prop:law-real}). Chapter~\ref{ch:closure} used the same reading for the masses of nuclei. This chapter asks how far the reading goes: can one number for each body, and one rule for reading it, give the laws of bodies in motion and of the fields between them?
+
+For slow bodies, the answer is yes. From the cosmic mass, the Rule of the Square and the reading of Chapter~\ref{ch:interaction}, this chapter builds, one step at a time, two fields that carry General Numbers, four equations for them, one law of motion, the conservation of the source, of energy and of momentum, and a single action from which all of it follows. Opened into its two coordinates, the law is Newton's mechanics, Newton's gravity with Heaviside's magnetic part, Maxwell's equations and the force of Lorentz. The minus sign of the Rule of the Square does the work that Maxwell could not place: from one formula it gives the energy of charge fields a plus sign and the energy of gravity a minus sign. It does not remove his difficulty. The waves of the gravity part carry negative energy, and that is one of the places where the law fails. The chapter sets out the law step by step, and it ends by running the law, with one program, on every body it can reach.
+
+\paragraph{The road through this chapter.}
+The chapter climbs in seven steps, shown in \Cref{fig:un-map}. \Cref{sec:un-reading} recalls the one number and the one reading, with the two facts of Chapter~\ref{ch:general-numbers} on which the whole chapter stands: the real part of a product (Proposition~\ref{prop:un-real-product}) and the rules of arithmetic (Remark~\ref{rem:un-rules}). \Cref{sec:un-fields} turns forces into fields and states the law, and \Cref{sec:un-split} splits it into Maxwell's equations and Heaviside's gravity. \Cref{sec:un-motion} opens the law of motion, \Cref{sec:un-kept} shows what the law keeps, and \Cref{sec:un-action} draws all of it from one action. \Cref{sec:un-tests} runs the law, with one program, on every body it can reach.
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth,
+    mapstep/.style={draw=RoyalBlue!55, fill=RoyalBlue!6, rounded corners=2pt, text width=2.3cm,
+                 align=flush center, inner sep=3.5pt, font=\footnotesize, minimum height=2.45cm, anchor=north},
+    mapfeed/.style={font=\footnotesize, text=gray!75!black, align=center},
+    mapflow/.style={->, thick, RoyalBlue!70}]
+  \node[mapstep] (s1) at (0,0) {\textbf{1. One number,\\ one reading}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:un-reading}}\\[4pt]
+    the real part\\ of a product};
+  \node[mapstep] (s2) at (2.95,0) {\textbf{2. From forces\\ to fields}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:un-fields}}\\[4pt]
+    four equations,\\ one law of motion};
+  \node[mapstep] (s3) at (5.9,0) {\textbf{3. Two sets\\ of equations}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:un-split}}\\[4pt]
+    Maxwell and\\ Heaviside};
+  \node[mapstep] (s4) at (8.85,0) {\textbf{4. Motion}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:un-motion}}\\[4pt]
+    Newton and\\ Lorentz};
+  \node[mapstep] (s5) at (1.475,-3.05) {\textbf{5. What is\\ kept}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:un-kept}}\\[4pt]
+    source, energy,\\ momentum};
+  \node[mapstep] (s6) at (4.425,-3.05) {\textbf{6. One\\ action}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:un-action}}\\[4pt]
+    everything\\ from $S$};
+  \node[mapstep] (s7) at (7.375,-3.05) {\textbf{7. One program\\ for every body}\\[1pt]
+    {\color{gray!75!black}\Cref{sec:un-tests}}\\[4pt]
+    one line,\\ many bodies};
+  \draw[mapflow] (s1.east) -- (s2.west);
+  \draw[mapflow] (s2.east) -- (s3.west);
+  \draw[mapflow] (s3.east) -- (s4.west);
+  \draw[mapflow, rounded corners=4pt] (s4.south) -- ++(0,-0.3) -| ($(s5.north)+(0,0.3)$) -- (s5.north);
+  \draw[mapflow] (s5.east) -- (s6.west);
+  \draw[mapflow] (s6.east) -- (s7.west);
+  \node[mapfeed] (c1) at (0,1.25) {from Chapter~\ref{ch:general-numbers}:\\ the real part\\ of a product};
+  \node[mapfeed] (c2) at (5.9,1.05) {from Chapter~\ref{ch:general-numbers}:\\ rules of arithmetic};
+  \draw[->, gray!70] (c1.south) -- (s1.north);
+  \draw[->, gray!70] (c2.south) -- (s3.north);
+\end{tikzpicture}
+\caption[The road through the chapter]{The road through the chapter, from one number for one body to one action for all bodies and fields. Each box is one step, with the section where it is taken, and the mathematics comes from Chapter~\ref{ch:general-numbers}.}
+\label{fig:un-map}
+\end{figure}
+
+%------------------------------------------------
+\section{Step 1: One Number, One Reading}\label{sec:un-reading}
+%------------------------------------------------
+
+Every body has one cosmic mass (Definition~\ref{def:cosmic-mass}),
+\[
+\mu = m + q\,\Gp ,
+\]
+where $m$ is its mass, $q$ its charge, and $\Gp$ the Composer Unit, an arrow that leans at the angle $\pb = 79.86^\circ$ and has the length
+\begin{align*}
+|\Gp| &= \sqrt{\frac{K}{G}} = 1.16043 \times 10^{10}\ \text{kg/C},\\
+|\Gp|^2 &= \frac{K}{G} = 1.34659 \times 10^{20}\ \text{kg}^2/\text{C}^2 .
+\end{align*}
+The two parts are both in kilograms, so they can stand in one number. For a proton, $m = 1.6726 \times 10^{-27}$ kg and $q = e$, and the charge part has the size $e\,|\Gp| = 1.8592 \times 10^{-9}$ kg, the Stoney mass of Definition~\ref{def:stoney-mass}.
+
+A General Number $z = a + b\,\Gp$ has two coordinates: its real part $\Re(z) = a$ and its Composer coordinate $b$, the number of steps of the Composer Unit in its Composer part $\Com(z) = b\,\Gp$ (Definition~\ref{def:gn-parts}). Chapter~\ref{ch:interaction} chose one of the two readings that Chapter~\ref{ch:general-numbers} offers for bringing a General Number down to the real axis, the real part rather than the shadow, and it is the only choice made in this chapter.
+
+\begin{definition}[The Real Reading]\label{def:un-reading}
+Every measured force, energy and momentum is the real part of a General Number.
+\end{definition}
+
+This is the reading of Definition~\ref{def:reading}, carried from forces to energies and momenta. It rests on the square of the Composer Unit, which the Rule of the Square of Chapter~\ref{ch:general-numbers} writes in the form $a + b\,\Gp$ (Proposition~\ref{prop:square-rule}):
+\[
+\Gp^2 = 2\,|\Gp|\cos\pb\;\Gp - |\Gp|^2 .
+\]
+With it, Chapter~\ref{ch:general-numbers} gives every product of two General Numbers of one true relative plane its real part (Proposition~\ref{prop:un-real-product}),
+\[
+\Re(z_1 z_2) = a_1 a_2 - |\Gp|^2 b_1 b_2 ,
+\]
+with no angle in it and one fixed minus sign, and General Numbers obey every rule of complex arithmetic (Remark~\ref{rem:un-rules}): every true relative plane is a field (\Cref{thm:gn-field}).
+
+These rules are all that the usual identities of vector calculus need. For smooth vector fields $\vF$ and $\vH$, and a constant vector $\vv$,
+\begin{align*}
+\text{(a)}\quad & \nabla\cdot(\nabla\times\vF) = 0 ,\\
+\text{(b)}\quad & \nabla\times(\nabla\times\vF) = \nabla(\nabla\cdot\vF) - \nabla^2\vF ,\\
+\text{(c)}\quad & \nabla\cdot(\vF\times\vH) = \vH\cdot(\nabla\times\vF) - \vF\cdot(\nabla\times\vH) ,\\
+\text{(d)}\quad & \nabla(\vv\cdot\vF) - (\vv\cdot\nabla)\vF = \vv\times(\nabla\times\vF) .
+\end{align*}
+Their proofs use only sums, products, and derivatives taken in a fixed order. By Remark~\ref{rem:un-rules} and \Cref{thm:gn-field}, they hold word for word for fields whose values are General Numbers, and Maxwell's whole toolbox can be used on them. Here the divergence $\nabla\cdot\vF$ measures how much a field flows out of a point, and the curl $\nabla\times\vF$ how much it circles around one.
+
+Put two cosmic masses into Proposition~\ref{prop:un-real-product}, with $a = m$ and $b = q$, and multiply by $G$. Since $G\,|\Gp|^2 = K$,
+\[
+G\,\Re(\mu_a\mu_b) = G\,(m_a m_b - |\Gp|^2 q_a q_b) = G\,m_a m_b - K\,q_a q_b ,
+\]
+which is Proposition~\ref{prop:law-real}: the force between two bodies at rest is this number divided by $r^2$, counted positive for a pull. Two masses pull, like charges push, unlike charges pull, all from one expression. The Composer coordinate of the product, $m_a q_b + q_a m_b + 2\,|\Gp|\cos\pb\; q_a q_b$, holds the old Coupling term, a share of the term of two charges that is far larger for charged particles (\Cref{subsec:law-read}), and the whole of the angle. Under the Real Reading it is not a force, so a neutron feels no force from a charged plate, as measured (\Cref{subsec:test-sign}).
+
+\begin{workedexample}[Worked example: one line for every pair]
+Two protons $10^{-10}$ m apart, a typical distance inside a molecule, pull each other by gravity with $G m_p^2/r^2 = 1.87 \times 10^{-44}$ N and push each other electrically with $K e^2/r^2 = 2.31 \times 10^{-8}$ N, which is $1.24 \times 10^{36}$ times more; the line above gives the push, $-2.31 \times 10^{-8}$ N. The Earth and the Moon, $3.844 \times 10^8$ m apart, pull each other with $G M m/r^2 = 1.98 \times 10^{20}$ N. Both numbers come from the same formula, with different values of $m$ and $q$.
+\end{workedexample}
+
+\begin{plainwords}
+Each body carries one number with two parts, its mass and its charge, both written in kilograms. Two such numbers multiply by a rule in which the angle of the Composer axis drops out of the real part, the part that is measured. That part is the pull of gravity minus the push of the charges, Newton's law and Coulomb's law in one line. The rest of the product, where the angle lives, is not a force. Because the numbers obey the ordinary rules of arithmetic, every tool of field physics works on them unchanged.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 2: From Forces to Fields}\label{sec:un-fields}
+%------------------------------------------------
+
+Newton's law and Coulomb's law act at a distance. Faraday and Maxwell replaced the distance by a field: each body fills space around it with a field, and each other body feels the field at its own place. In this chapter vectors are written in bold, and a field gives one vector at every point, as a weather map gives a wind at every town.
+
+\begin{definition}[The Cosmic Field of a Body at Rest]\label{def:un-field}
+A body of cosmic mass $\mu_s$ at rest at the origin makes, at the distance $r$ in the outward direction $\rhat$, the \textbf{cosmic field}
+\[
+\uE = -\frac{G\mu_s}{r^2}\,\rhat .
+\]
+Its value at each point is a General Number vector, with two coordinates: $\uE = \vg + \ve\,\Gp$.
+\end{definition}
+
+A test body $\mu$ feels the force $\Re(\mu\uE) = -G\,\Re(\mu\mu_s)\,\rhat/r^2$. By Proposition~\ref{prop:law-real} it points inward, a pull, when $\Re(\mu\mu_s) > 0$, and outward, a push, when it is negative: the field gives back the law of Chapter~\ref{ch:interaction}.
+
+Around a source, \Cref{fig:un-sources} draws the field in its two coordinates. For a mass, the real coordinate $\vg$ points inward. For a positive charge, the Composer coordinate $\ve$ points inward too, since it comes from the same formula; but the force it gives a second positive charge, $-|\Gp|^2 q\,\ve$, points outward, because the real part of a product counts the Composer coordinates with the minus sign of Proposition~\ref{prop:un-real-product}.
+
+\suppressfloats[t]
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, font=\footnotesize]
+  \begin{scope}
+    \foreach \a in {0,45,...,315} \draw[<-, thick, RoyalBlue] (\a:0.42) -- (\a:1.22);
+    \shade[ball color=gray!55] (0,0) circle (0.27);
+    \node[align=center] at (0,-1.75) {(a) a mass:\\ $\vg$ points in};
+  \end{scope}
+  \begin{scope}[xshift=3.65cm]
+    \foreach \a in {0,45,...,315} \draw[<-, thick, Maroon] (\a:0.42) -- (\a:1.22);
+    \shade[ball color=Maroon!45] (0,0) circle (0.27);
+    \node[white, font=\small\bfseries] at (0,0) {$+$};
+    \node[align=center] at (0,-1.75) {(b) a charge:\\ $\ve$ points in};
+  \end{scope}
+  \begin{scope}[xshift=7.3cm]
+    \foreach \a in {0,45,...,315} \draw[->, thick, Maroon] (\a:0.42) -- (\a:1.22);
+    \shade[ball color=Maroon!45] (0,0) circle (0.27);
+    \node[white, font=\small\bfseries] at (0,0) {$+$};
+    \node[align=center] at (0,-1.75) {(c) the same charge:\\ $\vE = -|\Gp|^2\ve$ points out};
+  \end{scope}
+\end{tikzpicture}
+\caption[One field, two coordinates]{The cosmic field $\uE = -G\mu_s\rhat/r^2$ of one source at rest, in its two coordinates. (a) The real coordinate $\vg$ of a mass points in, toward the source. (b) The Composer coordinate $\ve$ of a positive charge points in as well, by the same formula. (c) Maxwell's electric field of the same charge, $\vE = -|\Gp|^2\ve$ (\Cref{thm:un-maxwell}), points out. The minus sign of the Rule of the Square turns the arrows round: masses pull, and like charges push.}
+\label{fig:un-sources}
+\end{figure}
+
+Surround the source with a sphere of radius $r$. The field has the size $G\mu_s/r^2$ and points inward, and the sphere has the area $4\pi r^2$, so the total flow of the field out of the sphere is
+\[
+-\frac{G\mu_s}{r^2} \times 4\pi r^2 = -4\pi G\mu_s .
+\]
+The radius has gone. Any closed surface around the source gives the same value, sources outside it add nothing, and the total flow out of a surface equals the sum of the divergence inside it. With a density of cosmic mass $\rho_\mu = \rho_m + \rho_q\,\Gp$, made of a density of mass and a density of charge, this is Gauss's law for the cosmic field, $\nabla\cdot\uE = -4\pi G\,\rho_\mu$.
+
+A moving source makes a second field, just as a current of charge makes a magnetic field. Its source is the \emph{cosmic current}, the flow of cosmic mass,
+\[
+\vJ_\mu = \vJ_m + \vJ_q\,\Gp ,
+\]
+where $\vJ_m$ is a flow of mass and $\vJ_q$ a flow of charge, an ordinary electric current. For one body of velocity $\vv$, the cosmic current is $\mu\,\vv$ at the place of the body. The law of this chapter is then the following.
+
+\begin{law}[The Unified Cosmic Law]\label{law:unified}
+Two fields with General Number values, the cosmic field $\uE$ and the second field $\uB$, obey
+\begin{align*}
+\text{(F1)}\quad \nabla\cdot\uE &= -4\pi G\,\rho_\mu , & \text{(F2)}\quad \nabla\cdot\uB &= 0 ,\\
+\text{(F3)}\quad \nabla\times\uE &= -\partial_t\uB , & \text{(F4)}\quad \nabla\times\uB &= -\frac{4\pi G}{c^2}\vJ_\mu + \frac{1}{c^2}\partial_t\uE ,
+\end{align*}
+and a body of cosmic mass $\mu$ and velocity $\vv$ moves by
+\[
+\text{(M)}\qquad \Re(\mu)\,\frac{d\vv}{dt} = \Re\bigl[\mu\,(\uE + \vv\times\uB)\bigr] .
+\]
+\end{law}
+
+In words: sources make $\uE$ (F1); $\uB$ has no point sources (F2); a changing $\uB$ makes $\uE$ (F3); currents and a changing $\uE$ make $\uB$ (F4). The constants are not free. The factor $4\pi G$ is the Gauss flow found above, and $c$ is the speed of the waves of \Cref{thm:un-waves}, which is the speed of light. In the law of motion, the force is the real part of the cosmic mass times the field it feels, and the inertia is the real part of the cosmic mass, $\Re(\mu) = m$: the only part that resists a push, and the part that a spectrograph weighs (\Cref{sec:cl-isotopes}).
+
+\begin{plainwords}
+Instead of bodies pulling each other across empty space, each body fills the space around it with a field, and every other body feels the field where it is. One field, written as one number with two parts at each point, does the work of the gravity field and of the electric field together; a second field, made by moving bodies, does the work of the magnetic field. Four short equations say how bodies make the two fields, and a fifth says how a body moves in them.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 3: Two Sets of Equations}\label{sec:un-split}
+%------------------------------------------------
+
+Write each field and each source in its two coordinates: $\uE = \vg + \ve\,\Gp$, $\uB = \vB_g + \vb\,\Gp$, $\rho_\mu = \rho_m + \rho_q\,\Gp$ and $\vJ_\mu = \vJ_m + \vJ_q\,\Gp$.
+
+\begin{proposition}[The Split]\label{prop:un-split}
+Each of the field equations (F1) to (F4) holds separately for the real coordinate and for the Composer coordinate, as in \Cref{tab:un-split}.
+\end{proposition}
+
+\begin{proof}
+Every operation in (F1) to (F4) is a sum, a product by a real number, or a derivative in space or time; no field multiplies a field, and no field is multiplied by $\Gp$. Each of these operations acts on the two coordinates one at a time: the real part and the Composer part of a sum are the sums of the parts, and a real factor comes out of each (Proposition~\ref{prop:gn-parts-readings}). Two General Numbers are equal exactly when both coordinates are equal (Definition~\ref{def:gn-equality}), so each equation is two equations, one for each coordinate.
+\end{proof}
+
+\begin{table}[tb]
+\myfloatalign
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+\tableheadline{real coordinate} & \tableheadline{Composer coordinate} \\
+\midrule
+$\nabla\cdot\vg = -4\pi G\rho_m$ & $\nabla\cdot\ve = -4\pi G\rho_q$ \\[2pt]
+$\nabla\cdot\vB_g = 0$ & $\nabla\cdot\vb = 0$ \\[2pt]
+$\nabla\times\vg = -\partial_t\vB_g$ & $\nabla\times\ve = -\partial_t\vb$ \\[2pt]
+$\nabla\times\vB_g = -\frac{4\pi G}{c^2}\vJ_m + \frac{1}{c^2}\partial_t\vg$ & $\nabla\times\vb = -\frac{4\pi G}{c^2}\vJ_q + \frac{1}{c^2}\partial_t\ve$ \\
+\bottomrule
+\end{tabular}
+\caption[The law split in two]{The four field equations of Law~\ref{law:unified}, split into their two coordinates (Proposition~\ref{prop:un-split}). Each equation splits in two, and the angle appears in neither set.}
+\label{tab:un-split}
+\end{table}
+
+The Composer set is Maxwell's. Its fields are scaled and turned round by the same factor that turns a Composer coordinate into a force.
+
+\begin{theorem}[Maxwell's Equations]\label{thm:un-maxwell}
+Define the electric and magnetic fields by
+\[
+\vE = -|\Gp|^2\,\ve , \qquad \vB = -|\Gp|^2\,\vb .
+\]
+Then the Composer set of \Cref{tab:un-split} is Maxwell's set of equations,
+\begin{align*}
+\nabla\cdot\vE &= 4\pi K\rho_q , & \nabla\cdot\vB &= 0 ,\\
+\nabla\times\vE &= -\partial_t\vB , & \nabla\times\vB &= \frac{4\pi K}{c^2}\vJ_q + \frac{1}{c^2}\partial_t\vE ,
+\end{align*}
+with the magnetic constant $\mu_0 = 4\pi K/c^2$.
+\end{theorem}
+
+\begin{proof}
+Multiply each Composer equation by $-|\Gp|^2$, and use $G\,|\Gp|^2 = K$:
+\begin{align*}
+\nabla\cdot\ve = -4\pi G\rho_q \quad&\Rightarrow\quad \nabla\cdot\vE = 4\pi K\rho_q ,\\
+\nabla\cdot\vb = 0 \quad&\Rightarrow\quad \nabla\cdot\vB = 0 ,\\
+\nabla\times\ve = -\partial_t\vb \quad&\Rightarrow\quad \nabla\times\vE = -\partial_t\vB ,\\
+\nabla\times\vb = -\tfrac{4\pi G}{c^2}\vJ_q + \tfrac{1}{c^2}\partial_t\ve \quad&\Rightarrow\quad \nabla\times\vB = \tfrac{4\pi K}{c^2}\vJ_q + \tfrac{1}{c^2}\partial_t\vE .
+\end{align*}
+With $K = 1/(4\pi\varepsilon_0)$ and $\mu_0 = 4\pi K/c^2$, these are Maxwell's equations in their usual form.
+\end{proof}
+
+The minus sign in the definition turns the signs of Gauss's law round, which is why the field of a positive charge points out while the field of a mass points in (\Cref{fig:un-sources}). The magnetic constant $\mu_0 = 4\pi K/c^2$ is Remark~\ref{rem:light} read the other way: there, the length of the Composer Unit was written $c\sqrt{\mu_0/(4\pi G)}$.
+
+\begin{workedexample}[Worked example: one point charge]
+A charge $q$ at rest at the origin has, by Definition~\ref{def:un-field}, the Composer coordinate $\ve = -Gq\,\rhat/r^2$. Maxwell's field is then $\vE = -|\Gp|^2\ve = G\,|\Gp|^2 q\,\rhat/r^2 = Kq\,\rhat/r^2$, pointing out: Coulomb's field. A second charge $q'$ feels $q'\vE$, the push of Coulomb's law for like charges.
+\end{workedexample}
+
+The real set holds Newton's gravity. For bodies at rest, (F3) gives the field no curl, and (F1) gives the field of a mass $M$, $\vg = -GM\rhat/r^2$, Newton's pull. The field $\vB_g$ is new relative to Newton. It is the magnetic part of gravity that Heaviside wrote in 1893, made by moving masses and felt by moving masses. For slow bodies it is tiny, and it is where this law parts from general relativity.
+
+\begin{theorem}[Waves at the Speed $c$]\label{thm:un-waves}
+In empty space both fields obey the wave equation with the speed $c$,
+\[
+\nabla^2\uE = \frac{1}{c^2}\,\partial_t^2\uE , \qquad \nabla^2\uB = \frac{1}{c^2}\,\partial_t^2\uB ,
+\]
+in both coordinates: the waves of the gravity part travel at the speed of light.
+\end{theorem}
+
+\begin{proof}
+With no sources, take the curl of (F3) and use identity (b), then (F4) and (F1):
+\begin{align*}
+\nabla\times(\nabla\times\uE) &= -\partial_t(\nabla\times\uB) && \text{curl of (F3)}\\
+\nabla(\nabla\cdot\uE) - \nabla^2\uE &= -\frac{1}{c^2}\partial_t^2\uE && \text{identity (b), and (F4)}\\
+\nabla^2\uE &= \frac{1}{c^2}\partial_t^2\uE && \text{(F1) with no source.}
+\end{align*}
+The same steps, starting from the curl of (F4) and using (F3) and (F2), give the equation for $\uB$. By Proposition~\ref{prop:un-split}, each equation holds for both coordinates.
+\end{proof}
+
+On 17 August 2017, the gravitational waves of two merging neutron stars and the gamma rays of the same event arrived within two seconds of each other after a journey of about 130 million years, which fixes the speed of gravity to that of light within $3$ parts in $10^{15}$ \citep{Abbott2017GRB}. The law passes this test, as general relativity does.
+
+\begin{plainwords}
+Split into its two parts, the law becomes two copies of the same equations. The charge part is Maxwell's electromagnetism, word for word, once its fields are scaled by the square of the length of the Composer Unit and turned round by its minus sign. The mass part is Newton's gravity, with a small magnetic-like field for moving masses that Heaviside wrote down in 1893. Both parts carry waves, and both waves travel at the speed of light.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 4: Motion}\label{sec:un-motion}
+%------------------------------------------------
+
+Newton's second law says that mass times acceleration equals force. In the law of motion (M), the force is the real part of the cosmic mass times the field it feels, and the mass is the real part of the cosmic mass.
+
+\begin{proposition}[Newton and Lorentz in One Law of Motion]\label{prop:un-lorentz}
+Opened into its coordinates, the law of motion (M) reads
+\[
+m\,\frac{d\vv}{dt} = m\,(\vg + \vv\times\vB_g) + q\,(\vE + \vv\times\vB) .
+\]
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:un-real-product}, applied to each component, with $\mu = m + q\,\Gp$ and $\uE = \vg + \ve\,\Gp$,
+\[
+\Re(\mu\uE) = m\,\vg - |\Gp|^2 q\,\ve = m\,\vg + q\,\vE .
+\]
+In the same way, with $\vv$ real, $\Re(\mu\,\vv\times\uB) = m\,\vv\times\vB_g - |\Gp|^2 q\,\vv\times\vb = m\,\vv\times\vB_g + q\,\vv\times\vB$. The left side of (M) is $\Re(\mu)\,d\vv/dt = m\,d\vv/dt$.
+\end{proof}
+
+The second bracket is the force of Lorentz, at full strength. The first is gravity, with its small magnetic-like term. Three of Newton's statements follow at once. With no fields the right side is zero, so $d\vv/dt = 0$ and a body keeps its velocity: the first law. The left side is mass times acceleration and the right side is the total force: the second law. For a neutral body, $q = 0$ and $\vv\times\vB_g$ is tiny, so the mass cancels and $d\vv/dt = \vg$: every body falls alike. The cancellation works because the same $m$, the real part of $\mu$, stands on both sides. The satellite \textsc{microscope} compared the fall of titanium and platinum in orbit and found them equal to within about $3$ parts in $10^{15}$ \citep{Touboul2022}. The law passes the test, but it passes it by construction, as Newton's law does: it does not explain why the mass that resists a push is the mass that gravity pulls.
+
+Bodies with the same charge per mass, started alike, therefore move alike in every field: divided by $m$, the law reads $d\vv/dt = \vg + \vv\times\vB_g + (q/m)(\vE + \vv\times\vB)$, and such bodies lie on one ray of the frame of Chapter~\ref{ch:standard-model} (Remark~\ref{rem:charge-phase}). In an electric field the accelerations of two bodies differ by $(m_a q_b - q_a m_b)\,\vE/(m_a m_b)$, where $m_a q_b - q_a m_b$, the Composer coordinate of $\bar{\mu}_a\mu_b$ (Proposition~\ref{prop:gn-signed-area}), is zero exactly when the two cosmic masses lie on one line through $0$.
+
+\keepblock{12}
+\begin{workedexample}[Worked example: Thomson's tube, by hand]
+An electron enters a tube at $2.5 \times 10^7$ m/s, between two plates $5$ cm long with the field $E = 10^4$ V/m between them; a screen stands $10$ cm beyond the plates. Inside the plates the electron feels only $q\vE$, so its sideways acceleration is $eE/m_e = 1.7588 \times 10^{15}$ m/s$^2$. It spends $0.05/(2.5 \times 10^7) = 2 \times 10^{-9}$ s in the plates and rises $\tfrac12 a t^2 = 3.518$ mm. It leaves with the sideways speed $at = 3.518 \times 10^6$ m/s, a tilt of $0.14071$, so it rises another $0.10 \times 0.14071 = 14.07$ mm on the way to the screen: $17.59$ mm in all. A proton entering at the same speed is turned the other way and $1836$ times less, and a neutron goes straight (\Cref{fig:un-thomson}). This is the experiment with which J.~J.~Thomson measured the ratio $e/m$ of the electron in 1897 \citep{Thomson1897}.
+\end{workedexample}
+
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter08/fig-thomson}
+\caption[Three bodies in Thomson's tube]{Three bodies in Thomson's tube, moved by the law of motion (M) with nothing changed but $m$ and $q$. The electron reaches the screen $17.59$ mm high. The proton is turned the other way by $0.0096$ mm; enlarged $1836$ times, its path (dashed) is the mirror of the electron's. The neutron goes straight. The paths come from the program of \Cref{sec:un-tests}.}
+\label{fig:un-thomson}
+\end{figure}
+
+% keep what follows together: break the page here if fewer than 9 lines are left
+\keepblock{9}
+\begin{workedexample}[Worked example: a circle in a magnetic field]
+With only a magnetic field, the force $q\,\vv\times\vB$ is perpendicular to the velocity, so the speed stays fixed and the path bends into a circle. Setting $mv^2/R = qvB$ gives the radius $R = mv/(qB)$, and one turn takes $2\pi R/v = 2\pi m/(qB)$, whatever the speed. An electron in a field of $1$ T makes $2.7992 \times 10^{10}$ turns per second, and at $10^6$ m/s its circle has the radius $5.69\ \mu$m.
+\end{workedexample}
+
+\begin{workedexample}[Worked example: a drift in crossed fields]
+A steady motion with no acceleration needs $\vE + \vv\times\vB = 0$. With $\vE$ along $y$ and $\vB$ along $z$, this gives $v_x = E/B$. A proton set free at rest in $E = 1000$ V/m and $B = 1$ T does not run away along $\vE$: it rolls along $x$ in loops, and its average speed is $E/B = 1000$ m/s (\Cref{fig:un-orbits}(c)).
+\end{workedexample}
+
+\begin{workedexample}[Worked example: two circular orbits]
+On a circle, the mass times $v^2/R$ equals the pull.
+
+\emph{The Moon.} With the Earth held at rest, $v^2/R = GM/R^2$ gives $v = \sqrt{GM/R} = 1018$ m/s and a period of $27.45$ days. The Earth does not stay at rest: the two bodies turn about their common centre, and with the Moon's own mass counted the period is $27.28$ days. The measured sidereal month is $27.32$ days; most of what remains is the pull of the Sun, which this two-body estimate leaves out.
+
+\emph{Hydrogen.} For an electron on a circle of radius $a_0$ around a proton, $m_e v^2/a_0 = Ke^2/a_0^2$ gives $v = 2.1877 \times 10^6$ m/s, which is $0.0072974\,c$, the fine-structure constant. The energy needed to free the electron is $Ke^2/(2a_0) = 13.61$ eV, and $13.598$ eV with the motion of the proton counted, as measured \citep{Sansonetti2005}. The radius $a_0$ itself comes from quantum theory, not from this law: the law moves the electron once its orbit is given, but it does not say why the orbit has that size.
+\end{workedexample}
+
+\suppressfloats[t]
+\begin{figure}[tb]
+\myfloatalign
+\input{Chapters/Chapter08/fig-orbits}
+\caption[Orbits and drifts from one law]{Three motions from one law of motion. (a) An electron on the classical orbit of hydrogen around a proton, at the Bohr radius $a_0$. (b) The Moon around the Earth, held at rest. (c) A proton from rest in $E = 1000$ V/m and $B = 1$ T, rolling along $x$ at the average speed $E/B = 1000$ m/s; heights enlarged three times. An electric orbit, a gravitational orbit and a magnetic drift, computed by the same line of the program of \Cref{sec:un-tests}.}
+\label{fig:un-orbits}
+\end{figure}
+
+\begin{plainwords}
+One rule moves every body: its mass times its acceleration equals the real part of its cosmic mass times the fields it feels. Opened up, the rule is gravity plus the electric and magnetic forces, each at its known strength. It sends an electron up a tube, a proton the other way and a neutron straight on; it bends an electron into a circle in a magnet; it keeps the Moon and, in the classical picture, the electron of hydrogen on their orbits. Only two numbers change from one body to the next: the mass and the charge.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 5: What Is Kept}\label{sec:un-kept}
+%------------------------------------------------
+
+A law of fields must say what is kept: the source, the energy and the momentum. Each follows from Law~\ref{law:unified} in a few lines.
+
+\begin{theorem}[Conservation of the Source]\label{thm:un-source}
+The density and the current of cosmic mass obey
+\[
+\partial_t\rho_\mu + \nabla\cdot\vJ_\mu = 0 .
+\]
+\end{theorem}
+
+\begin{proof}
+Take the divergence of (F4). By identity (a), the left side is zero:
+\[
+0 = -\frac{4\pi G}{c^2}\nabla\cdot\vJ_\mu + \frac{1}{c^2}\partial_t(\nabla\cdot\uE) .
+\]
+Replace $\nabla\cdot\uE$ by (F1) and divide by $-4\pi G/c^2$.
+\end{proof}
+
+The Composer coordinate of \Cref{thm:un-source} is the conservation of charge, which holds exactly. The real coordinate says that mass is conserved, which holds for slow bodies, where energies are small. In a fusion it fails as it stands: the loss of cosmic mass $\Delta\mu$ is a real number that leaves as energy (Proposition~\ref{prop:fusion-frame}), so the real coordinate holds only when the energy that leaves is counted as mass, $Q/c^2$. The law itself does not count it; this is the first sign that it is a law for slow bodies.
+
+% keep what follows together: break the page here if fewer than 10 lines are left
+\keepblock{10}
+\begin{theorem}[The Balance of Energy]\label{thm:un-energy}
+Let
+\[
+u = -\frac{1}{8\pi G}\,\Re\bigl[\uE\cdot\uE + c^2\,\uB\cdot\uB\bigr], \qquad \vS = -\frac{c^2}{4\pi G}\,\Re\bigl[\uE\times\uB\bigr].
+\]
+Then
+\[
+\partial_t u + \nabla\cdot\vS = -\Re\bigl[\uE\cdot\vJ_\mu\bigr] .
+\]
+\end{theorem}
+
+\begin{proof}
+Start from identity (c), with $\vF = \uE$ and $\vH = \uB$, and use (F3) and (F4):
+\begin{align*}
+\nabla\cdot(\uE\times\uB) &= \uB\cdot(\nabla\times\uE) - \uE\cdot(\nabla\times\uB)\\
+&= -\uB\cdot\partial_t\uB + \frac{4\pi G}{c^2}\,\uE\cdot\vJ_\mu - \frac{1}{c^2}\,\uE\cdot\partial_t\uE\\
+&= -\tfrac12\,\partial_t(\uB\cdot\uB) - \frac{1}{2c^2}\,\partial_t(\uE\cdot\uE) + \frac{4\pi G}{c^2}\,\uE\cdot\vJ_\mu .
+\end{align*}
+Take the real part and multiply by $-c^2/(4\pi G)$.
+\end{proof}
+
+In words, the energy $u$ in a small volume changes because energy flows out through its surface, carried by $\vS$, and because the field does work on the bodies inside, the right side. That the right side is indeed the work can be checked on one body: its power is $\vv\cdot\Re[\mu(\uE + \vv\times\uB)]$, and since $\vv\cdot(\vv\times\uB) = 0$ this is $\Re[\mu\,\vv\cdot\uE]$, which is $\Re[\uE\cdot\vJ_\mu]$ for that body. The energy balances exactly.
+
+\begin{proposition}[One Energy, Two Faces]\label{prop:un-two-faces}
+Opened into its coordinates, the energy density of \Cref{thm:un-energy} is
+\[
+u = -\frac{g^2 + c^2 B_g^2}{8\pi G} + \frac{E^2 + c^2 B^2}{8\pi K} :
+\]
+negative for the gravity part and positive for the Maxwell part.
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:un-real-product}, and with $\ve = -\vE/|\Gp|^2$,
+\[
+\Re[\uE\cdot\uE] = g^2 - |\Gp|^2 e^2 = g^2 - \frac{E^2}{|\Gp|^2} .
+\]
+Multiply by $-1/(8\pi G)$, use $G\,|\Gp|^2 = K$, and do the same for $\uB$.
+\end{proof}
+
+\begin{workedexample}[Worked example: the sizes of the two faces]
+At the surface of the Earth, $g = 9.81$ m/s$^2$ gives the gravity part an energy density of $-g^2/(8\pi G) = -5.74 \times 10^{10}$ J/m$^3$. An electric field of $100$ V/m, the fair-weather field of the open air, gives the Maxwell part $+E^2/(8\pi K) = +4.43 \times 10^{-8}$ J/m$^3$: the energy of Maxwell's theory, $\varepsilon_0 E^2/2$.
+\end{workedexample}
+
+The minus sign of the gravity part is the sign that stopped Maxwell in 1864: the energy of the field of gravitation is \enquote{less wherever there is a resultant gravitating force.} Here it needs no medium with an enormous energy of its own. It comes from the same minus sign of the Rule of the Square that makes like charges push apart, and one formula gives the two faces. For gravity at rest, the negative sign is correct: it is the energy of Newton's theory, the one that binds the planets to the Sun. For the waves of the gravity part, it is a known weakness of every theory of gravity written in Maxwell's form \citep[Section 7.2]{MTW1973}.
+
+\begin{theorem}[The Balance of Momentum]\label{thm:un-momentum}
+Let $\vf = \Re[\rho_\mu\uE + \vJ_\mu\times\uB]$ be the force on the matter in a unit volume and $\vp_f = \vS/c^2 = -\frac{1}{4\pi G}\Re[\uE\times\uB]$ the momentum of the field in a unit volume. Then $\vf + \partial_t\vp_f = \nabla\cdot T$, with the stress
+\[
+T_{ij} = -\frac{1}{4\pi G}\,\Re\Bigl[\mathcal{E}_i\mathcal{E}_j + c^2\mathcal{B}_i\mathcal{B}_j - \tfrac12\,\delta_{ij}\bigl(\uE\cdot\uE + c^2\,\uB\cdot\uB\bigr)\Bigr] .
+\]
+\end{theorem}
+
+\begin{proof}
+Replace the sources by (F1) and (F4), $\rho_\mu = -\nabla\cdot\uE/(4\pi G)$ and $\vJ_\mu = -\frac{c^2}{4\pi G}\nabla\times\uB + \frac{1}{4\pi G}\partial_t\uE$:
+\[
+\vf = -\frac{1}{4\pi G}\,\Re\bigl[\uE\,\nabla\cdot\uE + c^2(\nabla\times\uB)\times\uB - \partial_t\uE\times\uB\bigr] .
+\]
+By (F3), $\partial_t\uE\times\uB = \partial_t(\uE\times\uB) - \uE\times\partial_t\uB = \partial_t(\uE\times\uB) + \uE\times(\nabla\times\uE)$. Collecting terms, and adding $c^2\,\uB\,\nabla\cdot\uB = 0$ by (F2),
+\begin{align*}
+\vf + \partial_t\vp_f = -\frac{1}{4\pi G}\,\Re\bigl[\,&\uE\,\nabla\cdot\uE + (\nabla\times\uE)\times\uE\\
+&+ c^2\,\uB\,\nabla\cdot\uB + c^2(\nabla\times\uB)\times\uB\bigr] .
+\end{align*}
+For any field, $(\nabla\cdot\vF)\vF + (\nabla\times\vF)\times\vF$ is the divergence of $F_iF_j - \tfrac12\delta_{ij}F^2$, so the right side is the divergence of $T$.
+\end{proof}
+
+The momentum of the bodies and of the fields together changes only by what flows through the boundary; in a closed region far from all fields, the total is constant. This is what replaces Newton's third law. For two bodies at rest, $\Re(\mu_a\mu_b) = \Re(\mu_b\mu_a)$, so the forces are equal and opposite. For two moving bodies, the magnetic forces between them need not balance at each moment, as in Maxwell's theory; the difference is stored in the field, and the total momentum is still kept.
+
+\begin{plainwords}
+Three things are kept. Charge is kept exactly, and mass is kept as long as no energy leaves, which is why this law cannot weigh a fusion by itself. Energy is kept: what a field gives to the bodies it loses itself, and one formula counts the energy of gravity as negative and the energy of electric and magnetic fields as positive. Momentum is kept, provided the momentum of the fields is counted along with the momentum of the bodies.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 6: One Action}\label{sec:un-action}
+%------------------------------------------------
+
+A body could take many paths between two places. For each path, add up over time a quantity $L$, the Lagrangian; the sum $S = \int L\,dt$ is the \emph{action}. The path that the body takes is the one for which a small change of the path does not change the action, to first order, and the rule that says so is the equation of Euler and Lagrange,
+\[
+\frac{d}{dt}\frac{\partial L}{\partial\dot{\vx}} = \frac{\partial L}{\partial\vx} .
+\]
+
+\begin{workedexample}[Worked example: a falling ball]
+Take $L = \tfrac12 m\dot{y}^2 - m\,g\,y$, the energy of motion less the energy of height. The equation of Euler and Lagrange gives $m\ddot{y} = -mg$: free fall.
+\end{workedexample}
+
+The same rule can hold the whole law. Equations (F2) and (F3) are solved at once by two potentials with General Number values, $\Phi$ and $\cosA$:
+\[
+\uB = \nabla\times\cosA , \qquad \uE = -\nabla\Phi - \partial_t\cosA .
+\]
+Indeed (F2) is identity (a), and $\nabla\times\uE = -\nabla\times\partial_t\cosA = -\partial_t\uB$, because the curl of a gradient is zero.
+
+\begin{definition}[The Action of the Unified Law]\label{def:un-action}
+For bodies of cosmic masses $\mu$ and velocities $\vv$, in fields given by the potentials $\Phi$ and $\cosA$, the action is
+\begin{align*}
+S = \int dt\,\Bigl\{&\sum_{\text{bodies}}\Bigl[\tfrac12\Re(\mu)\,v^2 - \Re\bigl(\mu(\Phi - \vv\cdot\cosA)\bigr)\Bigr]\\
+&- \frac{1}{8\pi G}\int\Re\bigl[\uE\cdot\uE - c^2\,\uB\cdot\uB\bigr]\,dV\Bigr\} .
+\end{align*}
+\end{definition}
+
+\begin{theorem}[Everything from One Action]\label{thm:un-action}
+The action of Definition~\ref{def:un-action} is stationary
+\begin{enumerate}
+  \item under every small change of the path of a body, exactly when the body obeys the law of motion (M);
+  \item under every small change of $\Phi$, exactly when (F1) holds;
+  \item under every small change of $\cosA$, exactly when (F4) holds.
+\end{enumerate}
+Together with the potentials, which give (F2) and (F3), the action holds the whole of Law~\ref{law:unified}.
+\end{theorem}
+
+\begin{proof}
+(1) For one body, $L = \tfrac12 m v^2 - \Re(\mu\Phi) + \Re(\mu\,\vv\cdot\cosA)$. Then
+\begin{align*}
+\frac{\partial L}{\partial\vv} &= m\vv + \Re(\mu\cosA),\\
+\frac{d}{dt}\frac{\partial L}{\partial\vv} &= m\frac{d\vv}{dt} + \Re\bigl(\mu(\partial_t\cosA + (\vv\cdot\nabla)\cosA)\bigr),\\
+\frac{\partial L}{\partial\vx} &= -\Re(\mu\nabla\Phi) + \Re\bigl(\mu\nabla(\vv\cdot\cosA)\bigr).
+\end{align*}
+Setting the second line equal to the third, and using identity (d),
+\[
+m\frac{d\vv}{dt} = \Re\bigl[\mu\bigl(-\nabla\Phi - \partial_t\cosA + \vv\times(\nabla\times\cosA)\bigr)\bigr] = \Re\bigl[\mu(\uE + \vv\times\uB)\bigr] .
+\]
+(2) Change $\Phi$ by a small $\delta\Phi$; then $\delta\uE = -\nabla\delta\Phi$. Collecting the bodies into the density $\rho_\mu$, and integrating by parts in the second line,
+\begin{align*}
+\delta S &= \int\Re\Bigl[-\rho_\mu\,\delta\Phi + \frac{1}{4\pi G}\,\uE\cdot\nabla\delta\Phi\Bigr]dV\,dt\\
+&= -\int\Re\Bigl[\delta\Phi\Bigl(\rho_\mu + \frac{1}{4\pi G}\,\nabla\cdot\uE\Bigr)\Bigr]dV\,dt .
+\end{align*}
+This vanishes for every $\delta\Phi$ exactly when the bracket is zero, by statement~3 of Proposition~\ref{prop:un-real-product}: that is (F1).
+(3) Change $\cosA$ by a small $\delta\cosA$; then $\delta\uB = \nabla\times\delta\cosA$ and $\delta\uE = -\partial_t\delta\cosA$. After integrating by parts in time and in space,
+\[
+\delta S = \int\Re\Bigl[\delta\cosA\cdot\Bigl(\vJ_\mu + \frac{c^2}{4\pi G}\,\nabla\times\uB - \frac{1}{4\pi G}\,\partial_t\uE\Bigr)\Bigr]dV\,dt ,
+\]
+and statement~3 of Proposition~\ref{prop:un-real-product} again gives $\nabla\times\uB = -\frac{4\pi G}{c^2}\vJ_\mu + \frac{1}{c^2}\partial_t\uE$, which is (F4).
+\end{proof}
+
+\begin{figure}[tb]
+\myfloatalign
+\begin{tikzpicture}[>=Stealth, font=\footnotesize,
+    box/.style={draw=#1!60, fill=#1!8, rounded corners=2pt, text width=2.9cm, minimum height=1.05cm, align=center}]
+  \node[box=RoyalBlue] (t) at (4.2,2.0) {\textbf{one action} $S$\\ Definition~\ref{def:un-action}};
+  \node[box=Green] (a) at (0,0) {vary a path:\\ Newton and Lorentz, (M)};
+  \node[box=Maroon] (b) at (4.2,0) {vary $\Phi$:\\ Gauss and Newton, (F1)};
+  \node[box=Maroon] (c) at (8.4,0) {vary $\cosA$:\\ Amp\`ere and Maxwell, (F4)};
+  \node[box=gray] (d) at (4.2,-1.75) {the potentials themselves:\\ (F2) and (F3)};
+  \draw[->, thick, gray!70!black] (t) -- (a);
+  \draw[->, thick, gray!70!black] (t) -- (b);
+  \draw[->, thick, gray!70!black] (t) -- (c);
+\end{tikzpicture}
+\caption[One action]{One action and three ways to vary it (\Cref{thm:un-action}). Varying the path of a body gives its law of motion; varying the two potentials gives the two field equations with sources. The other two field equations hold for any potentials.}
+\label{fig:un-action}
+\end{figure}
+
+\Cref{fig:un-action} sums up the step. Opened with Proposition~\ref{prop:un-real-product}, the action is the sum of two known actions: the action of Newton's gravity with Heaviside's magnetic part, whose field term is $-\frac{1}{8\pi G}\int (g^2 - c^2B_g^2)\,dV$, and the action of Maxwell's theory, whose field term is $\frac{1}{8\pi K}\int (E^2 - c^2B^2)\,dV$ and whose charge term is $q(\vv\cdot\mathbf{A} - V)$, the source of Lorentz's force, with Maxwell's potentials $V$ and $\mathbf{A}$ equal to $-|\Gp|^2$ times the Composer coordinates of $\Phi$ and $\cosA$. The cosmic mass writes the two as one.
+
+\begin{plainwords}
+There is one quantity, the action, from which the whole law follows. Ask which path makes it least sensitive to small changes, and the answer is the law of motion. Ask which fields do the same, and the answer is the field equations. Gravity and electromagnetism were each known to come from an action of their own; here the two actions are the two parts of one, written with one number for each body.
+\end{plainwords}
+
+%------------------------------------------------
+\section{Step 7: One Program for Every Body}\label{sec:un-tests}
+%------------------------------------------------
+
+Since every body is one number and every field is one number at each point, the force on any body is one line,
+\[
+\vF = \sum_{\text{sources } s} \frac{G\,\Re(\mu\,\mu_s)}{r_s^2}\,\hat{\mathbf{u}}_s + \Re\bigl[\mu\,(\uE + \vv\times\uB)\bigr] ,
+\]
+the pull of each source at rest, along the unit vector $\hat{\mathbf{u}}_s$ toward it, and the force of the applied fields. The program that accompanies this chapter is this line and a step in time. Only the two numbers $m$ and $q$ change from one body to the next. The program multiplies each pair of General Numbers as arrows on the page, at the angle $\pb = 79.86^\circ$, lengths times lengths and angles plus angles, and reads the real part back in the leaning frame, so the angle enters every product.
+
+\begin{table}[tb]
+\myfloatalign
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.27\textwidth} r r@{}}
+\toprule
+\tableheadline{case} & \tableheadline{quantity} & \tableheadline{this law} & \tableheadline{standard} \\
+\midrule
+Thomson's tube & spot of the electron & $17.59$ mm & $17.59$ mm \\
+electron in $1$ T & turns per second & $2.7992 \times 10^{10}$ & $2.7992 \times 10^{10}$ \\
+proton in crossed fields & drift speed & $1000.000$ m/s & $E/B$ \\
+hydrogen, classical orbit & speed$/c$ & $0.0072974$ & $\alpha = 0.0072974$ \\
+hydrogen, at the radius $a_0$ & energy to free the electron & $13.598$ eV & $13.598$ eV \\
+the Moon, two bodies & period & $27.28$ days & $27.32$ days \\
+neutron in an electric field & force & $0$ & no charge seen \\
+Mars and Venus & field from their spin & $0$ & no global field \\
+deuteron and deuteron & electric push & full & full \\
+waves of either part & speed & $c$ & $c$ \\
+\bottomrule
+\end{tabularx}
+\caption[One law, many bodies]{One law, many bodies. The values of this law come from the program of this step. The standard values are measured, or, for Thomson's tube, the electron in $1$ T and the drift, given by the laws of Newton, Maxwell and Lorentz with measured constants. The hydrogen energy includes the motion of the proton and takes the radius $a_0$ from quantum theory; the Moon's period includes the motion of the Earth.}
+\label{tab:un-results}
+\end{table}
+
+\Cref{tab:un-results} collects the results. Each is a check on the reading rather than a discovery: where the law is Newton, Maxwell and Lorentz, it gives what they give. Two lines bear on the reading itself. Read by its shadow, the law of Chapter~\ref{ch:interaction} kept a share $\cos\pb$ of the Coupling term, which would give a neutron an apparent charge in an electric field (\Cref{subsec:test-sign}). Read by its real part, the Coupling term is no force, and a neutron goes straight between charged plates. In the same way, the spin of a neutral planet is a current of mass, not of charge: it makes only the field $\vB_g$ of gravity, and no magnetic field. Mars and Venus, whose cores run no dynamo, have no global magnetic field, as the spacecraft that visited them found. Two deuterons that fuse push each other with the full strength of Coulomb's law, as nuclear physics measures it, and not with $93.8\%$ of it.
+
+\begin{plainwords}
+One short program moves every body of this chapter: an electron in a tube, a proton in crossed fields, the Moon, the electron of hydrogen. The force on each is one line, the real part of its cosmic mass times the fields it feels, and only its mass and its charge change from one body to the next. The numbers come out as measured, because for slow bodies this law is the laws of Newton, Maxwell and Lorentz written as one.
+\end{plainwords}
