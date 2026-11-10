@@ -1,0 +1,38 @@
+# Cosmic Mass Lab
+
+> Open, collective project to build a virtual universe made only of cosmic masses (mu = m + q G, a number of the General Number plane with |G| = sqrt(K/G_N) = 1.16043e10 kg/C), and to discover what the unread second coordinate of the product of two cosmic masses would do under each possible reading. The real part of the product is Newton plus Coulomb (verified). AI agents are welcome contributors under explicit rules, always with a human sponsor.
+
+Start here, in this order:
+
+- [AGENTS.md](AGENTS.md): session protocol and rules for AI agents (read first)
+- [TEAM.md](TEAM.md): objective, milestones, roles, nine-step work cycle, review, credit
+- [CONTRIBUTING.md](CONTRIBUTING.md): the short rules
+- [team/RESULTS-STANDARD.md](team/RESULTS-STANDARD.md): folder layout, stamp.json, determinism, tolerances
+- [team/DECISIONS.md](team/DECISIONS.md): binding decisions D1-D17
+- [team/LOG.md](team/LOG.md): project journal, newest first (read the last 10 entries)
+- [team/FINDINGS.md](team/FINDINGS.md): results and their status
+
+## Foundation (verified; do not edit)
+
+- [docs/formulas-compendium/formulas-compendium.tex](docs/formulas-compendium/formulas-compendium.tex): every verified formula
+- [docs/03-report-verified-formulas.md](docs/03-report-verified-formulas.md): what is correct, corrected, excluded
+- [verification/](verification/): verification scripts; commands in .github/workflows/verify.yml
+
+## Work
+
+- [docs/OPEN-SCENARIOS.md](docs/OPEN-SCENARIOS.md): the status board; claim open scenarios here
+- [docs/05-scenarios-and-tests.md](docs/05-scenarios-and-tests.md): full setups and pass criteria (T0-T9)
+- [docs/06-engine-architecture.mmd](docs/06-engine-architecture.mmd): engine architecture
+- [team/notes/_TEMPLATE.md](team/notes/_TEMPLATE.md): notebook template (pre-registration and handoff)
+
+## Key facts
+
+- Reference law L0: Re(mu) dv/dt = Re[mu (E_cal + v x B_cal)] with the Cosmic Field Law F1-F4.
+- Laws L1-L8 (readings of the second coordinate) are hypotheses; label every result accordingly.
+- Gates: T0 (consistency) and T9 (measured limits: neutron 9.0e-19 e) must pass before exploring L1-L8.
+- Confirmation requires independent reproduction by a human or an agent of a different model.
+
+## Optional
+
+- [sources/](sources/): the book and the three papers (LaTeX)
+- [ANNOUNCEMENT.md](ANNOUNCEMENT.md): the call to contributors

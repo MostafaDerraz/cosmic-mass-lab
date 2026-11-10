@@ -1,43 +1,143 @@
+<div align="center">
+
 # Cosmic Mass Lab
 
-Working repository of Mostafa Derraz for the General Sinus, General Numbers and Cosmic Mass theory, and for the virtual-universe simulator built on them.
+### One number for every body. A universe to explore.
 
-| Folder | Content |
+**μ = m + q𝒢**
+
+[![Verify formulas](https://github.com/MostafaDerraz/cosmic-mass-lab/actions/workflows/verify.yml/badge.svg)](https://github.com/MostafaDerraz/cosmic-mass-lab/actions/workflows/verify.yml)
+[![Open scenarios](https://img.shields.io/badge/open%20scenarios-~50-blueviolet)](docs/OPEN-SCENARIOS.md)
+[![AI agents welcome](https://img.shields.io/badge/AI%20agents-welcome-success)](AGENTS.md)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-blue)](LICENSE)
+[![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey)](LICENSE)
+[![Cosmic Mass preprint](https://img.shields.io/badge/preprint-10.5281%2Fzenodo.24094855-informational)](https://doi.org/10.5281/zenodo.24094855)
+[![General Numbers preprint](https://img.shields.io/badge/preprint-10.5281%2Fzenodo.24091305-informational)](https://doi.org/10.5281/zenodo.24091305)
+
+**[Read the call](ANNOUNCEMENT.md)** · **[How the team works](TEAM.md)** · **[Open scenarios](docs/OPEN-SCENARIOS.md)** · **[For AI agents](AGENTS.md)**
+
+</div>
+
+---
+
+## In thirty seconds
+
+Physics describes every body twice, by its **mass** and by its **charge**, although Newton's gravity and Coulomb's electricity have exactly the same shape. Here each body carries **one number**, its *cosmic mass* `μ = m + q𝒢`, where `𝒢` is the leaning second unit of a *General Number* plane, of length `|𝒢| = √(K/G) = 1.16043 × 10¹⁰ kg/C`.
+
+```mermaid
+flowchart LR
+    A["body a<br/>μa = ma + qa𝒢"] --> P["product μa·μb<br/>(Rule of the Square:<br/>𝒢² = 2|𝒢|cosφ 𝒢 − |𝒢|²)"]
+    B["body b<br/>μb = mb + qb𝒢"] --> P
+    P --> R["Real part<br/>G·ma·mb − K·qa·qb<br/>= Newton + Coulomb ✔ verified"]
+    P --> C["Second coordinate<br/>ma·qb + qa·mb + 2|𝒢|cosφ·qa·qb<br/>= never read. Open."]
+```
+
+- **The real part is known physics,** verified: Newton plus Coulomb, and with fields, Maxwell, Lorentz and Newtonian gravity with its magnetic part.
+- **The second coordinate has never been measured.** We know it cannot be a full-strength force along the line: a neutron would look charged at 9 × 10⁻¹⁹ e, while experiments allow less than 10⁻²¹ e. Every other reading is open.
+
+**We are building a virtual universe made only of cosmic masses to find out what that second coordinate would do, reading by reading.**
+
+---
+
+## What you can do here today
+
+| If you are… | Start with | Time to first contribution |
+|---|---|---|
+| 🧑‍💻 **a developer** | **E1**: the algebra core (General Numbers, Rule of the Square, readings) with unit tests | an afternoon |
+| 🔭 **a physicist** | **T9.1**: reproduce the neutron limit 9.0 × 10⁻¹⁹ e from the formulas | a few hours |
+| 📐 **a mathematician** | the closed form and N⁻² rate of the General Sinus Transform; extend it to the other readings | open-ended |
+| 🤖 **an AI agent** | read [`AGENTS.md`](AGENTS.md), run the verification, claim **T0.3** or **T0.5** with your sponsor | one session |
+| 🕵️ **a sceptic** | try to break any formula in the [compendium](docs/formulas-compendium/formulas-compendium.pdf). Counterexamples are welcome | anytime |
+
+👉 Every task, with its setup and pass criteria, is on the **[open scenarios board](docs/OPEN-SCENARIOS.md)**.
+
+---
+
+## The questions we want the universe to answer
+
+- Do charged clouds around a neutral star **sort themselves by sign**?
+- Do planets **charge themselves up** until their mutual gravity fades?
+- Does a hydrogen atom stay bound, **precess or spiral** under each reading?
+- Is the universe simplest at a **frame angle of 90°**, where the angle term vanishes?
+- Which readings **conserve energy and momentum**, and which break the universe?
+
+Yes, no, or impossible: every answer is a result, and negative results are published too.
+
+---
+
+## Built to be trusted
+
+| | |
 |---|---|
-| `sources/book/` | *The Cosmic Mass, Volume 1*: LaTeX sources (build with `latexmk -pdf book.tex`) and the built PDF |
-| `sources/cosmic-mass-paper/` | Cosmic Mass paper, Zenodo version, doi:10.5281/zenodo.24094855 |
-| `sources/general-numbers-paper/` | General Numbers paper, Zenodo version, doi:10.5281/zenodo.24091305, and the Gazette version |
-| `sources/general-sinus-paper/` | General Sinus, revision 3 |
-| `verification/` | verification scripts for every source, with their latest outputs |
-| `docs/` | report on verified formulas, formulas compendium (LaTeX and PDF), scenarios and tests, engine architecture (Mermaid), general note |
-| `simulator/` | the virtual universe of cosmic masses (to be built; see `docs/05-scenarios-and-tests.md`) |
+| ✅ **Verified foundation** | 10,000+ automated checks of the mathematics; 106 of the physics; all run on every push ([CI](https://github.com/MostafaDerraz/cosmic-mass-lab/actions)) |
+| 📝 **Pre-registered predictions** | every run states its prediction before it starts |
+| 🔁 **Independent reproduction** | a finding is confirmed only when someone else, human or agent of a different model, re-runs it |
+| 🧾 **Stamped results** | every result carries its full settings, seed and engine commit ([results standard](team/RESULTS-STANDARD.md)) |
+| 🧭 **Clear governance** | roles, decisions and a shared memory ([TEAM.md](TEAM.md), [team/](team/)) |
+| 🏷️ **Honest labels** | every statement is marked as mathematics, measurement, or finding of the virtual universe |
 
-## Verification
+---
 
-Every push runs all verification scripts (GitHub Actions, `.github/workflows/verify.yml`).
+## Map of the repository
 
-| Script | Checks |
+```
+├── ANNOUNCEMENT.md      the call to explore
+├── TEAM.md              objective, roles, work cycle, review, credit
+├── AGENTS.md            session protocol and rules for AI agents
+├── CONTRIBUTING.md      the short rules
+├── llms.txt             machine-readable entry point for AI agents
+├── team/                shared memory: LOG, DECISIONS, FINDINGS, notebooks, results standard
+├── docs/                verified-formulas report, compendium (PDF), scenarios and tests, architecture
+├── engine/              the engine (milestone 1, open)
+├── scenarios/           one folder per scenario
+├── results/             stamped outputs, written by scripts only
+├── verification/        verification scripts for every source
+└── sources/             the book "The Cosmic Mass, Vol. 1" and the three papers (LaTeX)
+```
+
+---
+
+## Quick start
+
+```bash
+git clone https://github.com/MostafaDerraz/cosmic-mass-lab.git
+cd cosmic-mass-lab
+pip install -r requirements.txt
+cd verification/general-sinus && python verify_gsp.py     # 79 checks, about a minute
+```
+
+Then read [`TEAM.md`](TEAM.md), pick a scenario, and claim it.
+
+---
+
+## Status
+
+| Milestone | State |
 |---|---|
-| `verification/cosmic-mass/verify_cmt.py` | 106 |
-| `verification/general-numbers/verify_paper.py` | 204 |
-| `verification/general-numbers/book-algebra/verify_general_number_algebra.py` | 253 |
-| `verification/general-numbers/book-laws-test/test_general_number_laws.py` | 144 laws |
-| `verification/general-numbers/gazette-version/check_gazette.py` | 9,304 |
-| `verification/general-sinus/verify_gsp.py` | 79 |
+| Verified foundation (sources, compendium, CI) | ✅ done |
+| M1: engine and gates (E1–E4, T0, T9) | 🟢 **open, start here** |
+| M2: what can the coupling be? (T1, T2) | ⏳ waits for M1 |
+| M3–M5: angle, many bodies, motion, interactive universe | ⏳ planned |
 
-Run them locally with Python 3 and SymPy (`pip install sympy mpmath`), using the commands in the workflow file.
+The latest work is always in [`team/LOG.md`](team/LOG.md), and results in [`team/FINDINGS.md`](team/FINDINGS.md).
 
-## Join the project
+---
 
-This is an open, collective project for developers, physicists, mathematicians and AI agents. Start with:
+## The theory behind it
 
-- `ANNOUNCEMENT.md`: the call for contributors;
-- **`TEAM.md`: how the team works (objective, roles, reading order, work cycle, notes and handoffs)**;
-- `team/`: the shared memory (log, decisions, findings, scenario notebooks);
-- `CONTRIBUTING.md`: the rules;
-- `AGENTS.md`: the rules for AI agents;
-- `docs/OPEN-SCENARIOS.md`: the open scenarios board.
+- **General Sinus:** trigonometry of an oblique projection; under review.
+- **General Numbers:** the number plane beyond the right angle. Preprint: [10.5281/zenodo.24091305](https://doi.org/10.5281/zenodo.24091305).
+- **Mass and Charge as One General Number:** the cosmic mass and its field law. Preprint: [10.5281/zenodo.24094855](https://doi.org/10.5281/zenodo.24094855).
+- **The Cosmic Mass, Volume 1:** the book. Sources in [`sources/book/`](sources/book/).
 
-## Licence
+Scope, stated honestly: the field law covers **slow bodies**. It reproduces Newton, Coulomb, Maxwell and Lorentz, and it fails known tests of general relativity (frame dragging, light bending, wave energy). The lab explores the open second coordinate. It does not claim to replace general relativity.
 
-Code is under MIT and documents under CC BY 4.0 (see `LICENSE`). The book and papers in `sources/` remain the author's work, shared for reference. Some of them are under journal review or posted as preprints.
+---
+
+<div align="center">
+
+**Two laws with the same shape have waited three centuries for one number.<br/>That number has a second side that nobody has looked at. Come and look with us.**
+
+Founded by **Mostafa Derraz** · Code MIT · Docs CC BY 4.0 · [Contributors](CONTRIBUTORS.md)
+
+</div>
