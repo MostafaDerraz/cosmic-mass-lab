@@ -59,17 +59,60 @@ Committed before any code of these scenarios was written or run. No exploratory 
 See the pre-registration; stamped in the results.
 
 ## Progress (newest first)
+- 2026-11-10: wrote `third_law_residual` (E4.5), `t9_4`, `scenarios/T9.4/run.py` and `scenarios/Q/run.py` after the pre-registration commit `0fe33a2`. Production runs: T9.4, Q2 and Q3 on engine commit `e1a3165`; Q1 re-run on `b886db8` after the correction of its analysis (see "Changes to the plan"). `pytest`: 174 passed, 1 deselected.
 
 ## Results
-(to be filled after the production runs)
+Run ids: `results/T9.4/20261110-202255-e1a3165`, `results/Q1/20261110-202417-b886db8`, `results/Q2/20261110-202336-e1a3165`, `results/Q3/20261110-202336-e1a3165`. L1a is a **hypothesis** throughout. Status of everything here: `done`, to be reproduced independently.
+
+### T9.4: pass, as predicted
+Near a neutral Earth, under L1a (lambda = 1), the Composer force on a proton is 1.5124e-8 N towards the Earth and on an antiproton 1.5124e-8 N away from it; their sum is exactly 0. Each equals `s q g` to 2.2e-16 and is 1.11e18 times the weight, which is the same for both. Kind: the engine reproduces the book's statement "particle against antiparticle" under the hypothesis; no measurement is compared.
+
+### Q1: L1a with all its terms obeys Newton's third law; half of the Coupling term alone does not
+Mathematics (a property of the hypothesis L1a for bodies at rest), checked on four pairs:
+
+| Terms of L1a | Proton, electron | Proton, neutron | Two protons | Earth, proton |
+|---|---|---|---|---|
+| L0 (reference) | obeys | obeys (2.7e-16) | obeys | obeys |
+| all | obeys | obeys (1.4e-16) | obeys | obeys |
+| `-2 cos q E` (charge share) | obeys | obeys | obeys | obeys |
+| `s q g` alone | Composer residual 2.08e-26 N | 2.08e-26 N, the whole force | obeys | 1.51e-8 N, the whole force |
+| `-m E/s` alone | Composer residual 2.08e-26 N | 2.08e-26 N, the whole force | obeys | 1.51e-8 N, the whole force |
+
+- Every residual equals the prediction `s G |q_a m_b - q_b m_a| / r^2` to 1e-9, and every "obeys" is at rounding.
+- **Limit of the measurement:** for proton and electron the residual of the single-term options is real but 18 orders below the Coulomb force; it shows in the Composer forces alone, not in the total force (see "Changes to the plan").
+- **Correction of my own earlier statement.** `team/notes/T1.4.md` and the description of pull request #11 said that under L1a "the Coupling term does not obey Newton's third law". That is true only of each half of the Coupling term taken alone (options L5a and L5b). With all terms, as in the demo, L1a obeys the third law exactly, because `mu_a mu_b = mu_b mu_a`. The sentence is corrected in `team/notes/T1.4.md` in this pull request. The demo's numbers are not affected (its momentum drift, 3.3e-15, is what an exact third law gives).
+
+### Q2: candidate B is conserved under L1a; the L0 energy is not
+Mathematics about the hypothesis, checked numerically on four runs (end drift / largest excursion, D21 as refined):
+
+| Run | A: L0 energy | B: the same sum read with L1a | Steps |
+|---|---|---|---|
+| i: pair, lambda = 1 | 0.44 / 0.50 | **3.3e-7 / 4.1e-7** | 10,823 |
+| ii: pair, lambda = 0.3, sign - | 2.5e-4 / 0.045 | **4.7e-10 / 9.1e-8** | 39,090 |
+| iii: pair, lambda = 1, 120 deg | 5.4e-4 / 4.0 | **4.0e-9 / 3.1e-7** | 101,863 |
+| iv: 12 bodies, lambda = 0.2, scaled | 1.1e-3 / 1.1e-3 | **9.8e-9 / 9.8e-9** | 3,000 |
+
+- B, `kinetic - G sum [Re(mu_a mu_b) + lambda s Com(mu_a mu_b)] / r`, stays within 4.1e-7 in all four runs, the level at which velocity Verlet keeps any energy on these orbits. A does not.
+- **Compared with the prediction:** B as predicted (end drift below 1e-6, excursion below 1e-5). For A, I predicted swings of "tens of percent" in (i) to (iii): true for (i) (50%) and (iii) (a factor 4), **not for (ii)**, where the swing is 4.5%; with lambda = 0.3 the reading changes the pull less. In (iv) A changes by 0.11%, which is 100,000 times more than B but small in itself.
+- A computed by the script equals the engine's own L0 energy to rounding in all four runs, so the script reads the time series correctly.
+- **What this establishes:** numerically, for L1a with all terms, static sources and inertia `Re(mu)`, B is the conserved energy. **What it does not:** B is not in the compendium. It is not added to `energy.py`; adopting it is a derivation for the physics lead to approve (`AGENTS.md`, rule 7). The argument is one line (the pair force of L1a is `-G [Re + lambda s Com](mu_a mu_b) e_r / r^2`, central and symmetric by Q1, so its work is B), and Q2 is the numerical check of that line. It does not cover the single-term options (not reciprocal, Q1), nor moving sources with `B_cal`.
+
+### Q3: the value of `K` changes no verdict
+With the CODATA 2018 value instead of the 2022 one, `K` changes by 6.8e-10 and `s`, the Bohr period, the two-proton separation, `q_eff` of T9.1 and the field of T9.3 each change by 3.4e-10 to 3.5e-10, as predicted. The verdicts of T0.1b, T9.1 and T9.3 are the same with both values. The question of `team/notes/E1.md` is therefore harmless at every tolerance the project uses (the tightest is 1e-6); the table of `docs/05` can simply be aligned with the verified constants.
 
 ## Convergence
-(to be filled)
+Not studied as such. Q2 gives the same answer at three strengths, two frame angles, two unit systems and 2 or 12 bodies, with step counts from 3,000 to 101,863. T9.4, Q1 and Q3 evaluate forces or formulas once.
 
 ## Open questions
+Questions of the MVP that a run cannot answer, and that stay with the maintainer:
+- Approve (or not) candidate B of Q2 as the energy of L1a in `energy.py`. If approved, T2 (the survival table) can classify L1a with all terms as conserving.
+- The meaning of "radial" for L1a (taken as "along the field") and the names of the three terms of L5: definitions, not measurable.
+- `c` and `e` in scaled units (D7 fixes only `G_N` and `K`).
+- Whether T0.1a and T0.1b should be judged against the analytic period instead of the rounded reference values.
+- T9.2 (hydrogen, 5.71 eV) is still open; it needs a definition of "binding energy" under a reading, for which B of Q2 is the natural candidate.
 
 ## Handoff (fill in if you stop before finishing)
-- State:
-- What works:
-- What does not:
-- Exact next step:
+- State: delivered as a pull request, status `done`, to be reproduced.
+- What works: T9.4, E4.5, Q1 to Q3.
+- What does not: nothing known.
+- Exact next step: P4 (JSON schemas), P5 (scenario scaffold) and P7 (lint), which the sponsor also asked for and which are not done in this pull request.
