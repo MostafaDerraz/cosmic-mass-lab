@@ -27,6 +27,15 @@ Every push runs all verification scripts (GitHub Actions, `.github/workflows/ver
 
 Run them locally with Python 3 and SymPy (`pip install sympy mpmath`), using the commands in the workflow file.
 
-## Status
+## Join the project
 
-This repository is private. The papers are under review or posted as preprints; do not redistribute without the author's permission.
+This is an open, collective project for developers, physicists, mathematicians and AI agents. Start with:
+
+- `ANNOUNCEMENT.md`: the call for contributors;
+- `CONTRIBUTING.md`: the rules;
+- `AGENTS.md`: the rules for AI agents;
+- `docs/OPEN-SCENARIOS.md`: the open scenarios board.
+
+## Licence
+
+Code is under MIT and documents under CC BY 4.0 (see `LICENSE`). The book and papers in `sources/` remain the author's work, shared for reference. Some of them are under journal review or posted as preprints.
