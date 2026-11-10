@@ -77,7 +77,7 @@ Rules for every row:
 | MVP-7 | PR open | [#8](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/8) | E7.1 to E7.3, E8.1, E9 (L0 part) done 2026-11-10: 152 tests pass; no checkpoints yet |
 | MVP-8 | PR open | [#9](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/9) | T0.1 to T0.5 pass on engine commit `91ba4ae` (status `done`, to be reproduced); fast gate in `engine/gates/`; the four questions were answered by the maintainer (D21) |
 | MVP-9 | PR open | [#10](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/10) | L1a (hypothesis); T9.1 gives -9.009e-19 e, T9.3 gives 1.1380e11 V/m, on engine commit `2baf36f` (status `done`, to be reproduced) |
-| MVP-10 | PR open | (link added in the next commit) | demo `python scenarios/T1.4/run.py` (exploratory), README "Try it", `CHANGELOG.md`, version 0.1.0; the tag `v0.1.0` is proposed, not created |
+| MVP-10 | PR open | [#11](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/11) | demo `python scenarios/T1.4/run.py` (exploratory), README "Try it", `CHANGELOG.md`, version 0.1.0; the tag `v0.1.0` is proposed, not created |
 
 States: `open`, `in progress`, `PR open` (with link), `merged`, `blocked` (with reason).
 
