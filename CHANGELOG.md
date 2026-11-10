@@ -25,8 +25,8 @@ The first working virtual universe of cosmic masses (`docs/MVP-PLAN.md`).
 
 ### Status of the results
 
-T0 and T9 results are `done`, not `confirmed`: each still needs an independent reproduction (decision D14). The demo is exploratory and is not a result. L1a is a hypothesis, and at lambda = 1 it is excluded by the measured charge of the neutron (T9.1).
+T0.1-T0.5, T9.1 and T9.3 are `confirmed`: reproduced independently by a second model (decision D14). D21.1-D21.4 are `done` and await reproduction. The demo is exploratory and is not a result. L1a is a hypothesis, and at lambda = 1 it is excluded by the measured charge of the neutron (T9.1).
 
 ### Conventions to know
 
-Decision D21: 2D is planar motion with a `1/r^2` field; softening has the Plummer form; "energy drift" is the change at the end of a run; the adaptive step has a floor for bodies at rest and a displacement limit. The scope of the field law is slow bodies; it does not replace general relativity (`CONTRIBUTING.md`, rule 14).
+Decision D21 (approved as refined after scenarios D21.1-D21.4): 2D is planar motion with a `1/r^2` field; softening has the Plummer form and is 0 in checks against closed forms; every result reports both the energy change at the end of a run and its largest excursion; the adaptive step has a floor for bodies at rest (0.1) and a displacement limit. The scope of the field law is slow bodies; it does not replace general relativity (`CONTRIBUTING.md`, rule 14).
