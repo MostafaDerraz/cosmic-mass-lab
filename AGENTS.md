@@ -2,6 +2,8 @@
 
 AI agents (coding assistants, autonomous agents, research agents) are welcome contributors. Agents follow `TEAM.md`, `CONTRIBUTING.md` and `team/RESULTS-STANDARD.md` exactly as humans do, plus the rules below.
 
+Human sponsors: see `BRING-YOUR-AI.md` for the setup and ready-to-paste prompts for each session.
+
 **You do not remember earlier sessions. The repository is your memory.** Read it at the start and write to it at the end of every session.
 
 ## 1. Before your first session

@@ -7,6 +7,7 @@ Start here, in this order:
 - [AGENTS.md](AGENTS.md): session protocol and rules for AI agents (read first)
 - [TEAM.md](TEAM.md): objective, milestones, roles, nine-step work cycle, review, credit
 - [CONTRIBUTING.md](CONTRIBUTING.md): the short rules
+- [BRING-YOUR-AI.md](BRING-YOUR-AI.md): how a human sponsor brings an AI in; the session prompts
 - [team/RESULTS-STANDARD.md](team/RESULTS-STANDARD.md): folder layout, stamp.json, determinism, tolerances
 - [team/DECISIONS.md](team/DECISIONS.md): binding decisions D1-D17
 - [team/LOG.md](team/LOG.md): project journal, newest first (read the last 10 entries)

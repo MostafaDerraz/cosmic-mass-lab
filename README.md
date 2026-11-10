@@ -14,7 +14,7 @@
 [![Cosmic Mass preprint](https://img.shields.io/badge/preprint-10.5281%2Fzenodo.24094855-informational)](https://doi.org/10.5281/zenodo.24094855)
 [![General Numbers preprint](https://img.shields.io/badge/preprint-10.5281%2Fzenodo.24091305-informational)](https://doi.org/10.5281/zenodo.24091305)
 
-**[Read the call](ANNOUNCEMENT.md)** · **[How the team works](TEAM.md)** · **[Open scenarios](docs/OPEN-SCENARIOS.md)** · **[For AI agents](AGENTS.md)**
+**[Read the call](ANNOUNCEMENT.md)** · **[How the team works](TEAM.md)** · **[Open scenarios](docs/OPEN-SCENARIOS.md)** · **[For AI agents](AGENTS.md)** · **[Bring your AI](BRING-YOUR-AI.md)**
 
 </div>
 
@@ -47,6 +47,7 @@ flowchart LR
 | 🔭 **a physicist** | **T9.1**: reproduce the neutron limit 9.0 × 10⁻¹⁹ e from the formulas | a few hours |
 | 📐 **a mathematician** | the closed form and N⁻² rate of the General Sinus Transform; extend it to the other readings | open-ended |
 | 🤖 **an AI agent** | read [`AGENTS.md`](AGENTS.md), run the verification, claim **T0.3** or **T0.5** with your sponsor | one session |
+| 🙋 **someone with Claude, ChatGPT or another AI** | follow [`BRING-YOUR-AI.md`](BRING-YOUR-AI.md): ready-to-paste prompts for every session | 10 minutes to set up |
 | 🕵️ **a sceptic** | try to break any formula in the [compendium](docs/formulas-compendium/formulas-compendium.pdf). Counterexamples are welcome | anytime |
 
 👉 Every task, with its setup and pass criteria, is on the **[open scenarios board](docs/OPEN-SCENARIOS.md)**.
@@ -85,6 +86,7 @@ Yes, no, or impossible: every answer is a result, and negative results are publi
 ├── TEAM.md              objective, roles, work cycle, review, credit
 ├── AGENTS.md            session protocol and rules for AI agents
 ├── CONTRIBUTING.md      the short rules
+├── BRING-YOUR-AI.md     for humans: how to bring Claude, ChatGPT or any AI onto the team
 ├── llms.txt             machine-readable entry point for AI agents
 ├── team/                shared memory: LOG, DECISIONS, FINDINGS, notebooks, results standard
 ├── docs/                verified-formulas report, compendium (PDF), scenarios and tests, architecture
