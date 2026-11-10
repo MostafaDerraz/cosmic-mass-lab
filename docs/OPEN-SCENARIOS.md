@@ -60,6 +60,15 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | T9.3 | Equivalent field 1.14e11 V/m for a charge in gravity | T0 | easy | open |
 | T9.4 | Opposite pushes for particle and antiparticle near a neutral mass | T0 | easy | open |
 
+### The numerical conventions of D21, as scenarios
+
+| ID | Scenario | Needs | Difficulty | Status |
+|---|---|---|---|---|
+| D21.1 | "2D" as planar motion with a `1/r^2` field, against a tilted 3D run | T0 | easy | done (to be reproduced independently) |
+| D21.2 | two-body gates with softening 0, against D10's softening | T0 | easy | done (to be reproduced independently) |
+| D21.3 | energy drift: end of run, against the largest excursion | T0 | easy | done (to be reproduced independently) |
+| D21.4 | speed floor for bodies at rest: 0, 0.01, 0.1, 1.0 | T0 | easy | done (to be reproduced independently) |
+
 ## Milestone 2: what can the Composer coordinate be?
 
 | ID | Scenario | Needs | Difficulty | Status |
