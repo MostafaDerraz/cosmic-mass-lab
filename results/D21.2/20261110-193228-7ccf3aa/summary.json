@@ -1,0 +1,43 @@
+{
+  "cases": {
+    "a, softening 0": {
+      "energy_drift": 1.65222552462493e-14,
+      "passes_T0.1_criterion_0.1pct": true,
+      "period_error_vs_analytic": 3.333383389314548e-07
+    },
+    "a, softening D10": {
+      "energy_drift": 3.8128319465789245e-15,
+      "passes_T0.1_criterion_0.1pct": true,
+      "period_error_vs_analytic": 3.333342113220894e-06
+    },
+    "b, softening 0": {
+      "energy_drift": 1.9437120573963896e-15,
+      "passes_T0.1_criterion_0.1pct": true,
+      "period_error_vs_analytic": 3.333383056247641e-07
+    },
+    "b, softening D10": {
+      "energy_drift": 1.820023110129273e-14,
+      "passes_T0.1_criterion_0.1pct": true,
+      "period_error_vs_analytic": 3.333342130096284e-06
+    },
+    "c, softening 0": {
+      "passes_T0.1c_criterion_1e-6": true,
+      "separation_error": 3.815981308719074e-07,
+      "signed_error_eta": 3.815981308719074e-07,
+      "signed_error_eta_half": 9.552198787510235e-08
+    },
+    "c, softening D10": {
+      "passes_T0.1c_criterion_1e-6": true,
+      "separation_error": 1.226982777602359e-07,
+      "signed_error_eta": -1.226982777602359e-07,
+      "signed_error_eta_half": -4.0877407336825655e-07
+    },
+    "initial force factor with D10 softening": {
+      "value": 0.9999985000018751
+    }
+  },
+  "explanation": "Prediction partly wrong: T0.1c passes with D10's softening, with a smaller error at eta = 1e-3 (1.23e-07 against 3.82e-07). Halving the step shows why: without softening the error falls as the step squared (+3.82e-07 -> +9.55e-08), towards the closed form; with softening it grows (-1.23e-07 -> -4.09e-07), towards a different answer, because softening changes the force law. The smaller error was a cancellation. The orbits' period error is ten times larger with softening (3.3e-6 against 3.3e-7). So gates compared with closed forms run with softening 0; D10's softening stays for many-body runs.",
+  "prediction": "orbits pass either way; T0.1c likely fails with D10 softening (prediction failed: it passes)",
+  "scenario": "D21.2",
+  "verdict": "supports D21 (2)"
+}
