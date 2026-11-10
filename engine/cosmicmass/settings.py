@@ -10,6 +10,7 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .environment import Environment
 from .frame import DEFAULT_PHI_BAR_DEG, Frame
 from .laws import Law, LawSpec, make_law
 from .matter import PRESETS, CosmicMass
@@ -19,8 +20,10 @@ __all__ = ["Settings", "SettingsError", "load_settings"]
 
 # decision D10: velocity Verlet, adaptive step, softening 1e-3 of the smallest separation
 _NUMERICS = {"integrator": "verlet", "adaptive": True, "dt_initial": None, "softening": None,
-             "softening_fraction": 1e-3, "steps": None, "t_end": None, "seed": 0}
-_UNIVERSE = {"phi_bar_deg": None, "dimension": 2, "units": "SI", "boundary": "open", "background": "none"}
+             "softening_fraction": 1e-3, "eta": 1e-3, "dt_min": 0.0, "dt_max": None,
+             "steps": None, "t_end": None, "seed": 0}
+_UNIVERSE = {"phi_bar_deg": None, "dimension": 2, "units": "SI", "boundary": "open", "background": "none",
+             "box": None}
 _TOP = {"scenario", "universe", "law", "bodies", "numerics", "kind", "preregistered", "producer"}
 _BODY = {"preset", "name", "m", "q", "x", "v", "fixed"}
 
@@ -116,6 +119,15 @@ def load_settings(source) -> Settings:
                 raise SettingsError(f"'universe.background.{key}' must be {shape}")
     if universe["boundary"] not in ("open", "reflecting"):
         raise SettingsError("'universe.boundary' must be 'open' or 'reflecting' in the MVP")
+    if universe["boundary"] == "reflecting":  # the box: its lower and upper corners
+        box = universe["box"]
+        _known(box if box is not None else 0, ("lower", "upper"), "universe.box")
+        try:
+            Environment("reflecting", box.get("lower"), box.get("upper"))
+            assert len(box["lower"]) == universe["dimension"]
+        except (ValueError, TypeError, AssertionError):
+            raise SettingsError(f"'universe.box' needs 'lower' and 'upper', lists of {universe['dimension']} "
+                                "numbers with lower < upper") from None
 
     try:
         law_spec = LawSpec.from_dict(data.get("law", {"id": "L0"}))

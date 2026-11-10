@@ -146,7 +146,8 @@ def test_blocks_and_speed_for_a_thousand_bodies_in_2D(monkeypatch):
 
 def test_settings_accept_backgrounds_and_boundaries():
     base = {"scenario": "x", "bodies": [{"preset": "proton", "x": [0.0, 0.0]}]}
-    s = load_settings({**base, "universe": {"background": {"g": [0.0, -9.81], "b": 1e-20}, "boundary": "reflecting"}})
+    s = load_settings({**base, "universe": {"background": {"g": [0.0, -9.81], "b": 1e-20}, "boundary": "reflecting",
+                                           "box": {"lower": [-1, -1], "upper": [1, 1]}}})
     assert s.universe["background"] == {"g": [0.0, -9.81], "b": 1e-20} and s.universe["boundary"] == "reflecting"
     for bad, named in [({"background": {"g": [1.0]}}, "background.g"), ({"background": {"b": [1.0, 0.0]}}, "background.b"),
                        ({"background": {"wind": 1}}, "wind"), ({"background": "strong"}, "background"),

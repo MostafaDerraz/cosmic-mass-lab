@@ -57,15 +57,15 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | l0 | `engine/cosmicmass/laws/l0.py` | E4.2 | implemented | reference law L0: `Re(mu) dv/dt = Re[mu (E_cal + v x B_cal)]` |
 | l1 | `engine/cosmicmass/laws/l1.py` | E4.3 | planned | readings L1a-L1e of the Composer coordinate |
 | modifiers | `engine/cosmicmass/laws/modifiers.py` | E4.4 | planned | L2 sign, L3 strength, L4 direction, L5 terms, L6 moving bodies, L7 inertia, L8 range |
-| integrators | `engine/cosmicmass/integrators.py` | E3.1 | planned | velocity Verlet, Boris, adaptive time step (D10) |
-| environment | `engine/cosmicmass/environment.py` | E6 | planned | walls (reflecting, absorbing with collection), wrap-around, inflow, heat bath, fixed sources |
+| integrators | `engine/cosmicmass/integrators.py` | E3.1 | in-progress | `VelocityVerlet` with the adaptive time step of D10, `StepContext` (law, solver, frame, numerics); Boris (E3.2) and the inertia readings (E3.4) not yet |
+| environment | `engine/cosmicmass/environment.py` | E6 | in-progress | `Environment`: reflecting walls (the velocity is turned back, the body is not moved, the impulse on each wall is reported); absorbing walls, wrap-around, inflow, heat bath not yet |
 | diagnostics | `engine/cosmicmass/diagnostics.py` | E8.1 | planned | conservation of mass, charge, energy (`Re`, `Com`), momentum; pressure; temperature |
 | energy | `engine/cosmicmass/energy.py` | E9 | planned | energy of the cosmic field and of the bodies, in both coordinates |
 | runner | `engine/cosmicmass/runner.py` | E7.1 | planned | `run(settings) -> RunResult`: the time loop, checkpoints, outputs |
 | stamp | `engine/cosmicmass/stamp.py` | E7.2 | planned | run id, engine commit, T0 status, `stamp.json`, `summary.json`, `timeseries.csv` |
 | convergence | `engine/cosmicmass/analysis/convergence.py` | E8.2 | planned | re-run at `dt/2`, `dt/4` and other particle counts; relative changes |
 | plots | `engine/cosmicmass/analysis/plots.py` | E8.3 | planned | standard figures: Real and Composer planes, drifts, sweeps |
-| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2), `test_gnarray.py` (E1.3), `test_readings_matter.py` (E1.4, E1.5), `test_compendium.py` (E1.6), `test_state_laws.py` (E5.1, E4.1, E4.2), `test_settings.py` (E5.3), `test_fields.py` (E2.1, E2.3, E2.4) |
+| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2), `test_gnarray.py` (E1.3), `test_readings_matter.py` (E1.4, E1.5), `test_compendium.py` (E1.6), `test_state_laws.py` (E5.1, E4.1, E4.2), `test_settings.py` (E5.3), `test_fields.py` (E2.1, E2.3, E2.4), `test_integrators.py` (E3.1, E3.3, E6a; one test marked `slow`) |
 | gatetests | `engine/gates/` | G1 | planned | fast T0 gate run in CI on every pull request |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | scaffold | `tools/new_scenario.py` | P5 | planned | creates `scenarios/<ID>/`, settings, notebook and a registry row |
@@ -188,6 +188,8 @@ flowchart TB
     plots --> diagnostics
     integrators --> fields
     integrators --> lawbase
+    integrators --> state
+    settings --> environment
     diagnostics --> energy
     energy --> fields
     environment --> state
@@ -328,6 +330,16 @@ classDiagram
         +ndarray real
         +ndarray composer
     }
+    class StepContext {
+        +Law law
+        +FieldSolver solver
+        +Frame frame
+        +float eta
+        +float dt_min
+        +float dt_max
+        +acceleration(state) ndarray
+        +invalidate()
+    }
     class Integrator {
         <<interface>>
         +step(state, dt, context) State
@@ -360,6 +372,7 @@ classDiagram
     Law ..> Readings : uses
     Integrator ..> Law : uses
     Integrator ..> FieldSolver : uses
+    Integrator ..> StepContext : uses
     Runner --> Integrator
     Runner --> Environment
     Runner --> Diagnostics
@@ -598,6 +611,13 @@ def load_settings(source: Path | str | dict) -> Settings: ...
 class Integrator(Protocol):
     def next_dt(self, state: State, ctx: StepContext) -> float: ...
     def step(self, state: State, dt: float, ctx: StepContext) -> State: ...
+# StepContext(law, solver, frame, eta=1e-3, dt_min=0.0, dt_max=inf): acceleration(state) is force / inertia
+#   for moving bodies and zero for fixed or absorbed ones; it remembers the last result, so call
+#   invalidate() after changing a state outside the integrator (for example after a wall acted)
+
+# environment.py
+class Environment:      # Environment(boundary="open" | "reflecting", lower=None, upper=None)
+    def apply(self, state: State, dt: float, rng=None) -> list: ...   # acts in place; one event per wall hit
 
 # runner.py
 def run(settings: Settings, out_root: Path = Path("results")) -> RunResult: ...
@@ -613,6 +633,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-10 | MVP-6: integrator and walls (`E3-integrator`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `integrators.py` in progress (velocity Verlet, adaptive step) and `environment.py` in progress (reflecting walls); section 4: `integrators` uses `state`, `settings` uses `environment`; section 5: `StepContext` added; section 10: `StepContext` and `Environment` signatures written out (additions) |
 | 2026-11-10 | MVP-5: static field solver and backgrounds (`E2-fields`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `fields/direct.py` in progress (static part, softening, backgrounds; E2.2 not yet); section 4: `fields` uses `state` and `constants` (the edge to `gnarray` is gone: the solver returns a `FieldSample`); sections 5 and 10: `at_bodies(state)` added next to `sample(state, points)`; the second field has shape `(P, 3)` in 3D |
 | 2026-11-10 | MVP-4: state, minimal settings, law interface, L0 (`E4-l0`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `state.py`, `laws/base.py`, `laws/l0.py` implemented; `settings.py` in progress (minimal); **new module** `fields/sample.py` (`FieldSample`, `FieldSolver`), with its node and edges in section 4; section 5: `LawSpec.moving` is a string (L6 has three options), methods as built; section 10: `Law` is a base class with the same members, `make_law` and `load_settings` added |
 | 2026-11-10 | E1.3 to E1.6: arrays, readings, matter, compendium tests (`E1b-arrays-readings`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `gnarray.py`, `readings.py`, `matter.py` implemented (registry, section 4 nodes no longer planned); section 5: `GNArray` and `CosmicMass` as built (`mu(frame)` takes the frame); section 10: `GNArray.mul` accepts scalars and arrays too, and the signatures of the readings and of `CosmicMass` are added (no existing contract broken) |

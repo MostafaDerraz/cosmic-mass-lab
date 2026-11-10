@@ -40,4 +40,5 @@ version = { attr = "cosmicmass.__version__" }
 [tool.pytest.ini_options]
 minversion = "7.0"
 testpaths = ["engine/tests"]
-addopts = "-ra"
+addopts = "-ra -m 'not slow'"
+markers = ["slow: long runs, excluded by default; run them with: pytest -m slow"]

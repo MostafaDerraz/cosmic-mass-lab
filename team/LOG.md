@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-6 (E3.1, E3.3, E6a reflecting)
+- Did: wrote `engine/cosmicmass/integrators.py` (`StepContext`, `VelocityVerlet` with the adaptive step of D10) and `environment.py` (reflecting walls); added `universe.box`, `numerics.eta`, `dt_min`, `dt_max` to the settings; `test_integrators.py` (13 new tests, one marked `slow`). Opened the notebook `team/notes/MVP-6.md`; updated the board and the MVP checklist.
+- Result: `pytest` gives 139 passed and 1 deselected, coverage 100%. Kepler orbit over 1000 periods (6,283,001 steps, run once by hand with `pytest -m slow`): largest energy excursion 3.9e-13, period within 3.3e-7. Checks of the engine against the two-body problem under L0 (mathematics); no finding.
+- Next: MVP-7 (runner, stamp, command line, diagnostics, L0 energy) on `E7-runner`, cut from this branch.
+- Blocked by / questions: three assumptions for the maintainer, in the notebook: the meaning of "energy drift" (net change or largest excursion: an e = 0.9 orbit swings by 3.7e-6 at pericentre with D10's eta = 1e-3); the floor of the speed for bodies at rest; the displacement limit of the adaptive step.
+- Architecture: updated (sections 2, 4, 5, 10, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-5 (E2.1, E2.3, E2.4)
 - Did: wrote `engine/cosmicmass/fields/direct.py` (`DirectSum`: static `g` and `e`, Plummer softening, no self-field, uniform backgrounds, NumPy blocks, 2D and 3D); extended `settings.py` for backgrounds; `test_fields.py` (13 new tests). Opened the notebook `team/notes/MVP-5.md`; updated the board and the MVP checklist.
 - Result: `pytest` gives 128 passed, coverage 100%. T0.5 as a unit test: one proton gives `E = -s^2 e = K e/r^2` to 1e-12 (asked 1e-6). Mathematics from the compendium; no finding.
