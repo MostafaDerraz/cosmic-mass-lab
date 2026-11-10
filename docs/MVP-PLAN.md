@@ -69,7 +69,7 @@ Rules for every row:
 | # | State | Pull request | Notes |
 |---|---|---|---|
 | MVP-1 | PR open | [#2](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/2) | E1.1 and E1.2 done 2026-11-10: 28 tests pass |
-| MVP-2 | open | | |
+| MVP-2 | PR open | (link added in the next commit) | E1.3 to E1.6 done 2026-11-10: 64 tests pass |
 | MVP-3 | open | | |
 | MVP-4 | open | | |
 | MVP-5 | open | | |

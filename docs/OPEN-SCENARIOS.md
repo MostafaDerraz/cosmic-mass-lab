@@ -39,7 +39,7 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 
 | ID | Scenario | Needs | Difficulty | Status |
 |---|---|---|---|---|
-| E1 | Algebra core: General Numbers, Rule of the Square, readings Re, Com, Sh, Ht, abs, with unit tests against the compendium | none | easy | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz): E1.1 and E1.2 delivered; E1.3 to E1.6 to do |
+| E1 | Algebra core: General Numbers, Rule of the Square, readings Re, Com, Sh, Ht, abs, with unit tests against the compendium | none | easy | done |
 | E2 | Field solver: F1-F4 in both coordinates (direct sum for N up to 1e3, grid optional) | E1 | medium | open |
 | E3 | Integrator: Verlet and Boris, adaptive step, settings stamp | E1 | medium | open |
 | E4 | Law plug-in interface: L0-L8 as switchable readings | E1-E3 | medium | open |

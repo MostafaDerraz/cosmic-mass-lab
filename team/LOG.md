@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-2 (E1.3 to E1.6)
+- Did: wrote `engine/cosmicmass/gnarray.py` (E1.3), `readings.py` (E1.4), `matter.py` (E1.5) and the tests `test_gnarray.py`, `test_readings_matter.py`, `test_compendium.py` (E1.6); 36 new tests. Updated the notebook `team/notes/E1.md`, the board (E1 `done`) and the MVP checklist.
+- Result: `pytest` gives 64 passed, coverage 100% of `engine/cosmicmass`. Arrays agree with scalars to 1e-15 on 10,000 values; the product `mu E_cal` matches the compendium in both coordinates; `Re(mu_a mu_b)` is the same number at every frame angle. Mathematics from the compendium; no finding of the virtual universe.
+- Next: MVP-3 (P2, CI runs pytest) on `P2-ci-tests`, cut from `main`; then MVP-4 on `E4-l0`, cut from this branch.
+- Blocked by / questions: none new. `Com(z)` returns the coordinate `b`, and `CosmicMass.mu(frame)` takes the frame (see the notebook).
+- Architecture: updated (sections 2, 4, 5, 10, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-1 (E1.1, E1.2)
 - Did:
   - read `docs/MVP-PLAN.md` and decision D20; took the MVP sequence as one claim;

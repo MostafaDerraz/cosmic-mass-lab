@@ -43,9 +43,9 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | constants | `engine/cosmicmass/constants.py` | E1.1 | implemented | `Constants(G_N, K, c, e, units)` with derived `s = sqrt(K/G_N)` and Stoney mass; the sets `SI` (CODATA 2022) and `SCALED`, and `scaled(c, e)` |
 | frame | `engine/cosmicmass/frame.py` | E1.1 | implemented | `Frame(s, phi_bar, units)`: the Composer Unit, its length and frame angle; `square_rule()`; angle in radians, read and written in degrees; exact mode with mpmath values |
 | gn | `engine/cosmicmass/gn.py` | E1.2 | implemented | `GeneralNumber`: scalar `+ - * /`, conjugate, `norm_sq`, inverse, `isclose`, with the Rule of the Square; exact mode (mpmath) |
-| gnarray | `engine/cosmicmass/gnarray.py` | E1.3 | planned | vectorised General Numbers and vector fields (NumPy) |
-| readings | `engine/cosmicmass/readings.py` | E1.4 | planned | `Re`, `Com`, `Sh`, `Ht`, `abs` for scalars and arrays |
-| matter | `engine/cosmicmass/matter.py` | E1.5 | planned | `CosmicMass`, matter presets (electron, proton, neutron, alpha, dust, planets) |
+| gnarray | `engine/cosmicmass/gnarray.py` | E1.3 | implemented | `GNArray`: vectorised General Numbers and vector fields (NumPy), same operations and same bits as `GeneralNumber` |
+| readings | `engine/cosmicmass/readings.py` | E1.4 | implemented | `Re`, `Com`, `Sh`, `Ht`, `abs` for scalars and arrays |
+| matter | `engine/cosmicmass/matter.py` | E1.5 | implemented | `CosmicMass(m, q, name)`, `mu(frame)`, matter presets `PRESETS` (electron, proton, neutron, alpha, dust, planets) |
 | state | `engine/cosmicmass/state.py` | E5.1 | planned | `State`: structure-of-arrays `m, q, x, v, fixed, alive, t` |
 | universe | `engine/cosmicmass/universe.py` | E5.2 | planned | `Universe`: settings U1-U8 (angle, dimension, units, boundary, backgrounds, sources, inflow, populations) |
 | settings | `engine/cosmicmass/settings.py` | E5.3 | planned | load and validate `settings.json`; build `Universe`, `State`, `Law`, numerics |
@@ -64,7 +64,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | stamp | `engine/cosmicmass/stamp.py` | E7.2 | planned | run id, engine commit, T0 status, `stamp.json`, `summary.json`, `timeseries.csv` |
 | convergence | `engine/cosmicmass/analysis/convergence.py` | E8.2 | planned | re-run at `dt/2`, `dt/4` and other particle counts; relative changes |
 | plots | `engine/cosmicmass/analysis/plots.py` | E8.3 | planned | standard figures: Real and Composer planes, drifts, sweeps |
-| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2) |
+| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2), `test_gnarray.py` (E1.3), `test_readings_matter.py` (E1.4, E1.5), `test_compendium.py` (E1.6) |
 | gatetests | `engine/gates/` | G1 | planned | fast T0 gate run in CI on every pull request |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | scaffold | `tools/new_scenario.py` | P5 | planned | creates `scenarios/<ID>/`, settings, notebook and a registry row |
@@ -161,9 +161,9 @@ flowchart TB
         constants["constants.py"]
         frame["frame.py"]
         gn["gn.py"]
-        gnarray["gnarray.py"]:::planned
-        readings["readings.py"]:::planned
-        matter["matter.py"]:::planned
+        gnarray["gnarray.py"]
+        readings["readings.py"]
+        matter["matter.py"]
         state["state.py"]:::planned
     end
 
@@ -239,7 +239,13 @@ classDiagram
         +ndarray re
         +ndarray com
         +Frame frame
+        +tuple shape
         +mul(other) GNArray
+        +conjugate() GNArray
+        +norm_sq() ndarray
+        +inverse() GNArray
+        +item(index) GeneralNumber
+        +allclose(other, rel_tol, abs_tol) bool
     }
     class Readings {
         +Re(x)
@@ -251,7 +257,9 @@ classDiagram
     class CosmicMass {
         +float m
         +float q
-        +mu() GeneralNumber
+        +str name
+        +mu(frame) GeneralNumber
+        +with_charge(q) CosmicMass
     }
     class State {
         +ndarray m
@@ -519,7 +527,22 @@ class GNArray:
     re: np.ndarray
     com: np.ndarray
     frame: Frame
-    def mul(self, other: "GNArray") -> "GNArray": ...
+    def mul(self, other) -> "GNArray": ...           # also + - * / with GeneralNumber, real scalars and real arrays
+    def inverse(self) -> "GNArray": ...
+    def norm_sq(self) -> np.ndarray: ...
+    def item(self, *index) -> GeneralNumber: ...
+    # N numbers times an (N, d) vector field: mu[:, None] * field (NumPy broadcasting)
+
+# readings.py: Re, Com, Sh, Ht, abs take a GeneralNumber or a GNArray, return real numbers or arrays
+def Com(z): ...         # the Composer coordinate b (not the part b G)
+
+# matter.py
+@dataclass(frozen=True)
+class CosmicMass:
+    m: float            # kg
+    q: float            # C
+    name: str = ""
+    def mu(self, frame: Frame) -> GeneralNumber: ...
 
 # state.py: structure of arrays, N bodies, dimension d (2 or 3)
 @dataclass
@@ -563,6 +586,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-10 | E1.3 to E1.6: arrays, readings, matter, compendium tests (`E1b-arrays-readings`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `gnarray.py`, `readings.py`, `matter.py` implemented (registry, section 4 nodes no longer planned); section 5: `GNArray` and `CosmicMass` as built (`mu(frame)` takes the frame); section 10: `GNArray.mul` accepts scalars and arrays too, and the signatures of the readings and of `CosmicMass` are added (no existing contract broken) |
 | 2026-11-10 | E1.1 and E1.2: constants, frame, scalar General Numbers (`E1-algebra-core`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `constants.py`, `frame.py`, `gn.py` implemented (registry, section 4 nodes no longer planned); section 5: methods of `Frame` and `GeneralNumber` as built; section 10: the `Frame` fields are unchanged, its methods and the `GeneralNumber` signatures are added (additions only, no existing contract changed) |
 | 2026-11-10 | P1: package skeleton (`P1-package-skeleton`) | Claude chat session on claude.ai / Claude Fable 5.2, applied by Claude Opus 5.5 (sponsor @MostafaDerraz) | package `cosmicmass` installable from `engine/cosmicmass/` (`pyproject.toml`, version 0.0.1, no modules yet); registry row `engine/tests/` -> implemented; node `tests` in section 4 no longer planned |
 | 2026-11-10 | (direct, before D17 protection) | Mostafa Derraz, with Claude Opus 5.5 | first version: registry of 29 planned modules, layers, core types, time step, law pipeline, lifecycle, CI; `tools/check_architecture.py` implemented |
