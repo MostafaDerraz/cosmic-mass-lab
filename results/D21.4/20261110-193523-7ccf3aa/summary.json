@@ -1,0 +1,46 @@
+{
+  "cases": {
+    "c (protons apart), floor 0": {
+      "outcome": "impossible",
+      "reason": "no time step can be derived from the motion; give numerics.dt_max"
+    },
+    "c (protons apart), floor 0.01": {
+      "end_drift": 3.2471601913160607e-07,
+      "separation_error": 3.817900702252075e-07,
+      "steps": 5547
+    },
+    "c (protons apart), floor 0.1": {
+      "end_drift": 3.2455693882557887e-07,
+      "separation_error": 3.815981308719074e-07,
+      "steps": 3245
+    },
+    "c (protons apart), floor 1": {
+      "end_drift": 1.7676590704248044e-07,
+      "separation_error": 3.798274432753601e-07,
+      "steps": 1072
+    },
+    "f (Earth-moon fall), floor 0": {
+      "outcome": "impossible",
+      "reason": "no time step can be derived from the motion; give numerics.dt_max"
+    },
+    "f (Earth-moon fall), floor 0.01": {
+      "end_drift": 2.0606965640054407e-08,
+      "separation_error": 8.220541136694237e-09,
+      "steps": 5131
+    },
+    "f (Earth-moon fall), floor 0.1": {
+      "end_drift": 2.060270532454605e-08,
+      "separation_error": 8.148330232771173e-09,
+      "steps": 2826
+    },
+    "f (Earth-moon fall), floor 1": {
+      "end_drift": 1.1584035625939972e-07,
+      "separation_error": 2.9224615616385563e-08,
+      "steps": 603
+    }
+  },
+  "explanation": "D10 as written cannot start from rest (c (protons apart), floor 0; f (Earth-moon fall), floor 0). With a floor, the error and the step count are listed per floor; the floor only acts in the first steps.",
+  "prediction": "floor 0 impossible; 0.01 and 0.1 below 1e-6; 1.0 coarser",
+  "scenario": "D21.4",
+  "verdict": "supports a floor (D21 (4)); see numbers for its value"
+}

@@ -1,0 +1,61 @@
+{
+  "cases": {
+    "10 deg": {
+      "identical_to_first_angle": true,
+      "pass": true,
+      "periods": {
+        "a": 2357430.947879193,
+        "b": 1.519415750950437e-16
+      },
+      "separation_c": 3.538630307501171e-10
+    },
+    "135 deg": {
+      "identical_to_first_angle": true,
+      "pass": true,
+      "periods": {
+        "a": 2357430.947879193,
+        "b": 1.519415750950437e-16
+      },
+      "separation_c": 3.538630307501171e-10
+    },
+    "170 deg": {
+      "identical_to_first_angle": true,
+      "pass": true,
+      "periods": {
+        "a": 2357430.947879193,
+        "b": 1.519415750950437e-16
+      },
+      "separation_c": 3.538630307501171e-10
+    },
+    "45 deg": {
+      "identical_to_first_angle": true,
+      "pass": true,
+      "periods": {
+        "a": 2357430.947879193,
+        "b": 1.519415750950437e-16
+      },
+      "separation_c": 3.538630307501171e-10
+    },
+    "79.86 deg": {
+      "identical_to_first_angle": true,
+      "pass": true,
+      "periods": {
+        "a": 2357430.947879193,
+        "b": 1.519415750950437e-16
+      },
+      "separation_c": 3.538630307501171e-10
+    },
+    "90 deg": {
+      "identical_to_first_angle": true,
+      "pass": true,
+      "periods": {
+        "a": 2357430.947879193,
+        "b": 1.519415750950437e-16
+      },
+      "separation_c": 3.538630307501171e-10
+    }
+  },
+  "explanation": "T0.3 under the reference law L0: every case meets its criterion.",
+  "scenario": "T0.3",
+  "verdict": "pass"
+}

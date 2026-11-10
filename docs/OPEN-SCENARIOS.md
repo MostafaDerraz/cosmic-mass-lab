@@ -28,7 +28,7 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | ID | Task | Needs | Difficulty | Status |
 |---|---|---|---|---|
 | P1 | Package skeleton: `pyproject.toml`, `engine/cosmicmass/`, pytest | none | easy | done |
-| P2 | CI job for tests and coverage | P1 | easy | open |
+| P2 | CI job for tests and coverage | P1 | easy | done |
 | P3 | Architecture check `tools/check_architecture.py` in CI | none | easy | done |
 | P4 | JSON schemas for `stamp.json` and `summary.json` | P1 | easy | open |
 | P5 | Scenario scaffold `tools/new_scenario.py` | P1, P4 | easy | open |
@@ -39,26 +39,35 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 
 | ID | Scenario | Needs | Difficulty | Status |
 |---|---|---|---|---|
-| E1 | Algebra core: General Numbers, Rule of the Square, readings Re, Com, Sh, Ht, abs, with unit tests against the compendium | none | easy | open |
-| E2 | Field solver: F1-F4 in both coordinates (direct sum for N up to 1e3, grid optional) | E1 | medium | open |
-| E3 | Integrator: Verlet and Boris, adaptive step, settings stamp | E1 | medium | open |
-| E4 | Law plug-in interface: L0-L8 as switchable readings | E1-E3 | medium | open |
-| E5 | State, universe U1-U8, settings loader, seeded populations | E1 | medium | open |
-| E6a | Walls: reflecting, absorbing with collection, wrap-around | E5 | easy | open |
+| E1 | Algebra core: General Numbers, Rule of the Square, readings Re, Com, Sh, Ht, abs, with unit tests against the compendium | none | easy | done |
+| E2 | Field solver: F1-F4 in both coordinates (direct sum for N up to 1e3, grid optional) | E1 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E2.1, E2.3, E2.4 delivered; E2.2, E2.5 to do |
+| E3 | Integrator: Verlet and Boris, adaptive step, settings stamp | E1 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E3.1 and E3.3 delivered; E3.2, E3.4 to do |
+| E4 | Law plug-in interface: L0-L8 as switchable readings | E1-E3 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E4.1, E4.2 and L1a of E4.3 delivered; L1b-L1e, E4.4, E4.5 to do |
+| E5 | State, universe U1-U8, settings loader, seeded populations | E1 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E5.1 and a minimal E5.3 delivered |
+| E6a | Walls: reflecting, absorbing with collection, wrap-around | E5 | easy | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): reflecting walls delivered; absorbing and wrap-around to do |
 | E6b | Inflow, heat bath, fixed sources | E6a | medium | open |
-| E7 | Runner, stamp, command line | E3-E5 | medium | open |
-| E8 | Diagnostics, convergence helper, standard plots | E7 | medium | open |
-| E9 | Energy in both coordinates (may need an approved derivation) | E2 | hard | open |
-| G1 | Fast T0 gate in CI on every pull request | T0.1-T0.5 | medium | open |
-| T0.1 | Earth-moon, hydrogen-like orbit, two protons under L0 | E1-E4 | easy | open |
-| T0.2 | Conservation of `rho_mu`, energy and momentum, 200 bodies | E1-E4 | medium | open |
-| T0.3 | Angle invariance under L0, six frame angles | T0.1 | easy | open |
-| T0.4 | Universal free fall under L0 | T0.1 | easy | open |
-| T0.5 | Field split: Composer set equals Maxwell | E2 | easy | open |
-| T9.1 | Neutron effective charge 9.0e-19 e under L1a | T0 | easy | open |
+| E7 | Runner, stamp, command line | E3-E5 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): the time loop, the stamp and the command line delivered; checkpoints and schema validation to do |
+| E8 | Diagnostics, convergence helper, standard plots | E7 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E8.1 conservation diagnostics delivered; pressure, temperature, E8.2, E8.3 to do |
+| E9 | Energy in both coordinates (may need an approved derivation) | E2 | hard | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): the L0 energy delivered; the Composer energy needs an approved derivation |
+| G1 | Fast T0 gate in CI on every pull request | T0.1-T0.5 | medium | done (a pytest file; runs in CI with the `tests` job of P2) |
+| T0.1 | Earth-moon, hydrogen-like orbit, two protons under L0 | E1-E4 | easy | confirmed (reproduced on Windows by Claude Opus 5.5) |
+| T0.2 | Conservation of `rho_mu`, energy and momentum, 200 bodies | E1-E4 | medium | confirmed (reproduced on Windows by Claude Opus 5.5) |
+| T0.3 | Angle invariance under L0, six frame angles | T0.1 | easy | confirmed (reproduced on Windows by Claude Opus 5.5) |
+| T0.4 | Universal free fall under L0 | T0.1 | easy | confirmed (reproduced on Windows by Claude Opus 5.5) |
+| T0.5 | Field split: Composer set equals Maxwell | E2 | easy | confirmed (reproduced on Windows by Claude Opus 5.5) |
+| T9.1 | Neutron effective charge 9.0e-19 e under L1a | T0 | easy | confirmed (recomputed independently by Claude Opus 5.5) |
 | T9.2 | Hydrogen binding 5.71 eV under the charge share | T0 | medium | open |
-| T9.3 | Equivalent field 1.14e11 V/m for a charge in gravity | T0 | easy | open |
+| T9.3 | Equivalent field 1.14e11 V/m for a charge in gravity | T0 | easy | confirmed (recomputed independently by Claude Opus 5.5) |
 | T9.4 | Opposite pushes for particle and antiparticle near a neutral mass | T0 | easy | open |
+
+### The numerical conventions of D21, as scenarios
+
+| ID | Scenario | Needs | Difficulty | Status |
+|---|---|---|---|---|
+| D21.1 | "2D" as planar motion with a `1/r^2` field, against a tilted 3D run | T0 | easy | done (to be reproduced independently) |
+| D21.2 | two-body gates with softening 0, against D10's softening | T0 | easy | done (to be reproduced independently) |
+| D21.3 | energy drift: end of run, against the largest excursion | T0 | easy | done (to be reproduced independently) |
+| D21.4 | speed floor for bodies at rest: 0, 0.01, 0.1, 1.0 | T0 | easy | done (to be reproduced independently) |
 
 ## Milestone 2: what can the Composer coordinate be?
 
@@ -67,7 +76,7 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | T1.1 | Pure masses: does the Composer part stay silent? | T9 | easy | open |
 | T1.2 | Mass with charge: the term `s q g` | T9 | easy | open |
 | T1.3 | Charge with charge: the charge share | T9 | easy | open |
-| T1.4 | Hydrogen-like pair under every law | T9 | medium | open |
+| T1.4 | Hydrogen-like pair under every law | T9 | medium | open (a demo under L0 and L1a is delivered, exploratory: `scenarios/T1.4/`, `team/notes/T1.4.md`) |
 | T1.5 | Pairs with `Re(mu1 mu2) = 0` (the diagonal) | T9 | medium | open |
 | T1.6 | Newton's third law under every law | T9 | easy | open |
 | T2 | Survival table: 120 coupling definitions sorted into classes A (conserving, angle-free), B (conserving, angle-dependent) and C (non-conserving) | T1 | hard | open |

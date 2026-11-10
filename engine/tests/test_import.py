@@ -10,7 +10,7 @@ def test_package_imports():
 
 
 def test_version():
-    assert cosmicmass.__version__ == "0.0.1"
+    assert cosmicmass.__version__ == "0.1.0"
 
 
 def test_installed_version_matches_source():

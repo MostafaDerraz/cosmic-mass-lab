@@ -68,16 +68,16 @@ Rules for every row:
 
 | # | State | Pull request | Notes |
 |---|---|---|---|
-| MVP-1 | in progress | | E1.1-E1.2 started 2026-11-10 |
-| MVP-2 | open | | |
-| MVP-3 | open | | |
-| MVP-4 | open | | |
-| MVP-5 | open | | |
-| MVP-6 | open | | |
-| MVP-7 | open | | |
-| MVP-8 | open | | |
-| MVP-9 | open | | |
-| MVP-10 | open | | |
+| MVP-1 | PR open | [#2](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/2) | E1.1 and E1.2 done 2026-11-10: 28 tests pass |
+| MVP-2 | PR open | [#3](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/3) | E1.3 to E1.6 done 2026-11-10: 64 tests pass |
+| MVP-3 | PR open | [#4](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/4) | P2 done 2026-11-10 on its own branch `P2-ci-tests` (base `main`); red on a failing test shown on a throwaway commit |
+| MVP-4 | PR open | [#5](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/5) | E5.1, minimal E5.3, E4.1, E4.2 done 2026-11-10: 115 tests pass |
+| MVP-5 | PR open | [#6](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/6) | E2.1, E2.3, E2.4 done 2026-11-10: 128 tests pass |
+| MVP-6 | PR open | [#7](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/7) | E3.1, E3.3, E6a (reflecting) done 2026-11-10: 139 tests pass, 1 slow test run by hand; three assumptions for the maintainer in `team/notes/MVP-6.md` |
+| MVP-7 | PR open | [#8](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/8) | E7.1 to E7.3, E8.1, E9 (L0 part) done 2026-11-10: 152 tests pass; no checkpoints yet |
+| MVP-8 | PR open | [#9](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/9) | T0.1 to T0.5 pass on engine commit `91ba4ae` (status `done`, to be reproduced); fast gate in `engine/gates/`; the four questions were answered by the maintainer (D21) |
+| MVP-9 | PR open | [#10](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/10) | L1a (hypothesis); T9.1 gives -9.009e-19 e, T9.3 gives 1.1380e11 V/m, on engine commit `2baf36f` (status `done`, to be reproduced) |
+| MVP-10 | PR open | [#11](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/11) | demo `python scenarios/T1.4/run.py` (exploratory), README "Try it", `CHANGELOG.md`, version 0.1.0; the tag `v0.1.0` is proposed, not created |
 
 States: `open`, `in progress`, `PR open` (with link), `merged`, `blocked` (with reason).
 

@@ -1,0 +1,48 @@
+{
+  "conservation": {
+    "charge": 0.0,
+    "energy_com": null,
+    "energy_re": 0.4429797540051141,
+    "mass": 0.0,
+    "momentum": 3.3233374428302635e-15
+  },
+  "convergence": null,
+  "explanation": "A plain run has no pass criterion; scenarios add their own verdict.",
+  "final": {
+    "charge": 0.0,
+    "energy_com": null,
+    "energy_re": -1.214233521925403e-18,
+    "kinetic": 4.0306028574819902e-19,
+    "mass": 1.67353285837e-27,
+    "momentum": [
+      -1.3224311446750734e-38,
+      6.887662211849341e-40
+    ],
+    "momentum_scale": 1.7133901488967014e-24,
+    "t": 7.597076222355665e-16
+  },
+  "initial": {
+    "charge": 0.0,
+    "energy_com": null,
+    "energy_re": -2.1798732284078434e-18,
+    "kinetic": 2.179873228407844e-18,
+    "mass": 1.67353285837e-27,
+    "momentum": [
+      0.0,
+      0.0
+    ],
+    "momentum_scale": 3.984619722587673e-24,
+    "t": 0.0
+  },
+  "law": "L1a",
+  "momentum_with_walls_drift": 3.3233374428302635e-15,
+  "scenario": "L1a",
+  "steps": 10823,
+  "t_end": 7.597076222355665e-16,
+  "verdict": "none",
+  "wall_hits": 0,
+  "wall_impulse": [
+    0.0,
+    0.0
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "cases": {
+    "proton": {
+      "grid_points": 440,
+      "largest_relative_error_E": 4.49577452817125e-16,
+      "largest_relative_error_g": 4.422114578031215e-16,
+      "pass": true,
+      "tolerance": 1e-06
+    }
+  },
+  "explanation": "T0.5 under the reference law L0: every case meets its criterion.",
+  "scenario": "T0.5",
+  "verdict": "pass"
+}
