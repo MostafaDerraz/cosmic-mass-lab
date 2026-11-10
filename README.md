@@ -32,6 +32,8 @@ Run them locally with Python 3 and SymPy (`pip install sympy mpmath`), using the
 This is an open, collective project for developers, physicists, mathematicians and AI agents. Start with:
 
 - `ANNOUNCEMENT.md`: the call for contributors;
+- **`TEAM.md`: how the team works (objective, roles, reading order, work cycle, notes and handoffs)**;
+- `team/`: the shared memory (log, decisions, findings, scenario notebooks);
 - `CONTRIBUTING.md`: the rules;
 - `AGENTS.md`: the rules for AI agents;
 - `docs/OPEN-SCENARIOS.md`: the open scenarios board.

@@ -1,6 +1,6 @@
 # Rules of the project
 
-These rules apply to everyone, human or AI agent. They exist so that every result in this project can be trusted, reproduced and credited.
+These rules apply to everyone, human or AI agent. They exist so that every result in this project can be trusted, reproduced and credited. **How we work day to day (roles, reading order, work cycle, notes, log and handoffs) is in `TEAM.md`; read it first.**
 
 ## 1. The foundation is fixed; the hypotheses are explicit
 

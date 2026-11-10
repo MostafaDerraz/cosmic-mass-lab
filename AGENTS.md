@@ -5,6 +5,8 @@ AI agents (coding assistants, autonomous agents, research agents) are welcome co
 ## Before you start
 
 1. Read these files:
+   - `TEAM.md`, the full reading list and the work cycle, which agents follow step by step, including the session log entry and the handoff;
+   - `team/LOG.md` (last ten entries), `team/DECISIONS.md`, `team/FINDINGS.md`, and the notebook `team/notes/<ID>.md` of your scenario if it exists;
    - `CONTRIBUTING.md`;
    - `docs/03-report-verified-formulas.md`;
    - `docs/formulas-compendium/formulas-compendium.pdf` (or `.tex`);
@@ -35,3 +37,10 @@ AI agents (coding assistants, autonomous agents, research agents) are welcome co
     - what you could not verify.
 12. **A second, independent reproduction is required** (another agent or a human) before a finding is marked "confirmed".
 13. **If you are unsure, say so.** An honest "unclear" is better than a confident error.
+
+## Memory between sessions
+
+Agents do not remember previous sessions. The repository is your memory.
+
+14. **Start every session** by reading `team/LOG.md` and your scenario's notebook.
+15. **End every session** by updating the notebook and adding a log entry, even if the session failed. If you will not continue, fill in the notebook's Handoff section and release the claim.
