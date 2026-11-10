@@ -104,6 +104,19 @@ def load_settings(source) -> Settings:
     except (ValueError, TypeError) as exc:
         raise SettingsError(f"'universe.phi_bar_deg': {exc}") from None
 
+    background = universe["background"]
+    if background != "none":  # uniform fields (setting U5): any of g, e, B_g, b
+        _known(background, ("g", "e", "B_g", "b"), "universe.background")
+        for key, value in background.items():
+            second_2d = key in ("B_g", "b") and universe["dimension"] == 2
+            ok = isinstance(value, (int, float)) if second_2d else (
+                isinstance(value, list) and len(value) == universe["dimension"])
+            if not ok:
+                shape = "a number" if second_2d else f"a list of {universe['dimension']} numbers"
+                raise SettingsError(f"'universe.background.{key}' must be {shape}")
+    if universe["boundary"] not in ("open", "reflecting"):
+        raise SettingsError("'universe.boundary' must be 'open' or 'reflecting' in the MVP")
+
     try:
         law_spec = LawSpec.from_dict(data.get("law", {"id": "L0"}))
     except (ValueError, TypeError) as exc:

@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-5 (E2.1, E2.3, E2.4)
+- Did: wrote `engine/cosmicmass/fields/direct.py` (`DirectSum`: static `g` and `e`, Plummer softening, no self-field, uniform backgrounds, NumPy blocks, 2D and 3D); extended `settings.py` for backgrounds; `test_fields.py` (13 new tests). Opened the notebook `team/notes/MVP-5.md`; updated the board and the MVP checklist.
+- Result: `pytest` gives 128 passed, coverage 100%. T0.5 as a unit test: one proton gives `E = -s^2 e = K e/r^2` to 1e-12 (asked 1e-6). Mathematics from the compendium; no finding.
+- Next: MVP-6 (velocity Verlet, adaptive step, reflecting walls) on `E3-integrator`, cut from this branch.
+- Blocked by / questions: two labelled assumptions for the physics lead, in the notebook: "2D" is taken as planar motion with a `1/r^2` field; the softening of D10 (Plummer form) changes the closest initial force by 1.5e-6, more than the 1e-6 of the two-body gate tests, so those should run with softening 0.
+- Architecture: updated (sections 2, 4, 5, 10, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-4 (E5.1, E5.3 minimal, E4.1, E4.2)
 - Did: wrote `engine/cosmicmass/fields/sample.py` (new module: `FieldSample`, `FieldSolver`), `state.py`, `laws/base.py`, `laws/l0.py` and a minimal `settings.py`, with `test_state_laws.py` and `test_settings.py` (51 new tests). Opened the notebook `team/notes/MVP-4.md`; updated the board and the MVP checklist. (MVP-3, the CI job, is on its own branch `P2-ci-tests`, with its own log entry there.)
 - Result: `pytest` gives 115 passed, coverage 100%. Two bodies under L0 feel `(G_N m m' - K q q')/r^2` to 1e-15, with equal and opposite forces; the L0 force is bit-for-bit the same at every frame angle. Mathematics from the compendium; no finding.
