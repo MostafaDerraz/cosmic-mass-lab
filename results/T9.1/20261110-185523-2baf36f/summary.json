@@ -1,0 +1,31 @@
+{
+  "cases": {
+    "neutron": {
+      "book_value_in_e": 9e-19,
+      "composer_force": [
+        -2.0784040098358262e-26,
+        -0.0
+      ],
+      "expected_in_e": -9.00881727679514e-19,
+      "largest_strength_allowed_at_two_standard_errors": 0.001998042522891911,
+      "measured_in_e": -2e-22,
+      "measured_standard_error_in_e": 8e-22,
+      "pass": true,
+      "q_eff_coulomb": -1.4433716540856685e-37,
+      "q_eff_in_e": -9.00881727679514e-19,
+      "real_force": [
+        -1.8698187945513946e-44,
+        0.0
+      ],
+      "relative_error_vs_minus_m_over_s": 2.220446049250313e-16,
+      "standard_errors_from_measurement": 1125.8521595993925,
+      "tolerance": {
+        "relative": 1e-12,
+        "rounds_to_book_value": 5e-21
+      }
+    }
+  },
+  "explanation": "T9.1 under the hypothesis L1a: every case meets its criterion.",
+  "scenario": "T9.1",
+  "verdict": "pass"
+}
