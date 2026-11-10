@@ -14,7 +14,10 @@ Scope and labelled assumptions:
   1. a body at rest has no speed, and the rule would give a zero step. Its speed is
      taken as at least `REST_FRACTION sqrt(|a| l)`, a tenth of the free-fall speed over
      the distance `l` to its nearest neighbour. D10 holds as written for every body
-     faster than that;
+     faster than that. A body with no neighbour at all (alone in a background field)
+     has no such floor, and D10's rule would make it creep towards every turning point
+     without ever passing it; such a body does not limit the step, which is then
+     `dt_max`. In a uniform field velocity Verlet is exact at any step;
   2. no body moves more than `eta` of the distance to its nearest neighbour in one
      step. This only ever shortens the step. Without it the step of two bodies flying
      apart grows without limit.
@@ -98,10 +101,11 @@ class VelocityVerlet:
         reach = nearest_distances(state)
         near = np.isfinite(reach)
         dt = np.inf
-        # D10: |a| dt <= eta |v|, with the floor of the speed for bodies at rest
+        # D10: |a| dt <= eta |v|, with the floor of the speed for bodies at rest;
+        # a body with no neighbour does not limit the step
         floor = np.where(near, REST_FRACTION * np.sqrt(a * np.where(near, reach, 0.0)), 0.0)
         scale = np.maximum(speed, floor)
-        pushed = moving & (a > 0) & (scale > 0)
+        pushed = moving & near & (a > 0) & (scale > 0)
         if np.any(pushed):
             dt = float(np.min(ctx.eta * scale[pushed] / a[pushed]))
         # no body moves more than eta of the distance to its nearest neighbour

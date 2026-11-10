@@ -169,6 +169,15 @@ def test_no_derivable_step_and_zero_inertia_are_refused():
     # at rest in a uniform background: no neighbour and no speed, so the step is dt_max
     falling = StepContext(make_law("L0"), DirectSum(constants=SCALED, background={"g": [0.0, -1.0]}), Frame.scaled(), dt_max=0.5)
     assert VV.next_dt(alone, falling) == 0.5
+    # thrown upwards, it must pass its turning point: D10's rule alone would shrink the step to
+    # nothing there, so a body with no neighbour does not limit the step
+    thrown = State.from_bodies([preset("neutron")], [[0.0, 0.0]], v=[[0.0, 1.0]])
+    falling.dt_max = 0.01
+    for _ in range(300):
+        assert VV.next_dt(thrown, falling) == 0.01
+        thrown = VV.step(thrown, 0.01, falling)
+    assert thrown.t == pytest.approx(3.0) and thrown.v[0, 1] == pytest.approx(-2.0)  # v = 1 - g t
+    assert thrown.x[0, 1] == pytest.approx(3.0 - 0.5 * 9.0)  # exact in a uniform field
 
     class Weightless(Law):
         reading = "L0"
