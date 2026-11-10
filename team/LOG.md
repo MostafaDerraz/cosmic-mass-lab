@@ -61,6 +61,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 - Blocked by / questions: none. Choices to review are in the notebook (`Law` as a base class; `LawSpec.moving` as a string; the new module `fields/sample.py`).
 - Architecture: updated (sections 2, 4, 5, 10, 11)
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-3 (P2)
+- Did: added the job `tests` to `.github/workflows/verify.yml` (`pip install -e ".[dev]"`, `pytest` with coverage, fails under 90%); added `engine/tests/test_pins.py`; pinned the dev extras (the two remarks of the P1 review); opened the notebook `team/notes/P2.md`; marked P2 `done` on the board and updated the MVP checklist.
+- Result: the job is green on this branch and red on a throwaway branch with one failing test (run links in the notebook). Software facts only; no finding.
+- Next: MVP-4 on `E4-l0`, cut from `E1b-arrays-readings`.
+- Blocked by / questions: the E1 stack was cut from `main` before this job existed, so its pull requests run the tests in CI only after this one is merged and they are updated. Merging this pull request early removes the gap.
+- Architecture: updated (sections 2, 9, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-2 (E1.3 to E1.6)
 - Did: wrote `engine/cosmicmass/gnarray.py` (E1.3), `readings.py` (E1.4), `matter.py` (E1.5) and the tests `test_gnarray.py`, `test_readings_matter.py`, `test_compendium.py` (E1.6); 36 new tests. Updated the notebook `team/notes/E1.md`, the board (E1 `done`) and the MVP checklist.
 - Result: `pytest` gives 64 passed, coverage 100% of `engine/cosmicmass`. Arrays agree with scalars to 1e-15 on 10,000 values; the product `mu E_cal` matches the compendium in both coordinates; `Re(mu_a mu_b)` is the same number at every frame angle. Mathematics from the compendium; no finding of the virtual universe.

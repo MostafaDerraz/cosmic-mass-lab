@@ -70,7 +70,7 @@ Rules for every row:
 |---|---|---|---|
 | MVP-1 | PR open | [#2](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/2) | E1.1 and E1.2 done 2026-11-10: 28 tests pass |
 | MVP-2 | PR open | [#3](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/3) | E1.3 to E1.6 done 2026-11-10: 64 tests pass |
-| MVP-3 | PR open | [#4](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/4) | P2 done 2026-11-10 on its own branch `P2-ci-tests` (base `main`); its notebook and log entry are on that branch |
+| MVP-3 | PR open | [#4](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/4) | P2 done 2026-11-10 on its own branch `P2-ci-tests` (base `main`); red on a failing test shown on a throwaway commit |
 | MVP-4 | PR open | [#5](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/5) | E5.1, minimal E5.3, E4.1, E4.2 done 2026-11-10: 115 tests pass |
 | MVP-5 | PR open | [#6](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/6) | E2.1, E2.3, E2.4 done 2026-11-10: 128 tests pass |
 | MVP-6 | PR open | [#7](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/7) | E3.1, E3.3, E6a (reflecting) done 2026-11-10: 139 tests pass, 1 slow test run by hand; three assumptions for the maintainer in `team/notes/MVP-6.md` |
