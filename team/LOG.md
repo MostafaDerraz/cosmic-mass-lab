@@ -12,6 +12,16 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-1 (E1.1, E1.2)
+- Did:
+  - read `docs/MVP-PLAN.md` and decision D20; took the MVP sequence as one claim;
+  - wrote `engine/cosmicmass/constants.py` and `frame.py` (E1.1) and `gn.py` (E1.2), with `engine/tests/test_constants_frame.py` and `test_gn.py` (25 new tests);
+  - opened the notebook `team/notes/E1.md`; updated the board, the MVP checklist and `engine/README.md`.
+- Result: `pytest` gives 28 passed, coverage 100% of `engine/cosmicmass`. Rule of the Square exact at 50 digits; `z * (1/z) = 1`; products and quotients agree with the bridge to C. All of it is mathematics from the compendium; no finding of the virtual universe.
+- Next: MVP-2 (`gnarray.py`, `readings.py`, `matter.py`, `test_compendium.py`) on `E1b-arrays-readings`, cut from this branch.
+- Blocked by / questions: three open questions in `team/notes/E1.md`: the value of `K` differs between `docs/05` (CODATA 2018) and the verified constants (CODATA 2022, used here); `c` and `e` in scaled units are not fixed by D7 (assumed Stoney units, `c = e = 1`); the compendium has no equation numbers (tests cite paragraph titles).
+- Architecture: updated (sections 2, 4, 5, 10, 11)
+
 ### 2026-11-10 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - P1 review and delivery
 - Did: applied the P1 patch produced by the claude.ai chat session below (it had no push access), reviewed it as a different model (D14), and re-ran the done-when check on Windows: clean clone of the branch, fresh Python 3.12.10 environment, `pip install -e .[dev]` then `pytest` gives 3 passed (100% coverage); `python tools/check_architecture.py --base origin/main` passes. Corrected the session label in this log and in `team/notes/P1.md`. Pushed the branch and opened the pull request.
 - Result: P1 works on Linux (producer) and Windows (reviewer). Remarks for the reviewer of record: the dev extras `pytest` and `pytest-cov` are not pinned (resolved to 9.2.0 and 7.1.0); suggest pinning them in P2 together with a check that `pyproject.toml` and `requirements.txt` pins agree.

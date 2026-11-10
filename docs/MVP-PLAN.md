@@ -68,7 +68,7 @@ Rules for every row:
 
 | # | State | Pull request | Notes |
 |---|---|---|---|
-| MVP-1 | in progress | | E1.1-E1.2 started 2026-11-10 |
+| MVP-1 | PR open | (link added in the next commit) | E1.1 and E1.2 done 2026-11-10: 28 tests pass |
 | MVP-2 | open | | |
 | MVP-3 | open | | |
 | MVP-4 | open | | |

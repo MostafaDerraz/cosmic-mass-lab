@@ -40,9 +40,9 @@ The single list of every code module, planned or real. **`tools/check_architectu
 <!-- registry:start -->
 | Node | Path | Task | Status | Purpose |
 |---|---|---|---|---|
-| constants | `engine/cosmicmass/constants.py` | E1.1 | planned | `G_N`, `K`, `c`, `e`, `s = sqrt(K/G_N)`, Stoney mass; SI and scaled sets |
-| frame | `engine/cosmicmass/frame.py` | E1.1 | planned | `Frame(s, phi_bar)`: the Composer Unit, its length and frame angle |
-| gn | `engine/cosmicmass/gn.py` | E1.2 | planned | `GeneralNumber`: scalar arithmetic with the Rule of the Square, exact mode (mpmath) |
+| constants | `engine/cosmicmass/constants.py` | E1.1 | implemented | `Constants(G_N, K, c, e, units)` with derived `s = sqrt(K/G_N)` and Stoney mass; the sets `SI` (CODATA 2022) and `SCALED`, and `scaled(c, e)` |
+| frame | `engine/cosmicmass/frame.py` | E1.1 | implemented | `Frame(s, phi_bar, units)`: the Composer Unit, its length and frame angle; `square_rule()`; angle in radians, read and written in degrees; exact mode with mpmath values |
+| gn | `engine/cosmicmass/gn.py` | E1.2 | implemented | `GeneralNumber`: scalar `+ - * /`, conjugate, `norm_sq`, inverse, `isclose`, with the Rule of the Square; exact mode (mpmath) |
 | gnarray | `engine/cosmicmass/gnarray.py` | E1.3 | planned | vectorised General Numbers and vector fields (NumPy) |
 | readings | `engine/cosmicmass/readings.py` | E1.4 | planned | `Re`, `Com`, `Sh`, `Ht`, `abs` for scalars and arrays |
 | matter | `engine/cosmicmass/matter.py` | E1.5 | planned | `CosmicMass`, matter presets (electron, proton, neutron, alpha, dust, planets) |
@@ -64,7 +64,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | stamp | `engine/cosmicmass/stamp.py` | E7.2 | planned | run id, engine commit, T0 status, `stamp.json`, `summary.json`, `timeseries.csv` |
 | convergence | `engine/cosmicmass/analysis/convergence.py` | E8.2 | planned | re-run at `dt/2`, `dt/4` and other particle counts; relative changes |
 | plots | `engine/cosmicmass/analysis/plots.py` | E8.3 | planned | standard figures: Real and Composer planes, drifts, sweeps |
-| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py` (package import and version) |
+| tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2) |
 | gatetests | `engine/gates/` | G1 | planned | fast T0 gate run in CI on every pull request |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | scaffold | `tools/new_scenario.py` | P5 | planned | creates `scenarios/<ID>/`, settings, notebook and a registry row |
@@ -158,9 +158,9 @@ flowchart TB
 
     subgraph L1["Layer 1: algebra and data"]
         direction LR
-        constants["constants.py"]:::planned
-        frame["frame.py"]:::planned
-        gn["gn.py"]:::planned
+        constants["constants.py"]
+        frame["frame.py"]
+        gn["gn.py"]
         gnarray["gnarray.py"]:::planned
         readings["readings.py"]:::planned
         matter["matter.py"]:::planned
@@ -217,8 +217,12 @@ classDiagram
         +float s
         +float phi_bar
         +str units
+        +phi_bar_deg float
         +cos_phi() float
+        +sin_phi() float
         +square_rule() tuple
+        +from_degrees(s, deg, units) Frame
+        +to_dict() dict
     }
     class GeneralNumber {
         +float re
@@ -226,7 +230,10 @@ classDiagram
         +Frame frame
         +add(other) GeneralNumber
         +mul(other) GeneralNumber
+        +conjugate() GeneralNumber
+        +norm_sq() float
         +inverse() GeneralNumber
+        +isclose(other, rel_tol, abs_tol) bool
     }
     class GNArray {
         +ndarray re
@@ -494,6 +501,18 @@ class Frame:
     s: float            # |G| = sqrt(K/G_N) in SI, 1 in scaled units
     phi_bar: float      # frame angle in radians
     units: str          # "SI" or "scaled"
+    def cos_phi(self) -> float: ...
+    def sin_phi(self) -> float: ...
+    def square_rule(self) -> tuple: ...   # (p, q) with G^2 = p + q G: p = -s^2, q = 2 s cos(phi_bar)
+
+# gn.py: one General Number re + com G (tests, exact checks; not the hot path)
+class GeneralNumber:
+    re: float
+    com: float
+    frame: Frame
+    def mul(self, other) -> "GeneralNumber": ...      # also + - * / with real scalars
+    def inverse(self) -> "GeneralNumber": ...
+    def norm_sq(self) -> float: ...                   # |z|^2 = Sh^2 + Ht^2
 
 # gnarray.py: General Numbers on arrays; vector fields have shape (N, d)
 class GNArray:
@@ -544,6 +563,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-10 | E1.1 and E1.2: constants, frame, scalar General Numbers (`E1-algebra-core`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `constants.py`, `frame.py`, `gn.py` implemented (registry, section 4 nodes no longer planned); section 5: methods of `Frame` and `GeneralNumber` as built; section 10: the `Frame` fields are unchanged, its methods and the `GeneralNumber` signatures are added (additions only, no existing contract changed) |
 | 2026-11-10 | P1: package skeleton (`P1-package-skeleton`) | Claude chat session on claude.ai / Claude Fable 5.2, applied by Claude Opus 5.5 (sponsor @MostafaDerraz) | package `cosmicmass` installable from `engine/cosmicmass/` (`pyproject.toml`, version 0.0.1, no modules yet); registry row `engine/tests/` -> implemented; node `tests` in section 4 no longer planned |
 | 2026-11-10 | (direct, before D17 protection) | Mostafa Derraz, with Claude Opus 5.5 | first version: registry of 29 planned modules, layers, core types, time step, law pipeline, lifecycle, CI; `tools/check_architecture.py` implemented |
 
