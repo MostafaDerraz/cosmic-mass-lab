@@ -26,6 +26,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 - Blocked by / questions: the law plug-in L1a needs the physics lead's approval; MVP-10's figures need a plotting library that is not in the pinned environment (D13).
 - Architecture: updated (sections 2, 4, 11)
 
+### 2026-11-10 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - D21.1-D21.4
+- Did: on the maintainer's request, turned the four conventions of D21 into scenarios; pre-registered them (`team/notes/D21.md`, committed before any run); ran them from commit `7ccf3aa` (`scenarios/D21/run.py`); also reviewed MVP-1 to MVP-8 and reproduced T0 on Windows (identical verdicts, differences at rounding).
+- Result: (1) 2D = tilted 3D to 1e-14; (2) softening moves two-body results to a different answer (shown by halving the step), so gates keep softening 0; (3) end drift hides a 3.7e-6 excursion at e = 0.9, eta = 1e-3: report both; (4) without a floor no run can start from rest; floors 0.01-1.0 all accurate. Two predictions failed and are recorded.
+- Next: maintainer approves or amends D21; reproduction of D21 by another model or a human; the CI fix (branch `ci-d18-per-pr`) and this branch need pull requests.
+- Blocked by / questions: the browser pane is not signed in to GitHub, so the pull requests are not opened yet.
+- Architecture: updated (section 2 registry row `scenarios/D21/`, section 11 change log)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-8 (T0.1 to T0.5, G1)
 - Did: the maintainer answered the four questions of the MVP-7 handoff in the sponsoring chat (accepted all four), so the session resumed. Recorded them as decision D21. Pre-registered T0 in `team/notes/T0.md` (committed before the production runs, with a disclosure of the exploratory runs made while coding). Wrote `engine/cosmicmass/gates/t0.py` (new module), `scenarios/T0.1/` to `scenarios/T0.5/` and the fast gate `engine/gates/test_t0_gate.py`; the run summary now reports the impulse given to the walls. Ran the five scenarios on the clean engine commit `91ba4ae` and committed the stamped results.
 - Result: **T0.1 to T0.5 all pass** (details and limits in `team/notes/T0.md`; index in `team/FINDINGS.md`, status `done`). `pytest`: 160 passed, 1 deselected. These are checks of the engine against mathematics under L0, not findings.
