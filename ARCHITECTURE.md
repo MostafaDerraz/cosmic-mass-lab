@@ -361,7 +361,7 @@ sequenceDiagram
     I->>F: sample(state, positions)
     F-->>I: g, e, B_g, b at each body (softened, no self-field)
     I->>L: forces(state, fields, frame)
-    Note over L: product mu (E_cal + v x B_cal) in both coordinates,<br/>then the reading: L0 keeps Re only;<br/>L1-L8 add the Composer force
+    Note over L: product mu (E_cal + v x B_cal) in both coordinates,<br/>then the reading: L0 keeps Re only,<br/>L1-L8 add the Composer force
     L-->>I: ForcePair(real, composer)
     I->>L: inertia(state, frame)
     L-->>I: Re(mu), Sh(mu) or abs(mu) (L7)
