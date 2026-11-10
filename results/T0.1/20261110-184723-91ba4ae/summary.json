@@ -1,0 +1,68 @@
+{
+  "cases": {
+    "a": {
+      "convergence": {
+        "change_half_to_quarter": 6.250093709248006e-08,
+        "period_eta": 2357430.947879193,
+        "period_eta_half": 2357430.358512384,
+        "period_eta_quarter": 2357430.2111707865
+      },
+      "energy_drift": 1.5135772288522086e-14,
+      "pass": true,
+      "period": 2357430.947879193,
+      "period_analytic": 2357430.1620573406,
+      "period_error_vs_analytic": 3.333383380432764e-07,
+      "period_error_vs_reference": 0.0005465049352221252,
+      "period_reference": 2358720.0,
+      "radius_largest_relative_change": 5.000001188637526e-07,
+      "steps": 6284,
+      "tolerance": {
+        "energy_drift": 1e-06,
+        "period": 0.001
+      }
+    },
+    "b": {
+      "convergence": {
+        "change_half_to_quarter": 6.25009795029996e-08,
+        "period_eta": 1.519415750950437e-16,
+        "period_eta_half": 1.5194153710906891e-16,
+        "period_eta_quarter": 1.5194152761257462e-16
+      },
+      "energy_drift": 1.060206576761667e-15,
+      "pass": true,
+      "period": 1.519415750950437e-16,
+      "period_analytic": 1.519415244471133e-16,
+      "period_error_vs_analytic": 3.333383062908979e-07,
+      "period_error_vs_reference": 0.0002528286942775626,
+      "period_reference": 1.5198e-16,
+      "radius_largest_relative_change": 5.000000931065784e-07,
+      "steps": 6284,
+      "tolerance": {
+        "energy_drift": 1e-06,
+        "period": 0.001
+      }
+    },
+    "c": {
+      "convergence": {
+        "change_half_to_quarter": 7.162607862376547e-08,
+        "separation_eta": 3.538630307501171e-10,
+        "separation_eta_half": 3.5386292951838477e-10,
+        "separation_eta_quarter": 3.538629041725726e-10
+      },
+      "energy_drift": 3.2455693882557887e-07,
+      "eta": 0.001,
+      "pass": true,
+      "separation": 3.538630307501171e-10,
+      "separation_analytic": 3.5386289571669754e-10,
+      "separation_error": 3.815981308719074e-07,
+      "steps": 3245,
+      "t_end": 5.711813942831563e-15,
+      "tolerance": {
+        "separation": 1e-06
+      }
+    }
+  },
+  "explanation": "T0.1 under the reference law L0: every case meets its criterion.",
+  "scenario": "T0.1",
+  "verdict": "pass"
+}

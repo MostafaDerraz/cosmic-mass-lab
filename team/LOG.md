@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-8 (T0.1 to T0.5, G1)
+- Did: the maintainer answered the four questions of the MVP-7 handoff in the sponsoring chat (accepted all four), so the session resumed. Recorded them as decision D21. Pre-registered T0 in `team/notes/T0.md` (committed before the production runs, with a disclosure of the exploratory runs made while coding). Wrote `engine/cosmicmass/gates/t0.py` (new module), `scenarios/T0.1/` to `scenarios/T0.5/` and the fast gate `engine/gates/test_t0_gate.py`; the run summary now reports the impulse given to the walls. Ran the five scenarios on the clean engine commit `91ba4ae` and committed the stamped results.
+- Result: **T0.1 to T0.5 all pass** (details and limits in `team/notes/T0.md`; index in `team/FINDINGS.md`, status `done`). `pytest`: 160 passed, 1 deselected. These are checks of the engine against mathematics under L0, not findings.
+- Next: MVP-9 (L1a, T9.1, T9.3) on `T9-limits`, cut from this branch. An independent reproduction of T0 is needed before it is `confirmed` (D14).
+- Blocked by / questions: T0.1a uses 0.055% of its 0.1% margin by construction (the criterion's 27.3 days is a rounded value); T0.2 reached a wall only once in 10,000 steps; G1 runs in CI only once pull request #4 is merged.
+- Architecture: updated (sections 2, 4, 8, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-7 (E7.1 to E7.3, E8.1, E9 L0 part)
 - Did: wrote `engine/cosmicmass/energy.py` (L0 energy), `diagnostics.py` (conservation), `stamp.py`, `runner.py` (time loop and command line) and `__main__.py` (new module), with `test_runner.py` (13 new tests). Fixed a fault of the adaptive step on `E3-integrator` (MVP-6): a lone body in a background field never passed its turning point. Opened the notebook `team/notes/MVP-7.md`; updated the board and the MVP checklist.
 - Result: `pytest` gives 152 passed and 1 deselected, coverage 99%. `python -m cosmicmass run <settings>` writes `stamp.json`, `summary.json` and `timeseries.csv`; the same settings give the same summary byte for byte; energy and momentum drifts below 1e-6 on the test runs. No finding.
