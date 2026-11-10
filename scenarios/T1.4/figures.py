@@ -59,8 +59,9 @@ def make_figures(l0_folder, l1a_folder) -> list:
     lam = json.loads((Path(l1a_folder) / "stamp.json").read_text())["law"]["lambda"]
     scaled = {name: ([a / R0 for a in x], [b / R0 for b in y]) for name, (t, x, y) in data.items()}
     reach = 1.05 * max(max(map(abs, xs + ys)) for xs, ys in scaled.values())
-    note = [f"EXPLORATORY. Position of the electron relative to the proton. L0: reference law.",
-            f"L1a: hypothesis (reading Re + lambda s Com, lambda = {lam:g}), excluded at lambda = 1 by T9.1."]
+    note = ["EXPLORATORY. Position of the electron relative to the proton.",
+            f"L0: reference law. L1a: hypothesis (reading Re + lambda s Com, lambda = {lam:g}),",
+            "excluded by measurement at lambda = 1 (test T9.1)."]
     figures = Path(l1a_folder) / "figures"
     figures.mkdir(exist_ok=True)
     (figures / "orbit.svg").write_text(_svg([(n, *scaled[n]) for n in ("L0", "L1a")], (-reach, reach), (-reach, reach),
@@ -68,7 +69,7 @@ def make_figures(l0_folder, l1a_folder) -> list:
     period = data["L0"][0][-1] / 5.0
     radial = {n: ([a / period for a in t], [math.hypot(a, b) / R0 for a, b in zip(x, y)]) for n, (t, x, y) in data.items()}
     top = 1.05 * max(max(r) for _, r in radial.values())
-    note[0] = "EXPLORATORY. Separation of the pair against time. L0: reference law."
+    note[0] = "EXPLORATORY. Separation of the pair against time."
     (figures / "separation.svg").write_text(_svg([(n, *radial[n]) for n in ("L0", "L1a")], (0.0, 5.0), (0.0, top),
                                                  "time / period of the L0 orbit", "separation / r0", note), encoding="utf-8")
     lines = []

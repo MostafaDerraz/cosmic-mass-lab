@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-10 (demo T1.4, release notes)
+- Did: wrote down the expectations for the demo before running it (`team/notes/T1.4.md`, commit `d618739`); wrote `scenarios/T1.4/run.py` and `figures.py` (SVG with the standard library); added "Try it" to `README.md`, wrote `CHANGELOG.md` for 0.1.0 and set the package version to 0.1.0; ran the demo on the committed code (engine commit `30f2172`) and committed its stamped, exploratory outputs with two figures.
+- Result: one command, `python scenarios/T1.4/run.py`, shows a proton and an electron on a circle under L0 and on an eccentric closed orbit under the hypothesis L1a (farthest separation 3.3808 r0, back after 4.03 L0 periods, both as expected beforehand). **Exploratory, not a result**; L1a at lambda = 1 is excluded by T9.1. `pytest`: 170 passed, 1 deselected.
+- Next: the MVP sequence is complete (pull requests #2 to #11). The handoff for the maintainer and for the next agent is at the end of `team/notes/T1.4.md`.
+- Blocked by / questions: reviews, independent reproductions of T0 and T9 (D14), confirmation of D21, approval of the plug-in L1a; the tag `v0.1.0` is for the maintainer.
+- Architecture: updated (sections 2, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-9 (E4.3 L1a, T9.1, T9.3)
 - Did: pre-registered T9.1 and T9.3 in `team/notes/T9.md` before writing any code for them (commit `c713ddc`); wrote `engine/cosmicmass/laws/l1.py` (the reading L1a, a hypothesis, with sign, strength and terms), `gates/t9.py` (new module), `scenarios/T9.1/`, `scenarios/T9.3/`, `test_l1a.py` and `engine/gates/test_t9_limits.py`; ran both scenarios on the clean engine commit `2baf36f` and committed the stamped results.
 - Result: **T9.1 and T9.3 pass**, as predicted: under L1a with lambda = 1 a neutron responds as -9.009e-19 e (book: 9.0e-19 e), 1126 standard errors from the measured neutron charge, so lambda must be below 0.0020; a charge in gravity feels the force of a field 1.1380e11 V/m (book: 1.14e11). Measurement checks under a hypothesis; status `done`. `pytest`: 170 passed, 1 deselected. L1a reduces to L0 exactly at lambda = 0.

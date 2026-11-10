@@ -67,7 +67,7 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | T1.1 | Pure masses: does the Composer part stay silent? | T9 | easy | open |
 | T1.2 | Mass with charge: the term `s q g` | T9 | easy | open |
 | T1.3 | Charge with charge: the charge share | T9 | easy | open |
-| T1.4 | Hydrogen-like pair under every law | T9 | medium | open |
+| T1.4 | Hydrogen-like pair under every law | T9 | medium | open | Demo under L0 and L1a delivered, exploratory (`scenarios/T1.4/`, `team/notes/T1.4.md`); the scenario itself is still open. |
 | T1.5 | Pairs with `Re(mu1 mu2) = 0` (the diagonal) | T9 | medium | open |
 | T1.6 | Newton's third law under every law | T9 | easy | open |
 | T2 | Survival table: 120 coupling definitions sorted into classes A (conserving, angle-free), B (conserving, angle-dependent) and C (non-conserving) | T1 | hard | open |
