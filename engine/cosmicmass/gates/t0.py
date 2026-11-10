@@ -270,7 +270,10 @@ def write_gate_result(outcome: dict, out_root="results", producer: str = "", now
             with open(folder / f"timeseries-{safe}.csv", "w", newline="", encoding="utf-8") as handle:
                 writer = csv.DictWriter(handle, fieldnames=list(item.timeseries[0]))
                 writer.writeheader()
-                writer.writerows(item.timeseries)
+                # at most about 500 rows are kept on disk (the analysis used every row)
+                keep = max(1, -(-len(item.timeseries) // 500))
+                rows = item.timeseries[::keep]
+                writer.writerows(rows if rows[-1] is item.timeseries[-1] else rows + [item.timeseries[-1]])
     for stamp in stamps.values():
         stamp["producer"] = producer
     stamp = {"scenario": outcome["id"], "run_id": run_id, "engine_commit": commit, "kind": "mathematics",
