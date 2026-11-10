@@ -1,3 +1,3 @@
 # Engine
 
-Components E1-E4 (see docs/OPEN-SCENARIOS.md). Not started yet. Interfaces are fixed by decisions in team/DECISIONS.md.
+Components E1-E9: tasks in `docs/WORK-PLAN.md`, modules and interface contracts in `ARCHITECTURE.md`. Not started yet. Rule D18: every code change updates `ARCHITECTURE.md` in the same pull request.

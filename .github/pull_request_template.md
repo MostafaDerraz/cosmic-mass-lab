@@ -13,6 +13,7 @@ Linked issue(s): <!-- claim issue, result issue -->
 - [ ] Every statement labelled: mathematics / measurement (with source) / finding of the virtual universe (law Lx)
 - [ ] Result compared with the prediction
 - [ ] No edits to verified formulas, verification scripts, sources or pass criteria (unless that is the task and the lead approved)
+- [ ] Code changed? `ARCHITECTURE.md` updated: registry, Mermaid diagrams, contracts, change log (D18); `python tools/check_architecture.py --base origin/main` passes
 - [ ] `team/LOG.md`, `team/FINDINGS.md` and `docs/OPEN-SCENARIOS.md` updated
 
 ## For AI agents

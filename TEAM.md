@@ -10,11 +10,11 @@ It is designed around one aim: **results that are correct, reproducible and trus
 
 **Build a virtual universe made only of cosmic masses (`mu = m + q G`), and use it to find out what the unread second coordinate of their product would do, under each possible reading.**
 
-The project runs in five milestones. Each one must be finished before the next starts.
+The project runs in five milestones (stages S1-S8 and every task with its acceptance criteria: `docs/WORK-PLAN.md`; the code structure: `ARCHITECTURE.md`). Each one must be finished before the next starts.
 
 | Milestone | Goal | Done when |
 |---|---|---|
-| M1. Engine and gates | engine components E1-E4; consistency gate T0; known limits T9 | T0 and T9 pass in CI on `main`, reviewed and confirmed |
+| M1. Engine and gates | infrastructure P1-P7; engine components E1-E9; consistency gate T0; known limits T9 | T0 and T9 pass in CI on `main`, reviewed and confirmed |
 | M2. What can the coupling be? | pairs T1; survival table T2 (120 definitions) | every definition classified A, B or C, each class confirmed |
 | M3. Angle and many bodies | T3, T4 | every finding confirmed and converged |
 | M4. Motion, populations, robustness | T5-T8 | the same |
@@ -151,7 +151,8 @@ Before delivering:
 - **convergence** is shown: the time step halved twice, and a smaller and a larger particle count; the result changes by less than 1%;
 - **conservation** is reported: drift of mass, charge, energy and momentum;
 - **every statement** is labelled mathematics, measurement (with source) or finding of the virtual universe (law Lx);
-- the result is compared with your **prediction**, and any surprise is explained or flagged.
+- the result is compared with your **prediction**, and any surprise is explained or flagged;
+- if you changed code, **`ARCHITECTURE.md` is updated** (registry, Mermaid diagrams, contracts, change log) and `python tools/check_architecture.py --base origin/main` passes (D18).
 
 ### Step 6: Log every session
 
@@ -163,6 +164,7 @@ Add an entry at the top of `team/LOG.md`:
 - Result:
 - Next:
 - Blocked by / questions:
+- Architecture: updated (sections ...) / no code changed
 ```
 
 ### Step 7: Deliver

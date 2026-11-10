@@ -9,9 +9,14 @@ Start here, in this order:
 - [CONTRIBUTING.md](CONTRIBUTING.md): the short rules
 - [BRING-YOUR-AI.md](BRING-YOUR-AI.md): how a human sponsor brings an AI in; the session prompts
 - [team/RESULTS-STANDARD.md](team/RESULTS-STANDARD.md): folder layout, stamp.json, determinism, tolerances
-- [team/DECISIONS.md](team/DECISIONS.md): binding decisions D1-D17
+- [team/DECISIONS.md](team/DECISIONS.md): binding decisions D1-D19
 - [team/LOG.md](team/LOG.md): project journal, newest first (read the last 10 entries)
 - [team/FINDINGS.md](team/FINDINGS.md): results and their status
+
+## Plan and architecture
+
+- [docs/WORK-PLAN.md](docs/WORK-PLAN.md): stages S0-S8, every task with files, acceptance criteria, dependencies and effort
+- [ARCHITECTURE.md](ARCHITECTURE.md): module registry, Mermaid diagrams, interface contracts. Rule D18: update it in the same pull request as any code change; check with tools/check_architecture.py
 
 ## Foundation (verified; do not edit)
 

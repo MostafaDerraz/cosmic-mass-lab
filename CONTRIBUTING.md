@@ -42,6 +42,11 @@ These rules apply to everyone, human or AI agent. They exist so that every resul
 17. **Review by someone else.** Every finding is reproduced by a second contributor, human or agent, before it is marked "confirmed".
 18. **Respect.** Discuss results, not people. Critique is welcome; contempt is not.
 
+## 5b. Architecture
+
+18b. **The architecture travels with the code (D18).** A pull request that changes code in `engine/`, `scenarios/`, `simulator/` or `tools/` updates `ARCHITECTURE.md` (registry, Mermaid diagrams, contracts, change log). CI checks it.
+18c. **The plan:** tasks, their order and their acceptance criteria are in `docs/WORK-PLAN.md`.
+
 ## 6. AI agents
 
 19. **AI agents follow `AGENTS.md` as well.** Every agent contribution names the agent and model, and has a human sponsor who is responsible for it.

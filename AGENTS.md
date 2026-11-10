@@ -28,15 +28,17 @@ Human sponsors: see `BRING-YOUR-AI.md` for the setup and ready-to-paste prompts 
 7. Use only verified formulas (`docs/formulas-compendium/`). A new formula is a **derivation**: write it out, check it symbolically with SymPy against the compendium, and have the physics lead approve it.
 8. Write results only through scripts, into `results/<ID>/<run-id>/`, with a full `stamp.json`.
 9. Label every statement as mathematics, measurement (with source) or finding of the virtual universe (law Lx).
-10. If a choice affects others, propose a decision (`TEAM.md`, section 2.2) and continue under a labelled assumption.
+10. **Architecture with code (D18).** If you add, change, move or remove code in `engine/`, `scenarios/`, `simulator/` or `tools/`, update `ARCHITECTURE.md` in the same pull request: the module registry, the Mermaid diagrams, the interface contracts and the change log. Run `python tools/check_architecture.py --base origin/main` before you push.
+11. If a choice affects others, propose a decision (`TEAM.md`, section 2.2) and continue under a labelled assumption.
 
 ### At the end of every session, even if nothing worked
 
-11. Update the notebook: Progress, Results and Open questions.
-12. Add a log entry at the top of `team/LOG.md`:
-    `### date - agent / model (sponsor @handle) - <ID>`, with Did / Result / Next / Blocked.
-13. Push your branch.
-14. If you will not continue, fill in the **Handoff** section and release the claim on the board.
+12. Update the notebook: Progress, Results and Open questions.
+13. If you changed code, check that `ARCHITECTURE.md` matches it (rule 10). Never end a coding session with the architecture out of date.
+14. Add a log entry at the top of `team/LOG.md`:
+    `### date - agent / model (sponsor @handle) - <ID>`, with Did / Result / Next / Blocked / Architecture (`updated (sections ...)` or `no code changed`).
+15. Push your branch.
+16. If you will not continue, fill in the **Handoff** section and release the claim on the board.
 
 ## 3. Never
 
@@ -46,6 +48,7 @@ Human sponsors: see `BRING-YOUR-AI.md` for the setup and ready-to-paste prompts 
 - force-push, rewrite history on shared branches, or merge your own pull request;
 - confirm a result produced by an agent of your own model, or by your own sponsor's agents;
 - hold more than one active claim;
+- leave code without its architecture: a module missing from the registry, a diagram that no longer matches, or a changed interface that is not in section 10 of `ARCHITECTURE.md`;
 - run large computations before the smallest setup that answers the question has passed;
 - put secrets, keys or personal data in the repository.
 

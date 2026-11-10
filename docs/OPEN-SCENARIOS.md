@@ -21,6 +21,20 @@ Full setups, laws and pass criteria are in `05-scenarios-and-tests.md`.
 
 **Dependencies:** T0 blocks everything. T9 blocks T1 to T8 for coupling laws (L1 to L8).
 
+Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLAN.md`. Code tasks also update `ARCHITECTURE.md` (rule D18).
+
+## Stage S1: project infrastructure
+
+| ID | Task | Needs | Difficulty | Status |
+|---|---|---|---|---|
+| P1 | Package skeleton: `pyproject.toml`, `engine/cosmicmass/`, pytest | none | easy | open |
+| P2 | CI job for tests and coverage | P1 | easy | open |
+| P3 | Architecture check `tools/check_architecture.py` in CI | none | easy | done |
+| P4 | JSON schemas for `stamp.json` and `summary.json` | P1 | easy | open |
+| P5 | Scenario scaffold `tools/new_scenario.py` | P1, P4 | easy | open |
+| P6 | Branch protection, labels, description and topics | P2 | maintainer | open |
+| P7 | Ruff lint and format; check the Codespaces dev container | P1 | easy | open |
+
 ## Milestone 1: the engine and the gates
 
 | ID | Scenario | Needs | Difficulty | Status |
@@ -29,6 +43,13 @@ Full setups, laws and pass criteria are in `05-scenarios-and-tests.md`.
 | E2 | Field solver: F1-F4 in both coordinates (direct sum for N up to 1e3, grid optional) | E1 | medium | open |
 | E3 | Integrator: Verlet and Boris, adaptive step, settings stamp | E1 | medium | open |
 | E4 | Law plug-in interface: L0-L8 as switchable readings | E1-E3 | medium | open |
+| E5 | State, universe U1-U8, settings loader, seeded populations | E1 | medium | open |
+| E6a | Walls: reflecting, absorbing with collection, wrap-around | E5 | easy | open |
+| E6b | Inflow, heat bath, fixed sources | E6a | medium | open |
+| E7 | Runner, stamp, command line | E3-E5 | medium | open |
+| E8 | Diagnostics, convergence helper, standard plots | E7 | medium | open |
+| E9 | Energy in both coordinates (may need an approved derivation) | E2 | hard | open |
+| G1 | Fast T0 gate in CI on every pull request | T0.1-T0.5 | medium | open |
 | T0.1 | Earth-moon, hydrogen-like orbit, two protons under L0 | E1-E4 | easy | open |
 | T0.2 | Conservation of `rho_mu`, energy and momentum, 200 bodies | E1-E4 | medium | open |
 | T0.3 | Angle invariance under L0, six frame angles | T0.1 | easy | open |

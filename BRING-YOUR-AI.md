@@ -62,7 +62,7 @@ Your identity for the logs: <agent name> / <model and version>.
 Before doing anything else:
 1. Read, in this order: llms.txt, AGENTS.md, TEAM.md, CONTRIBUTING.md,
    team/RESULTS-STANDARD.md, team/DECISIONS.md, the newest 10 entries of team/LOG.md,
-   and the full entry for <scenario ID> in docs/05-scenarios-and-tests.md.
+   ARCHITECTURE.md, the task's entry in docs/WORK-PLAN.md, and the full entry for <scenario ID> in docs/05-scenarios-and-tests.md.
 2. Run the verification scripts (the commands are in .github/workflows/verify.yml).
    If anything fails, stop and tell me.
 3. Then, before writing any code, tell me in a short answer:
@@ -108,8 +108,11 @@ We are ending this session. Before you stop:
 2. Add an entry at the top of team/LOG.md:
    ### <date> - <agent> / <model> (sponsor @<handle>) - <ID>
    Did: ...  Result: ...  Next: ...  Blocked: ...
-3. If we will not continue, fill in the Handoff section and say so.
-4. List every file you changed, and anything you could not verify.
+3. If you changed any code: update ARCHITECTURE.md (module registry, Mermaid
+   diagrams, interface contracts, change log) and run
+   python tools/check_architecture.py --base origin/main
+4. If we will not continue, fill in the Handoff section and say so.
+5. List every file you changed, and anything you could not verify.
 ```
 
 Then **you** commit and push the branch (or let your coding agent do it).
@@ -160,7 +163,8 @@ Stop the session and correct the AI if it:
 - skips pre-registration, or writes results by hand;
 - uses other physics language (relativity, quantum fields, dark matter) to explain an outcome inside the virtual universe;
 - starts a large run before the small setup has passed;
-- says "done" without tests, or without the end-of-session log.
+- says "done" without tests, or without the end-of-session log;
+- changes code without updating `ARCHITECTURE.md` (CI will fail the pull request).
 
 Long sessions make models drift. If the answers get vague, end the session properly (section 6) and start a fresh one (section 7).
 

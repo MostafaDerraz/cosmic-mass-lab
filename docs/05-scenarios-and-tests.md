@@ -1,6 +1,6 @@
 # Virtual universe: scenarios and tests with detailed setups
 
-Everything is written in the language of the cosmic mass and General Numbers (vocabulary in section 0). The verified formulas are in `04-formulas-compendium/`, and their status is in `03-report-verified-formulas.md`.
+Everything is written in the language of the cosmic mass and General Numbers (vocabulary in section 0). The verified formulas are in `formulas-compendium/`, and their status is in `03-report-verified-formulas.md`.
 
 ---
 

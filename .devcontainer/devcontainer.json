@@ -1,0 +1,15 @@
+{
+  "name": "Cosmic Mass Lab",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postCreateCommand": "pip install -r requirements.txt && pip install pytest pytest-cov ruff jsonschema",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "bierner.markdown-mermaid",
+        "James-Yu.latex-workshop"
+      ]
+    }
+  }
+}

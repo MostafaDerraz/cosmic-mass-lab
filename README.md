@@ -14,7 +14,7 @@
 [![Cosmic Mass preprint](https://img.shields.io/badge/preprint-10.5281%2Fzenodo.24094855-informational)](https://doi.org/10.5281/zenodo.24094855)
 [![General Numbers preprint](https://img.shields.io/badge/preprint-10.5281%2Fzenodo.24091305-informational)](https://doi.org/10.5281/zenodo.24091305)
 
-**[Read the call](ANNOUNCEMENT.md)** · **[How the team works](TEAM.md)** · **[Open scenarios](docs/OPEN-SCENARIOS.md)** · **[For AI agents](AGENTS.md)** · **[Bring your AI](BRING-YOUR-AI.md)**
+**[Read the call](ANNOUNCEMENT.md)** · **[How the team works](TEAM.md)** · **[Work plan](docs/WORK-PLAN.md)** · **[Architecture](ARCHITECTURE.md)** · **[Open scenarios](docs/OPEN-SCENARIOS.md)** · **[For AI agents](AGENTS.md)** · **[Bring your AI](BRING-YOUR-AI.md)**
 
 </div>
 
@@ -86,10 +86,12 @@ Yes, no, or impossible: every answer is a result, and negative results are publi
 ├── TEAM.md              objective, roles, work cycle, review, credit
 ├── AGENTS.md            session protocol and rules for AI agents
 ├── CONTRIBUTING.md      the short rules
+├── ARCHITECTURE.md      living architecture: module registry, Mermaid diagrams, contracts (rule D18)
 ├── BRING-YOUR-AI.md     for humans: how to bring Claude, ChatGPT or any AI onto the team
 ├── llms.txt             machine-readable entry point for AI agents
 ├── team/                shared memory: LOG, DECISIONS, FINDINGS, notebooks, results standard
-├── docs/                verified-formulas report, compendium (PDF), scenarios and tests, architecture
+├── tools/               architecture check, scenario scaffold
+├── docs/                WORK-PLAN, verified-formulas report, compendium (PDF), scenarios and tests, architecture
 ├── engine/              the engine (milestone 1, open)
 ├── scenarios/           one folder per scenario
 ├── results/             stamped outputs, written by scripts only
@@ -108,7 +110,9 @@ pip install -r requirements.txt
 cd verification/general-sinus && python verify_gsp.py     # 79 checks, about a minute
 ```
 
-Then read [`TEAM.md`](TEAM.md), pick a scenario, and claim it.
+No laptop? Open the project in the cloud: **[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MostafaDerraz/cosmic-mass-lab)** (everything preinstalled; free monthly hours on personal GitHub accounts).
+
+Then read [`TEAM.md`](TEAM.md) and the [work plan](docs/WORK-PLAN.md), pick a task, and claim it. If you change code, update [`ARCHITECTURE.md`](ARCHITECTURE.md) in the same pull request (rule D18).
 
 ---
 
@@ -117,7 +121,8 @@ Then read [`TEAM.md`](TEAM.md), pick a scenario, and claim it.
 | Milestone | State |
 |---|---|
 | Verified foundation (sources, compendium, CI) | ✅ done |
-| M1: engine and gates (E1–E4, T0, T9) | 🟢 **open, start here** |
+| S1: infrastructure (P1–P7) | 🟢 **open, start here** |
+| M1: engine and gates (E1–E9, T0, T9, G1) | 🟢 open |
 | M2: what can the coupling be? (T1, T2) | ⏳ waits for M1 |
 | M3–M5: angle, many bodies, motion, interactive universe | ⏳ planned |
 
