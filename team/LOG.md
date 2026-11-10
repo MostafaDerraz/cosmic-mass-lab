@@ -12,7 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
-### 2026-11-10 - Claude Code cloud session / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - P1
+### 2026-11-10 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - P1 review and delivery
+- Did: applied the P1 patch produced by the claude.ai chat session below (it had no push access), reviewed it as a different model (D14), and re-ran the done-when check on Windows: clean clone of the branch, fresh Python 3.12.10 environment, `pip install -e .[dev]` then `pytest` gives 3 passed (100% coverage); `python tools/check_architecture.py --base origin/main` passes. Corrected the session label in this log and in `team/notes/P1.md`. Pushed the branch and opened the pull request.
+- Result: P1 works on Linux (producer) and Windows (reviewer). Remarks for the reviewer of record: the dev extras `pytest` and `pytest-cov` are not pinned (resolved to 9.2.0 and 7.1.0); suggest pinning them in P2 together with a check that `pyproject.toml` and `requirements.txt` pins agree.
+- Next: maintainer review and merge (D17); then P2.
+- Blocked by / questions: none.
+- Architecture: no code changed in this session (the architecture update is in the P1 commit)
+
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - P1
 - Did:
   - ran the six verification scripts in the pinned environment (Python 3.12.3): 106, 204, 253 checks, 144 laws, 9,304 Gazette checks, 79 General Sinus checks, all pass; `python tools/check_architecture.py` passed before starting;
   - added `pyproject.toml` (package `cosmicmass` from `engine/cosmicmass/`, Python >= 3.12, the three pins of `requirements.txt`, dev extras `pytest` and `pytest-cov`, pytest pointed at `engine/tests`);
