@@ -77,6 +77,7 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
     every = num.get("record_every") or (max(1, num["steps"] // 1000) if num["steps"] else 100)
     first = diagnostics.measure(state)
     rows, step, dt, wall_hits = [_row(0, 0.0, first, state)], 0, 0.0, 0
+    wall_impulse = np.zeros(state.dimension)  # momentum given to the walls so far
     t_end = np.inf if num["t_end"] is None else num["t_end"]
     max_steps = np.inf if num["steps"] is None else num["steps"]
     while step < max_steps and state.t < t_end:
@@ -90,6 +91,8 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
         events = environment.apply(state, dt)
         if events:
             wall_hits += sum(event["bodies"] for event in events)
+            for event in events:
+                wall_impulse[event["wall"][0]] += event["impulse"]
             ctx.invalidate()
         if step % every == 0:
             rows.append(_row(step, dt, diagnostics.measure(state), state))
@@ -97,6 +100,7 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
     if rows[-1]["step"] != step:
         rows.append(_row(step, dt, last, state))
 
+    with_walls = dict(last, momentum=[p + w for p, w in zip(last["momentum"], wall_impulse)])
     summary = {
         "scenario": settings.scenario,
         "law": settings.law_spec.reading,
@@ -106,6 +110,9 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
         "final": last,
         "conservation": drifts(first, last),
         "wall_hits": wall_hits,
+        "wall_impulse": [float(p) for p in wall_impulse],
+        # momentum of the bodies plus the momentum they gave to the walls: conserved with reflecting walls
+        "momentum_with_walls_drift": drifts(first, with_walls)["momentum"],
         "convergence": None,  # filled by the convergence helper (E8.2), not by a single run
         "verdict": "none",
         "explanation": "A plain run has no pass criterion; scenarios add their own verdict.",

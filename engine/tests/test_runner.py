@@ -142,6 +142,8 @@ def test_free_fall_in_a_background_and_a_reflecting_floor():
             "numerics": {"t_end": 4.5, "dt_max": 1e-3}}
     result = run(data, out_root=None)
     assert result.summary["wall_hits"] == 2 and result.summary["conservation"]["energy_re"] < 1e-6
+    # two bounces of a body of mass 2 arriving at speed sqrt(2): the floor received 2 * 2 m v downwards
+    assert result.summary["wall_impulse"] == pytest.approx([0.0, -8.0 * math.sqrt(2.0)], rel=1e-3)
     assert result.summary["initial"]["energy_re"] == pytest.approx(2.0)  # m g h
     assert result.stamp["universe"]["box"] == {"lower": [-5.0, 0.0], "upper": [5.0, 50.0]}
     assert result.stamp["numerics"]["softening"] == 0.0  # a single body has no separation

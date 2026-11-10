@@ -67,7 +67,13 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | convergence | `engine/cosmicmass/analysis/convergence.py` | E8.2 | planned | re-run at `dt/2`, `dt/4` and other particle counts; relative changes |
 | plots | `engine/cosmicmass/analysis/plots.py` | E8.3 | planned | standard figures: Real and Composer planes, drifts, sweeps |
 | tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest); so far `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2), `test_gnarray.py` (E1.3), `test_readings_matter.py` (E1.4, E1.5), `test_compendium.py` (E1.6), `test_state_laws.py` (E5.1, E4.1, E4.2), `test_settings.py` (E5.3), `test_fields.py` (E2.1, E2.3, E2.4), `test_integrators.py` (E3.1, E3.3, E6a; one test marked `slow`), `test_runner.py` (E7.1 to E7.3, E8.1, E9) |
-| gatetests | `engine/gates/` | G1 | planned | fast T0 gate run in CI on every pull request |
+| gate | `engine/cosmicmass/gates/t0.py` | T0, G1 | implemented | the consistency gate T0.1 to T0.5 as functions (`t0_1` ... `t0_5`, `run_gate`), and `write_gate_result` |
+| gatetests | `engine/gates/` | G1 | implemented | fast T0 gate, run by pytest (in CI with the `tests` job of P2) |
+| - | `scenarios/T0.1/` | T0.1 | implemented | Earth-moon, hydrogen-like orbit, two protons under L0 |
+| - | `scenarios/T0.2/` | T0.2 | implemented | conservation of `rho_mu`, energy and momentum, 200 bodies in a reflecting box |
+| - | `scenarios/T0.3/` | T0.3 | implemented | angle invariance under L0, six frame angles |
+| - | `scenarios/T0.4/` | T0.4 | implemented | universal free fall under L0 |
+| - | `scenarios/T0.5/` | T0.5 | implemented | field split: the Composer part of one proton's field is Coulomb's field |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | scaffold | `tools/new_scenario.py` | P5 | planned | creates `scenarios/<ID>/`, settings, notebook and a registry row |
 | webui | `simulator/web/` | UI1 | planned | interactive universe in the browser (design decided at stage S7) |
@@ -125,9 +131,10 @@ flowchart TB
         scaffold["tools/new_scenario.py"]:::planned
         archcheck["tools/check_architecture.py"]
         cli["python -m cosmicmass<br/>__main__.py"]
-        scen["scenarios/ID/run.py"]:::planned
+        scen["scenarios/ID/run.py"]
+        gate["gates/t0.py"]
         tests["engine/tests"]
-        gatetests["engine/gates (T0 in CI)"]:::planned
+        gatetests["engine/gates (T0 in CI)"]
     end
 
     subgraph L4["Layer 4: orchestration and analysis"]
@@ -174,7 +181,11 @@ flowchart TB
     scen --> runner
     cli --> runner
     scen --> settings
-    gatetests --> runner
+    gatetests --> gate
+    scen --> gate
+    gate --> runner
+    gate --> settings
+    gate --> stamp
     tests -.->|"any layer"| gn
     webui --> runner
     scaffold --> settings
@@ -486,7 +497,7 @@ flowchart LR
     classDef planned stroke-dasharray: 5 5
     N["team/notes/ID.md<br/>pre-registration<br/>(committed first)"]
     S["scenarios/ID/settings.json"]:::planned
-    RUN["scenarios/ID/run.py"]:::planned
+    RUN["scenarios/ID/run.py"]
     ENG["engine: runner"]:::planned
     OUT["results/ID/run-id/<br/>stamp.json<br/>summary.json<br/>timeseries.csv<br/>figures/"]:::planned
     PR["pull request<br/>+ result issue"]
@@ -655,6 +666,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-10 | MVP-8: the consistency gate (`T0-gate`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new module** `gates/t0.py` (node `gate`), `engine/gates/` implemented (the fast gate is collected by pytest; section 9 is left as it is until the `tests` job of P2 is merged), five scenario rows `scenarios/T0.1/` to `scenarios/T0.5/`; section 4: `gatetests` and `scen` use `gate`, which uses `runner`, `settings` and `stamp`; section 8: `run.py` exists. The summary of a run gains `wall_impulse` and `momentum_with_walls_drift` (no signature changed) |
 | 2026-11-10 | MVP-7: runner, stamp, command line, diagnostics, L0 energy (`E7-runner`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `runner.py`, `stamp.py`, `diagnostics.py`, `energy.py` in progress (MVP parts); **new module** `__main__.py` (node `cli`); section 4: `runner` uses `settings` and `fields`, `energy` uses `gnarray` and `state` (the edge to `fields` is gone), `stamp` still dashed; section 5: `RunResult` carries the final state and the rows; section 10: `run` accepts a path or a dictionary and `out_root=None`, signatures of `main`, `Diagnostics`, `drifts`, `energy_l0` added |
 | 2026-11-10 | MVP-6: integrator and walls (`E3-integrator`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `integrators.py` in progress (velocity Verlet, adaptive step) and `environment.py` in progress (reflecting walls); section 4: `integrators` uses `state`, `settings` uses `environment`; section 5: `StepContext` added; section 10: `StepContext` and `Environment` signatures written out (additions) |
 | 2026-11-10 | MVP-5: static field solver and backgrounds (`E2-fields`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `fields/direct.py` in progress (static part, softening, backgrounds; E2.2 not yet); section 4: `fields` uses `state` and `constants` (the edge to `gnarray` is gone: the solver returns a `FieldSample`); sections 5 and 10: `at_bodies(state)` added next to `sample(state, points)`; the second field has shape `(P, 3)` in 3D |
