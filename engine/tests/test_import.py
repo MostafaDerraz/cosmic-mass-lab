@@ -17,3 +17,7 @@ def test_installed_version_matches_source():
     # pyproject.toml reads the version from cosmicmass.__version__, so the
     # installed metadata and the source can never disagree.
     assert version("cosmicmass") == cosmicmass.__version__
+
+
+def test_deliberate_failure_to_show_that_ci_turns_red():
+    assert False, "throwaway commit: this branch is never merged"
