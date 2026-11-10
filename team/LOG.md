@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-9 (E4.3 L1a, T9.1, T9.3)
+- Did: pre-registered T9.1 and T9.3 in `team/notes/T9.md` before writing any code for them (commit `c713ddc`); wrote `engine/cosmicmass/laws/l1.py` (the reading L1a, a hypothesis, with sign, strength and terms), `gates/t9.py` (new module), `scenarios/T9.1/`, `scenarios/T9.3/`, `test_l1a.py` and `engine/gates/test_t9_limits.py`; ran both scenarios on the clean engine commit `2baf36f` and committed the stamped results.
+- Result: **T9.1 and T9.3 pass**, as predicted: under L1a with lambda = 1 a neutron responds as -9.009e-19 e (book: 9.0e-19 e), 1126 standard errors from the measured neutron charge, so lambda must be below 0.0020; a charge in gravity feels the force of a field 1.1380e11 V/m (book: 1.14e11). Measurement checks under a hypothesis; status `done`. `pytest`: 170 passed, 1 deselected. L1a reduces to L0 exactly at lambda = 0.
+- Next: MVP-10 (demo T1.4 under L0 and L1a, exploratory, with figures; README; CHANGELOG) on `MVP-demo`.
+- Blocked by / questions: the law plug-in L1a needs the physics lead's approval; MVP-10's figures need a plotting library that is not in the pinned environment (D13).
+- Architecture: updated (sections 2, 4, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-8 (T0.1 to T0.5, G1)
 - Did: the maintainer answered the four questions of the MVP-7 handoff in the sponsoring chat (accepted all four), so the session resumed. Recorded them as decision D21. Pre-registered T0 in `team/notes/T0.md` (committed before the production runs, with a disclosure of the exploratory runs made while coding). Wrote `engine/cosmicmass/gates/t0.py` (new module), `scenarios/T0.1/` to `scenarios/T0.5/` and the fast gate `engine/gates/test_t0_gate.py`; the run summary now reports the impulse given to the walls. Ran the five scenarios on the clean engine commit `91ba4ae` and committed the stamped results.
 - Result: **T0.1 to T0.5 all pass** (details and limits in `team/notes/T0.md`; index in `team/FINDINGS.md`, status `done`). `pytest`: 160 passed, 1 deselected. These are checks of the engine against mathematics under L0, not findings.

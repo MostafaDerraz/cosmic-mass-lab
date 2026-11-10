@@ -42,7 +42,7 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | E1 | Algebra core: General Numbers, Rule of the Square, readings Re, Com, Sh, Ht, abs, with unit tests against the compendium | none | easy | done |
 | E2 | Field solver: F1-F4 in both coordinates (direct sum for N up to 1e3, grid optional) | E1 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E2.1, E2.3, E2.4 delivered; E2.2, E2.5 to do |
 | E3 | Integrator: Verlet and Boris, adaptive step, settings stamp | E1 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E3.1 and E3.3 delivered; E3.2, E3.4 to do |
-| E4 | Law plug-in interface: L0-L8 as switchable readings | E1-E3 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E4.1 and E4.2 delivered |
+| E4 | Law plug-in interface: L0-L8 as switchable readings | E1-E3 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E4.1, E4.2 and L1a of E4.3 delivered; L1b-L1e, E4.4, E4.5 to do |
 | E5 | State, universe U1-U8, settings loader, seeded populations | E1 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E5.1 and a minimal E5.3 delivered |
 | E6a | Walls: reflecting, absorbing with collection, wrap-around | E5 | easy | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): reflecting walls delivered; absorbing and wrap-around to do |
 | E6b | Inflow, heat bath, fixed sources | E6a | medium | open |
@@ -55,9 +55,9 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | T0.3 | Angle invariance under L0, six frame angles | T0.1 | easy | done (to be reproduced independently) |
 | T0.4 | Universal free fall under L0 | T0.1 | easy | done (to be reproduced independently) |
 | T0.5 | Field split: Composer set equals Maxwell | E2 | easy | done (to be reproduced independently) |
-| T9.1 | Neutron effective charge 9.0e-19 e under L1a | T0 | easy | open |
+| T9.1 | Neutron effective charge 9.0e-19 e under L1a | T0 | easy | done (to be reproduced independently) |
 | T9.2 | Hydrogen binding 5.71 eV under the charge share | T0 | medium | open |
-| T9.3 | Equivalent field 1.14e11 V/m for a charge in gravity | T0 | easy | open |
+| T9.3 | Equivalent field 1.14e11 V/m for a charge in gravity | T0 | easy | done (to be reproduced independently) |
 | T9.4 | Opposite pushes for particle and antiparticle near a neutral mass | T0 | easy | open |
 
 ## Milestone 2: what can the Composer coordinate be?

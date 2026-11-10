@@ -1,0 +1,32 @@
+{
+  "cases": {
+    "electron": {
+      "book_value": 114000000000.0,
+      "composer_force": [
+        -0.0,
+        1.8232612853835456e-08
+      ],
+      "composer_over_real": 2.0409823039955806e+21,
+      "equivalent_field_V_per_m": [
+        0.0,
+        -113799018578.34395
+      ],
+      "equivalent_field_size": 113799018578.34395,
+      "expected_s_times_g": 113799018578.34395,
+      "g": 9.80665,
+      "pass": true,
+      "real_force": [
+        0.0,
+        -8.9332537661605e-30
+      ],
+      "relative_error_vs_s_g": 0.0,
+      "tolerance": {
+        "relative": 1e-12,
+        "rounds_to_book_value": 500000000.0
+      }
+    }
+  },
+  "explanation": "T9.3 under the hypothesis L1a: every case meets its criterion.",
+  "scenario": "T9.3",
+  "verdict": "pass"
+}
