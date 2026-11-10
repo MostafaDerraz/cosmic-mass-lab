@@ -21,7 +21,7 @@ __all__ = ["Settings", "SettingsError", "load_settings"]
 # decision D10: velocity Verlet, adaptive step, softening 1e-3 of the smallest separation
 _NUMERICS = {"integrator": "verlet", "adaptive": True, "dt_initial": None, "softening": None,
              "softening_fraction": 1e-3, "eta": 1e-3, "dt_min": 0.0, "dt_max": None,
-             "steps": None, "t_end": None, "seed": 0}
+             "steps": None, "t_end": None, "record_every": None, "seed": 0}
 _UNIVERSE = {"phi_bar_deg": None, "dimension": 2, "units": "SI", "boundary": "open", "background": "none",
              "box": None}
 _TOP = {"scenario", "universe", "law", "bodies", "numerics", "kind", "preregistered", "producer"}

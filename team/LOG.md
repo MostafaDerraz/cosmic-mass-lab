@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-7 (E7.1 to E7.3, E8.1, E9 L0 part)
+- Did: wrote `engine/cosmicmass/energy.py` (L0 energy), `diagnostics.py` (conservation), `stamp.py`, `runner.py` (time loop and command line) and `__main__.py` (new module), with `test_runner.py` (13 new tests). Fixed a fault of the adaptive step on `E3-integrator` (MVP-6): a lone body in a background field never passed its turning point. Opened the notebook `team/notes/MVP-7.md`; updated the board and the MVP checklist.
+- Result: `pytest` gives 152 passed and 1 deselected, coverage 99%. `python -m cosmicmass run <settings>` writes `stamp.json`, `summary.json` and `timeseries.csv`; the same settings give the same summary byte for byte; energy and momentum drifts below 1e-6 on the test runs. No finding.
+- Next: MVP-8 (T0.1 to T0.5, G1) on `T0-gate`, cut from this branch. **This session stops here** (long context; `docs/MVP-PLAN.md`, section 5). The handoff, with four questions for the maintainer that decide T0 criteria, is in `team/notes/MVP-7.md`.
+- Blocked by / questions: the Composer energy is reported as `null`: it needs a derivation approved by the physics lead. Checkpoints, schema validation, temperature and pressure are not done (listed in the notebook).
+- Architecture: updated (sections 2, 4, 5, 10, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - MVP-6 (E3.1, E3.3, E6a reflecting)
 - Did: wrote `engine/cosmicmass/integrators.py` (`StepContext`, `VelocityVerlet` with the adaptive step of D10) and `environment.py` (reflecting walls); added `universe.box`, `numerics.eta`, `dt_min`, `dt_max` to the settings; `test_integrators.py` (13 new tests, one marked `slow`). Opened the notebook `team/notes/MVP-6.md`; updated the board and the MVP checklist.
 - Result: `pytest` gives 139 passed and 1 deselected, coverage 100%. Kepler orbit over 1000 periods (6,283,001 steps, run once by hand with `pytest -m slow`): largest energy excursion 3.9e-13, period within 3.3e-7. Checks of the engine against the two-body problem under L0 (mathematics); no finding.

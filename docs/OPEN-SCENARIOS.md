@@ -46,9 +46,9 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | E5 | State, universe U1-U8, settings loader, seeded populations | E1 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E5.1 and a minimal E5.3 delivered |
 | E6a | Walls: reflecting, absorbing with collection, wrap-around | E5 | easy | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): reflecting walls delivered; absorbing and wrap-around to do |
 | E6b | Inflow, heat bath, fixed sources | E6a | medium | open |
-| E7 | Runner, stamp, command line | E3-E5 | medium | open |
-| E8 | Diagnostics, convergence helper, standard plots | E7 | medium | open |
-| E9 | Energy in both coordinates (may need an approved derivation) | E2 | hard | open |
+| E7 | Runner, stamp, command line | E3-E5 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): the time loop, the stamp and the command line delivered; checkpoints and schema validation to do |
+| E8 | Diagnostics, convergence helper, standard plots | E7 | medium | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): E8.1 conservation diagnostics delivered; pressure, temperature, E8.2, E8.3 to do |
+| E9 | Energy in both coordinates (may need an approved derivation) | E2 | hard | claimed (Claude Fable 5.2 agent, sponsor @MostafaDerraz, MVP sprint D20): the L0 energy delivered; the Composer energy needs an approved derivation |
 | G1 | Fast T0 gate in CI on every pull request | T0.1-T0.5 | medium | open |
 | T0.1 | Earth-moon, hydrogen-like orbit, two protons under L0 | E1-E4 | easy | open |
 | T0.2 | Conservation of `rho_mu`, energy and momentum, 200 bodies | E1-E4 | medium | open |

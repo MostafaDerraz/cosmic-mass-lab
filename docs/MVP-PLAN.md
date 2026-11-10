@@ -74,8 +74,8 @@ Rules for every row:
 | MVP-4 | PR open | [#5](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/5) | E5.1, minimal E5.3, E4.1, E4.2 done 2026-11-10: 115 tests pass |
 | MVP-5 | PR open | [#6](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/6) | E2.1, E2.3, E2.4 done 2026-11-10: 128 tests pass |
 | MVP-6 | PR open | [#7](https://github.com/MostafaDerraz/cosmic-mass-lab/pull/7) | E3.1, E3.3, E6a (reflecting) done 2026-11-10: 139 tests pass, 1 slow test run by hand; three assumptions for the maintainer in `team/notes/MVP-6.md` |
-| MVP-7 | open | | |
-| MVP-8 | open | | |
+| MVP-7 | PR open | (link added in the next commit) | E7.1 to E7.3, E8.1, E9 (L0 part) done 2026-11-10: 152 tests pass; no checkpoints yet |
+| MVP-8 | open | | next item; four questions for the maintainer first: see the handoff in `team/notes/MVP-7.md` |
 | MVP-9 | open | | |
 | MVP-10 | open | | |
 
