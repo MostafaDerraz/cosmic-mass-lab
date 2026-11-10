@@ -101,6 +101,19 @@ Yes, no, or impossible: every answer is a result, and negative results are publi
 
 ---
 
+## Try it
+
+```bash
+git clone https://github.com/MostafaDerraz/cosmic-mass-lab.git
+cd cosmic-mass-lab
+pip install -e ".[dev]"              # Python 3.12
+python scenarios/T1.4/run.py         # the demo: a proton and an electron, under L0 and under L1a
+```
+
+The demo writes stamped results under `results/T1.4/` and two figures (`orbit.svg`, `separation.svg`). Under the reference law L0 the pair stays on its circle. Under L1a, one reading of the Composer coordinate, the same start gives a long ellipse. **The demo is exploratory, and L1a is a hypothesis that measurement already excludes at this strength** (test T9.1): it shows what the engine does with a reading, not what nature does.
+
+Run your own universe from a settings file with `python -m cosmicmass run settings.json`, and check the engine with `pytest` (it includes the fast consistency gate T0). What version 0.1.0 does and does not do: [`CHANGELOG.md`](CHANGELOG.md).
+
 ## Quick start
 
 ```bash
