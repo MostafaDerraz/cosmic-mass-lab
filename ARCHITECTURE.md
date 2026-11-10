@@ -80,6 +80,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | - | `scenarios/T0.5/` | T0.5 | implemented | field split: the Composer part of one proton's field is Coulomb's field |
 | - | `scenarios/D21/` | D21.1-D21.4 | implemented | the four numerical conventions of decision D21 run against their alternatives (`run.py 1..4`) |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
+| gallery | `tools/make_gallery.py` | - | implemented | draws the figures of `docs/GALLERY.md` (SVG, standard library) from the stored results |
 | scaffold | `tools/new_scenario.py` | P5 | planned | creates `scenarios/<ID>/`, settings, notebook and a registry row |
 | webui | `simulator/web/` | UI1 | planned | interactive universe in the browser (design decided at stage S7) |
 <!-- registry:end -->
@@ -135,6 +136,7 @@ flowchart TB
         webui["simulator/web"]:::planned
         scaffold["tools/new_scenario.py"]:::planned
         archcheck["tools/check_architecture.py"]
+        gallery["tools/make_gallery.py"]
         cli["python -m cosmicmass<br/>__main__.py"]
         scen["scenarios/ID/run.py"]
         gate["gates/t0.py"]
@@ -186,6 +188,9 @@ flowchart TB
 
     scen --> runner
     cli --> runner
+    gallery --> gate
+    gallery --> runner
+    gallery --> fields
     scen --> settings
     gatetests --> gate
     gatetests --> limits
@@ -677,6 +682,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-10 | Gallery (`gallery`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new tool** `tools/make_gallery.py` (node `gallery` in section 4, uses `gate`, `runner`, `fields`); no engine module or contract changed |
 | 2026-11-10 | MVP-10: demo and release notes (`MVP-demo`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | scenario row `scenarios/T1.4/` (in progress: the demo only); package version 0.1.0; no module, diagram or contract changed |
 | 2026-11-10 | MVP-9: L1a and the measured limits (`T9-limits`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `laws/l1.py` in progress (L1a with sign, strength, terms; node `l1` stays dashed); **new module** `gates/t9.py` (node `limits`); scenario rows `scenarios/T9.1/`, `scenarios/T9.3/`; section 4: `gatetests` and `scen` use `limits`. `write_gate_result` takes the kind and the law of the result (keyword arguments with the old behaviour as default) |
 | 2026-11-10 | D21 scenarios (`D21-scenarios`, stacked on `T0-gate`) | Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) | scenario row `scenarios/D21/` (D21.1-D21.4); no engine module, diagram or contract changed |
