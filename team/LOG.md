@@ -19,6 +19,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 - Blocked by / questions: none. Found while testing: the adaptive step uses absolute speeds, which makes moving scenes slow (in `team/notes/UI1.md`).
 - Architecture: updated (section 2 row `simulator/web/`, sections 3 and 4 nodes, section 11)
 
+### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - T9.4, E4.5, Q1 to Q3
+- Did: after the merge of the MVP (pull request #14), on the sponsor's instruction to do the tasks that need no decision and to turn the open questions into scenarios: pre-registered T9.4 and three question scenarios in `team/notes/Q.md` (commit `0fe33a2`, before any code); wrote `third_law_residual` (E4.5), `t9_4`, `scenarios/T9.4/run.py`, `scenarios/Q/run.py`; ran them and committed the stamped results.
+- Result: **T9.4 passes** (proton pulled, antiproton pushed, exactly opposite). **Q1:** L1a with all its terms obeys Newton's third law; each half of the Coupling term alone does not. This corrects a sentence of mine in `team/notes/T1.4.md`. **Q2:** under L1a the L0 energy is not conserved but the same sum read with L1a is, to 4.1e-7 on four runs; it is a candidate for the physics lead, not added to the engine. **Q3:** CODATA 2018 or 2022 for `K` changes nothing above 3.5e-10. `pytest`: 174 passed, 1 deselected.
+- Next: P4, P5, P7 (asked for, not done yet).
+- Blocked by / questions: every open question for the maintainer is now collected in **`team/QUESTIONS.md`** (eleven questions and a housekeeping list); two of them are proposed as decisions D23 (energy of L1a) and D24 (dev dependencies). One flaw of my own Q1 script (a pass tolerance that could not see a tiny residual) was found on the first run and corrected before anything was committed as a result; it is recorded as a change to the plan.
+- Architecture: updated (sections 2, 10, 11)
+
 ### 2026-11-10 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - D21.1-D21.4
 - Did: on the maintainer's request, turned the four conventions of D21 into scenarios; pre-registered them (`team/notes/D21.md`, committed before any run); ran them from commit `7ccf3aa` (`scenarios/D21/run.py`); also reviewed MVP-1 to MVP-8 and reproduced T0 on Windows (identical verdicts, differences at rounding).
 - Result: (1) 2D = tilted 3D to 1e-14; (2) softening moves two-body results to a different answer (shown by halving the step), so gates keep softening 0; (3) end drift hides a 3.7e-6 excursion at e = 0.9, eta = 1e-3: report both; (4) without a floor no run can start from rest; floors 0.01-1.0 all accurate. Two predictions failed and are recorded.
