@@ -42,7 +42,7 @@ def q4() -> dict:
     k, mu, r = _strength(earth, moon), earth.m * moon.m / (earth.m + moon.m), 3.844e8
     period, speed = 2 * math.pi * math.sqrt(mu * r**3 / k), math.sqrt(k / (mu * r))
     tracks = {}
-    for frame_name, boost in (("1: Earth-moon, own frame", [0.0, 0.0]), ("2: Earth-moon, +29780 m/s", [29780.0, 0.0])):
+    for frame_name, boost in (("1: Earth-moon, own frame", [0.0, 0.0]), ("2: Earth-moon, plus 29780 m per s", [29780.0, 0.0])):
         for rule, reference in RULES.items():
             numerics = {"t_end": period, "record_every": 1, "speed_reference": reference}
             result = run(boosted(_pair("Q4", earth, moon, r, speed, PHI, numerics), boost), out_root=None)
@@ -52,14 +52,14 @@ def q4() -> dict:
             cases[name] = {"steps": result.summary["steps"], "period_error": abs(measured / period - 1), **_energy(result)}
             runs[name], tracks[name] = result, (t, sep)
     # B must give the same motion in both frames: compare the separations at the end
-    own, moved = tracks["1: Earth-moon, own frame; B (nearest neighbour)"], tracks["2: Earth-moon, +29780 m/s; B (nearest neighbour)"]
-    cases["2: Earth-moon, +29780 m/s; B (nearest neighbour)"]["final_separation_vs_own_frame"] = float(abs(moved[1][-1] / own[1][-1] - 1))
+    own, moved = tracks["1: Earth-moon, own frame; B (nearest neighbour)"], tracks["2: Earth-moon, plus 29780 m per s; B (nearest neighbour)"]
+    cases["2: Earth-moon, plus 29780 m per s; B (nearest neighbour)"]["final_separation_vs_own_frame"] = float(abs(moved[1][-1] / own[1][-1] - 1))
 
     # 3: two protons, at rest as a whole and with 1e6 m/s
     r0, k_pp, mu_pp = 1e-10, _strength(proton, proton), proton.m / 2
     t_end = 3.0 * math.sqrt(mu_pp * r0**3 / -k_pp)
     exact = _escape_radius(t_end, r0, k_pp, mu_pp)
-    for frame_name, boost in (("3: two protons, own frame", [0.0, 0.0]), ("3: two protons, +1e6 m/s", [1e6, 0.0])):
+    for frame_name, boost in (("3: two protons, own frame", [0.0, 0.0]), ("3: two protons, plus 1e6 m per s", [1e6, 0.0])):
         for rule, reference in RULES.items():
             numerics = {"t_end": t_end, "record_every": 50, "speed_reference": reference}
             result = run(boosted(_pair("Q4", proton, proton, r0, 0.0, PHI, numerics), boost), out_root=None)
@@ -97,8 +97,8 @@ def q4() -> dict:
     # the predictions of the pre-registration, one flag each
     get = lambda name: cases[name]  # noqa: E731
     a1, b1 = get("1: Earth-moon, own frame; A (absolute)"), get("1: Earth-moon, own frame; B (nearest neighbour)")
-    a2, b2 = get("2: Earth-moon, +29780 m/s; A (absolute)"), get("2: Earth-moon, +29780 m/s; B (nearest neighbour)")
-    a3, b3 = get("3: two protons, +1e6 m/s; A (absolute)"), get("3: two protons, +1e6 m/s; B (nearest neighbour)")
+    a2, b2 = get("2: Earth-moon, plus 29780 m per s; A (absolute)"), get("2: Earth-moon, plus 29780 m per s; B (nearest neighbour)")
+    a3, b3 = get("3: two protons, plus 1e6 m per s; A (absolute)"), get("3: two protons, plus 1e6 m per s; B (nearest neighbour)")
     b3own = get("3: two protons, own frame; B (nearest neighbour)")
     a4, b4 = get("4: Sun-Earth-moon; A (absolute)"), get("4: Sun-Earth-moon; B (nearest neighbour)")
     cases["predictions"] = {
