@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-11 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - UI0, UI1 (first version)
+- Did: built `simulator/web/`: a page with scenes, body and law editors, L0 overlay, animated trajectories and readouts; a web worker that runs the unchanged engine in Pyodide; a bridge; a test that the page loads exactly the engine's files and that the bridge runs. Proposed D22 (the design).
+- Result: works in the browser: engine ready in about 20 s, the T1.4 picture (L1a ellipse over the L0 circle) in 33 s. Tests: 2 new, passing.
+- Next: maintainer review and D22; GitHub Pages; the Composer plane (UI1 second part).
+- Blocked by / questions: none. Found while testing: the adaptive step uses absolute speeds, which makes moving scenes slow (in `team/notes/UI1.md`).
+- Architecture: updated (section 2 row `simulator/web/`, sections 3 and 4 nodes, section 11)
+
 ### 2026-11-10 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - D21.1-D21.4
 - Did: on the maintainer's request, turned the four conventions of D21 into scenarios; pre-registered them (`team/notes/D21.md`, committed before any run); ran them from commit `7ccf3aa` (`scenarios/D21/run.py`); also reviewed MVP-1 to MVP-8 and reproduced T0 on Windows (identical verdicts, differences at rounding).
 - Result: (1) 2D = tilted 3D to 1e-14; (2) softening moves two-body results to a different answer (shown by halving the step), so gates keep softening 0; (3) end drift hides a 3.7e-6 excursion at e = 0.9, eta = 1e-3: report both; (4) without a floor no run can start from rest; floors 0.01-1.0 all accurate. Two predictions failed and are recorded.

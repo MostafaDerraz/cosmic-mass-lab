@@ -81,7 +81,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | - | `scenarios/D21/` | D21.1-D21.4 | implemented | the four numerical conventions of decision D21 run against their alternatives (`run.py 1..4`) |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | scaffold | `tools/new_scenario.py` | P5 | planned | creates `scenarios/<ID>/`, settings, notebook and a registry row |
-| webui | `simulator/web/` | UI1 | planned | interactive universe in the browser (design decided at stage S7) |
+| webui | `simulator/web/` | UI1 | in-progress | interactive universe in the browser: the unchanged engine runs in Pyodide in a web worker (`worker.js`, `bridge.py`); page `index.html`, `app.js`; `engine-files.json` lists the engine files it loads (D22, proposed) |
 <!-- registry:end -->
 
 ### Scenario scripts
@@ -104,7 +104,7 @@ flowchart LR
     ENGINE["Engine<br/>engine/cosmicmass"]:::planned
     SCEN["Scenarios<br/>scenarios/ID/run.py"]:::planned
     RES[("Results<br/>results/ID/run-id/")]:::planned
-    UI["Interactive universe<br/>simulator/web"]:::planned
+    UI["Interactive universe<br/>simulator/web"]
     CI["CI<br/>verification, tests,<br/>T0 gate, archcheck"]
     REP["Reports<br/>findings atlas, papers,<br/>data release"]:::planned
 
@@ -132,7 +132,7 @@ flowchart TB
 
     subgraph L5["Layer 5: applications"]
         direction LR
-        webui["simulator/web"]:::planned
+        webui["simulator/web<br/>(engine in Pyodide)"]
         scaffold["tools/new_scenario.py"]:::planned
         archcheck["tools/check_architecture.py"]
         cli["python -m cosmicmass<br/>__main__.py"]
@@ -677,6 +677,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-11 | UI1, first version (`UI1-web-universe`) | Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) | `simulator/web/` in progress: web worker running the unchanged engine in Pyodide, bridge, page; nodes `UI` and `webui` no longer planned; test `engine/tests/test_web_universe.py`. No engine module or contract changed |
 | 2026-11-10 | D21 scenarios (`D21-scenarios`, stacked on `T0-gate`) | Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) | scenario row `scenarios/D21/` (D21.1-D21.4); no engine module, diagram or contract changed |
 | 2026-11-10 | MVP-10: demo and release notes (`MVP-demo`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | scenario row `scenarios/T1.4/` (in progress: the demo only); package version 0.1.0; no module, diagram or contract changed |
 | 2026-11-10 | MVP-9: L1a and the measured limits (`T9-limits`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `laws/l1.py` in progress (L1a with sign, strength, terms; node `l1` stays dashed); **new module** `gates/t9.py` (node `limits`); scenario rows `scenarios/T9.1/`, `scenarios/T9.3/`; section 4: `gatetests` and `scen` use `limits`. `write_gate_result` takes the kind and the law of the result (keyword arguments with the old behaviour as default) |
