@@ -70,6 +70,7 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
     box = universe.get("box") or {}
     environment = Environment(universe["boundary"], box.get("lower"), box.get("upper"))
     ctx = StepContext(settings.make_law(), solver, settings.frame, eta=num["eta"], dt_min=num["dt_min"],
+                      speed_reference=num["speed_reference"],
                       dt_max=np.inf if num["dt_max"] is None else num["dt_max"])
     integrator = VelocityVerlet()
     diagnostics = Diagnostics(settings.frame, constants, softening, background)

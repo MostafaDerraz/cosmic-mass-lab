@@ -279,3 +279,26 @@ def test_a_gas_between_absorbing_walls_through_the_runner():
     assert drift["momentum"] > 1e-2 and result.summary["wall_hits"] == absorbed["bodies"]
     assert drift["energy_re"] > 1e-2  # the energy of the absorbed bodies leaves the bodies: not conserved
     assert run({**data, "universe": {**data["universe"], "boundary": "open"}}, out_root=None).summary["absorbed"]["bodies"] == 0
+
+
+def test_step_rule_relative_to_the_nearest_neighbour():
+    # the option tested by scenario Q4: the same step whatever uniform velocity is added to all bodies
+    from cosmicmass.integrators import nearest_neighbours
+
+    state, period = kepler(m1=1.0, m2=1.0)
+    absolute, relative = context(), context(speed_reference="neighbour")
+    dt_abs, dt_rel = VV.next_dt(state, absolute), VV.next_dt(state, relative)
+    assert dt_rel == pytest.approx(dt_abs, rel=1e-12)  # a two-body circular orbit: eta r / v_rel in both
+    boosted = state.copy()
+    boosted.v += [300.0, -40.0]
+    assert VV.next_dt(boosted, context(speed_reference="neighbour")) == pytest.approx(dt_rel, rel=1e-9)
+    assert VV.next_dt(boosted, context()) < dt_abs / 100  # the absolute rule shrinks with the boost
+    assert list(nearest_neighbours(state)[1]) == [1, 0] and nearest_neighbours(state)[0][0] == pytest.approx(1.0)
+    # a body alone has no neighbour and does not limit the step; a fixed neighbour counts as at rest
+    alone = State.from_bodies([preset("neutron")], [[0.0, 0.0]], v=[[5.0, 0.0]])
+    assert list(nearest_neighbours(alone)[1]) == [0] and VV.next_dt(alone, context(speed_reference="neighbour", dt_max=2.0)) == 2.0
+    pinned = State(m=[1.0, 1e-3], q=[0.0, 0.0], x=[[0.0, 0.0], [1.0, 0.0]], v=[[9.0, 9.0], [0.0, 1.0]],
+                   fixed=[True, False], alive=[True, True])
+    assert VV.next_dt(pinned, context(speed_reference="neighbour")) == pytest.approx(VV.next_dt(pinned, context()), rel=1e-12)
+    with pytest.raises(ValueError, match="speed_reference"):
+        VV.next_dt(state, context(speed_reference="rotating"))
