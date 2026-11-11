@@ -8,11 +8,17 @@
 
 [![Verify formulas](https://github.com/MostafaDerraz/cosmic-mass-lab/actions/workflows/verify.yml/badge.svg)](https://github.com/MostafaDerraz/cosmic-mass-lab/actions/workflows/verify.yml)
 [![Open scenarios](https://img.shields.io/badge/open%20scenarios-~50-blueviolet)](docs/OPEN-SCENARIOS.md)
+[![Try it online](https://img.shields.io/badge/try%20it-online-orange)](https://mostafaderraz.github.io/cosmic-mass-lab/simulator/web/)
+[![Release](https://img.shields.io/github/v/release/MostafaDerraz/cosmic-mass-lab)](https://github.com/MostafaDerraz/cosmic-mass-lab/releases/latest)
 [![AI agents welcome](https://img.shields.io/badge/AI%20agents-welcome-success)](AGENTS.md)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue)](LICENSE)
 [![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey)](LICENSE)
 [![Cosmic Mass preprint](https://img.shields.io/badge/preprint-10.5281%2Fzenodo.24094855-informational)](https://doi.org/10.5281/zenodo.24094855)
 [![General Numbers preprint](https://img.shields.io/badge/preprint-10.5281%2Fzenodo.24091305-informational)](https://doi.org/10.5281/zenodo.24091305)
+
+### [▶ Try the virtual universe in your browser](https://mostafaderraz.github.io/cosmic-mass-lab/simulator/web/)
+
+*No installation: the verified engine runs inside the page.*
 
 **[Read the call](ANNOUNCEMENT.md)** · **[How the team works](TEAM.md)** · **[Work plan](docs/WORK-PLAN.md)** · **[Architecture](ARCHITECTURE.md)** · **[Open scenarios](docs/OPEN-SCENARIOS.md)** · **[For AI agents](AGENTS.md)** · **[Bring your AI](BRING-YOUR-AI.md)**
 
@@ -103,6 +109,10 @@ Yes, no, or impossible: every answer is a result, and negative results are publi
 
 ## Try it
 
+**Online, nothing to install:** [mostafaderraz.github.io/cosmic-mass-lab/simulator/web/](https://mostafaderraz.github.io/cosmic-mass-lab/simulator/web/). Pick a scene (hydrogen-like pair, Earth and Moon, two protons, a fall from rest) or build your own, choose L0 or L1a, and watch. Every number is computed by the same engine that passed the consistency gate T0, running in your browser.
+
+**On your computer:**
+
 ```bash
 git clone https://github.com/MostafaDerraz/cosmic-mass-lab.git
 cd cosmic-mass-lab
@@ -134,11 +144,12 @@ Then read [`TEAM.md`](TEAM.md) and the [work plan](docs/WORK-PLAN.md), pick a ta
 | Milestone | State |
 |---|---|
 | Verified foundation (sources, compendium, CI) | ✅ done |
-| S1: infrastructure (P1–P7) | 🟢 open (P1 ✅ done) |
-| **MVP 0.1.0** (first working universe, [plan](docs/MVP-PLAN.md)) | 🚧 **in progress** |
-| M1: engine and gates (E1–E9, T0, T9, G1) | 🟢 open |
-| M2: what can the coupling be? (T1, T2) | ⏳ waits for M1 |
-| M3–M5: angle, many bodies, motion, interactive universe | ⏳ planned |
+| **MVP 0.1.0**: the first working universe ([release](https://github.com/MostafaDerraz/cosmic-mass-lab/releases/tag/v0.1.0)) | ✅ **released** |
+| S1: infrastructure (P1–P7) | 🟡 P1, P2, P3 done; P4–P7 open |
+| M1: engine and gates (E1–E9, T0, T9, G1) | 🟡 T0 and T9.1, T9.3 **confirmed**; T9.2, T9.4 open |
+| M2: what can the coupling be? (T1, T2) | ⏳ next, after M1 |
+| M3, M4: angle, many bodies, motion, populations | ⏳ planned |
+| M5: interactive universe | 🟢 **[live online](https://mostafaderraz.github.io/cosmic-mass-lab/simulator/web/)** (UI1 first version); UI2–UI4 open |
 
 The latest work is always in [`team/LOG.md`](team/LOG.md), and results in [`team/FINDINGS.md`](team/FINDINGS.md).
 
