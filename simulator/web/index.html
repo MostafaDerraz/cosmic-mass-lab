@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cosmic Mass Lab: virtual universe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="mu">μ = m + q𝒢</span>
+      <div>
+        <h1>Virtual universe of cosmic masses</h1>
+        <p class="sub">The verified engine <code>cosmicmass</code> <span id="version"></span>, running in your browser</p>
+      </div>
+    </div>
+    <div id="status" class="status">Starting…</div>
+  </header>
+
+  <main>
+    <aside class="panel">
+      <section>
+        <h2>Scene</h2>
+        <select id="scene"></select>
+        <p id="scene-note" class="note"></p>
+      </section>
+
+      <section>
+        <h2>Law</h2>
+        <div class="seg">
+          <label><input type="radio" name="law" value="L0" checked> L0 <small>reference</small></label>
+          <label><input type="radio" name="law" value="L1a"> L1a <small>hypothesis</small></label>
+        </div>
+        <div id="l1a-options" class="grid2" hidden>
+          <label>λ (strength)<input id="lambda" type="number" step="any" value="1"></label>
+          <label>sign<select id="sign"><option>+</option><option>-</option></select></label>
+          <label class="wide">terms<select id="terms">
+            <option value="all">all three</option>
+            <option value="s q g">s q g (charge feels gravity)</option>
+            <option value="-m E/s">−m E/s (mass feels the electric field)</option>
+            <option value="-2 cos q E">−2 cos φ q E (charge share)</option>
+          </select></label>
+          <label class="wide check"><input id="compare" type="checkbox" checked> also run L0 and overlay it</label>
+        </div>
+        <label class="row">frame angle φ̄ (deg)<input id="phi" type="number" step="any" value="79.86"></label>
+      </section>
+
+      <section>
+        <h2>Bodies <small>(cosmic masses, SI)</small></h2>
+        <div id="bodies"></div>
+        <button id="add-body" class="ghost">+ add body</button>
+      </section>
+
+      <section>
+        <h2>Numerics</h2>
+        <div class="grid2">
+          <label>duration (s)<input id="t-end" type="number" step="any"></label>
+          <label>η (step size)<input id="eta" type="number" step="any" value="0.001"></label>
+          <label class="wide check"><input id="soft" type="checkbox"> D10 softening (for many bodies; off for two-body checks, D21)</label>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button id="run" disabled>Run</button>
+        <button id="dl-settings" class="ghost">settings.json</button>
+        <button id="dl-result" class="ghost" disabled>result.json</button>
+      </div>
+    </aside>
+
+    <section class="stage">
+      <div id="badge" class="badge" hidden>Hypothesis L1a: an exploratory run, not a finding about nature</div>
+      <canvas id="view" width="900" height="640" aria-label="Trajectories of the bodies in the Real plane"></canvas>
+      <div class="player">
+        <button id="play" class="ghost" disabled>❚❚</button>
+        <input id="scrub" type="range" min="0" max="0" value="0" disabled>
+        <span id="clock">t = 0 s</span>
+        <label class="speed">speed<input id="speed" type="range" min="1" max="40" value="10"></label>
+      </div>
+      <div id="legend" class="legend"></div>
+      <div id="readout" class="readout"></div>
+    </section>
+  </main>
+
+  <footer>
+    Every number on this page is computed by the engine of
+    <a href="https://github.com/MostafaDerraz/cosmic-mass-lab">Cosmic Mass Lab</a> (verified against the compendium, gates T0 and T9 confirmed).
+    L0 is the reference law; L1a is a hypothesis, excluded at λ = 1 by the measured charge of the neutron (test T9.1: λ &lt; 0.002).
+    The field law covers slow bodies only.
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

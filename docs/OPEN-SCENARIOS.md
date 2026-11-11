@@ -113,7 +113,8 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 
 | ID | Scenario | Needs | Difficulty | Status |
 |---|---|---|---|---|
-| UI1 | Web viewer: Real and Composer planes, trails, live readings | E1-E4 | medium | open |
+| UI0 | Design decision of the web universe | E7 | easy | done (D22 proposed: the engine in Pyodide) |
+| UI1 | Web viewer: Real and Composer planes, trails, live readings | E1-E4 | medium | in progress (Real plane, trails, readouts, L0 overlay done; Composer plane open) |
 | UI2 | Input panels: universe U1-U8, matter as `mu`, law L0-L8 | UI1 | medium | open |
 | UI3 | Compare mode: one scene under several laws side by side | UI2 | medium | open |
 | UI4 | Saved runs with settings stamps, shareable links | UI2 | medium | open |

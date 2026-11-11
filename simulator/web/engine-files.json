@@ -1,0 +1,31 @@
+{
+ "root": "../../engine/",
+ "files": [
+  "cosmicmass/__init__.py",
+  "cosmicmass/__main__.py",
+  "cosmicmass/constants.py",
+  "cosmicmass/diagnostics.py",
+  "cosmicmass/energy.py",
+  "cosmicmass/environment.py",
+  "cosmicmass/fields/__init__.py",
+  "cosmicmass/fields/direct.py",
+  "cosmicmass/fields/sample.py",
+  "cosmicmass/frame.py",
+  "cosmicmass/gates/__init__.py",
+  "cosmicmass/gates/t0.py",
+  "cosmicmass/gates/t9.py",
+  "cosmicmass/gn.py",
+  "cosmicmass/gnarray.py",
+  "cosmicmass/integrators.py",
+  "cosmicmass/laws/__init__.py",
+  "cosmicmass/laws/base.py",
+  "cosmicmass/laws/l0.py",
+  "cosmicmass/laws/l1.py",
+  "cosmicmass/matter.py",
+  "cosmicmass/readings.py",
+  "cosmicmass/runner.py",
+  "cosmicmass/settings.py",
+  "cosmicmass/stamp.py",
+  "cosmicmass/state.py"
+ ]
+}
