@@ -2,6 +2,10 @@
 
 `simulator/web/` is the interactive universe (tasks UI1-UI4 of `docs/WORK-PLAN.md`). It runs the **unchanged, verified engine** `cosmicmass` inside the browser with [Pyodide](https://pyodide.org) (Python 3.12, NumPy 1.26.4, the pinned versions). There is no second engine in JavaScript: every number on the page comes from `cosmicmass.runner.run`.
 
+## Online
+
+Published with GitHub Pages from `main`: <https://mostafaderraz.github.io/cosmic-mass-lab/simulator/web/>. The empty file `.nojekyll` at the repository root is needed: without it, Pages hides every file whose name starts with `_`, such as the engine's `__init__.py`.
+
 ## Run it locally
 
 From the repository root:
