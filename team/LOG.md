@@ -12,6 +12,13 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-11 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - Q4 (the step rule and the frame)
+- Did: merged `main` (UI1, pull request #19) into my two open branches, renumbering my proposed decisions to D23 and D24 because `main` took D22; my first merge commit left conflict markers in the change log of `ARCHITECTURE.md`, which I removed in a following commit on both branches. Then took up the remark of `team/notes/UI1.md` as a scenario: pre-registered Q4 (`team/notes/Q4.md`, commit `7cd44e0`), added the option `speed_reference` to the step rule (default unchanged), wrote `scenarios/Q4/run.py`, ran it on the clean commit `7d98c8d`.
+- Result: the current step rule depends on the frame (29 times more steps for a system moving at the Earth's orbital speed, without loss of accuracy); a rule relative to the nearest neighbour does not, and is as accurate on four setups (Sun, Earth and moon over a month: 6,449 steps instead of 186,692, within 2.8e-8 of a fine reference). Seven of my eight prediction flags hold; the one that fails, and one prediction that was wrong in its value, are described in the notebook. `pytest`: 179 passed, 1 deselected.
+- Next: the guard scenario (a fast close pair near a third body) before any proposal to amend D21; then E5.2, E5.4, E8.2.
+- Blocked by / questions: question 14 of `team/QUESTIONS.md`. The first run failed while writing its files (a `/` in two case names); nothing had been seen; recorded as a change to the plan.
+- Architecture: updated (sections 2, 10, 11)
+
 ### 2026-11-11 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - E6a (absorbing walls), milestone check
 - Did: on the sponsor's request, checked the milestones and took the next task that needs no decision. Wrote absorbing walls with a collector (`engine/cosmicmass/environment.py`), connected them to the settings and the runner, 2 new tests; notebook `team/notes/E6a.md`; two new questions (12, 13) in `team/QUESTIONS.md`.
 - Result: absorbing walls conserve total mass and charge exactly, counting the collector; the momentum of the bodies plus the walls' share is conserved to 1e-9. `pytest`: 176 passed, 1 deselected.
