@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-11 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - E6a (absorbing walls), milestone check
+- Did: on the sponsor's request, checked the milestones and took the next task that needs no decision. Wrote absorbing walls with a collector (`engine/cosmicmass/environment.py`), connected them to the settings and the runner, 2 new tests; notebook `team/notes/E6a.md`; two new questions (12, 13) in `team/QUESTIONS.md`.
+- Result: absorbing walls conserve total mass and charge exactly, counting the collector; the momentum of the bodies plus the walls' share is conserved to 1e-9. `pytest`: 176 passed, 1 deselected.
+- Milestones (`docs/WORK-PLAN.md`): S0 done. Version 0.1.0 is tagged. **M1 is not reached.** S1: P1, P2, P3 done; P4, P5, P7 wait for decision D23; P6 is the maintainer's. S2: 16 of 33 sub-tasks complete (E1.1-E1.6, E2.1, E2.3, E2.4, E3.1, E3.3, E4.1, E4.2, E4.5, E5.1, E7.3), 7 partly (E4.3, E5.3, E6a, E7.1, E7.2, E8.1, E9), 10 not started (E2.2, E2.5, E3.2, E3.4, E4.4, E5.2, E5.4, E6b, E8.2, E8.3). S3: T0.1-T0.5 and G1 done, T9.1, T9.3, T9.4 done, T9.2 and the milestone review open.
+- Next: tasks that need no decision: E5.2 (`Universe`), E5.4 (populations), E8.2 (convergence helper), the checkpoints of E7.1, E3.4 with E4.4 (the options L2 to L8 as defined in `docs/05`).
+- Blocked by / questions: the eleven questions of `team/QUESTIONS.md` are unanswered; wrap-around waits for question 12.
+- Architecture: updated (sections 2, 10, 11)
+
 ### 2026-11-10 - Claude chat session on claude.ai / Claude Fable 5.2 (claude-fable-5-2) (sponsor @MostafaDerraz) - T9.4, E4.5, Q1 to Q3
 - Did: after the merge of the MVP (pull request #14), on the sponsor's instruction to do the tasks that need no decision and to turn the open questions into scenarios: pre-registered T9.4 and three question scenarios in `team/notes/Q.md` (commit `0fe33a2`, before any code); wrote `third_law_residual` (E4.5), `t9_4`, `scenarios/T9.4/run.py`, `scenarios/Q/run.py`; ran them and committed the stamped results.
 - Result: **T9.4 passes** (proton pulled, antiproton pushed, exactly opposite). **Q1:** L1a with all its terms obeys Newton's third law; each half of the Coupling term alone does not. This corrects a sentence of mine in `team/notes/T1.4.md`. **Q2:** under L1a the L0 energy is not conserved but the same sum read with L1a is, to 4.1e-7 on four runs; it is a candidate for the physics lead, not added to the engine. **Q3:** CODATA 2018 or 2022 for `K` changes nothing above 3.5e-10. `pytest`: 174 passed, 1 deselected.

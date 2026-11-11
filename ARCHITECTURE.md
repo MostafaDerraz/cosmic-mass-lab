@@ -58,7 +58,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | l1 | `engine/cosmicmass/laws/l1.py` | E4.3 | in-progress | reading L1a of the Composer coordinate (hypothesis), with the options sign (L2), strength (L3) and terms (L5); L1b-L1e not yet |
 | modifiers | `engine/cosmicmass/laws/modifiers.py` | E4.4 | planned | L2 sign, L3 strength, L4 direction, L5 terms, L6 moving bodies, L7 inertia, L8 range |
 | integrators | `engine/cosmicmass/integrators.py` | E3.1 | in-progress | `VelocityVerlet` with the adaptive time step of D10, `StepContext` (law, solver, frame, numerics); Boris (E3.2) and the inertia readings (E3.4) not yet |
-| environment | `engine/cosmicmass/environment.py` | E6 | in-progress | `Environment`: reflecting walls (the velocity is turned back, the body is not moved, the impulse on each wall is reported); absorbing walls, wrap-around, inflow, heat bath not yet |
+| environment | `engine/cosmicmass/environment.py` | E6 | in-progress | `Environment`: reflecting walls (velocity turned back, body not moved, impulse reported) and absorbing walls with a collector of mass, charge and momentum; wrap-around, absorbing surfaces of bodies, inflow, heat bath not yet |
 | diagnostics | `engine/cosmicmass/diagnostics.py` | E8.1 | in-progress | `Diagnostics.measure` and `drifts`: conservation of mass, charge, energy (`Re`; `Com` not defined yet), momentum; pressure and temperature not yet |
 | energy | `engine/cosmicmass/energy.py` | E9 | in-progress | energy of the bodies under L0 (kinetic, Newton plus Coulomb interaction, uniform background); the Composer coordinate needs an approved derivation |
 | runner | `engine/cosmicmass/runner.py` | E7.1 | in-progress | `run(settings) -> RunResult`: the time loop, stop conditions, outputs; `main(argv)` for the command line (E7.3); checkpoints and resuming not yet |
@@ -652,6 +652,7 @@ class Integrator(Protocol):
 # environment.py
 class Environment:      # Environment(boundary="open" | "reflecting", lower=None, upper=None)
     def apply(self, state: State, dt: float, rng=None) -> list: ...   # acts in place; one event per wall hit
+    # Environment.collected: {"bodies", "m", "q", "momentum"} taken by absorbing walls; boundary is "open" | "reflecting" | "absorbing"
 
 # runner.py
 def run(settings: Settings, out_root: Path = Path("results")) -> RunResult: ...
@@ -680,6 +681,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-11 | E6a: absorbing walls (`E6a-absorbing-walls`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `environment.py`: boundary `absorbing` and the collector `Environment.collected`; section 10: the collector and the three boundary names written out; the run summary gains `absorbed`. No diagram changed |
 | 2026-11-10 | E4.5, T9.4 and the question scenarios Q1-Q3 (`E4.5-T9.4`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `laws/base.py` gains `third_law_residual`; `gates/t9.py` gains `t9_4`; scenario rows `scenarios/T9.4/` and `scenarios/Q/`; section 10: signature of `third_law_residual` added; no diagram changed |
 | 2026-11-10 | D21 scenarios (`D21-scenarios`, stacked on `T0-gate`) | Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) | scenario row `scenarios/D21/` (D21.1-D21.4); no engine module, diagram or contract changed |
 | 2026-11-10 | MVP-10: demo and release notes (`MVP-demo`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | scenario row `scenarios/T1.4/` (in progress: the demo only); package version 0.1.0; no module, diagram or contract changed |
