@@ -92,7 +92,10 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
         if events:
             wall_hits += sum(event["bodies"] for event in events)
             for event in events:
-                wall_impulse[event["wall"][0]] += event["impulse"]
+                if "absorbed" in event:  # an absorbing wall takes the whole momentum of the body
+                    wall_impulse += event["absorbed"]["momentum"]
+                else:
+                    wall_impulse[event["wall"][0]] += event["impulse"]
             ctx.invalidate()
         if step % every == 0:
             rows.append(_row(step, dt, diagnostics.measure(state), state))
@@ -111,6 +114,8 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
         "conservation": drifts(first, last),
         "wall_hits": wall_hits,
         "wall_impulse": [float(p) for p in wall_impulse],
+        "absorbed": {"bodies": environment.collected["bodies"], "m": environment.collected["m"],
+                     "q": environment.collected["q"], "alive_at_the_end": int(state.alive.sum())},
         # momentum of the bodies plus the momentum they gave to the walls: conserved with reflecting walls
         "momentum_with_walls_drift": drifts(first, with_walls)["momentum"],
         "convergence": None,  # filled by the convergence helper (E8.2), not by a single run
