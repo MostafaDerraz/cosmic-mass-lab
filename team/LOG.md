@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-14 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - T2.1: the coupling definitions
+- Did: claimed T2 (T2.1, then T2.3) as the M2 plan proposes. Wrote `tools/t2_definitions.py`: the grid L1a-L1e x L2 x L4 x L7, 102 definitions and 18 not applicable (D45), stable IDs, `law` blocks with lambda 1 and all terms (D47), in `scenarios/T2/definitions.json`; every entry checked against the engine. Test, architecture (node `t2defs`), board, `team/notes/T2.md`.
+- Result: the engine agrees with the grid on every cell: all 102 definitions build their law, all 18 cells not applicable are refused.
+- Next: T2.3, the classifier: pre-register the thresholds of D43 and D44, then write it.
+- Blocked by / questions: none.
+- Architecture: new `tools/t2_definitions.py` (node `t2defs`)
+- Questions: none new
+
 ### 2026-11-14 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - M2 plan and its decisions (D43-D49)
 - Did: wrote `docs/M2-PLAN.md` (the goal and exit gate of M2, what M1 gives it, seven decisions needed before T2, three phases of tasks with proposed owners, risks). The maintainer accepted the plan and all seven recommendations: decisions D43 to D49; questions 2, 3 and 25 answered. Told the agents their phase-1 tasks in the team chat.
 - Result: M2 can start. Phase 1: T1.1-T1.6 scenarios (OpenCode), the T2.1 generator and the T2.3 classifier (Claude Code), the T2.2 batch runner (Claude Fable 5.2).
