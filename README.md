@@ -150,8 +150,8 @@ Then read [`TEAM.md`](TEAM.md) and the [work plan](docs/WORK-PLAN.md), pick a ta
 | Verified foundation (sources, compendium, CI) | ✅ done |
 | **MVP 0.1.0**: the first working universe ([release](https://github.com/MostafaDerraz/cosmic-mass-lab/releases/tag/v0.1.0)) | ✅ **released** |
 | S1: infrastructure (P1–P7) | ✅ **done** (2026-11-14): package, CI tests, architecture check, result schemas, scenario scaffold, branch protection, lint |
-| M1: engine and gates (E1–E9, T0, T9, G1) | 🟡 **engine complete** (every E module implemented; E2.5 moved to S5, D40) and gates **complete**: T0 and T9.1–T9.4 **confirmed** ([findings](team/FINDINGS.md)). Waiting for the maintainer: the physics lead's approvals of the open definitions, the engine review, and closing the [M1 review](https://github.com/MostafaDerraz/cosmic-mass-lab/issues/78) |
-| M2: what can the coupling be? (T1, T2) | ⏳ next, after M1 |
+| M1: engine and gates (E1–E9, T0, T9, G1) | ✅ **done** (2026-11-14, [M1 review](https://github.com/MostafaDerraz/cosmic-mass-lab/issues/78)): every engine module implemented (E2.5 moved to S5, D40); T0 and T9.1–T9.4 confirmed; the full T0 gate passes on the final engine |
+| M2: what can the coupling be? (T1, T2) | ⏳ **next** |
 | M3, M4: angle, many bodies, motion, populations | ⏳ planned |
 | M5: interactive universe | 🟢 **[live online](https://mostafaderraz.github.io/cosmic-mass-lab/simulator/web/)** (UI1 first version); UI2–UI4 open |
 
