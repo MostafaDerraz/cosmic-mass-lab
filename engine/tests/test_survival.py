@@ -79,8 +79,12 @@ def test_load_records_reads_runs_by_their_stamps_whatever_the_layout(tmp_path):
     other = LawSpec.from_dict(TURNED).to_dict()
     definitions = {"definitions": [{"id": "L1a+radial.Re", "law": L1A}, {"id": "L1a+perpendicular.Re", "law": TURNED}]}
     # the layout of T2.2 (#95): results/<scene>/<definition>/<run-id>/, scenario "<scene>/<definition>"
-    write_run(tmp_path / "T1.1@45" / "L1a+radial.Re" / "20261114-000001-x", law, "T1.1@45/L1a+radial.Re", 45.0, "old")
-    write_run(tmp_path / "T1.1@45" / "L1a+radial.Re" / "20261114-000002-x", law, "T1.1@45/L1a+radial.Re", 45.0, "new")
+    write_run(
+        tmp_path / "T1.1_phi45" / "L1a+radial.Re" / "20261114-000001-x", law, "T1.1_phi45/L1a+radial.Re", 45.0, "old"
+    )
+    write_run(
+        tmp_path / "T1.1_phi45" / "L1a+radial.Re" / "20261114-000002-x", law, "T1.1_phi45/L1a+radial.Re", 45.0, "new"
+    )
     # the layout first pre-registered: results/T2/<definition>/<setup>/phi<angle>/<run-id>/
     write_run(
         tmp_path / "T2" / "L1a+perpendicular.Re" / "T1.1" / "phi90" / "20261114-000003-x", other, "T1.1", 90.0, "b"
@@ -88,6 +92,7 @@ def test_load_records_reads_runs_by_their_stamps_whatever_the_layout(tmp_path):
     # runs that are not T2's are left out: another law, another setup, an angle that is not one of the six
     write_run(tmp_path / "T0.1" / "20261110-000000-x", {"id": "L0"}, "T0.1", 79.86, "gate")
     write_run(tmp_path / "x" / "20261114-000004-x", law, "Q5", 45.0, "other setup")
+    write_run(tmp_path / "z" / "20261114-000007-x", law, "T1.10", 45.0, "not T1.1")
     write_run(tmp_path / "y" / "20261114-000005-x", law, "T1.1", 30.0, "other angle")
     records = sv.load_records(tmp_path, definitions)
     assert [(r["definition"], r["setup"], r["angle"], r["summary"]["marker"]) for r in records] == [

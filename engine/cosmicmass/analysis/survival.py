@@ -123,10 +123,11 @@ def _last_row(folder: Path) -> dict:
 
 
 def _setup_of(scenario: str) -> str | None:
-    """The setup (T0.2, T1.1 ... T1.6) a run's scenario name begins with (T2.2 names a job `<scene>/<definition>`,
-    and a scene may carry its angle, for example `T1.1@45`); None for a run of something else."""
-    head = scenario.split("/")[0].split("@")[0]
-    return head if head in SETUPS else None
+    """The setup (T0.2, T1.1 ... T1.6) a run's scenario name begins with. T2.2 names a job `<scene>/<definition>`,
+    and a scene may carry its angle after any separator that is not a digit (for example `T1.1_phi45`); None for
+    a run of something else (`T1.10` is not `T1.1`)."""
+    head = scenario.split("/")[0]
+    return next((s for s in SETUPS if head == s or (head.startswith(s) and not head[len(s)].isdigit())), None)
 
 
 def _angle_of(stamp: dict) -> float | None:
