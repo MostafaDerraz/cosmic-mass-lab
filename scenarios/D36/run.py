@@ -1,4 +1,4 @@
-"""D36.1 to D36.4: the wrap-around boundary with the nearest image (decision D36), against its alternatives.
+"""D36.1 to D36.5: the wrap-around boundary with the nearest image (decision D36), against its alternatives.
 
 Pre-registration: team/notes/D36.md (committed before this file was written). Every case runs under
 the reference law L0, so every statement is mathematics: a check of a numerical method.
@@ -7,7 +7,7 @@ A: the nearest image (the engine: `Environment("wrap", ...)` and `DirectSum(peri
 B: positions wrap, forces ignore the copies (written here, not in the engine).
 C: the full periodic sum, for a pair with no net charge, as a plain sum over the copies (written here).
 
-    python scenarios/D36/run.py            # all four, writes results/D36.1/ ... results/D36.4/
+    python scenarios/D36/run.py            # all five, writes results/D36.1/ ... results/D36.5/
     python scenarios/D36/run.py 3          # only D36.3
 """
 
@@ -183,17 +183,18 @@ def d36_1() -> dict:
 
 
 # ------------------------------------------------------------------ the gas of D36.2 and D36.4
-def gas_bodies() -> list:
+def gas_bodies(mass: float = 1.0, charge: float = 0.05) -> list:
     rng = np.random.default_rng(11)
     x, v = rng.uniform(0.0, SIDE, (40, 2)), rng.normal(0.0, 0.3, (40, 2))
     return [
-        {"m": 1.0, "q": 0.05 if k < 20 else -0.05, "x": [float(c) for c in x[k]], "v": [float(c) for c in v[k]]}
+        {"m": mass, "q": charge if k < 20 else -charge, "x": [float(c) for c in x[k]], "v": [float(c) for c in v[k]]}
         for k in range(40)
     ]
 
 
-def gas_settings(scenario: str, steps: int = 4000) -> dict:
-    return settings(scenario, gas_bodies(), "wrap", {"softening": 0.02, "steps": steps, "eta": ETA, "seed": 11})
+def gas_settings(scenario: str, steps: int = 4000, mass: float = 1.0, charge: float = 0.05) -> dict:
+    numerics = {"softening": 0.02, "steps": steps, "eta": ETA, "seed": 11}
+    return settings(scenario, gas_bodies(mass, charge), "wrap", numerics)
 
 
 def d36_2() -> dict:
@@ -293,7 +294,54 @@ def d36_4() -> dict:
     return {"id": "D36.4", "pass": cases["predictions"]["pass"], "cases": cases, "runs": {"gas": stamped}}
 
 
-TESTS = {"1": d36_1, "2": d36_2, "3": d36_3, "4": d36_4}
+# ------------------------------------------------------------------ D36.5 (pre-registered after D36.4)
+def d36_5() -> dict:
+    """The gas of D36.4 made dilute (masses 1e-3, charges 2e-3) and run for 8000 steps, so that bodies cross."""
+    config = gas_settings("D36.5", steps=8000, mass=1e-3, charge=2e-3)
+    stamped = run(config, out_root=None)
+    loops = {variant: simulate(config, variant) for variant in ("A", "B")}
+    cases = {}
+    for variant, result in loops.items():
+        state = result.pop("state")
+        result.pop("separations")
+        result["inside_the_box"] = bool(np.all((state.x >= 0.0) & (state.x < SIDE)))
+        result["elapsed_time"] = float(state.t)
+        result["final_x"] = state.x
+        cases[f"{variant} (the script's loop)"] = result
+    a, b = cases["A (the script's loop)"], cases["B (the script's loop)"]
+    agreement = float(np.max(np.abs(nearest_image(a.pop("final_x") - stamped.state.x, PERIOD))))
+    b.pop("final_x")
+    conservation = stamped.summary["conservation"]
+    runner = {
+        "steps": stamped.summary["steps"],
+        "mass_drift": conservation["mass"],
+        "charge_drift": conservation["charge"],
+        "energy_end_drift_relative_to_the_total_energy": conservation["energy_re"],
+        "momentum_drift": conservation["momentum"],
+        "inside_the_box": bool(np.all((stamped.state.x >= 0.0) & (stamped.state.x < SIDE))),
+        "wrap_around": stamped.summary["wrap_around"],
+        "agreement_with_the_loop": agreement,
+    }
+    cases["A (the engine's runner)"] = runner
+    flags = {
+        "A: mass and charge exactly constant": runner["mass_drift"] == 0.0 and runner["charge_drift"] == 0.0,
+        "A: every body inside the box at the end": runner["inside_the_box"] and a["inside_the_box"],
+        "A: momentum drift below 1e-12": runner["momentum_drift"] < 1e-12 and a["momentum_drift"] < 1e-12,
+        "A: at least 20 edge crossings": a["crossings"] >= 20,
+        "A: energy end drift below 1e-3 of the interaction energy": a["energy_end_drift"] < 1e-3,
+        "A: energy largest excursion below 1e-3 of the interaction energy": a["energy_largest_excursion"] < 1e-3,
+        "B: energy largest excursion at least 10 times that of A": b["energy_largest_excursion"]
+        >= 10 * a["energy_largest_excursion"],
+        "B: energy largest excursion above 1e-2": b["energy_largest_excursion"] > 1e-2,
+        "the loop and the runner agree for A to 1e-9": agreement < 1e-9,
+    }
+    cases["predictions"] = {"flags": {k: bool(v) for k, v in flags.items()}, "pass": all(flags.values())}
+    for case in cases.values():
+        case.setdefault("pass", True)
+    return {"id": "D36.5", "pass": cases["predictions"]["pass"], "cases": cases, "runs": {"gas": stamped}}
+
+
+TESTS = {"1": d36_1, "2": d36_2, "3": d36_3, "4": d36_4, "5": d36_5}
 
 if __name__ == "__main__":
     chosen = [a for a in sys.argv[1:] if a in TESTS] or list(TESTS)

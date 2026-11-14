@@ -83,7 +83,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | - | `scenarios/T0.3/` | T0.3 | implemented | angle invariance under L0, six frame angles |
 | - | `scenarios/T0.4/` | T0.4 | implemented | universal free fall under L0 |
 | - | `scenarios/T0.5/` | T0.5 | implemented | field split: the Composer part of one proton's field is Coulomb's field |
-| - | `scenarios/D36/` | D36.1-D36.4 | implemented | the wrap-around boundary with the nearest image (decision D36) against open-space forces and the full periodic sum, both written in the script (`run.py 1..4`): the force of a pair, the third law, a bound pair carried across the edge, a gas in a periodic box |
+| - | `scenarios/D36/` | D36.1-D36.5 | implemented | the wrap-around boundary with the nearest image (decision D36) against open-space forces and the full periodic sum, both written in the script (`run.py 1..5`): the force of a pair, the third law, a bound pair carried across the edge, a gas in a periodic box (D36.4: too dense to cross; D36.5: dilute) |
 | - | `scenarios/D21/` | D21.1-D21.4 | implemented | the four numerical conventions of decision D21 run against their alternatives (`run.py 1..4`) |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | chat | `tools/chat.py` | team chat (question 23, proposed) | implemented | the team chat in `team/chat/`: one message per file; `post`, `read` (inbox: `--to`, `--since`), `thread`; standard library only |
