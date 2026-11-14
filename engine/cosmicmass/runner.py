@@ -28,6 +28,12 @@ from .state import State
 __all__ = ["run", "RunResult", "main"]
 
 _MAX_BODIES_IN_TIMESERIES = 16
+WRAP_LIMIT = (
+    "each pair of bodies interacts once, through the closest of its periodic copies; for the unscreened "
+    "1/r^2 field the sum is cut at half the box, so the result holds for boxes much larger than the "
+    "structures studied; with the screened field (L8) it is exact once the box is larger than twice the "
+    "screening length"
+)
 
 
 @dataclass
@@ -125,8 +131,9 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
     constants = SI if universe["units"] == "SI" else scaled()
     state = settings.state.copy()
     softening = num["softening"]
+    period = settings.world.period if settings.world is not None else None  # D36: a wrap-around box
     if softening is None:  # decision D10: a fraction of the smallest initial separation
-        sep = smallest_separation(state)
+        sep = smallest_separation(state, period)
         softening = float(num["softening_fraction"] * sep) if np.isfinite(sep) else 0.0
     background = None if universe["background"] == "none" else universe["background"]
     solver = DirectSum(
@@ -134,6 +141,7 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
         softening=softening,
         background=background,
         moving=bool(universe.get("moving_fields", False)),  # E2.2 (D41)
+        period=period,
     )
     box = universe.get("box") or {}
     inflow = make_inflow(universe["inflow"], box, t0=state.t) if universe.get("inflow") else None
@@ -156,7 +164,7 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
         dt_max=np.inf if num["dt_max"] is None else num["dt_max"],
     )
     integrator = Boris() if num["integrator"] == "boris" else VelocityVerlet()
-    diagnostics = Diagnostics(settings.frame, constants, softening, background, law=ctx.law)  # E9: Composer energy
+    diagnostics = Diagnostics(settings.frame, constants, softening, background, law=ctx.law, period=period)  # E9, D36
 
     every = num.get("record_every") or (max(1, num["steps"] // 1000) if num["steps"] else 100)
     first = diagnostics.measure(state)
@@ -207,7 +215,11 @@ def run(settings, out_root: Path | str | None = Path("results"), now=None) -> Ru
         "conservation": drifts(first, last),
         "wall_hits": wall_hits,
         "wall_impulse": [float(p) for p in wall_impulse],
-        "walls": wall_pressure(box, wall_load, last["t"] - first["t"]),
+        "walls": None if period is not None else wall_pressure(box, wall_load, last["t"] - first["t"]),
+        # D36: the stated limit, written into every result of a wrap-around box
+        "wrap_around": None
+        if period is None
+        else {"field": "nearest image (D36)", "period": period, "limit": WRAP_LIMIT},
         "super_particles": _super_particles(settings),
         "absorbed": {
             "bodies": environment.collected["bodies"],

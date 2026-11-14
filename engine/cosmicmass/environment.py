@@ -128,7 +128,7 @@ class Environment:
     `upper` corners, one number per dimension. `collected` holds what absorbing walls took:
     `{"bodies", "m", "q", "momentum"}`."""
 
-    BOUNDARIES = ("open", "reflecting", "absorbing")
+    BOUNDARIES = ("open", "reflecting", "absorbing", "wrap")
 
     def __init__(
         self,
@@ -150,6 +150,11 @@ class Environment:
             self.lower, self.upper = np.asarray(lower, dtype=float), np.asarray(upper, dtype=float)
             if self.lower.shape != self.upper.shape or self.lower.ndim != 1 or not np.all(self.lower < self.upper):
                 raise ValueError("'lower' and 'upper' must be lists of one length, with lower < upper")
+
+    @property
+    def period(self):
+        """The sides of a wrap-around box (the period of the nearest image, D36); None otherwise."""
+        return self.upper - self.lower if self.boundary == "wrap" else None
 
     def apply(self, state: State, dt: float, rng=None) -> list:
         """Apply the walls, then the inflow and the heat bath, to `state`, in place. Returns one
@@ -174,6 +179,11 @@ class Environment:
         if self.lower.shape[0] != state.dimension:
             raise ValueError(f"the box has {self.lower.shape[0]} dimensions, the state has {state.dimension}")
         moving = state.alive & ~state.fixed
+        if self.boundary == "wrap":  # D36: a body that leaves through one face comes back through the opposite one
+            out = moving & np.any((state.x < self.lower) | (state.x >= self.upper), axis=1)
+            if np.any(out):
+                state.x[out] = self.lower + np.mod(state.x[out] - self.lower, self.upper - self.lower)
+            return events  # no wall is hit: nothing is given to a wall, and no velocity changes
         for axis in range(state.dimension):
             for side, bound, sign in (("lower", self.lower[axis], -1.0), ("upper", self.upper[axis], 1.0)):
                 if self.boundary == "absorbing":

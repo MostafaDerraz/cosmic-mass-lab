@@ -28,8 +28,10 @@ class Diagnostics:
         softening: float = 0.0,
         background: dict | None = None,
         law=None,
+        period=None,
     ):
         self.frame, self.constants, self.softening, self.background = frame, constants, softening, background
+        self.period = period  # D36: the sides of a wrap-around box (distances through the nearest image)
         self.law = law  # E9: for the Composer energy (None: the L0 energy only, as before)
 
     def measure(self, state: State, fields=None) -> dict:
@@ -37,8 +39,8 @@ class Diagnostics:
         total = state.total_mu(self.frame)
         moving = state.alive & ~state.fixed
         momentum = np.sum(state.m[moving, None] * state.v[moving], axis=0)
-        energy = energy_l0(state, self.frame, self.constants, self.softening, self.background)
-        com = composer_energy(state, self.law, self.frame, self.constants, self.softening, self.background)
+        energy = energy_l0(state, self.frame, self.constants, self.softening, self.background, self.period)
+        com = composer_energy(state, self.law, self.frame, self.constants, self.softening, self.background, self.period)
         reads_composer = self.law is not None and getattr(self.law.spec, "reading", "L0") != "L0"
         if com is not None:
             conserved = energy["total"] + com

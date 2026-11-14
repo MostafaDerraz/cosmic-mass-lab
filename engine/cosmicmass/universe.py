@@ -7,7 +7,7 @@ A `Universe` holds what a run's space is, apart from the bodies that move in it:
 | U1 frame angle | `phi_bar_deg` (default: 79.86 degrees in SI, 90 degrees in scaled units); `angle_sweep()` |
 | U2 dimension | `dimension`: 2 (motion in a plane with the `1/r^2` field, decision D21) or 3 |
 | U3 units | `units`: "SI" or "scaled"; `in_units()` gives the other for a side-by-side run |
-| U4 boundary | `boundary` and `box` (the boundaries of `Environment.BOUNDARIES`) |
+| U4 boundary | `boundary` and `box`: open, reflecting, absorbing, or "wrap" (wrap-around, with the nearest image: D36) |
 | U5 background fields | `background`: "none", or uniform `g`, `e`, `B_g`, `b` |
 | U6 fixed sources | `sources`: pinned cosmic masses with their places |
 | U7 inflow | `inflow`: rate, cosmic mass and velocity of a stream entering through one face |
@@ -196,6 +196,8 @@ class Universe:
         _known(entry, _INFLOW, where)
         if boundary == "open":
             raise UniverseError(f"'{where}': the inflow enters a box; set 'universe.boundary' and 'universe.box'")
+        if boundary == "wrap":
+            raise UniverseError(f"'{where}': the inflow enters through a wall, and a wrap-around box has none")
         name, m, q = _cosmic_mass(entry, units, where)
         face = entry.get("face")
         _known(face if isinstance(face, dict) else 0, ("axis", "side"), f"{where}.face")
@@ -247,6 +249,13 @@ class Universe:
     @property
     def constants(self) -> Constants:
         return SI if self.units == "SI" else scaled()
+
+    @property
+    def period(self):
+        """The sides of a wrap-around box (decision D36: the period of the nearest image); None otherwise."""
+        if self.boundary != "wrap":
+            return None
+        return [hi - lo for lo, hi in zip(self.box["lower"], self.box["upper"])]
 
     @property
     def k_b(self) -> float:

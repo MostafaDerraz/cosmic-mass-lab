@@ -36,21 +36,31 @@ from ..constants import SI, Constants
 from ..state import State
 from .sample import FieldSample
 
-__all__ = ["DirectSum", "smallest_separation", "debye_length", "BACKGROUND_KEYS"]
+__all__ = ["DirectSum", "smallest_separation", "debye_length", "nearest_image", "BACKGROUND_KEYS"]
 
 BACKGROUND_KEYS = ("g", "e", "B_g", "b")  # uniform background fields (setting U5)
 _BLOCK = 2_000_000  # largest number of point-source pairs handled at once
 
 
-def smallest_separation(state: State) -> float:
-    """Smallest distance between two alive bodies (infinite for fewer than two)."""
+def nearest_image(r: np.ndarray, period) -> np.ndarray:
+    """The displacements `r` (last axis: the d components) through the closest periodic copy, for a
+    wrap-around box of sides `period` (decision D36); unchanged when `period` is None. Each
+    component ends between minus and plus half the side."""
+    if period is None:
+        return r
+    return r - period * np.round(r / period)
+
+
+def smallest_separation(state: State, period=None) -> float:
+    """Smallest distance between two alive bodies (infinite for fewer than two); through the nearest
+    image in a wrap-around box of sides `period`."""
     x = state.x[state.alive]
     if len(x) < 2:
         return float("inf")
     best = np.inf
     for start in range(0, len(x), max(1, _BLOCK // len(x))):
         chunk = x[start : start + max(1, _BLOCK // len(x))]
-        dist = np.linalg.norm(chunk[:, None, :] - x[None, :, :], axis=2)
+        dist = np.linalg.norm(nearest_image(chunk[:, None, :] - x[None, :, :], period), axis=2)
         dist[np.arange(len(chunk)), start + np.arange(len(chunk))] = np.inf  # not a body with itself
         best = min(best, float(dist.min()))
     return best
@@ -87,6 +97,12 @@ class DirectSum:
 
     `constants` gives `G_N` (SI or scaled). `softening` is the Plummer length (0 for
     none). `background` maps any of "g", "e", "B_g", "b" to a uniform field.
+
+    `period` (decision D36): the sides of a wrap-around box. Each body then acts through the closest
+    of its periodic copies (the nearest image), once. The forces stay pairwise, equal and opposite.
+    The stated limit: for the unscreened `1/r^2` field the sum is cut at half the box, so it suits
+    boxes much larger than the structures studied; with the screened field (L8) it is exact once the
+    box is larger than twice the screening length. None (the default): open space.
     """
 
     def __init__(
@@ -95,8 +111,12 @@ class DirectSum:
         softening: float = 0.0,
         background: dict | None = None,
         moving: bool = False,
+        period=None,
     ):
         self.moving = bool(moving)  # E2.2: the second field of moving bodies (D41)
+        self.period = None if period is None else np.asarray(period, dtype=float)  # D36: the nearest image
+        if self.period is not None and (self.period.ndim != 1 or not np.all(self.period > 0)):
+            raise ValueError("the period must be one positive length per dimension")
         if not softening >= 0:
             raise ValueError("the softening length must be zero or positive")
         unknown = sorted(set(background or {}) - set(BACKGROUND_KEYS))
@@ -109,7 +129,7 @@ class DirectSum:
     @classmethod
     def with_default_softening(cls, state: State, fraction: float = 1e-3, **kwargs) -> "DirectSum":
         """Softening of decision D10: `fraction` of the smallest initial separation."""
-        sep = smallest_separation(state)
+        sep = smallest_separation(state, kwargs.get("period"))
         return cls(softening=fraction * sep if np.isfinite(sep) else 0.0, **kwargs)
 
     # --- the interface of every solver ------------------------------------
@@ -132,6 +152,8 @@ class DirectSum:
         d = state.dimension
         if points.ndim != 2 or points.shape[1] != d:
             raise ValueError(f"points must have shape (P, {d})")
+        if self.period is not None and self.period.shape != (d,):
+            raise ValueError(f"the period has {self.period.shape[0]} sides, the state has {d} dimensions")
         src = np.flatnonzero(state.alive)
         xs, ms, qs = state.x[src], state.m[src], state.q[src]
         g, e = np.zeros_like(points), np.zeros_like(points)
@@ -141,7 +163,7 @@ class DirectSum:
         step = max(1, _BLOCK // max(1, len(src)))
         eps2 = self.softening**2
         for start in range(0, len(points) if len(src) else 0, step):
-            r = points[start : start + step, None, :] - xs[None, :, :]  # (p, n, d)
+            r = nearest_image(points[start : start + step, None, :] - xs[None, :, :], self.period)  # (p, n, d)
             dist2 = np.einsum("pnd,pnd->pn", r, r) + eps2
             if skip_self:  # body i does not act on itself
                 rows = start + np.arange(r.shape[0])
