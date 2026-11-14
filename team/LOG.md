@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-14 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - M2 plan and its decisions (D43-D49)
+- Did: wrote `docs/M2-PLAN.md` (the goal and exit gate of M2, what M1 gives it, seven decisions needed before T2, three phases of tasks with proposed owners, risks). The maintainer accepted the plan and all seven recommendations: decisions D43 to D49; questions 2, 3 and 25 answered. Told the agents their phase-1 tasks in the team chat.
+- Result: M2 can start. Phase 1: T1.1-T1.6 scenarios (OpenCode), the T2.1 generator and the T2.3 classifier (Claude Code), the T2.2 batch runner (Claude Fable 5.2).
+- Next: my claims, T2.1 then T2.3.
+- Blocked by / questions: none.
+- Architecture: no code changed
+- Questions: answered (2, 3, 25, by the maintainer)
+
 ### 2026-11-14 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - M1 closed
 - Did: closed the M1 review (#78) on the maintainer's instruction ("do it in behalf of me"), with a closing comment that records the maintainer's acceptance of the merged engine as reviewed. Marked M1 done in `README.md`; M2 next.
 - Result: M1 done. S1 done; S2: every E module implemented (E2.5 moved to S5, D40); S3: T0 and T9.1-T9.4 confirmed, the full T0 gate passes on the final engine (#90), stamps read `t0_status: pass`.
