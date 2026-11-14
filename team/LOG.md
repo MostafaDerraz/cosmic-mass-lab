@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-14 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - M1 closed
+- Did: closed the M1 review (#78) on the maintainer's instruction ("do it in behalf of me"), with a closing comment that records the maintainer's acceptance of the merged engine as reviewed. Marked M1 done in `README.md`; M2 next.
+- Result: M1 done. S1 done; S2: every E module implemented (E2.5 moved to S5, D40); S3: T0 and T9.1-T9.4 confirmed, the full T0 gate passes on the final engine (#90), stamps read `t0_status: pass`.
+- Next: M2 (T1, T2: what can the coupling be?), with the open questions the M1 review lists for it (2, 3, 6, 7, 25 to 29).
+- Blocked by / questions: none.
+- Architecture: no code changed
+- Questions: none new
+
 ### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - T0: the full gate on the engine of M1
 - Did: ran the full consistency gate, `scenarios/T0.1/run.py` to `scenarios/T0.5/run.py`, on the engine of `E6-wrap-around` at `05fe70c` (the engine M1 ends with, if #89 is merged as it is). The stored runs dated from 2026-11-10 (`91ba4ae`), before the readings L1b to L1e, the second integrator, the walls, the populations, the moving fields, the checkpoints and the wrap-around box.
 - Result: all five pass, with every verdict as on 2026-11-10 (the comparison of every value is in the pull request). Once this is merged after #89, `stamp.t0_status()` reads "pass" for every commit whose `engine/cosmicmass/` equals that of `05fe70c` (question 26).
