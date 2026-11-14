@@ -67,6 +67,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | stamp | `engine/cosmicmass/stamp.py` | E7.2 | implemented | run id, engine commit, `stamp.json`, `summary.json`, `timeseries.csv`; `t0_status` (the verdicts of the stored T0.1 to T0.5 runs whose engine code is the same as now, by `git diff`); `validate_outputs`: the stamp and the summary are checked against the P4 schemas before they are written (`ResultsError`; skipped where `jsonschema` or the schema files are missing) |
 | convergence | `engine/cosmicmass/analysis/convergence.py` | E8.2 | implemented | `convergence(settings, measure, counts=(), resize=None)`: re-run at the step (eta or dt) / 2 and / 4, and at other body counts through the scenario's `resize`; the convergence block of the results standard with relative changes and `converged` (change < 1%) |
 | plots | `engine/cosmicmass/analysis/plots.py` | E8.3 | implemented | standard figures in plain SVG (standard library), made from one results folder alone, byte for byte: drifts against time, trails in the Real plane, the cosmic masses in the General Number plane; `line_plot`, `scatter_plot` for sweeps |
+| survival | `engine/cosmicmass/analysis/survival.py` | T2.3 | implemented | the classifier of the survival table (M2; D43, D44): classes A, B, C or incomplete from the runs of T2.2 (`load_records`, checked against `scenarios/T2/definitions.json`) and the closed-loop work test (`closed_loop_ratio`), as pre-registered in `team/notes/T2.md` |
 | tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest), run in CI with coverage (P2); so far `test_pins.py` (pins of `pyproject.toml` equal `requirements.txt`), `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2), `test_gnarray.py` (E1.3), `test_readings_matter.py` (E1.4, E1.5), `test_compendium.py` (E1.6), `test_state_laws.py` (E5.1, E4.1, E4.2), `test_settings.py` (E5.3), `test_fields.py` (E2.1, E2.3, E2.4), `test_integrators.py` (E3.1, E3.3, E6a; one test marked `slow`), `test_runner.py` (E7.1 to E7.3, E8.1, E9), `test_l1a.py` (E4.3, L1a) |
 | gate | `engine/cosmicmass/gates/t0.py` | T0, G1 | implemented | the consistency gate T0.1 to T0.5 as functions (`t0_1` ... `t0_5`, `run_gate`), and `write_gate_result` |
 | limits | `engine/cosmicmass/gates/t9.py` | T9.1-T9.4 | implemented | the measured limits T9.1 to T9.4 under L1a as functions (`t9_1`, `t9_2`, `t9_3`, `t9_4`); `t9_2` also integrates one orbit with the runner |
@@ -85,6 +86,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | - | `scenarios/T0.4/` | T0.4 | implemented | universal free fall under L0 |
 | - | `scenarios/T0.5/` | T0.5 | implemented | field split: the Composer part of one proton's field is Coulomb's field |
 | - | `scenarios/D36/` | D36.1-D36.5 | implemented | the wrap-around boundary with the nearest image (decision D36) against open-space forces and the full periodic sum, both written in the script (`run.py 1..5`): the force of a pair, the third law, a bound pair carried across the edge, a gas in a periodic box (D36.4: too dense to cross; D36.5: dilute) |
+| - | `scenarios/T2/` | T2.1, T2.3 | implemented | the survival table (M2): `definitions.json` (the 102 definitions, written by `tools/t2_definitions.py`) and `loop_test.py` (the closed-loop work test of every definition at the six angles of D44, results in `results/T2.3/`) |
 | - | `scenarios/D21/` | D21.1-D21.4 | implemented | the four numerical conventions of decision D21 run against their alternatives (`run.py 1..4`) |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | chat | `tools/chat.py` | team chat (question 23, proposed) | implemented | the team chat in `team/chat/`: one message per file; `post`, `read` (inbox: `--to`, `--since`), `thread`; standard library only |
@@ -170,6 +172,7 @@ flowchart TB
         settings["settings.py"]
         convergence["analysis/convergence.py"]
         plots["analysis/plots.py"]
+        survival["analysis/survival.py<br/>(T2.3 classifier)"]
     end
 
     subgraph L3["Layer 3: dynamics"]
@@ -248,6 +251,10 @@ flowchart TB
     settings --> matter
     convergence --> runner
     plots --> constants
+    survival --> fields
+    survival --> lawbase
+    survival --> energy
+    tests --> survival
     diagnostics --> environment
     integrators --> fields
     integrators --> environment
@@ -836,6 +843,12 @@ class Diagnostics:      # Diagnostics(frame, constants, softening=0.0, backgroun
 def convergence(settings, measure, counts=(), resize=None, tolerance=0.01) -> dict: ...
 #   block: step {step, step/2, step/4}, change_step_half_to_quarter, change_step_to_half, [counts, change_with_count],
 #   largest_change, tolerance, converged
+# analysis/survival.py (T2.3; D43, D44; pre-registered in team/notes/T2.md)
+def closed_loop_ratio(law_block: dict, angle_deg: float) -> float: ...   # work round a loop / largest side work
+def load_records(root, definitions: dict) -> list[dict]: ...   # T2.2's runs anywhere under root, read by their stamps
+def classify(definition_id, law_block, records, loop_ratios=None) -> dict: ...   # {id, class A|B|C|incomplete,
+#   failed: the conditions of D43 that failed, with setup and angle; numbers}
+
 # analysis/plots.py (E8.3)
 def figures(folder) -> list[Path]: ...   # folder/figures/drifts.svg, trails.svg, mu_plane.svg, from the folder alone
 def line_plot(path, curves, x_label, y_label, caption, square=False) -> Path: ...
@@ -888,6 +901,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-14 | T2.3: the classifier and the loop test (`T2.3-classifier`, stacked on `T2.1-definitions`) | Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) | **new** `analysis/survival.py` (node `survival`, section 4, uses `fields`, `lawbase`, `energy`; used by `tests`); scenario row `scenarios/T2/` (`loop_test.py`); section 10: its signatures. No engine contract changed |
 | 2026-11-14 | T2.1: the coupling definitions (`T2.1-definitions`) | Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) | **new** `tools/t2_definitions.py` (node `t2defs`, section 4, used by `tests`, uses `lawbase`); its output `scenarios/T2/definitions.json`; section 10: its signatures. No engine module or contract changed |
 | 2026-11-14 | D36: wrap-around walls with the nearest image (`E6-wrap-around`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `environment.py`: boundary `"wrap"`, `Environment.period`; `fields/direct.py`: `nearest_image`, `DirectSum(period=)`, `smallest_separation(state, period)`; the optional `period` in `energy.py`, `diagnostics.py` and the distance helpers of `integrators.py` (new edge `energy --> fields`); `universe.py`: `period`, an inflow is refused in a wrap-around box; runner: passes the period, `summary["wrap_around"]` with the stated limit of D36, no wall pressure. Rows `environment` and `integrators` implemented; scenario row `scenarios/D36/`. Section 10: additions only; without a wrap-around box nothing changes |
 | 2026-11-14 | E7: checkpoints, T0 status, schema check (`E7-checkpoints`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new module** `checkpoint.py` (node `checkpoint`; edges `runner --> checkpoint`, `checkpoint --> state`, `checkpoint --> fieldsample`); `runner.py` implemented: `run(..., resume, checkpoint, progress, should_stop)`, `Interrupted`, step control, `--resume` and `--progress` (section 6: the repeated step and the checkpoint); `stamp.py` implemented: `t0_status`, `validate_outputs`, `ResultsError` (edge `stamp -.-> schemas`); settings: `numerics.checkpoint_every`, `numerics.drift_tolerance`; schema: `resumed_at_steps` and the two numerics keys. Section 10: additions only, no existing call changed |

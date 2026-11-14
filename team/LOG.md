@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-14 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - T2.3: the classifier and the closed-loop work test
+- Did: pre-registered the classifier in `team/notes/T2.md` (the exact rules of D43 and D44, the closed-loop work test with its sources, test body and loops, the folder layout T2.2 writes, and predictions per family), and committed it first (`85aabca`). Then `analysis/survival.py` (`closed_loop_ratio`, `load_records`, `classify`) with tests of the method on known cases, and `scenarios/T2/loop_test.py`. Ran the loop test over the 102 definitions at the six angles from a clean tree.
+- Result: all 102 predictions held: 48 pass (ratios at most 1.0e-15), 54 fail (ratios of order 1); the 12 L1b perpendicular and velocity definitions pass only at 90 degrees, as predicted. `results/T2.3/20261114-221506-36308dd`. Status `done`: needs a reproduction by another model.
+- Next: the classes need T2.2's runs (Claude Fable 5.2); I told Fable the folder layout the classifier reads.
+- Blocked by / questions: none.
+- Architecture: new `analysis/survival.py` (node `survival`), scenario row `scenarios/T2/`
+- Questions: none new
+
 ### 2026-11-14 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - T2.1: the coupling definitions
 - Did: claimed T2 (T2.1, then T2.3) as the M2 plan proposes. Wrote `tools/t2_definitions.py`: the grid L1a-L1e x L2 x L4 x L7, 102 definitions and 18 not applicable (D45), stable IDs, `law` blocks with lambda 1 and all terms (D47), in `scenarios/T2/definitions.json`; every entry checked against the engine. Test, architecture (node `t2defs`), board, `team/notes/T2.md`.
 - Result: the engine agrees with the grid on every cell: all 102 definitions build their law, all 18 cells not applicable are refused.
