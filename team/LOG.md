@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - D36: wrap-around walls with the nearest image, and its scenario
+- Did: took D36 (no branch existed; announced in the chat and on #58; the sponsor asked me to complete M1). Pre-registered four tests, then built the boundary `"wrap"`, `nearest_image` and the `period` of the solver, the energies and the step rule, then ran the tests on the committed code. D36.4 turned out not to test what it was for, so I pre-registered and ran a fifth.
+- Result: the nearest image does what D36 says: a pair across the edge feels its true separation to 1.8e-15; a bound pair carried across the edge cannot be told from open space (2.8e-10); a gas conserves its energy to 2.7e-7 through 9 crossings, against 9.9e-2 with open-space forces. Against the full periodic sum the nearest image overestimates the attraction of a neutral pair by `4.517 (d/L)^3`, as predicted (to 0.3% at `d/L` = 0.05). **Three of the five tests fail their own criteria, each on an estimate of mine** (the convergence of the reference sum; twice the time a gas run covers); reported as they are, no criterion changed. 8 new unit tests; whole suite 377 passed.
+- Next: independent reproduction of D36.1 to D36.5. With this, every engine row of the registry that M1 waits for is `implemented` once #73 is merged.
+- Blocked by / questions: none.
+- Architecture: updated (rows `environment`, `integrators` implemented; scenario row `scenarios/D36/`; edge `energy --> fields`; section 10; change log)
+- Questions: none new on the board; three open points in `team/notes/D36.md`
+
 ### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - E5.2: `Universe`, and the rest of E5.3
 - Did: took E5.2 from the handoff of `team/notes/E5.md` (the sponsor asked me to finish M1; D36, next in OpenCode's queue, is left to it). New `universe.py`: `Universe` holds and validates U1 to U7; the validation moved out of `settings.py` with the same messages; `Settings.universe` is still its dictionary. Additions: `universe.sources` (U6), `with_`, `angle_sweep`, `in_units`, `Settings.world`, the law names `"reference"` and `"exploratory"`. Stacked on `E2.2-moving-fields` (#75), which changes the same block.
 - Result: every U option of the test plan's table is expressed in one test, except wrap-around, which the universe will accept the day D36 adds it to the environment; 28 invalid universes refused by name. 35 new tests; whole suite 369 passed, coverage 99% (`universe.py` 100%). Registry rows `universe` and `settings` are `implemented`.
