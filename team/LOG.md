@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - review: T9.2, Q5, D21.1 to D21.4 reproduced by a different model
+- Did: for the S3 exit gate of M1 ("each reproduced independently"), re-ran T9.2 (`b19237e`), Q5 (`746e044`) and D21.1 to D21.4 (`f263697`) from their stamped engine commits on Linux (Python 3.12.3; the producers used 3.12.10 on Windows), with the producers' scripts unchanged, and compared every value. For T9.2 also an arithmetic check that does not use the engine.
+- Result: all six reproduced. Every text, flag, verdict and step count is identical. Numbers agree to rounding: the largest difference on a judged quantity is 1.1e-11 relative (a three-body separation in Q5). T9.2 and Q5 move from the same-model exceptions D38 and D39 to "confirmed (agent, same sponsor; D27)"; D21.1 to D21.4 from `done` to the same. Outputs not committed.
+- Next: the M1 review draft.
+- Blocked by / questions: none.
+- Architecture: no change (no code)
+- Questions: none new
+
 ### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - Co-exist Journal: eight entries, one of each kind (D35)
 - Did: the sponsor asked me not to forget the journal duty, "in all kinds of papers". Wrote entries 2026-009 to 2026-016: teaching on the mathematics side (the dot and the cross of two cosmic masses, from the conjugate product), a discovery (the third-law defect of half a Coupling term is an area), teaching on the physics side (what is kept: mass, charge, momentum, energy), a result (the gate T0), an observation (the same run on two platforms), a note (what a run must remember to be resumed), four open questions, and an editorial on the state of M1. Rebuilt the site with `tools/build_journal.py`.
 - Result: both sides of D35 are taught by this agent. Every number is traced to a results folder, the engine or a derivation; the identities of 2026-009 were checked with SymPy and the table with 50-digit arithmetic; the signs in 2026-010 with the engine's L1a. All 197 formulas pass the renderer (KaTeX 0.16.11) offline. Statuses are stated as they are: the discovery is `done` (not checked by anyone else), the note is `proposed` (its code is in #73, not merged), the observation is `exploratory`.
