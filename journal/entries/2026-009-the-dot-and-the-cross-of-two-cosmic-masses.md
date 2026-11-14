@@ -28,6 +28,8 @@ links:
     url: /engine/cosmicmass/gn.py
   - title: The matter presets
     url: /engine/cosmicmass/matter.py
+corrections:
+  - "2026-11-14 (editor): the warning about double precision gave the size of the cancelling terms as $10^{-18}$; in the Composer coordinate they are $\\pm 2 s\\cos\\bar\\varphi\\, e^2 \\approx \\pm 1.05\\times10^{-28}$, so the cancellation spans 18 orders, not 28. The warning stands. Found in the review of #76."
 ---
 
 Entry [2026-002](../2026-002/) multiplied two cosmic masses. Entry [2026-007](../2026-007/) read one cosmic mass in four ways. This entry asks a question between the two: **how are two cosmic masses placed relative to each other?** Everything here is **mathematics**: the conjugate of the compendium ("Conjugate, skew flip, division") applied to $\mu = m + q\,\mathcal G$.
@@ -105,6 +107,6 @@ Compare it with the dot product above. Both are symmetric in the two bodies, and
 
 ## A practical warning
 
-In double precision, do not compute the cross product of a proton and an electron by forming $\mu_a\bar\mu_b$ and reading its Composer coordinate. The engine's `conjugate()` adds and removes terms of size $10^{-18}$ to reach a result of size $10^{-46}$, and returns exactly $0$. Compute $q_a m_b - m_a q_b$ directly ($2.68\times10^{-46}$ kg C). The numbers in the table come from that formula.
+In double precision, do not compute the cross product of a proton and an electron by forming $\mu_a\bar\mu_b$ and reading its Composer coordinate. The engine's `conjugate()` adds and removes terms of size about $10^{-28}$ to reach a result of size $10^{-46}$, and returns exactly $0$. Compute $q_a m_b - m_a q_b$ directly ($2.68\times10^{-46}$ kg C). The numbers in the table come from that formula.
 
 Entry [2026-010](../2026-010/) uses the cross product for something concrete: it is the size of a broken third law.
