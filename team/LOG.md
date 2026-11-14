@@ -19,6 +19,29 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 - Blocked by / questions: none.
 - Architecture: updated (rows `environment`, `integrators` implemented; scenario row `scenarios/D36/`; edge `energy --> fields`; section 10; change log)
 - Questions: none new on the board; three open points in `team/notes/D36.md`
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - E7: checkpoints, T0 status, schema check
+- Did: the sponsor asked me to focus on finishing M1 and to decide open points myself. Took E7 (the last item of OpenCode's queue under D40; announced in the team chat before writing code). New `checkpoint.py`; `run(..., resume, checkpoint, progress, should_stop)`; `--resume`, `--progress`, a clean stop on Ctrl-C; step control (`numerics.drift_tolerance`, off by default); `stamp.t0_status` and `stamp.validate_outputs`; schema additions; 27 tests.
+- Result: a run interrupted and resumed writes the same `summary.json` and `timeseries.csv` byte for byte, on five scenes (adaptive pair; gas with walls, inflow, heat bath and a seeded population; absorbing walls; the Boris push; L1a with screening). Whole suite: 340 passed, coverage 99%. The registry rows `runner` and `stamp` are `implemented`. Every stamp written today says `"t0_status": "not run"`, truthfully: the stored T0 runs are from `91ba4ae` and the engine has changed since.
+- Next: independent reproductions of T9.2, Q5 and D21.1 to D21.4 as a different model; a draft of the M1 review issue.
+- Blocked by / questions: none blocking.
+- Architecture: updated (new node `checkpoint`; rows `runner`, `stamp` implemented; sections 4, 5, 6, 10; change log)
+- Questions: 26 (the meaning of `t0_status`), 27 (step control), 28 (hard or soft schema check; the web stamp's commit) in `team/QUESTIONS.md`
+
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - review: T9.2, Q5, D21.1 to D21.4 reproduced by a different model
+- Did: for the S3 exit gate of M1 ("each reproduced independently"), re-ran T9.2 (`b19237e`), Q5 (`746e044`) and D21.1 to D21.4 (`f263697`) from their stamped engine commits on Linux (Python 3.12.3; the producers used 3.12.10 on Windows), with the producers' scripts unchanged, and compared every value. For T9.2 also an arithmetic check that does not use the engine.
+- Result: all six reproduced. Every text, flag, verdict and step count is identical. Numbers agree to rounding: the largest difference on a judged quantity is 1.1e-11 relative (a three-body separation in Q5). T9.2 and Q5 move from the same-model exceptions D38 and D39 to "confirmed (agent, same sponsor; D27)"; D21.1 to D21.4 from `done` to the same. Outputs not committed.
+- Next: the M1 review draft.
+- Blocked by / questions: none.
+- Architecture: no change (no code)
+- Questions: none new
+
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - Co-exist Journal: eight entries, one of each kind (D35)
+- Did: the sponsor asked me not to forget the journal duty, "in all kinds of papers". Wrote entries 2026-009 to 2026-016: teaching on the mathematics side (the dot and the cross of two cosmic masses, from the conjugate product), a discovery (the third-law defect of half a Coupling term is an area), teaching on the physics side (what is kept: mass, charge, momentum, energy), a result (the gate T0), an observation (the same run on two platforms), a note (what a run must remember to be resumed), four open questions, and an editorial on the state of M1. Rebuilt the site with `tools/build_journal.py`.
+- Result: both sides of D35 are taught by this agent. Every number is traced to a results folder, the engine or a derivation; the identities of 2026-009 were checked with SymPy and the table with 50-digit arithmetic; the signs in 2026-010 with the engine's L1a. All 197 formulas pass the renderer (KaTeX 0.16.11) offline. Statuses are stated as they are: the discovery is `done` (not checked by anyone else), the note is `proposed` (its code is in #73, not merged), the observation is `exploratory`.
+- Next: answer the discussion of these entries through the sponsor; the M1 review draft.
+- Blocked by / questions: the entries link to pull requests #73 and #74 by URL, because their files are not on `main` yet.
+- Architecture: no change (no code)
+- Questions: four open questions are in entry 2026-015; none new on the board
 
 ### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - E5.2: `Universe`, and the rest of E5.3
 - Did: took E5.2 from the handoff of `team/notes/E5.md` (the sponsor asked me to finish M1; D36, next in OpenCode's queue, is left to it). New `universe.py`: `Universe` holds and validates U1 to U7; the validation moved out of `settings.py` with the same messages; `Settings.universe` is still its dictionary. Additions: `universe.sources` (U6), `with_`, `angle_sweep`, `in_units`, `Settings.world`, the law names `"reference"` and `"exploratory"`. Stacked on `E2.2-moving-fields` (#75), which changes the same block.
