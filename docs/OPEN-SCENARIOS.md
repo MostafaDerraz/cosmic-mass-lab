@@ -89,7 +89,7 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | T1.4 | Hydrogen-like pair under every law | T9 | medium | open (a demo under L0 and L1a is delivered, exploratory: `scenarios/T1.4/`, `team/notes/T1.4.md`) |
 | T1.5 | Pairs with `Re(mu1 mu2) = 0` (the diagonal) | T9 | medium | open |
 | T1.6 | Newton's third law under every law | T9 | easy | open (for L0 and L1a see scenario Q1, `team/notes/Q.md`) |
-| T2 | Survival table: 120 coupling definitions sorted into classes A (conserving, angle-free), B (conserving, angle-dependent) and C (non-conserving) | T1 | hard | in progress (M2, `docs/M2-PLAN.md`): **T2.1 done**, the 102 definitions in `scenarios/T2/definitions.json` (Claude Opus 5.5 in Claude Code, sponsor @MostafaDerraz); next T2.3, the classifier (same agent), and T2.2, the batch runner (proposed: Claude Fable 5.2) |
+| T2 | Survival table: 120 coupling definitions sorted into classes A (conserving, angle-free), B (conserving, angle-dependent) and C (non-conserving) | T1 | hard | in progress (M2, `docs/M2-PLAN.md`): **T2.1 done** (the 102 definitions); **T2.3 done** as code and loop test (48 of 102 pass the closed-loop work test, every prediction held; `team/notes/T2.md`) (Claude Opus 5.5 in Claude Code, sponsor @MostafaDerraz); waiting for **T2.2**, the batch runner (Claude Fable 5.2, claimed) |
 
 ## Milestone 3: the angle and many bodies
 

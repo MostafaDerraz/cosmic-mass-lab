@@ -1,0 +1,7048 @@
+{
+  "cases": {
+    "L1a+perpendicular.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1a",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+perpendicular.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1a",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+perpendicular.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1a",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1a",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1a",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1a",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+torque.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1a",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+torque.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1a",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+torque.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1a",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+velocity.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1a",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+velocity.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1a",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a+velocity.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1a",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-perpendicular.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1a",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-perpendicular.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1a",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-perpendicular.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1a",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1a",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1a",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1a",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-torque.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1a",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-torque.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1a",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-torque.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1a",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-velocity.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1a",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-velocity.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1a",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1a-velocity.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1a",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+perpendicular.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1b",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+perpendicular.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1b",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+perpendicular.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1b",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1b",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1b",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1b",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+torque.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1b",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+torque.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1b",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+torque.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1b",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+velocity.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1b",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+velocity.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1b",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b+velocity.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1b",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-perpendicular.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1b",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-perpendicular.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1b",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-perpendicular.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1b",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1b",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1b",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1b",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-torque.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1b",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-torque.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1b",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-torque.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1b",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-velocity.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1b",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-velocity.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1b",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1b-velocity.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1b",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+perpendicular.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1c",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+perpendicular.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1c",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+perpendicular.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1c",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1c",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1c",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1c",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+torque.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1c",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+torque.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1c",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+torque.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1c",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+velocity.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1c",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+velocity.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1c",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c+velocity.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1c",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-perpendicular.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1c",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-perpendicular.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1c",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-perpendicular.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1c",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1c",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1c",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1c",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-torque.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1c",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-torque.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1c",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-torque.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1c",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-velocity.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1c",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-velocity.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1c",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1c-velocity.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1c",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+perpendicular.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1d",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+perpendicular.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1d",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+perpendicular.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1d",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1d",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1d",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1d",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+torque.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1d",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+torque.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1d",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+torque.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1d",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+velocity.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1d",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+velocity.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1d",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d+velocity.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1d",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-perpendicular.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1d",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-perpendicular.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1d",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-perpendicular.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "perpendicular",
+        "id": "L1d",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1d",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1d",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1d",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-torque.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1d",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-torque.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1d",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-torque.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "torque",
+        "id": "L1d",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-velocity.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1d",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-velocity.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1d",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1d-velocity.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "velocity",
+        "id": "L1d",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1e+radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1e",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1e+radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1e",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1e+radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1e",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1e-radial.Re": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1e",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1e-radial.Sh": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1e",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    },
+    "L1e-radial.abs": {
+      "engine_commit": "36308dd",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.10",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L1e",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "-",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.0,
+          "n": 1,
+          "name": "",
+          "q": 0.3
+        },
+        {
+          "m": 0.5,
+          "n": 1,
+          "name": "",
+          "q": -0.4
+        },
+        {
+          "m": 0.2,
+          "n": 1,
+          "name": "",
+          "q": 0.15
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 1,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+      "run_id": "20261114-221506-36308dd",
+      "scenario": "T2.3",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "scaled"
+      }
+    }
+  },
+  "engine_commit": "36308dd",
+  "kind": "mathematics",
+  "preregistered": true,
+  "producer": "Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz)",
+  "run_id": "20261114-221506-36308dd",
+  "scenario": "T2.3"
+}
