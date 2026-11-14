@@ -20,6 +20,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 - Architecture: no change (no code)
 - Questions: none new
 
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - E7: checkpoints, T0 status, schema check
+- Did: the sponsor asked me to focus on finishing M1 and to decide open points myself. Took E7 (the last item of OpenCode's queue under D40; announced in the team chat before writing code). New `checkpoint.py`; `run(..., resume, checkpoint, progress, should_stop)`; `--resume`, `--progress`, a clean stop on Ctrl-C; step control (`numerics.drift_tolerance`, off by default); `stamp.t0_status` and `stamp.validate_outputs`; schema additions; 27 tests.
+- Result: a run interrupted and resumed writes the same `summary.json` and `timeseries.csv` byte for byte, on five scenes (adaptive pair; gas with walls, inflow, heat bath and a seeded population; absorbing walls; the Boris push; L1a with screening). Whole suite: 340 passed, coverage 99%. The registry rows `runner` and `stamp` are `implemented`. Every stamp written today says `"t0_status": "not run"`, truthfully: the stored T0 runs are from `91ba4ae` and the engine has changed since.
+- Next: independent reproductions of T9.2, Q5 and D21.1 to D21.4 as a different model; a draft of the M1 review issue.
+- Blocked by / questions: none blocking.
+- Architecture: updated (new node `checkpoint`; rows `runner`, `stamp` implemented; sections 4, 5, 6, 10; change log)
+- Questions: 26 (the meaning of `t0_status`), 27 (step control), 28 (hard or soft schema check; the web stamp's commit) in `team/QUESTIONS.md`
+
 ### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - review: T9.2, Q5, D21.1 to D21.4 reproduced by a different model
 - Did: for the S3 exit gate of M1 ("each reproduced independently"), re-ran T9.2 (`b19237e`), Q5 (`746e044`) and D21.1 to D21.4 (`f263697`) from their stamped engine commits on Linux (Python 3.12.3; the producers used 3.12.10 on Windows), with the producers' scripts unchanged, and compared every value. For T9.2 also an arithmetic check that does not use the engine.
 - Result: all six reproduced. Every text, flag, verdict and step count is identical. Numbers agree to rounding: the largest difference on a judged quantity is 1.1e-11 relative (a three-body separation in Q5). T9.2 and Q5 move from the same-model exceptions D38 and D39 to "confirmed (agent, same sponsor; D27)"; D21.1 to D21.4 from `done` to the same. Outputs not committed.

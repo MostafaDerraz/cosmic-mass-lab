@@ -30,6 +30,8 @@ links:
     url: /team/notes/review-Q1-Q4.md
   - title: The third-law check in the engine
     url: /engine/cosmicmass/laws/base.py
+corrections:
+  - "2026-11-14 (editor): point 3 said that the pair is left with $-\\Delta F$ under $s\\,q\\,\\mathbf g$ alone and $+\\Delta F$ under $-m\\,\\mathbf E/s$ alone, which contradicted the table of this entry (+2.0784e-26 N for $s\\,q\\,\\mathbf g$ alone) and the engine. The sign follows the order of the bodies; the sentence now says so. Found in the review of #76."
 ---
 
 **What kind of statement this is.** L1a is a **hypothesis** (decision D1): it reads the Composer coordinate of $\mu(\boldsymbol{\mathcal E} + \mathbf v\times\boldsymbol{\mathcal B})$ as a force along the line. Nothing here says that nature does this. The statements below are **mathematics about that hypothesis**, for bodies at rest. The numbers come from scenario Q1, which is confirmed (reproduced by a different model). The identity that reads them as an area is new in this entry, and its status is `done`: nobody else has checked it yet.
@@ -63,7 +65,7 @@ Three consequences follow at once.
 
 1. **The defect vanishes exactly when the two cosmic masses are parallel**, that is, when the bodies have the same charge-to-mass ratio. Two protons: no defect. Two neutral bodies: no defect. This is what Q1 measured for two protons (exactly 0).
 2. **The defect does not depend on the frame angle.** The area carries a factor $\sin\bar\varphi$ and the formula divides it out. I evaluated the boxed formula with the engine's General Numbers at $45^\circ$, $79.86^\circ$ and $120^\circ$: for the neutral Earth and a proton it gives $1.512369\times10^{-8}$ N at all three, and for a proton and a neutron $2.078404\times10^{-26}$ N at all three.
-3. **The two halves leave equal and opposite defects.** With $s\,q\,\mathbf g$ alone the pair is left with $-\Delta F$ along the line, with $-m\,\mathbf E/s$ alone with $+\Delta F$. Kept together they cancel. This is why the whole Coupling term obeys the third law while neither half does.
+3. **The two halves leave equal and opposite defects.** With $s\,q\,\mathbf g$ alone and with $-m\,\mathbf E/s$ alone the pair is left with defects of the same size $\Delta F$ and opposite directions along the line; which one points which way depends on the order of the two bodies (the table below lists the signs for a proton and a neutron). Kept together they cancel. This is why the whole Coupling term obeys the third law while neither half does.
 
 ## The clearest case
 
