@@ -1,0 +1,60 @@
+{
+  "cases": {
+    "A (the engine's runner)": {
+      "agreement_with_the_loop": 0.0,
+      "charge_drift": 0.0,
+      "energy_end_drift": 3.6081864391327665e-10,
+      "inside_the_box": true,
+      "mass_drift": 0.0,
+      "momentum_drift": 1.7467228908419202e-16,
+      "pass": true,
+      "steps": 4000,
+      "wrap_around": {
+        "field": "nearest image (D36)",
+        "limit": "each pair of bodies interacts once, through the closest of its periodic copies; for the unscreened 1/r^2 field the sum is cut at half the box, so the result holds for boxes much larger than the structures studied; with the screened field (L8) it is exact once the box is larger than twice the screening length",
+        "period": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "A (the script's loop)": {
+      "crossings": 0,
+      "energy_at_the_start": -2589.464558232064,
+      "energy_end_drift": 3.602801573391532e-10,
+      "energy_largest_excursion": 3.602801573391532e-10,
+      "energy_scale_interaction_at_the_start": 2593.33485713799,
+      "inside_the_box": true,
+      "momentum_drift": 3.5493220186186194e-16,
+      "pass": true,
+      "steps": 4000
+    },
+    "B (the script's loop)": {
+      "crossings": 0,
+      "energy_at_the_start": -2067.0468411063785,
+      "energy_end_drift": 3.5966223448829735e-11,
+      "energy_largest_excursion": 3.5966223448829735e-11,
+      "energy_scale_interaction_at_the_start": 2070.9171400123046,
+      "inside_the_box": true,
+      "momentum_drift": 1.042764530857173e-15,
+      "pass": true,
+      "steps": 4000
+    },
+    "predictions": {
+      "flags": {
+        "A: at least 20 edge crossings": false,
+        "A: energy end drift below 1e-3": true,
+        "A: every body inside the box at the end": true,
+        "A: mass and charge exactly constant": true,
+        "A: momentum drift below 1e-12": true,
+        "B: energy end drift at least 10 times that of A": false,
+        "the loop and the runner agree for A to 1e-9": true,
+        "the summary carries the stated limit of D36": true
+      },
+      "pass": false
+    }
+  },
+  "explanation": "D36.4 under the reference law L0 (a test of the wrap-around boundary): at least one case fails.",
+  "scenario": "D36.4",
+  "verdict": "fail"
+}

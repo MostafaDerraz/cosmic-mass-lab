@@ -1,0 +1,57 @@
+{
+  "cases": {
+    "A": {
+      "crossings": 4,
+      "energy_at_the_start": 4.263256414560601e-14,
+      "energy_end_drift": 1.634248292248232e-14,
+      "energy_largest_excursion": 5.422862159321089e-13,
+      "energy_scale_interaction_at_the_start": 49.99999999999996,
+      "momentum_drift": 4.145044090925166e-15,
+      "pass": true,
+      "relative_position_against_open_over_a": 2.796699319617145e-10,
+      "separation_at_the_end_over_a": 1.0000001003901307,
+      "separation_largest_change": 5.000012932576681e-07,
+      "steps": 175000,
+      "steps_against_open": 1.0
+    },
+    "B": {
+      "crossings": 6,
+      "energy_at_the_start": 4.263256414560601e-14,
+      "energy_end_drift": 0.8158238603986454,
+      "energy_largest_excursion": 0.9797482441883215,
+      "energy_scale_interaction_at_the_start": 49.99999999999996,
+      "momentum_drift": 2.51214793389404e-15,
+      "pass": true,
+      "separation_at_the_end_over_a": 23.86987242977176,
+      "separation_largest_change": 30.563215709675358,
+      "steps": 52956
+    },
+    "open": {
+      "crossings": 0,
+      "energy_at_the_start": 4.263256414560601e-14,
+      "energy_end_drift": 1.3135093013261223e-12,
+      "energy_largest_excursion": 1.615063638382709e-12,
+      "energy_scale_interaction_at_the_start": 49.99999999999996,
+      "momentum_drift": 3.0648204793507285e-14,
+      "pass": true,
+      "separation_at_the_end_over_a": 1.000000100393141,
+      "separation_largest_change": 5.000023768353401e-07,
+      "steps": 175000
+    },
+    "predictions": {
+      "flags": {
+        "A: energy end drift below 1e-6": true,
+        "A: energy largest excursion below 1e-6": true,
+        "A: final relative position within 1e-6 a of the open-space run": true,
+        "A: steps within 1% of the open-space run": true,
+        "A: the pair crossed the edge (4 body crossings)": true,
+        "A: the separation stays a within 1e-5": true,
+        "B: the pair is torn apart (separation above 10 a at the end)": true
+      },
+      "pass": true
+    }
+  },
+  "explanation": "D36.3 under the reference law L0 (a test of the wrap-around boundary): every case meets its criterion.",
+  "scenario": "D36.3",
+  "verdict": "pass"
+}

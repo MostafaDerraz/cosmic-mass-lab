@@ -1,0 +1,81 @@
+{
+  "cases": {
+    "a: straddling the edge": {
+      "A_attraction_on_plus": 624.9999999999989,
+      "A_relative_error": 1.7763568394002505e-15,
+      "B_attraction_on_plus": 1.0850694444444444,
+      "B_fraction_of_the_right_force": 0.0017361111111111112,
+      "expected_attraction": 625.0,
+      "pass": true,
+      "third_law_A": 0.0,
+      "true_separation": 0.04
+    },
+    "b: inside the box, d = 0.05": {
+      "A_attraction": 399.9999999999993,
+      "A_equals_B": true,
+      "A_excess_over_C": 0.0005660454245227707,
+      "C_attraction_shells_50_100_200": [
+        399.7756767985861,
+        399.774283651922,
+        399.7735818301902
+      ],
+      "C_convergence_100_to_200_of_the_correction": 0.003099670544995604,
+      "d_over_L": 0.05,
+      "excess_over_prediction": 1.0025600859418535,
+      "judged": true,
+      "pass": false,
+      "predicted_leading_excess": 0.0005646000000000002
+    },
+    "b: inside the box, d = 0.1": {
+      "A_attraction": 99.99999999999993,
+      "A_equals_B": true,
+      "A_excess_over_C": 0.004605961919498756,
+      "C_attraction_shells_50_100_200": [
+        99.54359375361969,
+        99.54080745250317,
+        99.53940380805005
+      ],
+      "C_convergence_100_to_200_of_the_correction": 0.0030474512765246127,
+      "d_over_L": 0.1,
+      "excess_over_prediction": 1.019740063650982,
+      "judged": true,
+      "pass": false,
+      "predicted_leading_excess": 0.004516800000000001
+    },
+    "b: inside the box, d = 0.2": {
+      "A_attraction": 25.000000000000014,
+      "A_equals_B": true,
+      "A_excess_over_C": 0.03941309980135214,
+      "C_attraction_shells_50_100_200": [
+        24.02305246632983,
+        24.01747980178748,
+        24.01467250496621
+      ],
+      "C_convergence_100_to_200_of_the_correction": 0.0028491002589693735,
+      "d_over_L": 0.2,
+      "excess_over_prediction": 1.0907362458309016,
+      "judged": true,
+      "pass": false,
+      "predicted_leading_excess": 0.03613440000000001
+    },
+    "b: inside the box, d = 0.4": {
+      "A_attraction": 6.250000000000001,
+      "A_equals_B": true,
+      "A_excess_over_C": 0.4125135878142164,
+      "C_attraction_shells_50_100_200": [
+        3.688550560701544,
+        3.677404733124592,
+        3.671790076161148
+      ],
+      "C_convergence_100_to_200_of_the_correction": 0.0021777346024188953,
+      "d_over_L": 0.4,
+      "excess_over_prediction": 1.4270113375834947,
+      "judged": false,
+      "pass": false,
+      "predicted_leading_excess": 0.2890752000000001
+    }
+  },
+  "explanation": "D36.1 under the reference law L0 (a test of the wrap-around boundary): at least one case fails.",
+  "scenario": "D36.1",
+  "verdict": "fail"
+}
