@@ -1,0 +1,42 @@
+{
+  "cases": {
+    "cloud": {
+      "charge_drift": 0.0,
+      "convergence": {
+        "eta_half": {
+          "energy_drift": 4.138111904697736e-10,
+          "momentum_drift_with_walls": 3.576827722558606e-16
+        },
+        "eta_quarter": {
+          "energy_drift": 4.883356958825009e-11,
+          "momentum_drift_with_walls": 2.307877791229856e-16
+        },
+        "n_double": {
+          "energy_drift": 4.0577925272307546e-10,
+          "momentum_drift_with_walls": 2.985541426098039e-16
+        },
+        "n_half": {
+          "energy_drift": 6.353865614197719e-10,
+          "momentum_drift_with_walls": 4.691737133905511e-16
+        }
+      },
+      "energy_drift": 2.335250709209853e-09,
+      "mass_drift": 0.0,
+      "momentum_drift_bodies_only": 0.00045182172186241515,
+      "momentum_drift_with_walls": 2.3723332843302904e-16,
+      "pass": true,
+      "steps": 10000,
+      "t_end": 2.844686798909345e-15,
+      "tolerance": {
+        "charge": 0.0,
+        "energy_drift": 1e-06,
+        "mass": 0.0,
+        "momentum_drift": 1e-06
+      },
+      "wall_hits": 1
+    }
+  },
+  "explanation": "T0.2 under the reference law L0: every case meets its criterion.",
+  "scenario": "T0.2",
+  "verdict": "pass"
+}
