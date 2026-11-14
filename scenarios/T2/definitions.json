@@ -1,0 +1,1439 @@
+{
+  "about": "T2.1 (docs/M2-PLAN.md): the coupling definitions of the survival table; written by tools/t2_definitions.py, do not edit by hand",
+  "grid": {
+    "readings": [
+      "L1a",
+      "L1b",
+      "L1c",
+      "L1d",
+      "L1e"
+    ],
+    "signs": [
+      "+",
+      "-"
+    ],
+    "directions": [
+      "radial",
+      "perpendicular",
+      "velocity",
+      "torque"
+    ],
+    "inertias": [
+      "Re",
+      "Sh",
+      "abs"
+    ]
+  },
+  "fixed": {
+    "lambda": 1.0,
+    "terms": "all",
+    "B_cal": "off",
+    "range": "1/r^2"
+  },
+  "count": {
+    "definitions": 102,
+    "not_applicable": 18
+  },
+  "definitions": [
+    {
+      "id": "L1a+radial.Re",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+radial.Sh",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+radial.abs",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+perpendicular.Re",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+perpendicular.Sh",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+perpendicular.abs",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+velocity.Re",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+velocity.Sh",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+velocity.abs",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+torque.Re",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+torque.Sh",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a+torque.abs",
+      "law": {
+        "id": "L1a",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-radial.Re",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-radial.Sh",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-radial.abs",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-perpendicular.Re",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-perpendicular.Sh",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-perpendicular.abs",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-velocity.Re",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-velocity.Sh",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-velocity.abs",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-torque.Re",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-torque.Sh",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1a-torque.abs",
+      "law": {
+        "id": "L1a",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+radial.Re",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+radial.Sh",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+radial.abs",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+perpendicular.Re",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+perpendicular.Sh",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+perpendicular.abs",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+velocity.Re",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+velocity.Sh",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+velocity.abs",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+torque.Re",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+torque.Sh",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b+torque.abs",
+      "law": {
+        "id": "L1b",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-radial.Re",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-radial.Sh",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-radial.abs",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-perpendicular.Re",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-perpendicular.Sh",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-perpendicular.abs",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-velocity.Re",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-velocity.Sh",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-velocity.abs",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-torque.Re",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-torque.Sh",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1b-torque.abs",
+      "law": {
+        "id": "L1b",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+radial.Re",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+radial.Sh",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+radial.abs",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+perpendicular.Re",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+perpendicular.Sh",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+perpendicular.abs",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+velocity.Re",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+velocity.Sh",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+velocity.abs",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+torque.Re",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+torque.Sh",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c+torque.abs",
+      "law": {
+        "id": "L1c",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-radial.Re",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-radial.Sh",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-radial.abs",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-perpendicular.Re",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-perpendicular.Sh",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-perpendicular.abs",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-velocity.Re",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-velocity.Sh",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-velocity.abs",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-torque.Re",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-torque.Sh",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1c-torque.abs",
+      "law": {
+        "id": "L1c",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+radial.Re",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+radial.Sh",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+radial.abs",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+perpendicular.Re",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+perpendicular.Sh",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+perpendicular.abs",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "perpendicular",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+velocity.Re",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+velocity.Sh",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+velocity.abs",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "velocity",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+torque.Re",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+torque.Sh",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d+torque.abs",
+      "law": {
+        "id": "L1d",
+        "sign": "+",
+        "direction": "torque",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-radial.Re",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-radial.Sh",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-radial.abs",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-perpendicular.Re",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-perpendicular.Sh",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-perpendicular.abs",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "perpendicular",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-velocity.Re",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-velocity.Sh",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-velocity.abs",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "velocity",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-torque.Re",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-torque.Sh",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1d-torque.abs",
+      "law": {
+        "id": "L1d",
+        "sign": "-",
+        "direction": "torque",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1e+radial.Re",
+      "law": {
+        "id": "L1e",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1e+radial.Sh",
+      "law": {
+        "id": "L1e",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1e+radial.abs",
+      "law": {
+        "id": "L1e",
+        "sign": "+",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1e-radial.Re",
+      "law": {
+        "id": "L1e",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1e-radial.Sh",
+      "law": {
+        "id": "L1e",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "Sh",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    },
+    {
+      "id": "L1e-radial.abs",
+      "law": {
+        "id": "L1e",
+        "sign": "-",
+        "direction": "radial",
+        "inertia": "abs",
+        "lambda": 1.0,
+        "terms": "all",
+        "B_cal": "off",
+        "range": "1/r^2"
+      }
+    }
+  ],
+  "not_applicable": [
+    {
+      "id": "L1e+perpendicular.Re",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e+perpendicular.Sh",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e+perpendicular.abs",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e+velocity.Re",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e+velocity.Sh",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e+velocity.abs",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e+torque.Re",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e+torque.Sh",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e+torque.abs",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e-perpendicular.Re",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e-perpendicular.Sh",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e-perpendicular.abs",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e-velocity.Re",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e-velocity.Sh",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e-velocity.abs",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e-torque.Re",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e-torque.Sh",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    },
+    {
+      "id": "L1e-torque.abs",
+      "reason": "D45: L1e has no Composer force to direct; only the radial direction exists for it"
+    }
+  ]
+}

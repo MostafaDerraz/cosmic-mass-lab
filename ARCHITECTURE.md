@@ -93,6 +93,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | scaffold | `tools/new_scenario.py` | P5 | implemented | creates `scenarios/<ID>/` (`settings.json`: a valid 10-step L0 start; `run.py`: calls the runner, `--dry-run` writes nothing), the notebook from `team/notes/_TEMPLATE.md` and a registry row; never overwrites |
 | webui | `simulator/web/` | UI1 | in-progress | interactive universe in the browser: the unchanged engine runs in Pyodide in a web worker (`worker.js`, `bridge.py`); page `index.html`, `app.js`; `engine-files.json` lists the engine files it loads (D22, proposed) |
 | journal | `tools/build_journal.py` | D34 | implemented | builds the Co-exist Journal (`journal/`): checks the entries of `journal/entries/` (front matter, authors, kinds, labels, the teaching side of D35) and writes the static site (index, entry pages with discussion, authors with the AI teaching register, discussion page, Atom feed); `--check` fails if the committed site is stale. Uses `markdown`, `pymdown-extensions`, `pyyaml` (dev extras); outside the package |
+| t2defs | `tools/t2_definitions.py` | T2.1 | implemented | the coupling definitions of the survival table (M2): the grid L1a-L1e x L2 x L4 x L7, 102 definitions and 18 cells not applicable (D45), each with a stable ID and a `law` block (lambda 1, all terms, D47), written to `scenarios/T2/definitions.json` and checked against the engine (each builds its law; each not applicable is refused); `--check` in the tests |
 | gallery | `tools/make_gallery.py` | - | implemented | draws the figures of `docs/GALLERY.md` (SVG, standard library) from the stored results |
 <!-- registry:end -->
 
@@ -152,6 +153,7 @@ flowchart TB
         schemas["engine/schemas<br/>(stamp, summary)"]
         gallery["tools/make_gallery.py"]
         journal["tools/build_journal.py<br/>(Co-exist Journal, journal/)"]
+        t2defs["tools/t2_definitions.py<br/>(T2.1: 102 definitions)"]
         cli["python -m cosmicmass<br/>__main__.py"]
         scen["scenarios/ID/run.py"]
         gate["gates/t0.py"]
@@ -223,6 +225,8 @@ flowchart TB
     tests --> validate
     tests --> chat
     tests --> journal
+    tests --> t2defs
+    t2defs --> lawbase
     validate --> schemas
     webui --> runner
     scaffold -.->|"writes settings.json and run.py,<br/>which use"| settings
@@ -856,6 +860,11 @@ def main(argv=None) -> int: ...                      # python tools/validate_res
 def scaffold(scenario: str, title: str, root=ROOT) -> list[Path]: ...   # raises ScaffoldError; writes nothing on error
 def main(argv=None) -> int: ...                      # python tools/new_scenario.py <ID> "<title>"; 2 on error
 
+# tools/t2_definitions.py (T2.1; D45, D47): outside the package
+def grid() -> dict: ...                   # the 102 definitions and 18 cells not applicable, in the grid's order
+def problems(data) -> list[str]: ...      # each definition builds its law; each not applicable is refused
+def main(argv=None) -> int: ...           # python tools/t2_definitions.py [--check]; 1 on a problem
+
 # tools/build_journal.py (D34, D35): outside the package
 def read_entries() -> tuple[list[Entry], list[str]]: ...   # entries newest first, and one line per problem
 def build(entries) -> dict[str, str]: ...            # the site, {path under journal/: text}; deterministic
@@ -879,6 +888,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-14 | T2.1: the coupling definitions (`T2.1-definitions`) | Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) | **new** `tools/t2_definitions.py` (node `t2defs`, section 4, used by `tests`, uses `lawbase`); its output `scenarios/T2/definitions.json`; section 10: its signatures. No engine module or contract changed |
 | 2026-11-14 | D36: wrap-around walls with the nearest image (`E6-wrap-around`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `environment.py`: boundary `"wrap"`, `Environment.period`; `fields/direct.py`: `nearest_image`, `DirectSum(period=)`, `smallest_separation(state, period)`; the optional `period` in `energy.py`, `diagnostics.py` and the distance helpers of `integrators.py` (new edge `energy --> fields`); `universe.py`: `period`, an inflow is refused in a wrap-around box; runner: passes the period, `summary["wrap_around"]` with the stated limit of D36, no wall pressure. Rows `environment` and `integrators` implemented; scenario row `scenarios/D36/`. Section 10: additions only; without a wrap-around box nothing changes |
 | 2026-11-14 | E7: checkpoints, T0 status, schema check (`E7-checkpoints`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new module** `checkpoint.py` (node `checkpoint`; edges `runner --> checkpoint`, `checkpoint --> state`, `checkpoint --> fieldsample`); `runner.py` implemented: `run(..., resume, checkpoint, progress, should_stop)`, `Interrupted`, step control, `--resume` and `--progress` (section 6: the repeated step and the checkpoint); `stamp.py` implemented: `t0_status`, `validate_outputs`, `ResultsError` (edge `stamp -.-> schemas`); settings: `numerics.checkpoint_every`, `numerics.drift_tolerance`; schema: `resumed_at_steps` and the two numerics keys. Section 10: additions only, no existing call changed |
 | 2026-11-14 | E5.2 and the rest of E5.3 (`E5.2-universe`, stacked on `E2.2-moving-fields`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new module** `universe.py` (node no longer planned; new edges `universe --> constants`, `universe --> matter`, `universe --> environment`): the validation of the `universe` block moves there from `settings.py`, unchanged in what it accepts and refuses; `make_inflow`, `make_heat_bath` move with it and stay importable from `settings`; additions: `universe.sources` (U6), `Universe.with_`, `angle_sweep`, `in_units`, `Settings.world`, the law names `"reference"` and `"exploratory"`. Rows `universe` and `settings` implemented; sections 4, 5, 10. No existing call changed |
