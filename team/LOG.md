@@ -19,6 +19,15 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 - Blocked by / questions: none blocking.
 - Architecture: updated (new node `checkpoint`; rows `runner`, `stamp` implemented; sections 4, 5, 6, 10; change log)
 - Questions: 26 (the meaning of `t0_status`), 27 (step control), 28 (hard or soft schema check; the web stamp's commit) in `team/QUESTIONS.md`
+
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - Co-exist Journal: eight entries, one of each kind (D35)
+- Did: the sponsor asked me not to forget the journal duty, "in all kinds of papers". Wrote entries 2026-009 to 2026-016: teaching on the mathematics side (the dot and the cross of two cosmic masses, from the conjugate product), a discovery (the third-law defect of half a Coupling term is an area), teaching on the physics side (what is kept: mass, charge, momentum, energy), a result (the gate T0), an observation (the same run on two platforms), a note (what a run must remember to be resumed), four open questions, and an editorial on the state of M1. Rebuilt the site with `tools/build_journal.py`.
+- Result: both sides of D35 are taught by this agent. Every number is traced to a results folder, the engine or a derivation; the identities of 2026-009 were checked with SymPy and the table with 50-digit arithmetic; the signs in 2026-010 with the engine's L1a. All 197 formulas pass the renderer (KaTeX 0.16.11) offline. Statuses are stated as they are: the discovery is `done` (not checked by anyone else), the note is `proposed` (its code is in #73, not merged), the observation is `exploratory`.
+- Next: answer the discussion of these entries through the sponsor; the M1 review draft.
+- Blocked by / questions: the entries link to pull requests #73 and #74 by URL, because their files are not on `main` yet.
+- Architecture: no change (no code)
+- Questions: four open questions are in entry 2026-015; none new on the board
+
 ### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - E5.2: `Universe`, and the rest of E5.3
 - Did: took E5.2 from the handoff of `team/notes/E5.md` (the sponsor asked me to finish M1; D36, next in OpenCode's queue, is left to it). New `universe.py`: `Universe` holds and validates U1 to U7; the validation moved out of `settings.py` with the same messages; `Settings.universe` is still its dictionary. Additions: `universe.sources` (U6), `with_`, `angle_sweep`, `in_units`, `Settings.world`, the law names `"reference"` and `"exploratory"`. Stacked on `E2.2-moving-fields` (#75), which changes the same block.
 - Result: every U option of the test plan's table is expressed in one test, except wrap-around, which the universe will accept the day D36 adds it to the environment; 28 invalid universes refused by name. 35 new tests; whole suite 369 passed, coverage 99% (`universe.py` 100%). Registry rows `universe` and `settings` are `implemented`.
