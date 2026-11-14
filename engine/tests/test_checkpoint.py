@@ -74,7 +74,11 @@ TORQUE = copy.deepcopy(L1A)  # the direction "torque" (D37): the spin and the ra
 TORQUE["scenario"] = "torque"
 TORQUE["law"] = {"id": "L1a", "lambda": 1e-3, "direction": "torque"}
 TORQUE["bodies"][1].update(radius=0.05, spin=0.2)
+WRAP = copy.deepcopy(GAS)  # a wrap-around box (D36): the nearest image in the force, the energy and the step
+WRAP["scenario"] = "wrap"
+WRAP["universe"].update(boundary="wrap", inflow=None)
 SCENES = {
+    "wrap": WRAP,
     "orbit": ORBIT,
     "gas": GAS,
     "absorbing": ABSORBING,

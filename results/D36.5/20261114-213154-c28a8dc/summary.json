@@ -1,0 +1,63 @@
+{
+  "cases": {
+    "A (the engine's runner)": {
+      "agreement_with_the_loop": 0.0,
+      "charge_drift": 0.0,
+      "energy_end_drift_relative_to_the_total_energy": 8.680667715205785e-07,
+      "inside_the_box": true,
+      "mass_drift": 0.0,
+      "momentum_drift": 9.492825010936535e-16,
+      "pass": true,
+      "steps": 8000,
+      "wrap_around": {
+        "field": "nearest image (D36)",
+        "limit": "each pair of bodies interacts once, through the closest of its periodic copies; for the unscreened 1/r^2 field the sum is cut at half the box, so the result holds for boxes much larger than the structures studied; with the screened field (L8) it is exact once the box is larger than twice the screening length",
+        "period": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "A (the script's loop)": {
+      "crossings": 9,
+      "elapsed_time": 0.16620060657641186,
+      "energy_at_the_start": 0.0007122255066929154,
+      "energy_end_drift": 1.9577103443499838e-07,
+      "energy_largest_excursion": 2.683838097699051e-07,
+      "energy_scale_interaction_at_the_start": 0.0031580733992331595,
+      "inside_the_box": true,
+      "momentum_drift": 1.0000859004107029e-15,
+      "pass": true,
+      "steps": 8000
+    },
+    "B (the script's loop)": {
+      "crossings": 8,
+      "elapsed_time": 0.18034839472006237,
+      "energy_at_the_start": 0.0013992748858206797,
+      "energy_end_drift": 0.09802814400791346,
+      "energy_largest_excursion": 0.09911542690010186,
+      "energy_scale_interaction_at_the_start": 0.0024710240201053953,
+      "inside_the_box": true,
+      "momentum_drift": 8.818400918373237e-16,
+      "pass": true,
+      "steps": 8000
+    },
+    "predictions": {
+      "flags": {
+        "A: at least 20 edge crossings": false,
+        "A: energy end drift below 1e-3 of the interaction energy": true,
+        "A: energy largest excursion below 1e-3 of the interaction energy": true,
+        "A: every body inside the box at the end": true,
+        "A: mass and charge exactly constant": true,
+        "A: momentum drift below 1e-12": true,
+        "B: energy largest excursion above 1e-2": true,
+        "B: energy largest excursion at least 10 times that of A": true,
+        "the loop and the runner agree for A to 1e-9": true
+      },
+      "pass": false
+    }
+  },
+  "explanation": "D36.5 under the reference law L0 (a test of the wrap-around boundary): at least one case fails.",
+  "scenario": "D36.5",
+  "verdict": "fail"
+}

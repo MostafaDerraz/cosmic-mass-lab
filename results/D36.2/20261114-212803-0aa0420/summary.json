@@ -1,0 +1,19 @@
+{
+  "cases": {
+    "A": {
+      "pass": true,
+      "third_law_residual": 5.351139199350767e-18
+    },
+    "B": {
+      "pass": true,
+      "third_law_residual": 5.2909997350714933e-17
+    },
+    "note": {
+      "pass": true,
+      "text": "both are pairwise: the third law does not tell A from B"
+    }
+  },
+  "explanation": "D36.2 under the reference law L0 (a test of the wrap-around boundary): every case meets its criterion.",
+  "scenario": "D36.2",
+  "verdict": "pass"
+}

@@ -44,7 +44,7 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | E3 | Integrator: Verlet and Boris, adaptive step, settings stamp | E1 | medium | done: E3.1 and E3.3 (Claude Fable 5.2); the pair guard of D29 (#42), E3.2 Boris (#44) and E3.4 inertia readings (with E4) by Claude Opus 5.5 in OpenCode (sponsor @MostafaDerraz) |
 | E4 | Law plug-in interface: L0-L8 as switchable readings | E1-E3 | medium | claimed (Claude Opus 5.5 agent in OpenCode, sponsor @MostafaDerraz, 2026-11-14): L1e and the direction "torque", with the optional columns of `State` (decision D37, issue #57). Delivered: E4.1, E4.2, L1a of E4.3 and E4.5 (Claude Fable 5.2); L1b-L1d, L7 (#45), L4, L6, L8 (#54) (Claude Opus 5.5 in OpenCode) |
 | E5 | State, universe U1-U8, settings loader, seeded populations | E1 | medium | done (pull request waiting for review for E5.2 and the rest of E5.3): E5.1 and a minimal E5.3 (Claude Fable 5.2); E5.4 populations (#66, Claude Opus 5.5 in OpenCode); E5.2 `Universe` and the rest of E5.3 (Claude Fable 5.2, `team/notes/E5.md`) |
-| E6a | Walls: reflecting, absorbing with collection, wrap-around | E5 | easy | open (claim released 2026-11-14, D28). Delivered by Claude Fable 5.2: reflecting and absorbing walls delivered; wrap-around waits for question 12 of `team/QUESTIONS.md` |
+| E6a | Walls: reflecting, absorbing with collection, wrap-around | E5 | easy | done (pull request waiting for review for the wrap-around): reflecting and absorbing walls, and the wrap-around boundary with the nearest image of D36 (Claude Fable 5.2; `team/notes/D36.md`) |
 | E6b | Inflow, heat bath, fixed sources | E6a | medium | done (Claude Opus 5.5 agent, sponsor @MostafaDerraz; pull request waiting for review) |
 | E7 | Runner, stamp, command line | E3-E5 | medium | done (Claude Fable 5.2, sponsor @MostafaDerraz; pull request waiting for review): the time loop, the stamp and the command line (MVP-7); checkpoints and resuming, the progress line, step control, the T0 status of the stamp and the check of the outputs against the P4 schemas (`team/notes/E7.md`) |
 | E8 | Diagnostics, convergence helper, standard plots | E7 | medium | done: E8.1 conservation (Claude Fable 5.2); temperature, pressure on the walls, E8.2 convergence helper, E8.3 plots (Claude Opus 5.5 in OpenCode, sponsor @MostafaDerraz; pull request waiting for review) |
@@ -68,6 +68,16 @@ Every task, with its files, acceptance criteria and effort, is in `docs/WORK-PLA
 | D21.2 | two-body gates with softening 0, against D10's softening | T0 | easy | confirmed (agent, same sponsor; D27): produced by Claude Fable 5.2 and by Claude Opus 5.5, each reproduced by the other (`team/notes/review-T9.2-Q5-D21.md`) |
 | D21.3 | energy drift: end of run, against the largest excursion | T0 | easy | confirmed (agent, same sponsor; D27): produced by Claude Fable 5.2 and by Claude Opus 5.5, each reproduced by the other (`team/notes/review-T9.2-Q5-D21.md`) |
 | D21.4 | speed floor for bodies at rest: 0, 0.01, 0.1, 1.0 | T0 | easy | confirmed (agent, same sponsor; D27): produced by Claude Fable 5.2 and by Claude Opus 5.5, each reproduced by the other (`team/notes/review-T9.2-Q5-D21.md`) |
+
+### The wrap-around boundary of D36, as scenarios
+
+| ID | Scenario | Needs | Difficulty | Status |
+|---|---|---|---|---|
+| D36.1 | the force of a pair: nearest image against open-space forces and the full periodic sum | E6a | easy | done (to be reproduced independently); verdict fail on the convergence of the reference sum |
+| D36.2 | Newton's third law under both | E6a | easy | done (to be reproduced independently) |
+| D36.3 | a bound pair carried across the edge | E6a | easy | done (to be reproduced independently) |
+| D36.4 | a gas in a periodic box, masses 1 | E6a | easy | done (to be reproduced independently); verdict fail: no crossing |
+| D36.5 | a dilute gas in a periodic box | E6a | easy | done (to be reproduced independently); verdict fail on the number of crossings |
 
 ## Milestone 2: what can the Composer coordinate be?
 

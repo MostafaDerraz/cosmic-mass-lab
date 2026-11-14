@@ -36,7 +36,7 @@ from typing import Protocol
 import numpy as np
 
 from .environment import K_B
-from .fields.direct import debye_length
+from .fields.direct import debye_length, nearest_image
 from .frame import Frame
 from .laws.base import Law
 from .state import State
@@ -57,12 +57,12 @@ __all__ = [
 REST_FRACTION = 0.1  # floor of the speed in the adaptive step, as a fraction of sqrt(|a| l)
 
 
-def nearest_distances(state: State) -> np.ndarray:
+def nearest_distances(state: State, period=None) -> np.ndarray:
     """Distance from each body to the nearest other alive body (infinite if there is none)."""
-    return nearest_neighbours(state)[0]
+    return nearest_neighbours(state, period)[0]
 
 
-def nearest_neighbours(state: State) -> tuple:
+def nearest_neighbours(state: State, period=None) -> tuple:
     """For each body, the distance to the nearest other alive body (infinite if there is none)
     and the index of that body (the body's own index if there is none)."""
     out = np.full(state.n, np.inf)
@@ -72,7 +72,7 @@ def nearest_neighbours(state: State) -> tuple:
         x = state.x[idx]
         step = max(1, 2_000_000 // len(idx))
         for start in range(0, len(idx), step):
-            diff = x[start : start + step, None, :] - x[None, :, :]
+            diff = nearest_image(x[start : start + step, None, :] - x[None, :, :], period)  # D36 in a wrap-around box
             dist = np.sqrt(np.einsum("pnd,pnd->pn", diff, diff))
             rows = np.arange(dist.shape[0])
             dist[rows, start + rows] = np.inf
@@ -81,7 +81,7 @@ def nearest_neighbours(state: State) -> tuple:
     return out, partner
 
 
-def pair_approach_time(state: State) -> float:
+def pair_approach_time(state: State, period=None) -> float:
     """`min_(i<j) r_ij / |v_i - v_j|` over the pairs of alive bodies that move relative to each
     other (infinite if none does). Fixed bodies count as at rest. The pair guard of D29 is
     `eta` times this time."""
@@ -93,7 +93,7 @@ def pair_approach_time(state: State) -> float:
     best = np.inf
     step = max(1, 2_000_000 // len(idx))
     for start in range(0, len(idx), step):
-        dx = x[start : start + step, None, :] - x[None, :, :]
+        dx = nearest_image(x[start : start + step, None, :] - x[None, :, :], period)
         dv = v[start : start + step, None, :] - v[None, :, :]
         r = np.sqrt(np.einsum("pnd,pnd->pn", dx, dx))
         w = np.sqrt(np.einsum("pnd,pnd->pn", dv, dv))
@@ -183,7 +183,8 @@ class VelocityVerlet:
     def next_dt(self, state: State, ctx: StepContext) -> float:
         moving = state.alive & ~state.fixed
         acceleration, velocity = ctx.acceleration(state), state.v
-        reach, partner = nearest_neighbours(state)
+        period = getattr(ctx.solver, "period", None)  # D36: distances through the nearest image
+        reach, partner = nearest_neighbours(state, period)
         near = np.isfinite(reach)
         if ctx.speed_reference == "neighbour":  # motion relative to the nearest neighbour (a fixed body is at rest)
             velocity = np.where(moving[:, None], state.v, 0.0)
@@ -205,7 +206,8 @@ class VelocityVerlet:
         if np.any(crossing):
             dt = min(dt, float(np.min(ctx.eta * reach[crossing] / speed[crossing])))
         # D29: the pair guard, for passages that no body's nearest neighbour sees
-        dt = min(dt, ctx.eta * pair_approach_time(state))
+        guard = pair_approach_time(state) if period is None else pair_approach_time(state, period)
+        dt = min(dt, ctx.eta * guard)
         dt = min(max(dt, ctx.dt_min), ctx.dt_max)
         if not np.isfinite(dt) or dt <= 0:
             raise ValueError("no time step can be derived from the motion; give numerics.dt_max")

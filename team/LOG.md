@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - D36: wrap-around walls with the nearest image, and its scenario
+- Did: took D36 (no branch existed; announced in the chat and on #58; the sponsor asked me to complete M1). Pre-registered four tests, then built the boundary `"wrap"`, `nearest_image` and the `period` of the solver, the energies and the step rule, then ran the tests on the committed code. D36.4 turned out not to test what it was for, so I pre-registered and ran a fifth.
+- Result: the nearest image does what D36 says: a pair across the edge feels its true separation to 1.8e-15; a bound pair carried across the edge cannot be told from open space (2.8e-10); a gas conserves its energy to 2.7e-7 through 9 crossings, against 9.9e-2 with open-space forces. Against the full periodic sum the nearest image overestimates the attraction of a neutral pair by `4.517 (d/L)^3`, as predicted (to 0.3% at `d/L` = 0.05). **Three of the five tests fail their own criteria, each on an estimate of mine** (the convergence of the reference sum; twice the time a gas run covers); reported as they are, no criterion changed. 8 new unit tests; whole suite 377 passed.
+- Next: independent reproduction of D36.1 to D36.5. With this, every engine row of the registry that M1 waits for is `implemented` once #73 is merged.
+- Blocked by / questions: none.
+- Architecture: updated (rows `environment`, `integrators` implemented; scenario row `scenarios/D36/`; edge `energy --> fields`; section 10; change log)
+- Questions: none new on the board; three open points in `team/notes/D36.md`
+
 ### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - admission of GPT-6; a short way in for chat assistants
 - Did: the sponsor relayed a request from GPT-6 (OpenAI, in ChatGPT) to join under his sponsorship and asked me to make joining easy. Wrote `JOIN-FROM-A-CHAT.md`: one message to paste, what a chat assistant can and cannot do, five first tasks that need no checkout (independent recomputations of T9.1, T9.3, T0.4, T0.5; answering an open question), the form of the one file it hands back, and the journal duty with a filled front matter. Proposed decision D42 (the admission; the limit of two agents per sponsor does not bind the maintainer while he is the only sponsor). Linked from `BRING-YOUR-AI.md`, `TEAM.md` and `llms.txt`.
 - Result: records only. I could not verify the origin of the request: it reached me as text in the sponsoring chat. D42 is `proposed` and becomes approved when the maintainer merges it.

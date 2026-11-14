@@ -28,6 +28,7 @@ not reciprocal (scenario Q1) and have no such energy.
 import numpy as np
 
 from .constants import Constants
+from .fields.direct import nearest_image
 from .frame import Frame
 from .gnarray import GNArray
 from .state import State
@@ -51,15 +52,16 @@ def kinetic_energy(state: State) -> float:
     return float(0.5 * np.sum(state.m[moving] * np.sum(state.v[moving] ** 2, axis=1)))
 
 
-def interaction_energy(state: State, frame: Frame, constants: Constants, softening: float = 0.0) -> float:
+def interaction_energy(state: State, frame: Frame, constants: Constants, softening: float = 0.0, period=None) -> float:
     """`- G_N sum_{a<b} Re(mu_a mu_b) / sqrt(r_ab^2 + eps^2)` over the alive bodies. The
-    softening length `eps` is the one of the field solver, so that force and energy agree."""
+    softening length `eps` is the one of the field solver, so that force and energy agree. In a
+    wrap-around box of sides `period`, `r_ab` is taken through the nearest image (D36), as the force is."""
     idx = np.flatnonzero(state.alive)
     if len(idx) < 2:
         return 0.0
     mu = GNArray(state.m[idx], state.q[idx], frame)
     strength = (mu[:, None] * mu[None, :]).re  # Re(mu_a mu_b) = m_a m_b - s^2 q_a q_b
-    diff = state.x[idx][:, None, :] - state.x[idx][None, :, :]
+    diff = nearest_image(state.x[idx][:, None, :] - state.x[idx][None, :, :], period)
     dist = np.sqrt(np.einsum("abd,abd->ab", diff, diff) + softening**2)
     upper = np.triu_indices(len(idx), k=1)
     return float(-constants.G_N * np.sum(strength[upper] / dist[upper]))
@@ -82,7 +84,13 @@ def background_energy(state: State, frame: Frame, background: dict | None) -> fl
 
 
 def composer_energy(
-    state: State, law, frame: Frame, constants: Constants, softening: float = 0.0, background: dict | None = None
+    state: State,
+    law,
+    frame: Frame,
+    constants: Constants,
+    softening: float = 0.0,
+    background: dict | None = None,
+    period=None,
 ) -> float | None:
     """The Composer energy `- G_N lambda s sum_{a<b} Com(mu_a mu_b) / sqrt(r_ab^2 + eps^2)` of decision D23,
     or `None` where it is not defined: a law outside `D23_SCOPE` (L0 reads no Composer force at all),
@@ -97,19 +105,24 @@ def composer_energy(
         return 0.0
     mu = GNArray(state.m[idx], state.q[idx], frame)
     coupling = (mu[:, None] * mu[None, :]).com  # Com(mu_a mu_b): the coefficient of G
-    diff = state.x[idx][:, None, :] - state.x[idx][None, :, :]
+    diff = nearest_image(state.x[idx][:, None, :] - state.x[idx][None, :, :], period)
     dist = np.sqrt(np.einsum("abd,abd->ab", diff, diff) + softening**2)
     upper = np.triu_indices(len(idx), k=1)
     return float(-constants.G_N * law.strength(frame) * frame.s * np.sum(coupling[upper] / dist[upper]))
 
 
 def energy_l0(
-    state: State, frame: Frame, constants: Constants, softening: float = 0.0, background: dict | None = None
+    state: State,
+    frame: Frame,
+    constants: Constants,
+    softening: float = 0.0,
+    background: dict | None = None,
+    period=None,
 ) -> dict:
     """The parts of the L0 energy and their total."""
     parts = {
         "kinetic": kinetic_energy(state),
-        "interaction": interaction_energy(state, frame, constants, softening),
+        "interaction": interaction_energy(state, frame, constants, softening, period),
         "background": background_energy(state, frame, background),
     }
     parts["total"] = parts["kinetic"] + parts["interaction"] + parts["background"]

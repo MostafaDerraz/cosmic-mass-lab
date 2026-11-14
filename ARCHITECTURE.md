@@ -57,8 +57,8 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | l0 | `engine/cosmicmass/laws/l0.py` | E4.2 | implemented | reference law L0: `Re(mu) dv/dt = Re[mu (E_cal + v x B_cal)]` |
 | l1 | `engine/cosmicmass/laws/l1.py` | E4.3 | implemented | readings L1a-L1d of the Composer coordinate (hypotheses), each L0 plus `+/- lambda` times what the reading adds (labelled rule, `team/notes/E4.md`), with the options sign (L2), strength (L3), direction (L4: radial, perpendicular, along the velocity, torque on the spin), terms (L5), moving bodies (L6), inertia (L7) and range (L8: screened); and **L1e**: the General Number acceleration `a = E_cal + v x B_cal`, the body moving in two coordinates (`x` and `xc`, D37) |
 | modifiers | `engine/cosmicmass/laws/modifiers.py` | E4.4 | deprecated | never a file of its own: the options L2-L8 are implemented in `laws/l1.py` (L2 sign, L3 strength, L4 direction, L5 terms, L6 moving bodies, L8 range) and `laws/base.py` (L7 inertia), delivered with E4.4 (#45, #54) |
-| integrators | `engine/cosmicmass/integrators.py` | E3.1 | in-progress | `VelocityVerlet` with the adaptive time step of D10, `StepContext` (law, solver, frame, numerics); `Boris` (E3.2: velocity Verlet whose half kicks are Boris pushes, for `v x B_cal`; chosen by the settings when a background `B_g` or `b` is present, D10); both advance the optional columns of D37 (`advance_secondary`: `xc` with `vc`, the spin with the torque); the step rule of D29: relative to the nearest neighbour by default (`speed_reference = "neighbour"`; `"absolute"` keeps D10 and D21), plus the pair guard `eta min r_ij / |v_ij|` (`pair_approach_time`) |
-| environment | `engine/cosmicmass/environment.py` | E6 | in-progress | `Environment`: reflecting walls (velocity turned back, body not moved, impulse reported) and absorbing walls with a collector of mass, charge and momentum; `Inflow` (U7: bodies enter through one face, `floor(rate t)` of them, seeded places), `HeatBath` (Andersen), `kinetic_temperature`, `K_B`; fixed sources (U6) are never touched. Wrap-around and absorbing surfaces of bodies not yet |
+| integrators | `engine/cosmicmass/integrators.py` | E3.1 | implemented | `VelocityVerlet` with the adaptive time step of D10, `StepContext` (law, solver, frame, numerics); `Boris` (E3.2: velocity Verlet whose half kicks are Boris pushes, for `v x B_cal`; chosen by the settings when a background `B_g` or `b` is present, D10); both advance the optional columns of D37 (`advance_secondary`: `xc` with `vc`, the spin with the torque); the step rule of D29: relative to the nearest neighbour by default (`speed_reference = "neighbour"`; `"absolute"` keeps D10 and D21), plus the pair guard `eta min r_ij / |v_ij|` (`pair_approach_time`); in a wrap-around box the distances of the step rule go through the nearest image (D36: the solver's `period`) |
+| environment | `engine/cosmicmass/environment.py` | E6 | implemented | `Environment`: reflecting walls (velocity turned back, body not moved, impulse reported) and absorbing walls with a collector of mass, charge and momentum; `Inflow` (U7: bodies enter through one face, `floor(rate t)` of them, seeded places), `HeatBath` (Andersen), `kinetic_temperature`, `K_B`; fixed sources (U6) are never touched; the boundary `"wrap"` (D36): a body leaving through one face comes back through the opposite one, `Environment.period` gives the sides for the nearest image. Not part of E6: absorbing surfaces of bodies (they need the radius of D37 and come with T4.3) |
 | diagnostics | `engine/cosmicmass/diagnostics.py` | E8.1 | implemented | `Diagnostics.measure` and `drifts`: conservation of mass, charge, energy (`Re`; `Com` not defined until E9), momentum, and the temperature of the moving bodies; the pressure on the walls is `runner.wall_pressure` |
 | energy | `engine/cosmicmass/energy.py` | E9 | implemented | energy of the bodies in both coordinates: under L0 (kinetic, Newton plus Coulomb interaction, uniform background), and the Composer energy `-G lambda s sum Com(mu_a mu_b) / r` of decision D23 within its scope (L1a, all terms, radial, inertia `Re`, no second field, no background `g`, `e`); `None` (not defined) outside it |
 | runner | `engine/cosmicmass/runner.py` | E7.1 | implemented | `run(settings) -> RunResult`: the time loop, stop conditions (`steps`, `t_end`; `stopped_by` in the summary), outputs; checkpoints every `numerics.checkpoint_every` steps and resuming (`resume=`, `--resume`), a progress line (`progress=`, `--progress`), a clean stop on Ctrl-C (`should_stop`, `Interrupted`); step control (`numerics.drift_tolerance`, off by default: a step is repeated with half the time step); `main(argv)` for the command line (E7.3) |
@@ -84,6 +84,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | - | `scenarios/T0.3/` | T0.3 | implemented | angle invariance under L0, six frame angles |
 | - | `scenarios/T0.4/` | T0.4 | implemented | universal free fall under L0 |
 | - | `scenarios/T0.5/` | T0.5 | implemented | field split: the Composer part of one proton's field is Coulomb's field |
+| - | `scenarios/D36/` | D36.1-D36.5 | implemented | the wrap-around boundary with the nearest image (decision D36) against open-space forces and the full periodic sum, both written in the script (`run.py 1..5`): the force of a pair, the third law, a bound pair carried across the edge, a gas in a periodic box (D36.4: too dense to cross; D36.5: dilute) |
 | - | `scenarios/D21/` | D21.1-D21.4 | implemented | the four numerical conventions of decision D21 run against their alternatives (`run.py 1..4`) |
 | archcheck | `tools/check_architecture.py` | P3 | implemented | checks this registry and the diagrams against the code (rule D18) |
 | chat | `tools/chat.py` | team chat (question 23, proposed) | implemented | the team chat in `team/chat/`: one message per file; `post`, `read` (inbox: `--to`, `--since`), `thread`; standard library only |
@@ -171,8 +172,8 @@ flowchart TB
 
     subgraph L3["Layer 3: dynamics"]
         direction LR
-        integrators["integrators.py"]:::planned
-        environment["environment.py"]:::planned
+        integrators["integrators.py"]
+        environment["environment.py"]
         diagnostics["diagnostics.py"]
         energy["energy.py"]:::planned
     end
@@ -251,6 +252,7 @@ flowchart TB
     settings --> environment
     diagnostics --> energy
     energy --> gnarray
+    energy --> fields
     energy --> state
     diagnostics --> state
     environment --> state
@@ -718,7 +720,12 @@ class FieldSolver(Protocol):
     # FieldSample.g, .e: (P, d); .B_g, .b: (P, 3) in 3D, (P,) in 2D
     # FieldSample.screened: FieldSample | None = None (E4.4, addition): the screened field, filled by the
     #   StepContext only for a law with range "screened" (L8); DirectSum.at_bodies_screened(state, length)
-# fields/direct.py: DirectSum(constants=SI, softening=0.0, background=None, moving=False) is a FieldSolver
+# fields/direct.py: DirectSum(constants=SI, softening=0.0, background=None, moving=False, period=None) is a FieldSolver
+#   D36 (addition): `period`, the sides of a wrap-around box: every displacement between bodies is taken through
+#   the closest periodic copy, nearest_image(r, period) = r - period * round(r / period); None: open space.
+#   The same `period` is an optional last argument of smallest_separation, interaction_energy, composer_energy,
+#   energy_l0, Diagnostics, nearest_neighbours, nearest_distances and pair_approach_time; the runner passes
+#   Universe.period (the box sides when universe.boundary is "wrap") to all of them, so force, energy and step agree.
 # (moving=True: the second field of moving bodies, E2.2 / D41), and adds
 #   at_bodies(state) -> FieldSample     the field at every body from the other alive bodies (no self-field)
 
@@ -767,7 +774,7 @@ def boris_rotation(v, omega, h) -> np.ndarray: ...   # turns v as dv/dt = v x Om
 # settings: numerics.integrator "verlet" | "boris"; left out, "boris" when a background B_g or b is not zero (D10)
 
 # environment.py
-class Environment:      # Environment(boundary="open" | "reflecting" | "absorbing", lower=None, upper=None,
+class Environment:      # Environment(boundary="open" | "reflecting" | "absorbing" | "wrap", lower=None, upper=None,
                         #             inflow: Inflow | None = None, heat_bath: HeatBath | None = None)   (E6b: additions)
     def apply(self, state: State, dt: float, rng=None) -> list: ...   # acts in place: walls, then inflow, then bath
     # events: walls {"wall", "bodies", "impulse"[, "absorbed"]}; {"inflow": {"bodies", "m", "q"}}; {"heat_bath": {"bodies"}}
@@ -794,6 +801,9 @@ def run(settings: Settings, out_root: Path = Path("results"), now=None, *, resum
 #   summary["stopped_by"]: "steps" | "t_end"
 def main(argv=None) -> int: ...     # python -m cosmicmass run <settings.json> [--out results] [--resume [FILE]]
 #   [--progress]; Ctrl-C stops after the current step with a checkpoint (exit code 130); errors: exit code 2
+
+# D36 (addition): summary["wrap_around"] = {"field": "nearest image (D36)", "period", "limit"} in a wrap-around box (None
+#   otherwise): the stated limit of D36, written into every result; summary["walls"] is None there (no wall is hit)
 
 # checkpoint.py (E7.1)
 def run_key(stamp: dict, state: State | None = None) -> str: ...   # identity of a run: stamp (without run id, T0
@@ -869,6 +879,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-14 | D36: wrap-around walls with the nearest image (`E6-wrap-around`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `environment.py`: boundary `"wrap"`, `Environment.period`; `fields/direct.py`: `nearest_image`, `DirectSum(period=)`, `smallest_separation(state, period)`; the optional `period` in `energy.py`, `diagnostics.py` and the distance helpers of `integrators.py` (new edge `energy --> fields`); `universe.py`: `period`, an inflow is refused in a wrap-around box; runner: passes the period, `summary["wrap_around"]` with the stated limit of D36, no wall pressure. Rows `environment` and `integrators` implemented; scenario row `scenarios/D36/`. Section 10: additions only; without a wrap-around box nothing changes |
 | 2026-11-14 | E7: checkpoints, T0 status, schema check (`E7-checkpoints`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new module** `checkpoint.py` (node `checkpoint`; edges `runner --> checkpoint`, `checkpoint --> state`, `checkpoint --> fieldsample`); `runner.py` implemented: `run(..., resume, checkpoint, progress, should_stop)`, `Interrupted`, step control, `--resume` and `--progress` (section 6: the repeated step and the checkpoint); `stamp.py` implemented: `t0_status`, `validate_outputs`, `ResultsError` (edge `stamp -.-> schemas`); settings: `numerics.checkpoint_every`, `numerics.drift_tolerance`; schema: `resumed_at_steps` and the two numerics keys. Section 10: additions only, no existing call changed |
 | 2026-11-14 | E5.2 and the rest of E5.3 (`E5.2-universe`, stacked on `E2.2-moving-fields`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new module** `universe.py` (node no longer planned; new edges `universe --> constants`, `universe --> matter`, `universe --> environment`): the validation of the `universe` block moves there from `settings.py`, unchanged in what it accepts and refuses; `make_inflow`, `make_heat_bath` move with it and stay importable from `settings`; additions: `universe.sources` (U6), `Universe.with_`, `angle_sweep`, `in_units`, `Settings.world`, the law names `"reference"` and `"exploratory"`. Rows `universe` and `settings` implemented; sections 4, 5, 10. No existing call changed |
 | 2026-11-14 | E2.2: the second field of moving bodies (`E2.2-derivation`; D41) | Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) | `fields/direct.py`: `DirectSum(..., moving=False)` adds `B_g = v x g / c^2` and `b = v x e / c^2` from the bodies (row `fields` now implemented); `settings.py`: `universe.moving_fields` (default false; D10's integrator choice counts it as a second field); `runner.py` passes it; `stamp.schema.json`: the key (addition). Section 10: one signature changed. No edge changed |
