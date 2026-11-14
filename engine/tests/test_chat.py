@@ -1,5 +1,7 @@
 """The team chat (`tools/chat.py`, `team/chat/`): one message per file, inbox, threads."""
 
+import os
+import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -131,6 +133,22 @@ def test_the_command_line(tmp_path, capsys):
     assert chat.main(["thread", msg.id], tmp_path) == 0 and "Re: Hi" in capsys.readouterr().out
     assert chat.main(["thread", "nope"], tmp_path) == 2 and "error" in capsys.readouterr().out
     assert chat.main(["read"], tmp_path / "empty") == 0 and "no messages" in capsys.readouterr().out
+
+
+def test_the_command_line_prints_utf8_whatever_the_code_page(tmp_path):
+    # a Windows code page (cp1252) has no lambda and no arrow: redirected output used to end in UnicodeEncodeError
+    chat.post("@alice", "all", "The strength \u03bb", "\u03bb = 1 \u2192 excluded", folder=tmp_path, now=T0)
+    code = (
+        "import sys; sys.path.insert(0, sys.argv[1]); import chat; from pathlib import Path; "
+        "sys.exit(chat.main(['read'], Path(sys.argv[2])))"
+    )
+    done = subprocess.run(
+        [sys.executable, "-c", code, str(ROOT / "tools"), str(tmp_path)],
+        capture_output=True,
+        env={**os.environ, "PYTHONIOENCODING": "cp1252"},
+    )
+    assert done.returncode == 0, done.stderr.decode("utf-8", "replace")
+    assert "\u03bb = 1 \u2192 excluded" in done.stdout.decode("utf-8")
 
 
 def test_the_messages_of_the_repository_are_well_formed():

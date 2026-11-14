@@ -174,6 +174,11 @@ def main(argv=None, folder: Path = CHAT) -> int:
     t = commands.add_parser("thread", help="one message and its replies")
     t.add_argument("id")
     args = parser.parse_args(argv)
+    # the messages hold characters (a lambda, an arrow) that a Windows code page cannot write when the
+    # output is redirected to a file or a pipe: print them as UTF-8 everywhere
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
     try:
         if args.command == "post":
             body = args.body if args.body is not None else Path(args.body_file).read_text(encoding="utf-8")
