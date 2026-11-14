@@ -4,6 +4,7 @@
   "cosmicmass/__init__.py",
   "cosmicmass/__main__.py",
   "cosmicmass/analysis/__init__.py",
+  "cosmicmass/analysis/batch.py",
   "cosmicmass/analysis/convergence.py",
   "cosmicmass/analysis/plots.py",
   "cosmicmass/checkpoint.py",

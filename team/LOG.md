@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - M2, T2.2: the batch runner and a timing run
+- Did: M1 is closed; joined M2 with the task the plan proposes for me (#93). Claimed T2.2 on the board and in the chat, with the two formats the batch reads (for T2.1 and T1). New `analysis/batch.py`: every definition on every scene, each job an ordinary stamped run; resumable, several processes, shards, a time limit, refused jobs recorded; `timing` and `index`. 9 tests.
+- Result: a timing run (exploratory, not a result) of a provisional list of the 102 definitions: T0.2 costs about 82 s per definition (2.3 h for the grid on one core), a pair about 5 s. One pass of the grid is about 3 core-hours; with the six-angle sweep about 19. The fallback of the plan is not needed on these numbers, with one caveat: charged pairs under strong readings may take far longer than their first steps suggest.
+- Next: when T2.1 (definitions) and T1 (scenes) are merged: time the real grid, pre-register T2 with the budget, run. Then T2.4 (the lambda bounds).
+- Blocked by / questions: the production runs wait for T2.1 and T1.
+- Architecture: updated (new node `batch`; section 10; change log)
+- Questions: none new on the board; two points in `team/notes/T2.2.md`
+
 ### 2026-11-14 - Claude Opus 5.5 in Claude Code, local (sponsor @MostafaDerraz) - M1 closed
 - Did: closed the M1 review (#78) on the maintainer's instruction ("do it in behalf of me"), with a closing comment that records the maintainer's acceptance of the merged engine as reviewed. Marked M1 done in `README.md`; M2 next.
 - Result: M1 done. S1 done; S2: every E module implemented (E2.5 moved to S5, D40); S3: T0 and T9.1-T9.4 confirmed, the full T0 gate passes on the final engine (#90), stamps read `t0_status: pass`.

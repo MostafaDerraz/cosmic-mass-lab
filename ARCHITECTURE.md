@@ -67,6 +67,7 @@ The single list of every code module, planned or real. **`tools/check_architectu
 | stamp | `engine/cosmicmass/stamp.py` | E7.2 | implemented | run id, engine commit, `stamp.json`, `summary.json`, `timeseries.csv`; `t0_status` (the verdicts of the stored T0.1 to T0.5 runs whose engine code is the same as now, by `git diff`); `validate_outputs`: the stamp and the summary are checked against the P4 schemas before they are written (`ResultsError`; skipped where `jsonschema` or the schema files are missing) |
 | convergence | `engine/cosmicmass/analysis/convergence.py` | E8.2 | implemented | `convergence(settings, measure, counts=(), resize=None)`: re-run at the step (eta or dt) / 2 and / 4, and at other body counts through the scenario's `resize`; the convergence block of the results standard with relative changes and `converged` (change < 1%) |
 | plots | `engine/cosmicmass/analysis/plots.py` | E8.3 | implemented | standard figures in plain SVG (standard library), made from one results folder alone, byte for byte: drifts against time, trails in the Real plane, the cosmic masses in the General Number plane; `line_plot`, `scatter_plot` for sweeps |
+| batch | `engine/cosmicmass/analysis/batch.py` | T2.2 | implemented | the batch runner: every definition (`{id, law}`) on every scene (`{id: settings}`), each job an ordinary stamped run in `<out>/<scene>/<definition>/<run-id>/`; resumable (finished jobs skipped, a stopped job resumes from its checkpoint), several processes, shards for CI, a time limit, a job the engine refuses is recorded and does not stop the batch; `timing` (a few steps of every job, to size the budget), `index`; `python -m cosmicmass.analysis.batch` |
 | tests | `engine/tests/` | P1 | implemented | unit tests for every module (pytest), run in CI with coverage (P2); so far `test_pins.py` (pins of `pyproject.toml` equal `requirements.txt`), `test_import.py`, `test_constants_frame.py` (E1.1), `test_gn.py` (E1.2), `test_gnarray.py` (E1.3), `test_readings_matter.py` (E1.4, E1.5), `test_compendium.py` (E1.6), `test_state_laws.py` (E5.1, E4.1, E4.2), `test_settings.py` (E5.3), `test_fields.py` (E2.1, E2.3, E2.4), `test_integrators.py` (E3.1, E3.3, E6a; one test marked `slow`), `test_runner.py` (E7.1 to E7.3, E8.1, E9), `test_l1a.py` (E4.3, L1a) |
 | gate | `engine/cosmicmass/gates/t0.py` | T0, G1 | implemented | the consistency gate T0.1 to T0.5 as functions (`t0_1` ... `t0_5`, `run_gate`), and `write_gate_result` |
 | limits | `engine/cosmicmass/gates/t9.py` | T9.1-T9.4 | implemented | the measured limits T9.1 to T9.4 under L1a as functions (`t9_1`, `t9_2`, `t9_3`, `t9_4`); `t9_2` also integrates one orbit with the runner |
@@ -168,6 +169,7 @@ flowchart TB
         settings["settings.py"]
         convergence["analysis/convergence.py"]
         plots["analysis/plots.py"]
+        batch["analysis/batch.py"]
     end
 
     subgraph L3["Layer 3: dynamics"]
@@ -243,6 +245,10 @@ flowchart TB
     settings --> state
     settings --> matter
     convergence --> runner
+    batch --> runner
+    batch --> settings
+    batch --> stamp
+    batch --> checkpoint
     plots --> constants
     diagnostics --> environment
     integrators --> fields
@@ -828,6 +834,17 @@ class Diagnostics:      # Diagnostics(frame, constants, softening=0.0, backgroun
     # keys: t, temperature (E8.1, addition), mass, charge, kinetic, energy_re, energy_com (None: not defined),
     #   momentum, momentum_scale
 
+# analysis/batch.py (T2.2)
+# definitions: [{"id", "law"}] or {"definitions": [...]} or a path; scenes: {"scenes": {id: settings | path}}; ids name folders
+def make_jobs(definitions, scenes, shard=None) -> list[Job]: ...   # scenes first, then definitions; shard=(k, n): every n-th
+def run_batch(jobs, out_root="results", state_dir=".batch", workers=1, checkpoint_every=1000, time_limit=None,
+              progress=None) -> dict: ...   # {"records": {name: record}, "counts": {status: n}, "skipped", "seconds"}
+#   record: status "done" (folder, run_id, steps, t_end, conservation, resumed_at_steps) | "refused" (error) |
+#   "interrupted" (step, checkpoint) | "failed" (error); seconds; key (the job's settings) and engine_commit: a job
+#   is skipped only when done or refused with the same settings on the same engine commit
+def timing(jobs, steps=20) -> dict: ...     # nothing written: seconds per step and an estimate for each job
+def index(jobs, state_dir=".batch") -> dict: ...   # {"jobs": {name: record}, "complete"}
+
 # analysis/convergence.py (E8.2)
 def convergence(settings, measure, counts=(), resize=None, tolerance=0.01) -> dict: ...
 #   block: step {step, step/2, step/4}, change_step_half_to_quarter, change_step_to_half, [counts, change_with_count],
@@ -879,6 +896,7 @@ Newest first. One line per pull request that changed the architecture.
 
 | Date | Pull request | Who | Change |
 |---|---|---|---|
+| 2026-11-14 | T2.2: the batch runner (`T2.2-batch-runner`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new module** `analysis/batch.py` (node `batch`; edges `batch --> runner`, `settings`, `stamp`, `checkpoint`); section 10: its contract. No existing module or call changed |
 | 2026-11-14 | D36: wrap-around walls with the nearest image (`E6-wrap-around`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | `environment.py`: boundary `"wrap"`, `Environment.period`; `fields/direct.py`: `nearest_image`, `DirectSum(period=)`, `smallest_separation(state, period)`; the optional `period` in `energy.py`, `diagnostics.py` and the distance helpers of `integrators.py` (new edge `energy --> fields`); `universe.py`: `period`, an inflow is refused in a wrap-around box; runner: passes the period, `summary["wrap_around"]` with the stated limit of D36, no wall pressure. Rows `environment` and `integrators` implemented; scenario row `scenarios/D36/`. Section 10: additions only; without a wrap-around box nothing changes |
 | 2026-11-14 | E7: checkpoints, T0 status, schema check (`E7-checkpoints`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new module** `checkpoint.py` (node `checkpoint`; edges `runner --> checkpoint`, `checkpoint --> state`, `checkpoint --> fieldsample`); `runner.py` implemented: `run(..., resume, checkpoint, progress, should_stop)`, `Interrupted`, step control, `--resume` and `--progress` (section 6: the repeated step and the checkpoint); `stamp.py` implemented: `t0_status`, `validate_outputs`, `ResultsError` (edge `stamp -.-> schemas`); settings: `numerics.checkpoint_every`, `numerics.drift_tolerance`; schema: `resumed_at_steps` and the two numerics keys. Section 10: additions only, no existing call changed |
 | 2026-11-14 | E5.2 and the rest of E5.3 (`E5.2-universe`, stacked on `E2.2-moving-fields`) | Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) | **new module** `universe.py` (node no longer planned; new edges `universe --> constants`, `universe --> matter`, `universe --> environment`): the validation of the `universe` block moves there from `settings.py`, unchanged in what it accepts and refuses; `make_inflow`, `make_heat_bath` move with it and stay importable from `settings`; additions: `universe.sources` (U6), `Universe.with_`, `angle_sweep`, `in_units`, `Settings.world`, the law names `"reference"` and `"exploratory"`. Rows `universe` and `settings` implemented; sections 4, 5, 10. No existing call changed |
