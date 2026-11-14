@@ -64,23 +64,38 @@ def test_classes_from_hand_made_runs():
     assert sv.classify("d", L1A, runs()[:-1])["class"] == "incomplete"
 
 
-def test_load_records_checks_each_run_against_its_definition(tmp_path):
+def write_run(folder, law, scenario, angle, marker):
+    folder.mkdir(parents=True)
+    stamp = {"law": law, "scenario": scenario, "universe": {"phi_bar_deg": angle}}
+    (folder / "stamp.json").write_text(json.dumps(stamp))
+    summary = record("T1.1", angle)["summary"]
+    summary["marker"] = marker
+    (folder / "summary.json").write_text(json.dumps(summary))
+    (folder / "timeseries.csv").write_text("step,x0_0,v0_0\n0,0.0,1.0\n9,1.5,2.5\n")
+
+
+def test_load_records_reads_runs_by_their_stamps_whatever_the_layout(tmp_path):
     law = LawSpec.from_dict(L1A).to_dict()
-    definitions = {"definitions": [{"id": "L1a+radial.Re", "law": L1A}]}
-    for run_id, angle_value in (("20261114-000001-x", 45.0), ("20261114-000002-x", 45.0)):
-        folder = tmp_path / "L1a+radial.Re" / "T1.1" / "phi45" / run_id
-        folder.mkdir(parents=True)
-        (folder / "stamp.json").write_text(json.dumps({"law": law, "universe": {"phi_bar_deg": angle_value}}))
-        summary = record("T1.1", 45.0)["summary"]
-        summary["marker"] = run_id
-        (folder / "summary.json").write_text(json.dumps(summary))
-        (folder / "timeseries.csv").write_text("step,x0_0,v0_0\n0,0.0,1.0\n9,1.5,2.5\n")
-    (records,) = sv.load_records(tmp_path, definitions)
-    assert records["summary"]["marker"] == "20261114-000002-x"  # the newest run counts
-    assert records["final"] == {"step": 9.0, "x0_0": 1.5, "v0_0": 2.5} and records["angle"] == 45.0
-    wrong = tmp_path / "L1a+radial.Re" / "T1.1" / "phi45" / "20261114-000003-x"
-    wrong.mkdir()
-    (wrong / "stamp.json").write_text(json.dumps({"law": dict(law, sign="-"), "universe": {"phi_bar_deg": 45.0}}))
-    (wrong / "summary.json").write_text("{}")
-    with pytest.raises(ValueError, match="not definition"):
+    other = LawSpec.from_dict(TURNED).to_dict()
+    definitions = {"definitions": [{"id": "L1a+radial.Re", "law": L1A}, {"id": "L1a+perpendicular.Re", "law": TURNED}]}
+    # the layout of T2.2 (#95): results/<scene>/<definition>/<run-id>/, scenario "<scene>/<definition>"
+    write_run(tmp_path / "T1.1@45" / "L1a+radial.Re" / "20261114-000001-x", law, "T1.1@45/L1a+radial.Re", 45.0, "old")
+    write_run(tmp_path / "T1.1@45" / "L1a+radial.Re" / "20261114-000002-x", law, "T1.1@45/L1a+radial.Re", 45.0, "new")
+    # the layout first pre-registered: results/T2/<definition>/<setup>/phi<angle>/<run-id>/
+    write_run(
+        tmp_path / "T2" / "L1a+perpendicular.Re" / "T1.1" / "phi90" / "20261114-000003-x", other, "T1.1", 90.0, "b"
+    )
+    # runs that are not T2's are left out: another law, another setup, an angle that is not one of the six
+    write_run(tmp_path / "T0.1" / "20261110-000000-x", {"id": "L0"}, "T0.1", 79.86, "gate")
+    write_run(tmp_path / "x" / "20261114-000004-x", law, "Q5", 45.0, "other setup")
+    write_run(tmp_path / "y" / "20261114-000005-x", law, "T1.1", 30.0, "other angle")
+    records = sv.load_records(tmp_path, definitions)
+    assert [(r["definition"], r["setup"], r["angle"], r["summary"]["marker"]) for r in records] == [
+        ("L1a+perpendicular.Re", "T1.1", 90.0, "b"),
+        ("L1a+radial.Re", "T1.1", 45.0, "new"),  # the newest run counts
+    ]
+    assert records[1]["final"] == {"step": 9.0, "x0_0": 1.5, "v0_0": 2.5}
+    # a folder that names a definition its stamp's law is not: refused
+    write_run(tmp_path / "T1.2" / "L1a+radial.Re" / "20261114-000006-x", other, "T1.2/L1a+radial.Re", 45.0, "bad")
+    with pytest.raises(ValueError, match="the folder names"):
         sv.load_records(tmp_path, definitions)

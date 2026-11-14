@@ -845,7 +845,7 @@ def convergence(settings, measure, counts=(), resize=None, tolerance=0.01) -> di
 #   largest_change, tolerance, converged
 # analysis/survival.py (T2.3; D43, D44; pre-registered in team/notes/T2.md)
 def closed_loop_ratio(law_block: dict, angle_deg: float) -> float: ...   # work round a loop / largest side work
-def load_records(root, definitions: dict) -> list[dict]: ...   # T2.2's runs results/T2/<id>/<setup>/phi<angle>/
+def load_records(root, definitions: dict) -> list[dict]: ...   # T2.2's runs anywhere under root, read by their stamps
 def classify(definition_id, law_block, records, loop_ratios=None) -> dict: ...   # {id, class A|B|C|incomplete,
 #   failed: the conditions of D43 that failed, with setup and angle; numbers}
 

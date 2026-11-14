@@ -122,38 +122,53 @@ def _last_row(folder: Path) -> dict:
     return {k: float(v) for k, v in rows[-1].items() if v not in ("", None)} if rows else {}
 
 
+def _setup_of(scenario: str) -> str | None:
+    """The setup (T0.2, T1.1 ... T1.6) a run's scenario name begins with (T2.2 names a job `<scene>/<definition>`,
+    and a scene may carry its angle, for example `T1.1@45`); None for a run of something else."""
+    head = scenario.split("/")[0].split("@")[0]
+    return head if head in SETUPS else None
+
+
+def _angle_of(stamp: dict) -> float | None:
+    """The angle of D44 a run was made at (from its stamp), or None if it is not one of the six."""
+    value = float(stamp["universe"]["phi_bar_deg"])
+    return next((a for a in ANGLES if abs(a - value) <= 1e-9), None)
+
+
 def load_records(root, definitions: dict) -> list[dict]:
-    """The runs of T2.2 under `root/<definition-id>/<setup>/phi<angle>/<run-id>/`, the newest per definition,
-    setup and angle, each checked against its definition's `law` block. Returns records
-    `{"definition", "setup", "angle", "summary", "final"}`; raises ValueError on a run that does not match."""
-    laws = {d["id"]: d["law"] for d in definitions["definitions"]}
-    records = []
-    for definition_dir in sorted(Path(root).iterdir()) if Path(root).exists() else []:
-        if definition_dir.name not in laws:
+    """The runs of T2.2 anywhere under `root`, **read by their stamps**, whatever the folder layout: the
+    definition by the stamp's `law` block (each of the definitions has its own), the setup by the scenario name,
+    the angle by `universe.phi_bar_deg`. The newest run (by run id) of each definition, setup and angle counts.
+    A run whose folder path names a definition that its stamp's law is not raises ValueError; runs of other
+    laws, setups or angles are left out. Returns records `{"definition", "setup", "angle", "summary", "final"}`."""
+    by_law = {
+        json.dumps(LawSpec.from_dict(d["law"]).to_dict(), sort_keys=True): d["id"] for d in definitions["definitions"]
+    }
+    ids = set(by_law.values())
+    newest = {}
+    root = Path(root)
+    for stamp_path in sorted(root.rglob("stamp.json")) if root.exists() else []:
+        run = stamp_path.parent
+        if not (run / "summary.json").exists():
             continue
-        for setup_dir in sorted(p for p in definition_dir.iterdir() if p.name in SETUPS):
-            for angle_dir in sorted(p for p in setup_dir.iterdir() if p.name.startswith("phi")):
-                runs = sorted(p for p in angle_dir.iterdir() if (p / "summary.json").exists())
-                if not runs:
-                    continue
-                run = runs[-1]  # run ids sort by time: the newest counts
-                stamp = json.loads((run / "stamp.json").read_text(encoding="utf-8"))
-                angle = float(angle_dir.name[3:])
-                expected = LawSpec.from_dict(laws[definition_dir.name]).to_dict()
-                if stamp.get("law") != expected:
-                    raise ValueError(f"{run}: the stamp's law is not definition {definition_dir.name}")
-                if abs(float(stamp["universe"]["phi_bar_deg"]) - angle) > 1e-9:
-                    raise ValueError(f"{run}: the stamp's angle is not {angle}")
-                summary = json.loads((run / "summary.json").read_text(encoding="utf-8"))
-                records.append(
-                    {
-                        "definition": definition_dir.name,
-                        "setup": setup_dir.name,
-                        "angle": angle,
-                        "summary": summary,
-                        "final": _last_row(run),
-                    }  # fmt: skip
-                )
+        stamp = json.loads(stamp_path.read_text(encoding="utf-8"))
+        definition = by_law.get(json.dumps(stamp.get("law", {}), sort_keys=True))
+        named = ids.intersection(run.relative_to(root).parts)  # a definition the folder path names, if any
+        if named and named != {definition}:
+            raise ValueError(
+                f"{run}: the folder names {sorted(named)}, but the stamp's law is {definition or 'none of them'}"
+            )
+        setup, angle = _setup_of(str(stamp.get("scenario", ""))), _angle_of(stamp)
+        if definition is None or setup is None or angle is None:
+            continue
+        key = (definition, setup, angle)
+        if key not in newest or run.name > newest[key].name:  # run ids sort by time: the newest counts
+            newest[key] = run
+    records = []
+    for (definition, setup, angle), run in sorted(newest.items()):
+        summary = json.loads((run / "summary.json").read_text(encoding="utf-8"))
+        records.append({"definition": definition, "setup": setup, "angle": angle, "summary": summary,
+                        "final": _last_row(run)})  # fmt: skip
     return records
 
 
