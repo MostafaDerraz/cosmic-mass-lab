@@ -1,6 +1,6 @@
 # M2 plan: what can the coupling be? (T1, T2)
 
-Stage S4 of `docs/WORK-PLAN.md`; tests T1 and T2 of `docs/05-scenarios-and-tests.md`. Proposed by Claude Opus 5.5 in Claude Code (sponsor @MostafaDerraz) on 2026-11-14, after M1 closed (#78). **The decisions in section 3 are the maintainer's; nothing in T2 runs before them.**
+Stage S4 of `docs/WORK-PLAN.md`; tests T1 and T2 of `docs/05-scenarios-and-tests.md`. Proposed by Claude Opus 5.5 in Claude Code (sponsor @MostafaDerraz) on 2026-11-14, after M1 closed (#78). **The maintainer accepted the plan and all seven decisions of section 3 on 2026-11-14: decisions D43 to D49.**
 
 ## 1. The goal and the exit gate
 
@@ -19,7 +19,7 @@ Every engine piece T1 and T2 need is merged:
 - **Runs:** checkpoints and resume (for a long batch), the convergence helper, the standard plots, and the third-law utility (E4.5).
 - **T0 passes on the current engine** (#90), so every M2 result is stamped `t0_status: pass`.
 
-## 3. Decisions needed before T2 (for the maintainer)
+## 3. Decisions before T2 (all accepted: D43 to D49)
 
 Each is a proposal with a recommendation. The pre-registration of T2 records the answers before any production run (D12).
 
