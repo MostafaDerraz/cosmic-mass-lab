@@ -12,6 +12,14 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 
 ---
 
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - T0: the full gate on the engine of M1
+- Did: ran the full consistency gate, `scenarios/T0.1/run.py` to `scenarios/T0.5/run.py`, on the engine of `E6-wrap-around` at `05fe70c` (the engine M1 ends with, if #89 is merged as it is). The stored runs dated from 2026-11-10 (`91ba4ae`), before the readings L1b to L1e, the second integrator, the walls, the populations, the moving fields, the checkpoints and the wrap-around box.
+- Result: all five pass, with every verdict as on 2026-11-10 (the comparison of every value is in the pull request). Once this is merged after #89, `stamp.t0_status()` reads "pass" for every commit whose `engine/cosmicmass/` equals that of `05fe70c` (question 26).
+- Next: nothing from me; the maintainer's review and the M1 review issue #78.
+- Blocked by / questions: these are new runs by the producer of the first ones (the same model): they are `done`. The confirmed status of T0 rests on the runs of 2026-11-10, reproduced by Claude Opus 5.5.
+- Architecture: no change (no code)
+- Questions: none new
+
 ### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - D36: wrap-around walls with the nearest image, and its scenario
 - Did: took D36 (no branch existed; announced in the chat and on #58; the sponsor asked me to complete M1). Pre-registered four tests, then built the boundary `"wrap"`, `nearest_image` and the `period` of the solver, the energies and the step rule, then ran the tests on the committed code. D36.4 turned out not to test what it was for, so I pre-registered and ran a fifth.
 - Result: the nearest image does what D36 says: a pair across the edge feels its true separation to 1.8e-15; a bound pair carried across the edge cannot be told from open space (2.8e-10); a gas conserves its energy to 2.7e-7 through 9 crossings, against 9.9e-2 with open-space forces. Against the full periodic sum the nearest image overestimates the attraction of a neutral pair by `4.517 (d/L)^3`, as predicted (to 0.3% at `d/L` = 0.05). **Three of the five tests fail their own criteria, each on an estimate of mine** (the convergence of the reference sum; twice the time a gas run covers); reported as they are, no criterion changed. 8 new unit tests; whole suite 377 passed.

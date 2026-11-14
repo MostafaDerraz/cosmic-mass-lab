@@ -1,0 +1,52 @@
+{
+  "cases": {
+    "all bodies": {
+      "largest_relative_difference": 0.0,
+      "pass": true,
+      "tolerance": 1e-12
+    },
+    "dust grain +": {
+      "acceleration": [
+        -8.1344733877551,
+        0.0
+      ],
+      "expected": 8.134473387755103,
+      "pass": true,
+      "relative_error": 2.220446049250313e-16,
+      "tolerance": 1e-12
+    },
+    "electron": {
+      "acceleration": [
+        -8.1344733877551,
+        0.0
+      ],
+      "expected": 8.134473387755103,
+      "pass": true,
+      "relative_error": 2.220446049250313e-16,
+      "tolerance": 1e-12
+    },
+    "neutron": {
+      "acceleration": [
+        -8.1344733877551,
+        0.0
+      ],
+      "expected": 8.134473387755103,
+      "pass": true,
+      "relative_error": 2.220446049250313e-16,
+      "tolerance": 1e-12
+    },
+    "proton": {
+      "acceleration": [
+        -8.1344733877551,
+        0.0
+      ],
+      "expected": 8.134473387755103,
+      "pass": true,
+      "relative_error": 2.220446049250313e-16,
+      "tolerance": 1e-12
+    }
+  },
+  "explanation": "T0.4 under the reference law L0: every case meets its criterion.",
+  "scenario": "T0.4",
+  "verdict": "pass"
+}

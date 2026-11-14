@@ -1,0 +1,67 @@
+{
+  "cases": {
+    "proton": {
+      "engine_commit": "05fe70c",
+      "environment": {
+        "mpmath": "1.3.0",
+        "numpy": "1.26.4",
+        "python": "3.12.3",
+        "sympy": "1.14.0"
+      },
+      "kind": "mathematics",
+      "law": {
+        "B_cal": "off",
+        "direction": "radial",
+        "id": "L0",
+        "inertia": "Re",
+        "lambda": 1.0,
+        "range": "1/r^2",
+        "sign": "+",
+        "terms": "all"
+      },
+      "matter": [
+        {
+          "m": 1.67262192e-27,
+          "n": 1,
+          "name": "proton",
+          "q": 1.602176634e-19
+        }
+      ],
+      "numerics": {
+        "adaptive": true,
+        "checkpoint_every": null,
+        "drift_tolerance": null,
+        "dt_initial": null,
+        "dt_max": null,
+        "dt_min": 0.0,
+        "eta": 0.001,
+        "integrator": "verlet",
+        "record_every": null,
+        "seed": 0,
+        "softening": 0.0,
+        "softening_fraction": 0.001,
+        "speed_reference": "neighbour",
+        "steps": 0,
+        "t_end": null
+      },
+      "preregistered": true,
+      "producer": "Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz)",
+      "run_id": "20261114-214324-05fe70c",
+      "scenario": "T0.5",
+      "t0_status": "not run",
+      "universe": {
+        "background": "none",
+        "boundary": "open",
+        "dimension": 2,
+        "phi_bar_deg": 79.86,
+        "units": "SI"
+      }
+    }
+  },
+  "engine_commit": "05fe70c",
+  "kind": "mathematics",
+  "preregistered": true,
+  "producer": "Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz)",
+  "run_id": "20261114-214324-05fe70c",
+  "scenario": "T0.5"
+}
