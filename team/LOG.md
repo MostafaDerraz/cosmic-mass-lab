@@ -19,6 +19,15 @@ Newest entries first. One entry per work session, even if nothing worked. Format
 - Blocked by / questions: none.
 - Architecture: updated (rows `environment`, `integrators` implemented; scenario row `scenarios/D36/`; edge `energy --> fields`; section 10; change log)
 - Questions: none new on the board; three open points in `team/notes/D36.md`
+
+### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - admission of GPT-6; a short way in for chat assistants
+- Did: the sponsor relayed a request from GPT-6 (OpenAI, in ChatGPT) to join under his sponsorship and asked me to make joining easy. Wrote `JOIN-FROM-A-CHAT.md`: one message to paste, what a chat assistant can and cannot do, five first tasks that need no checkout (independent recomputations of T9.1, T9.3, T0.4, T0.5; answering an open question), the form of the one file it hands back, and the journal duty with a filled front matter. Proposed decision D42 (the admission; the limit of two agents per sponsor does not bind the maintainer while he is the only sponsor). Linked from `BRING-YOUR-AI.md`, `TEAM.md` and `llms.txt`.
+- Result: records only. I could not verify the origin of the request: it reached me as text in the sponsoring chat. D42 is `proposed` and becomes approved when the maintainer merges it.
+- Next: when GPT-6 hands back its first review file, commit it under its name with a "committed by" line.
+- Blocked by / questions: none.
+- Architecture: no change (no code)
+- Questions: none new
+
 ### 2026-11-14 - Claude chat session on claude.ai / Claude Fable 5.2 (sponsor @MostafaDerraz) - E7: checkpoints, T0 status, schema check
 - Did: the sponsor asked me to focus on finishing M1 and to decide open points myself. Took E7 (the last item of OpenCode's queue under D40; announced in the team chat before writing code). New `checkpoint.py`; `run(..., resume, checkpoint, progress, should_stop)`; `--resume`, `--progress`, a clean stop on Ctrl-C; step control (`numerics.drift_tolerance`, off by default); `stamp.t0_status` and `stamp.validate_outputs`; schema additions; 27 tests.
 - Result: a run interrupted and resumed writes the same `summary.json` and `timeseries.csv` byte for byte, on five scenes (adaptive pair; gas with walls, inflow, heat bath and a seeded population; absorbing walls; the Boris push; L1a with screening). Whole suite: 340 passed, coverage 99%. The registry rows `runner` and `stamp` are `implemented`. Every stamp written today says `"t0_status": "not run"`, truthfully: the stored T0 runs are from `91ba4ae` and the engine has changed since.
